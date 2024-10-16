@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gymanual</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <header>
@@ -15,23 +15,49 @@
                 <li><a href="conocenos.html">Conócenos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
+            <!-- Barra de búsqueda y perfil alineados a la derecha -->
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar...">
+                    <button type="submit">Buscar</button>
+                </div>
+                <div class="user-profile">
+                    <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
+                </div>
+            </div>
         </nav>
-        <div class="user-options">
-            <a href="#">Iniciar Sesión</a>
-            <a href="#">Registrarse</a>
-        </div>
     </header>
 
     <main>
+        <!-- Sección de bienvenida -->
         <section class="welcome">
             <h1>¡Saca la mejor versión de ti mismo!</h1>
-            <p>Desarrollar estrategias de TIMitigar riesgos</p>
+            <p>Desarrollar estrategias de TI, mitigar riesgos</p>
+            <div class="user-options centered">
+                <a href="#" class="btn">Iniciar Sesión</a>
+                <a href="#" class="btn">Registrarse</a>
+            </div>
         </section>
 
+        <!-- Sección de "¿Qué ofrecemos?" con cajas de comunidad y entrenamientos -->
         <section class="services">
             <h2>¿Qué ofrecemos?</h2>
-            <p>Comunidad Entrenamientos</p>
-            <p>Elige el músculo que quieres trabajar</p>
+            <div class="services-container">
+                <div class="service-item">
+                    <h3>Comunidad</h3>
+                    <div class="placeholder"></div>
+                </div>
+                <div class="service-item">
+                    <h3>Entrenamientos</h3>
+                    <div class="placeholder"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Imagen del cuerpo para elegir el músculo -->
+        <section class="choose-muscle">
+            <h2>Elige el músculo que quieres trabajar</h2>
+            <img src="img/muscles.png" alt="Esquema de músculos">
         </section>
     </main>
 

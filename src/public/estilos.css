@@ -10,11 +10,10 @@ body {
 header {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
 }
 
 nav ul {
@@ -38,26 +37,57 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-.user-options a {
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #555;
     color: white;
-    text-decoration: none;
-    margin-left: 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
 }
 
-.user-options a:hover {
-    text-decoration: underline;
+.search-bar button:hover {
+    background-color: #777;
 }
 
-/* Main Section */
-main {
-    padding: 20px;
-    text-align: center;
+/* Imagen del perfil a la derecha */
+.user-profile {
+    display: flex;
+    align-items: center;
 }
 
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 950px;
+}
+
+/* Sección de bienvenida */
 .welcome {
     background-color: #e2e2e2;
     padding: 50px;
     margin: 20px 0;
+    text-align: center;
 }
 
 .welcome h1 {
@@ -70,18 +100,66 @@ main {
     color: #555;
 }
 
+.user-options.centered {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.user-options .btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.user-options .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Servicios alineados y destacados */
 .services {
-    margin: 20px 0;
+    text-align: center;
+    margin-top: 40px;
 }
 
-.services h2 {
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.service-item {
+    text-align: center;
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+/* Sección para elegir el músculo */
+.choose-muscle {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.choose-muscle h2 {
     font-size: 2em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.services p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+.choose-muscle img {
+    width: 300px;
+    height: auto;
 }
 
 /* Footer */
