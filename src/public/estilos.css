@@ -3,12 +3,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: url('fondo.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
+    background-size: cover;
     color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -47,7 +48,7 @@ nav ul li a:hover {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre el buscador y el perfil */
+    gap: 15px;
 }
 
 /* Barra de búsqueda */
@@ -57,23 +58,24 @@ nav ul li a:hover {
 }
 
 .search-bar input {
-    padding: 5px;
+    padding: 10px;
     border: none;
     border-radius: 4px 0 0 4px;
-    width: 180px; /* Ajustamos el ancho */
+    width: 200px; /* Ancho ajustado */
+    font-size: 1em;
 }
 
 .search-bar button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
-    background-color: #555;
+    background-color: #007BFF;
     color: white;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
 }
 
 .search-bar button:hover {
-    background-color: #777;
+    background-color: #0056b3;
 }
 
 /* Imagen del perfil a la derecha */
@@ -83,26 +85,30 @@ nav ul li a:hover {
 }
 
 .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    border: 2px solid white; /* Añadido borde */
 }
 
 /* Sección de bienvenida */
 .welcome {
-    background-color: #e2e2e2;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
     padding: 50px;
-    margin: 20px 0;
+    margin: 20px auto;
     text-align: center;
+    border-radius: 10px;
+    max-width: 800px; /* Ancho máximo */
 }
 
 .welcome h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .welcome p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #555;
 }
 
@@ -113,21 +119,28 @@ nav ul li a:hover {
 }
 
 .user-options .btn {
-    background-color: #007BFF;
+    background-color: #28a745;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+    font-size: 1.2em;
 }
 
 .user-options .btn:hover {
-    background-color: #0056b3;
+    background-color: #218838;
 }
 
 /* Servicios alineados y destacados */
 .services {
     text-align: center;
     margin-top: 40px;
+}
+
+.services h2 {
+    font-size: 2.5em;
+    color: #f50a0a;
+    margin-bottom: 20px;
 }
 
 .services-container {
@@ -141,15 +154,17 @@ nav ul li a:hover {
 }
 
 .service-item h3 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
-.placeholder {
-    width: 150px;
-    height: 150px;
-    background-color: #ccc;
+.service-image {
+    width: 400px;
+    height: 300px;
     border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
 }
 
 /* Sección para elegir el músculo */
@@ -159,22 +174,25 @@ nav ul li a:hover {
 }
 
 .choose-muscle h2 {
-    font-size: 2em;
+    font-size: 2.5em;
+    color: #eb0505;
     margin-bottom: 20px;
 }
 
-.choose-muscle img {
-    width: 300px;
+.muscle-image {
+    width: 600px;
     height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
 }
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 10px;
     text-align: center;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
