@@ -16,6 +16,12 @@ header {
     align-items: center;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -41,19 +47,20 @@ nav ul li a:hover {
 .header-right {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    gap: 15px; /* Espacio entre el buscador y el perfil */
 }
 
 /* Barra de búsqueda */
 .search-bar {
     display: flex;
-    margin-right: 20px;
+    align-items: center;
 }
 
 .search-bar input {
     padding: 5px;
     border: none;
     border-radius: 4px 0 0 4px;
+    width: 180px; /* Ajustamos el ancho */
 }
 
 .search-bar button {
@@ -76,10 +83,9 @@ nav ul li a:hover {
 }
 
 .profile-pic {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-left: 950px;
 }
 
 /* Sección de bienvenida */
