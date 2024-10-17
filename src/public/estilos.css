@@ -190,11 +190,20 @@ nav ul li a:hover {
 footer {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.footer-text {
+    margin: 0;
+    color: gray;
+    position: absolute;
+    bottom: 10px; /* Mueve el texto de copyright más cerca del borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .hidden {
@@ -203,6 +212,7 @@ footer {
 
 .centered-title {
     text-align: center;
+    margin-left: 50px;
     color: red;
     font-size: 24px;
     font-weight: bold;
@@ -212,7 +222,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 50px; /* Ajustar el margen para mover a la derecha */
+    margin-left: 600px; /* Ajustar el margen para mover a la derecha */
     padding: 20px;
     border: 2px solid #000;
     background-color: #f9f9f9;
@@ -227,15 +237,6 @@ footer {
     font-size: 16px;
 }
 
-.footer-text {
-    margin: 0;
-    color: gray;
-    position: absolute;
-    bottom: 10px; /* Mueve el texto de copyright más cerca del borde inferior */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .actions {
     display: flex;
     justify-content: space-between;
@@ -245,7 +246,8 @@ footer {
 }
 
 .actions button {
-    margin-left: auto; /* Mueve el botón a la derecha */
+    margin-left: 1100px;
+    margin-right: 30px;
     background-color: red;
     color: white;
     border: none;
@@ -261,4 +263,44 @@ button:hover {
     min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se sobreponga con el footer */
     padding-bottom: 60px; /* Espacio suficiente para que el footer no moleste el contenido */
 }
+
+.comment-box {
+    position: absolute; /* Permite mover el cuadro libremente */
+    bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+    left: 20px; /* Ajusta la distancia desde la izquierda */
+    width: 300px; /* Puedes ajustar el ancho del cuadro */
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
+    border: 2px solid #000; /* Borde negro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.comment-box h3 {
+    margin: 0 0 10px 0; /* Espaciado para el título */
+}
+
+.comment-box textarea {
+    width: 100%; /* Hace que el textarea ocupe todo el ancho del cuadro */
+    height: 100px; /* Altura del cuadro de texto */
+    margin-bottom: 10px; /* Espaciado inferior */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    resize: none; /* Evita que se pueda cambiar el tamaño del textarea */
+}
+
+.comment-box button {
+    background-color: blue; /* Color del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px; /* Espaciado interno del botón */
+    cursor: pointer; /* Cursor de mano al pasar por encima */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.comment-box button:hover {
+    background-color: darkblue; /* Color del botón al pasar el ratón */
+}
+
 
