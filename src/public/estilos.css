@@ -196,3 +196,69 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.hidden {
+    display: none;
+}
+
+.centered-title {
+    text-align: center;
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px; /* Ajustar el margen para mover a la derecha */
+    padding: 20px;
+    border: 2px solid #000;
+    background-color: #f9f9f9;
+    width: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.description-box {
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+}
+
+.footer-text {
+    margin: 0;
+    color: gray;
+    position: absolute;
+    bottom: 10px; /* Mueve el texto de copyright más cerca del borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    text-align: center; /* Mantener el texto centrado */
+}
+
+.actions button {
+    margin-left: auto; /* Mueve el botón a la derecha */
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+.page-content {
+    min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se sobreponga con el footer */
+    padding-bottom: 60px; /* Espacio suficiente para que el footer no moleste el contenido */
+}
+
