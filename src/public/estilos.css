@@ -308,7 +308,7 @@ button:hover {
 .admin-section {
     display: flex;
     /*justify-content: space-between; /* Alinear el contenido a la izquierda */
-    align-items: flex-start; /* Alinear al principio del eje vertical */
+    align-items: center; /* Alinear al principio del eje vertical */
     gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
     margin-left: 50px;
 }
