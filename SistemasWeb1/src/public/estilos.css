@@ -1,0 +1,335 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('fondo.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
+    background-size: cover;
+    color: #333;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 200px; /* Ancho ajustado */
+    font-size: 1em;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Imagen del perfil a la derecha */
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white; /* Añadido borde */
+}
+
+/* Sección de bienvenida */
+.welcome {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 50px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 800px; /* Ancho máximo */
+}
+
+.welcome h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.welcome p {
+    font-size: 1.4em;
+    color: #555;
+}
+
+.user-options.centered {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.user-options .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.user-options .btn:hover {
+    background-color: #218838;
+}
+
+/* Servicios alineados y destacados */
+.services {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.services h2 {
+    font-size: 2.5em;
+    color: #f50a0a;
+    margin-bottom: 20px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.service-item {
+    text-align: center;
+}
+
+.service-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.service-image {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
+}
+
+/* Sección para elegir el músculo */
+.choose-muscle {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.choose-muscle h2 {
+    font-size: 2.5em;
+    color: #eb0505;
+    margin-bottom: 20px;
+}
+
+.muscle-image {
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
+}
+
+/* Footer */
+footer {
+    background-color rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-text {
+    margin: 0;
+    color: gray;
+    position: absolute;
+    bottom: 10px; /* Mueve el texto de copyright más cerca del borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hidden {
+    display: none;
+}
+
+.centered-title {
+    text-align: center;
+    margin-left: 50px;
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
+.centered-title h1{
+    text-align: right;
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+}
+.caja{
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid;
+}
+.columnas{
+	column-count: 2;
+}
+.video-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 123px; /* Ajustar el margen para mover a la derecha */
+	padding: 20px;
+	border: 2px solid #000;
+	background-color: #f9f9f9;
+	width: fit-content;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
+	margin-right: 50px;
+}
+
+.description-box {
+	margin-top: 5px;
+	text-align: center;
+	color: black;
+	font-size: 16px;
+	margin-right: 200px;
+	margin-left: 130px;
+}
+
+.actions {
+	display: flex;
+	/* justify-content: space-between; */
+	/* align-items: center; */
+	margin-top: 30px;
+	text-align: center; /* Mantener el texto centrado */
+}
+
+.actions button {
+	margin-left: auto;
+	margin-right: 200px;
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+
+}
+
+button:hover {
+	background-color: darkred;
+}
+
+/* .page-content {
+min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se sobreponga con el footer */
+/*   padding-bottom: 60px; /* Espacio suficiente para que el footer no moleste el contenido */
+/*}*/
+
+.comment-box {
+width: 300px; /* Ajusta el tamaño del cuadro de comentarios */
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #f9f9f9;
+margin-top: 60px;
+/* position: relative; */
+	}
+
+	.comment-box h3 {
+		margin: 0 0 10px;
+		color: #eb0505;
+	}
+
+	.comment-box textarea {
+		width: 80%;
+		height: 80px;
+		margin-bottom: 10px;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	.comment-box button {
+		background-color: blue;
+		color: white;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+	}
+
+	.comment-box button:hover {
+		background-color: darkblue;
+	}
+
+	.admin-section {
+		display: flex;
+		/*justify-content: space-between; /* Alinear el contenido a la izquierda */
+		align-items: center; /* Alinear al principio del eje vertical */
+		gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
+		margin-left: 50px;
+	}
+
+
+
+
