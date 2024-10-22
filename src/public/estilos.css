@@ -188,7 +188,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
     text-align: center;
@@ -217,101 +217,118 @@ footer {
     font-size: 24px;
     font-weight: bold;
 }
-
+.centered-title h1{
+    text-align: right;
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+}
+.caja{
+    text-align: center;
+    margin-right: 150px;
+    margin-left: 150px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border: 4px solid;
+}
+.columnas{
+	column-count: 2;
+}
 .video-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 123px; /* Ajustar el margen para mover a la derecha */
-    padding: 20px;
-    border: 2px solid #000;
-    background-color: #f9f9f9;
-    width: fit-content;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    margin-right: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 123px; /* Ajustar el margen para mover a la derecha */
+	padding: 20px;
+	border: 2px solid #000;
+	background-color: #f9f9f9;
+	width: fit-content;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
+	margin-right: 50px;
 }
 
 .description-box {
-    margin-top: 5px;
-    text-align: center;
-    color: black;
-    font-size: 16px;
-    margin-right: 200px;
-    margin-left: 130px;
+	margin-top: 5px;
+	text-align: center;
+	color: black;
+	font-size: 16px;
+	margin-right: 200px;
+	margin-left: 130px;
 }
 
 .actions {
-    display: flex;
-    /* justify-content: space-between; */
-    /* align-items: center; */
-    margin-top: 30px;
-    text-align: center; /* Mantener el texto centrado */
+	display: flex;
+	/* justify-content: space-between; */
+	/* align-items: center; */
+	margin-top: 30px;
+	text-align: center; /* Mantener el texto centrado */
 }
 
 .actions button {
-    margin-left: auto;
-    margin-right: 200px;
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    
+	margin-left: auto;
+	margin-right: 200px;
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+
 }
 
 button:hover {
-    background-color: darkred;
+	background-color: darkred;
 }
 
 /* .page-content {
-    min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se sobreponga con el footer */
- /*   padding-bottom: 60px; /* Espacio suficiente para que el footer no moleste el contenido */
+min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se sobreponga con el footer */
+/*   padding-bottom: 60px; /* Espacio suficiente para que el footer no moleste el contenido */
 /*}*/
 
 .comment-box {
-    width: 300px; /* Ajusta el tamaño del cuadro de comentarios */
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin-top: 60px;
-    /* position: relative; */
-}
+width: 300px; /* Ajusta el tamaño del cuadro de comentarios */
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #f9f9f9;
+margin-top: 60px;
+/* position: relative; */
+	}
 
-.comment-box h3 {
-    margin: 0 0 10px;
-    color: #eb0505;
-}
+	.comment-box h3 {
+		margin: 0 0 10px;
+		color: #eb0505;
+	}
 
-.comment-box textarea {
-    width: 80%;
-    height: 80px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+	.comment-box textarea {
+		width: 80%;
+		height: 80px;
+		margin-bottom: 10px;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
 
-.comment-box button {
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
+	.comment-box button {
+		background-color: blue;
+		color: white;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+	}
 
-.comment-box button:hover {
-    background-color: darkblue;
-}
+	.comment-box button:hover {
+		background-color: darkblue;
+	}
 
-.admin-section {
-    display: flex;
-    /*justify-content: space-between; /* Alinear el contenido a la izquierda */
-    align-items: center; /* Alinear al principio del eje vertical */
-    gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
-    margin-left: 50px;
-}
+	.admin-section {
+		display: flex;
+		/*justify-content: space-between; /* Alinear el contenido a la izquierda */
+		align-items: center; /* Alinear al principio del eje vertical */
+		gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
+		margin-left: 50px;
+	}
 
 
 
