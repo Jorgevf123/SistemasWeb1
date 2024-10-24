@@ -188,7 +188,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
     text-align: center;
@@ -239,14 +239,15 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-left: 123px; /* Ajustar el margen para mover a la derecha */
+	margin-left: 200px; /* Ajustar el margen para mover a la derecha */
 	padding: 20px;
 	border: 2px solid #000;
 	background-color: #f9f9f9;
-	width: fit-content;
+	width: 35%;
+    height: 320px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	margin-top: 20px;
-	margin-right: 50px;
+	/* margin-top: 20px;
+	margin-right: 50px; */
 }
 
 .description-box {
@@ -268,7 +269,7 @@ footer {
 
 .actions button {
 	margin-left: auto;
-	margin-right: 200px;
+	margin-right: 100px;
 	background-color: red;
 	color: white;
 	border: none;
@@ -287,48 +288,62 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 /*}*/
 
 .comment-box {
-width: 300px; /* Ajusta el tamaño del cuadro de comentarios */
-padding: 15px;
-border: 1px solid #ccc;
-border-radius: 5px;
-background-color: #f9f9f9;
-margin-top: 60px;
-/* position: relative; */
-	}
+    width: 35%; /* Ajusta el tamaño del cuadro de comentarios */
+    height: 360px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
+    box-sizing: border-box;
+    margin-left: 120px;
+}
 
-	.comment-box h3 {
-		margin: 0 0 10px;
-		color: #eb0505;
-	}
+.comment-box h3 {
+	margin: 0 0 10px;
+	color: #eb0505;
+}
 
-	.comment-box textarea {
-		width: 80%;
-		height: 80px;
-		margin-bottom: 10px;
-		padding: 10px;
-		border: 1px solid #ccc;
-		border-radius: 5px;
-	}
+.comment-box textarea {
+	width: 80%;
+	height: 220px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
 
-	.comment-box button {
-		background-color: blue;
-		color: white;
-		border: none;
-		padding: 10px;
-		cursor: pointer;
-	}
+.comment-box button {
+	background-color: blue;
+	color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+}
 
-	.comment-box button:hover {
-		background-color: darkblue;
-	}
+.comment-box button:hover {
+	background-color: darkblue;
+}
 
-	.admin-section {
-		display: flex;
-		/*justify-content: space-between; /* Alinear el contenido a la izquierda */
-		align-items: center; /* Alinear al principio del eje vertical */
-		gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
-		margin-left: 50px;
-	}
+.admin-section {
+	display: flex;
+	/*justify-content: space-between; /* Alinear el contenido a la izquierda */
+	align-items: center; /* Alinear al principio del eje vertical */
+	gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
+	margin-left: 50px;
+}
+
+.exercise-title {
+    margin-left: 120px; /* Ajusta el margen según tu layout */
+    font-size: 15px;
+    font-weight: bold;
+    color: red; /* O cualquier otro color que prefieras */
+    margin-bottom: 10px;
+}
 
 
 
