@@ -247,44 +247,7 @@ footer {
 .secundario {
 	width: 25%;
 }
-.carousel {
-    position: relative;
-    max-width: 600px;
-    width: 100%;
-    overflow: hidden;
-}
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carousel-images img {
-    width: 20%;
-    margin-left: 125px;
-}
-
-/* Botones para moverse entre las imágenes */
-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 18px;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
 .video-container {
 	display: flex;
 	flex-direction: column;
@@ -294,7 +257,7 @@ button {
 	border: 2px solid #000;
 	background-color: #f9f9f9;
 	width: 35%;
-    height: 320px;
+	height: 320px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	/* margin-top: 20px;
 	margin-right: 50px; */
@@ -338,19 +301,19 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 /*}*/
 
 .comment-box {
-    width: 35%; /* Ajusta el tamaño del cuadro de comentarios */
-    height: 360px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
-    box-sizing: border-box;
-    margin-left: 120px;
+	width: 35%; /* Ajusta el tamaño del cuadro de comentarios */
+	height: 360px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+	margin-top: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
+	box-sizing: border-box;
+	margin-left: 120px;
 }
 
 .comment-box h3 {
@@ -388,13 +351,18 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 }
 
 .exercise-title {
-    margin-left: 120px; /* Ajusta el margen según tu layout */
-    font-size: 15px;
-    font-weight: bold;
-    color: red; /* O cualquier otro color que prefieras */
-    margin-bottom: 10px;
+	margin-left: 120px; /* Ajusta el margen según tu layout */
+	font-size: 15px;
+	font-weight: bold;
+	color: red; /* O cualquier otro color que prefieras */
+	margin-bottom: 10px;
 }
 #background-comunidad{
 	background:white;
 }
 
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+	width: 60%;
+	margin: auto;
+}
