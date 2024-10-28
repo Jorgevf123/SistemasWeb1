@@ -414,4 +414,47 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
     background-color: #f0f0f0;
 }
 
+h1 {
+    text-align: center;
+    color: white; 
+    margin-top: 20px;
+}
+
+/* Estilo para el texto encima del buscador */
+p {
+    color: white; 
+    font-size: 1.1em; /* yamaño letra */
+    margin-top: 10px;
+}
+
+
+/* Estilos para la tabla de gestión de usuarios */
+.user-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-management-table th, .user-management-table td {
+    border: 1px solid #333333;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-management-table th {
+    background-color: #4d79ff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-management-table td {
+    background-color: #f7f7f7; 
+    color: black; 
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+
 
