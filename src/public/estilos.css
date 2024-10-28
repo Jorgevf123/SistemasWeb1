@@ -169,21 +169,72 @@ nav ul li a:hover {
 
 /* Sección para elegir el músculo */
 .choose-muscle {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
-    margin-top: 40px;
 }
 
 .choose-muscle h2 {
-    font-size: 2.5em;
-    color: #eb0505;
-    margin-bottom: 20px;
+    color: #fff; /* Color del texto blanco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
 }
 
+
+
 .muscle-image {
-    width: 600px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
+    width: 100%;
+    opacity: 0.8; /* Ajustar opacidad para que no compita tanto con el texto */
+    /*margin-top: 20px;
+    border-radius: 10px;*/
+}
+/* Contenedor para la imagen del cuerpo */
+.muscle-image-container {
+    position: relative;
+    display: inline-block;
+}
+/* Áreas interactivas */
+.muscle-part {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.3); /* Rojo semi-transparente para resaltar */
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.muscle-part:hover {
+    background-color: rgba(255, 0, 0, 0.5); /* Rojo semi-transparente */
+}
+/* Posiciones de cada área */
+.muscle-part.chest {
+    position: absolute;
+    cursor: pointer;
+    top: 220px; /* Ajusta según tu imagen */
+    left: 290px; /* Ajusta según tu imagen */
+    width: 120px;
+    height: 80px;
+    background-color: transparent; /* Sin color por defecto */
+    border-radius: 50%;
+    transition: background-color 0.3s; /* Suavizar la transición */
+}
+/* Efecto hover en las áreas del mapa */
+area.hover-area:hover {
+    background-color: rgba(255, 0, 0, 0.5); /* Color al pasar el ratón */
+}
+
+
+.muscle-part.back {
+    top: 40%;
+    left: 30%;
+    width: 30%;
+    height: 20%;
+}
+
+/* Clase activa para resaltar */
+.muscle-part.active {
+    opacity: 1;
+    background-color: rgba(255, 0, 0, 0.6); /* Color más fuerte para la activación */
 }
 
 /* Footer */

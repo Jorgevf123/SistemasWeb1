@@ -26,5 +26,22 @@ window.addEventListener('click', function(event) {
     if (!profileIcon.contains(event.target) && !menu.contains(event.target)) {
         menu.style.display = "none";
     }
-});
+    });
+    function highlightMuscle(muscle, redirectUrl) {
+        // Quitar la clase activa de todos los elementos
+        document.querySelectorAll('.muscle-part').forEach(part => {
+            part.classList.remove('active');
+        });
+        
+        // Añadir la clase activa al área seleccionada
+        const selectedPart = document.querySelector(`.muscle-part.${muscle}`);
+        selectedPart.classList.add('active');
+        
+        // Esperar un momento para que se vea el cambio de color y luego redirigir
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 300); // 300 ms de retraso para que se note el cambio de color
+    }
+    
+    
 
