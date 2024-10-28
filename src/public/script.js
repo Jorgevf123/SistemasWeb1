@@ -12,3 +12,19 @@ window.onload = function() {
 		userContent.classList.remove('hidden');
 	}
 };
+
+// Función para alternar el menú de usuario
+function toggleProfileMenu() {
+    const menu = document.getElementById("profile-menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+// Cerrar el menú cuando se haga clic fuera de él
+window.addEventListener('click', function(event) {
+    const menu = document.getElementById("profile-menu");
+    const profileIcon = document.getElementById("profile-icon");
+    if (!profileIcon.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+
