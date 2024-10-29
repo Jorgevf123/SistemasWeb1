@@ -546,24 +546,28 @@ p {
 }
 
 .exercise-validation {
-    margin-left: 20px; /* Añade margen izquierdo para alinear la tabla */
+    margin-left: 20px; 
 }
 
 /* Contenedor principal del contenido de ejercicio */
 .exercise-content {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Alinea video e imagen a cada lado */
     align-items: center;
     gap: 20px;
-    margin: 20px;
+    margin: 20px auto; /* Centra el contenedor */
+    max-width: 800px; /* Ajusta el ancho máximo para no ocupar todo el ancho */
 }
 
 /* Estilos para el video e imagen */
 .video-thumbnail, .image-thumbnail {
-    width: 300px; /* Ajusta el tamaño según necesites */
-    height: auto;
+    width: 300px;
+    height: 200px; /* Ajusta la altura de los elementos */
     background-color: #ccc;
     display: block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 /* Estilos para el título de la descripción */
@@ -576,8 +580,9 @@ p {
 /* Estilos para los botones de acción */
 .action-buttons {
     display: flex;
-    justify-content: space-around;
-    margin: 20px;
+    justify-content: center;
+    gap: 30px; /* Espacio entre los botones */
+    margin-top: 20px;
 }
 
 .accept-button, .reject-button {
@@ -589,12 +594,45 @@ p {
 }
 
 .accept-button:hover {
-    background-color: #d4edda; /* Color de fondo para aceptar */
+    background-color: #d4edda;
 }
 
 .reject-button:hover {
-    background-color: #f8d7da; /* Color de fondo para rechazar */
+    background-color: #f8d7da;
 }
+
+/* Estilos para la caja de descripción */
+.description-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    max-width: 800px; /* Alineado con el ancho del contenedor de contenido */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.description-box p {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: red;
+    text-align: center;
+    margin: 0;
+}
+
+.description-content {
+    width: 100%;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+    color: #333;
+    font-size: 1em;
+    min-height: 100px;
+    box-sizing: border-box;
+}
+
 
 
 
