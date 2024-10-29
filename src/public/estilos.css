@@ -482,6 +482,15 @@ p {
     margin-top: 20px;
 }
 
+.user-management-title {
+    text-align: center;
+    color: red;
+    font-size: 2em; /* Ajusta el tamaño según prefieras */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
 .user-management-table th, .user-management-table td {
     border: 1px solid #333333;
     padding: 10px;
@@ -632,6 +641,27 @@ p {
     min-height: 100px;
     box-sizing: border-box;
 }
+
+.back-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.back-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}
+
 
 
 
