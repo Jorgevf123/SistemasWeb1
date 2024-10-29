@@ -401,13 +401,8 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 	margin-left: 50px;
 }
 
-.exercise-title {
-	margin-left: 120px; /* Ajusta el margen según tu layout */
-	font-size: 15px;
-	font-weight: bold;
-	color: red; /* O cualquier otro color que prefieras */
-	margin-bottom: 10px;
-}
+
+
 #background-comunidad{
 	background:white;
 }
@@ -465,11 +460,12 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
     background-color: #f0f0f0;
 }
 
-h1 {
+.main-title {
     text-align: center;
     color: white; 
     margin-top: 20px;
 }
+
 
 /* Estilo para el texto encima del buscador */
 p {
@@ -505,6 +501,99 @@ p {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
+}
+
+/* Estilos para la tabla de validación de ejercicios */
+.validation-table {
+    width: 50%;
+    margin: 20px 0 20px 0;
+    border-collapse: collapse;
+}
+
+.validation-table td {
+    background-color: #f7f7f7; /* Color de fondo claro */
+    padding: 15px;
+    text-align: left;
+}
+
+.validation-table button {
+    background: none;
+    border: 1px solid #333;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.validation-table button:hover {
+    background-color: #e0e0e0;
+}
+
+.exercise-title {
+    text-align: center;
+    color: red;
+    font-size: 2.3em; 
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.exercise-subtitle {
+    text-align: center;
+    color: red;
+    font-size: 1.1em; 
+    margin-top: 10px;
+}
+
+.exercise-validation {
+    margin-left: 20px; /* Añade margen izquierdo para alinear la tabla */
+}
+
+/* Contenedor principal del contenido de ejercicio */
+.exercise-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+/* Estilos para el video e imagen */
+.video-thumbnail, .image-thumbnail {
+    width: 300px; /* Ajusta el tamaño según necesites */
+    height: auto;
+    background-color: #ccc;
+    display: block;
+}
+
+/* Estilos para el título de la descripción */
+.exercise-description-title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* Estilos para los botones de acción */
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.accept-button, .reject-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.accept-button:hover {
+    background-color: #d4edda; /* Color de fondo para aceptar */
+}
+
+.reject-button:hover {
+    background-color: #f8d7da; /* Color de fondo para rechazar */
 }
 
 
