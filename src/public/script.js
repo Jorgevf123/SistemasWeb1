@@ -44,16 +44,13 @@ window.addEventListener('click', function(event) {
     }
     
 
-    
-     // JavaScript para redirigir a la página de ejercicios en cada sección
-     document.getElementById('calves').addEventListener('click', function() {
-        window.location.href = '/ejercicios/calf';  // Redirige a la página de ejercicios de pantorrillas
+// Selecciona todos los elementos de músculo y articulación en ambos SVGs
+document.querySelectorAll('.muscle-map path, .joint-map path').forEach(element => {
+    element.addEventListener('click', (event) => {
+        const id = event.target.id;
+
+        if (id) {
+            window.location.href = `${id}.html`; // Redirige a la página de ejercicios
+        }
     });
-
-    document.getElementById('quads').addEventListener('click', function() {
-        window.location.href = '/ejercicios/quads';  // Redirige a la página de ejercicios de cuádriceps
-    });
-
-    // Puedes añadir más eventos de click para cada sección que necesites
-
-
+});

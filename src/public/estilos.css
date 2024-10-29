@@ -1,5 +1,5 @@
 /* General Styles */
-body {
+body, .choose-muscle, .muscle-map-container, h2 {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -174,11 +174,15 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    margin-bottom: 5px; /* Ajusta este valor según lo necesites */
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .choose-muscle h2 {
     color: #fff; /* Color del texto blanco */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
+    margin-bottom: 10px;
 }
 
 
@@ -206,6 +210,8 @@ nav ul li a:hover {
 
 .muscle-part:hover {
     background-color: rgba(255, 0, 0, 0.5); /* Rojo semi-transparente */
+    opacity: 1;
+
 }
 /* Posiciones de cada área */
 .muscle-part.chest {
@@ -241,6 +247,41 @@ area.hover-area:hover {
 /* Cambiar el color al pasar el ratón */
 .muscle-part.chest:hover {
     background-color: rgba(255, 0, 0, 0.5); /* Rojo semi-transparente */
+}
+
+/* Contenedor principal para los dos mapas */
+.muscle-map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra los SVGs verticalmente */
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los dos SVG */
+    width: 100%;
+    max-width: 80%; /* Limita el ancho del contenedor para que no se expanda demasiado */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    height: 100vh; /* Ajusta el contenedor al alto de la pantalla */
+    position: relative;
+    margin-top: 0;
+}
+
+/* Estilo base para el SVG */
+.muscle-map, .joint-map {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Puedes ajustar el tamaño máximo aquí si es necesario */
+    object-fit: contain;
+}
+
+/* Estilo general para cada músculo */
+.muscle-map path, .joint-map path{
+    fill: #333; /* Color base */
+    transition: fill 0.3s ease; /* Animación para el cambio de color */
+}
+
+/* Cambio de color al pasar el ratón por encima */
+.muscle-map path:hover, .joint-map path:hover{
+    fill: #ff4d4d; /* Color al hacer hover */
+    cursor: pointer;
 }
 
 /* Footer */
