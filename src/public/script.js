@@ -43,5 +43,17 @@ window.addEventListener('click', function(event) {
         }, 300); // 300 ms de retraso para que se note el cambio de color
     }
     
+
     
+     // JavaScript para redirigir a la página de ejercicios en cada sección
+     document.getElementById('calves').addEventListener('click', function() {
+        window.location.href = '/ejercicios/calf';  // Redirige a la página de ejercicios de pantorrillas
+    });
+
+    document.getElementById('quads').addEventListener('click', function() {
+        window.location.href = '/ejercicios/quads';  // Redirige a la página de ejercicios de cuádriceps
+    });
+
+    // Puedes añadir más eventos de click para cada sección que necesites
+
 

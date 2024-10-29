@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('fondo.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
+    background: url('fondo4.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
     background-size: cover;
     color: #333;
 }
@@ -16,6 +16,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
 
 nav {
     display: flex;
@@ -216,6 +217,7 @@ nav ul li a:hover {
     height: 80px;
     background-color: transparent; /* Sin color por defecto */
     border-radius: 50%;
+    cursor: pointer;
     transition: background-color 0.3s; /* Suavizar la transición */
 }
 /* Efecto hover en las áreas del mapa */
@@ -235,6 +237,10 @@ area.hover-area:hover {
 .muscle-part.active {
     opacity: 1;
     background-color: rgba(255, 0, 0, 0.6); /* Color más fuerte para la activación */
+}
+/* Cambiar el color al pasar el ratón */
+.muscle-part.chest:hover {
+    background-color: rgba(255, 0, 0, 0.5); /* Rojo semi-transparente */
 }
 
 /* Footer */
