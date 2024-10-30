@@ -1,0 +1,120 @@
+.centered-title h3{
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    margin-right: 70px;
+    font-weight: bold;
+}
+.lefted-title {
+    text-align: left;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.caja{
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-right: 60px;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    border: 3px solid;
+    height: 80%;
+}
+.columna {
+    width: 48%;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.imagen-comunidad {
+    flex: 0 0 250px; /* Controla el tamaño de la imagen */
+    margin-right: 20px;
+}
+.imagen-comunidad img {
+    width: 100%;
+    height: auto;
+    max-height: 125px;
+    min-height: 125px;
+}
+.recomendacion {
+    display: flex;
+    align-items: center;
+}
+#background-comunidad{
+	background: url('fondo_comunidad.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
+	background-size: cover;
+}
+.centered-title h1{
+    text-align: right;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 200px;
+    font-size: 48px;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+	width: 60%; /* Ajusta la altura para llenar el contenedor */
+	max-height: 375px;
+	min-height: 375px;
+	margin: auto;
+	object-fit: contain;
+}
+.descripcion{
+	font-family: monospace;
+	font-size:small;
+	color:white;
+	font-weight: normal;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5; /* Cambia el número para limitar las líneas */
+	overflow: hidden;
+	text-overflow: ellipsis; /* Muestra los puntos suspensivos */
+}
+.titulo-ejercicio{
+	text-align: left; 
+	font-family: Arial Black; 
+	font-weight: bold; 
+	font-size: 20px; 
+	margin-top:-10px;
+	color: #fff; 
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+.author-name {
+    font-size: 0.9em; /* Tamaño de la fuente del autor */
+    color: #ffffff; /* Cambia el color según el diseño */
+    margin-top: 5px; /* Espacio entre la imagen y el nombre del autor */
+    font-style: italic; /* Opcional: estilo en cursiva */
+}
+.reaction-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 10px; /* Espacio entre los botones y el nombre del autor */
+}
+
+.reaction-btn {
+    font-size: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.reaction-btn:hover {
+    background-color: #666;
+}
+.liked {
+    background-color: #4CAF50; /* Cambia el color al hacer "like" */
+}
+
+.disliked {
+    background-color: #f44336; /* Cambia el color al hacer "dislike" */
+}

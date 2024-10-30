@@ -315,25 +315,6 @@ footer {
     font-size: 24px;
     font-weight: bold;
 }
-.centered-title h1{
-    text-align: right;
-    color: black;
-    font-size: 36px;
-    font-weight: bold;
-    margin-right: 200px;
-    font-size: 48px;
-}
-.caja{
-    text-align: center;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-right: 50px;
-    margin-left: 50px;
-    border: 3px solid;
-    line-height:3px;
-}
 .columnas{
 	display: flex;
 	flex-direction: row;
@@ -447,19 +428,6 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 	gap: 20px; /* Espacio entre el cuadro de comentarios y el video */
 	margin-left: 50px;
 }
-
-
-
-#background-comunidad{
-	background:white;
-}
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-	width: 60%;
-	margin: auto;
-}
-
 /* Estilos para el menú de usuario */
 .profile-menu-container {
     position: relative;
