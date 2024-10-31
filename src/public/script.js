@@ -44,37 +44,45 @@ function highlightMuscle(muscle, redirectUrl) {
 }
 
 
-// Selecciona todos los elementos de músculo y articulación en ambos SVGs
-document.querySelectorAll('.muscle-map path, .joint-map path').forEach(element => {
-	element.addEventListener('click', (event) => {
-		const id = event.target.id;
-
-		if (id) {
-			window.location.href = `${id}.html`; // Redirige a la página de ejercicios
-		}
+function highlightMuscle(muscle, redirectUrl) {
+	// Quitar la clase activa de todos los elementos
+	document.querySelectorAll('.muscle-part').forEach(part => {
+		part.classList.remove('active');
 	});
+
+	// Añadir la clase activa al área seleccionada
+	const selectedPart = document.querySelector(`.muscle-part.${muscle}`);
+	selectedPart.classList.add('active');
+
+	// Esperar un momento para que se vea el cambio de color y luego redirigir
+	setTimeout(() => {
+		window.location.href = redirectUrl;
+	}, 300); // 300 ms de retraso para que se note el cambio de color
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Asegúrate de esperar a que el SVG cargue
+    const svgObject = document.getElementById("muscleMap"); // Ajusta el ID si es necesario
+
+    svgObject.addEventListener("load", function() {
+        const svgDoc = svgObject.contentDocument;
+
+        // Selecciona todas las partes que deseas colorear
+        const muscleParts = svgDoc.querySelectorAll(".muscle-part");
+
+        muscleParts.forEach(part => {
+            part.addEventListener("mouseover", () => {
+                part.style.fill = "red"; // Color al pasar el cursor
+            });
+
+            part.addEventListener("mouseout", () => {
+                part.style.fill = "black"; // Color original al salir del cursor
+            });
+        });
+    });
 });
 
-const carouselItems = document.querySelectorAll('.carousel-item');
 
-carouselItems.forEach(item => {
-	const likeButton = item.querySelector('.likeButton');
-	const dislikeButton = item.querySelector('.dislikeButton');
-	const likeCount = item.querySelector('.likeCount');
-	const dislikeCount = item.querySelector('.dislikeCount');
 
-	let likes = 0;
-	let dislikes = 0;
 
-	likeButton.addEventListener('click', () => {
-		likes++;
-		likeCount.textContent = likes;
-		likeButton.classList.add('liked'); 
-	});
-
-	dislikeButton.addEventListener('click', () => {
-		dislikes++;
-		dislikeCount.textContent = dislikes;
-		dislikeButton.classList.add('disliked');
-	});
-});
+  
