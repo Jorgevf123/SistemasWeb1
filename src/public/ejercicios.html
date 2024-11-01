@@ -16,10 +16,8 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
             <div class="header-right">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit">Buscar</button>
-                </div>
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
                 <div class="user-profile">
                     <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
                 </div>
@@ -27,138 +25,181 @@
         </nav>
     </header>
 
-    <main class="page-content">
-        <!-- Sección para Clientes (Página en blanco) -->
-        <section id="user-content" class="hidden">
-            <!-- Aquí de momento no se mostrará nada -->
+    <!-- Aquí debes añadir los IDs correspondientes a cada sección de ejercicios -->
+    <main class="exercise-container">
+        <h2>Ejercicios para Hombros</h2>
+        <section id="shoulders" class="exercise-content">
+            <h3>Press militar</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+            </div>
+            <div class="description-box">
+                <h3>Descripción del ejercicio</h3>
+                <p>Ejercicio de hombros en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                <span>Publicado por: Juan Antonio</span>
+            </div>
+            
+            <div class="comment-section">
+                <h3>Comentarios</h3>
+                <div id="chat" class="chat">
+                    <!-- Comentarios existentes -->
+                </div>
+                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                <button onclick="addComment()">Enviar</button>
+            </div>
+        </div>
+
+        <div id="exercise-container" class="exercise-container">
+            <div class="actions">
+                <button onclick="deleteComments()">Borrar Comentarios</button>
+                <button id="delete-exercise-button" onclick="deleteExercise('shoulders')">Borrar Ejercicio</button>
+            </div>    
+        </div>
+        </section>
+    
+    <section id="body" class="exercise-container">
+        <h2>Ejercicios para Pecho</h2>
+        <div class="exercise-content">
+            <h3>Press de banca</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+            </div>
+            <div class="description-box">
+                <h3>Descripción del ejercicio</h3>
+                <p>Ejercicio de pecho en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                <span>Publicado por: Juan Antonio</span>
+            </div>
+            
+            <div class="comment-section">
+                <h3>Comentarios</h3>
+                <div id="chat" class="chat">
+                    <!-- Comentarios existentes -->
+                </div>
+                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                <button onclick="addComment()">Enviar</button>
+            </div>
+        </div>
+
+        <div id="exercise-container" class="exercise-container">
+            <div class="actions">
+                <button onclick="deleteComments()">Borrar Comentarios</button>
+                <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+            </div>    
+        </div>
         </section>
 
-        <!-- Sección para Administradores -->
-        <section id="admin-content" class="hidden">
-            <div class="content-box">
-                <h2 class="centered-title">Ejercicios publicados por cualquier persona</h2>
-                <div class="exercise-title">
-                    <h3>Hombro</h3>
+        <section id="biceps" class="exercise-container">
+            <h2>Ejercicios para Biceps</h2>
+            <div class="exercise-content">
+                <h3>Bíceps con mancuernas</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                        Tu navegador no soporta el video.
+                    </video>
                 </div>
-                <div class="admin-section">
-                    <div class="comment-box">
-                        <h3>Comentarios</h3>
-                        <textarea placeholder="Escribe tu comentario aquí..."></textarea>
-                        <button>Enviar</button>
+                <div class="description-box">
+                    <h3>Descripción del ejercicio</h3>
+                    <p>Ejercicio de biceps en banco apoyado.</p>
+                    <span>Publicado por: Juan Antonio</span>
+                </div>
+                
+                <div class="comment-section">
+                    <h3>Comentarios</h3>
+                    <div id="chat" class="chat">
+                        <!-- Comentarios existentes -->
                     </div>
+                    <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                    <button onclick="addComment()">Enviar</button>
+                </div>
+            </div>
+    
+            <div id="exercise-container" class="exercise-container">
+                <div class="actions">
+                    <button onclick="deleteComments()">Borrar Comentarios</button>
+                    <button id="delete-exercise-button" onclick="deleteExercise('biceps')">Borrar Ejercicio</button>
+                </div>    
+            </div>
+            </section>
 
+            <section id="body" class="exercise-container">
+                <h2>Ejercicios para Pecho</h2>
+                <div class="exercise-content">
+                    <h3>Press de banca</h3>
                     <div class="video-container">
-                        <video width="320" height="240" controls>
-                            <source src="ejemplo.mp4" type="video/mp4">
+                        <video controls>
+                            <source src="Ejercicio_Espalda.mp4" type="video/mp4">
                             Tu navegador no soporta el video.
                         </video>
-                        <div class="description-box">
-                            <p>Descripción del ejercicio</p>
-                            <span>Escritor</span>
+                    </div>
+                    <div class="description-box">
+                        <h3>Descripción del ejercicio</h3>
+                        <p>Ejercicio de pecho en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                        <span>Publicado por: Juan Antonio</span>
+                    </div>
+                    
+                    <div class="comment-section">
+                        <h3>Comentarios</h3>
+                        <div id="chat" class="chat">
+                            <!-- Comentarios existentes -->
                         </div>
+                        <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button onclick="addComment()">Enviar</button>
                     </div>
                 </div>
-                <div class="actions">
-                    <button>Borrar</button>
-                    <span><i class="thumbs-up"></i></span>
-                    <span><i class="thumbs-down"></i></span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secciones de Ejercicios con IDs específicos para cada músculo -->
-        <section id="front-shoulders">
-            <h2>Ejercicios para Hombros</h2>
-            <div class="exercise">
-                <h3>Elevaciones laterales</h3>
-                <p>Descripción del ejercicio para hombros...</p>
-            </div>
-            <!-- Añade otros ejercicios para hombros aquí -->
-        </section>
-
-        <section id="chest">
-            <h2>Ejercicios para Pecho</h2>
-            <div class="exercise">
-                <h3>Press de banca</h3>
-                <p>Descripción del ejercicio para pecho...</p>
-            </div>
-            <!-- Añade otros ejercicios para pecho aquí -->
-        </section>
-        <section id="quads">
-            <h2>Ejercicios para Cuádriceps</h2>
-            <p>Aquí se muestra una lista de ejercicios para trabajar los cuádriceps...</p>
-        </section>
-       
-        <section id="calves">
-            <h2>Ejercicios para Gemelos</h2>
-            <p>Aquí se muestra una lista de ejercicios para trabajar los gemelos...</p>
-        </section>
         
-        <!-- Añade más secciones para cada músculo según necesites -->
-        <section id="abdominals">
-            <h2>Ejercicios para Hombros</h2>
-            <div class="exercise">
-                <h3>Elevaciones laterales</h3>
-                <p>Descripción del ejercicio para hombros...</p>
-            </div>
-        </section>
-            <section id="shoulders">
-                <h2>Ejercicios para Hombros</h2>
-                <div class="exercise">
-                    <h3>Elevaciones laterales</h3>
-                    <p>Descripción del ejercicio para hombros...</p>
+                <div id="exercise-container" class="exercise-container">
+                    <div class="actions">
+                        <button onclick="deleteComments()">Borrar Comentarios</button>
+                        <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+                    </div>    
                 </div>
-                <!-- Añade otros ejercicios para hombros aquí -->
-            </section>
-            <section id="forearms">
-                <h2>Ejercicios para Hombros</h2>
-                <div class="exercise">
-                    <h3>Elevaciones laterales</h3>
-                    <p>Descripción del ejercicio para hombros...</p>
-                </div>
-                <!-- Añade otros ejercicios para hombros aquí -->
-            </section>
-            <section id="wrist">
-                <h2>Ejercicios para Hombros</h2>
-                <div class="exercise">
-                    <h3>Elevaciones laterales</h3>
-                    <p>Descripción del ejercicio para hombros...</p>
-                </div>
-                <!-- Añade otros ejercicios para hombros aquí -->
-            </section>
+                </section>
 
-            <!--  
-traps
-elbow
-
-hips
-knees
-ankles
-traps
-calves
-hamstrings
-glutes
-hands
-triceps
-lats
-lowerback
-traps-middle
-spine
-scapula
--->
-
-
-
-
-
-
-               
-            <!-- Añade otros ejercicios para hombros aquí -->
-        
+                <section id="body" class="exercise-container">
+                    <h2>Ejercicios para Pecho</h2>
+                    <div class="exercise-content">
+                        <h3>Press de banca</h3>
+                        <div class="video-container">
+                            <video controls>
+                                <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                                Tu navegador no soporta el video.
+                            </video>
+                        </div>
+                        <div class="description-box">
+                            <h3>Descripción del ejercicio</h3>
+                            <p>Ejercicio de pecho en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                            <span>Publicado por: Juan Antonio</span>
+                        </div>
+                        
+                        <div class="comment-section">
+                            <h3>Comentarios</h3>
+                            <div id="chat" class="chat">
+                                <!-- Comentarios existentes -->
+                            </div>
+                            <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                            <button onclick="addComment()">Enviar</button>
+                        </div>
+                    </div>
+            
+                    <div id="exercise-container" class="exercise-container">
+                        <div class="actions">
+                            <button onclick="deleteComments()">Borrar Comentarios</button>
+                            <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+                        </div>    
+                    </div>
+                    </section>
     </main>
 
+    <!-- Repite bloques similares para otros músculos, con IDs específicos como "quads", "chest", etc. -->
     <footer>
-        <p class="footer-text">&copy; 2024 Gymanual. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
     </footer>
 
     <script src="script.js"></script>

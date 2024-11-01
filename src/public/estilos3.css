@@ -1,0 +1,67 @@
+/* Estilos para centrar el contenido y organizar la sección */
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.video-container, .comment-box {
+    width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.comment-box {
+    background-color: #fff;
+}
+.comment-box h3, .video-container h3 {
+    color: red;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.description-box {
+    color: #333;
+    font-size: 1em;
+}
+.chat {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f1f1f1;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-top: 10px;
+}
+.chat p {
+    margin: 0;
+    padding: 5px;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    text-align: left;
+}
+.chat p.admin {
+    background-color: #ffdddd;
+    text-align: right;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.actions button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.actions button:hover {
+    background-color: darkred;
+}

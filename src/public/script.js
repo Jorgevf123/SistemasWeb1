@@ -29,18 +29,20 @@ window.addEventListener('click', function(event) {
 });
 
 // Función para resaltar el músculo y redirigir
-function highlightMuscle(muscle, redirectUrl) {
+function highlightMuscle(muscleId) {
+    const redirectUrl = `ejercicios.html#${muscleId}`;
+
     // Quitar la clase activa de todos los elementos
     document.querySelectorAll('.bodymap').forEach(part => {
         part.classList.remove('active');
     });
 
     // Añadir la clase activa al área seleccionada
-    const selectedPart = document.querySelector(`.bodymap#${muscle}`);
+    const selectedPart = document.getElementById(muscleId);
     if (selectedPart) {
         selectedPart.classList.add('active');
 
-        // Esperar un momento para que se vea el cambio de color y luego redirigir
+        // Redirigir a la URL después de un breve retraso
         setTimeout(() => {
             window.location.href = redirectUrl;
         }, 300); // 300 ms de retraso para que se note el cambio de color
@@ -51,17 +53,13 @@ function highlightMuscle(muscle, redirectUrl) {
 
 // Espera a que el documento esté cargado
 document.addEventListener("DOMContentLoaded", function() {
-    // Asegúrate de esperar a que el SVG cargue
-    const svgObject = document.getElementById("muscleMap");
-
-    // Selecciona todas las partes que deseas colorear
-    const muscleParts = svgObject.querySelectorAll(".bodymap");
+    // Selecciona todas las partes del SVG que deseas hacer clic
+    const muscleParts = document.querySelectorAll(".bodymap g");
 
     muscleParts.forEach(part => {
         part.addEventListener("click", () => {
-            const muscle = part.id; // Obtiene el ID del músculo
-            const redirectUrl = `ejercicios.html#${muscle}`; // Forma la URL de redireccionamiento
-            highlightMuscle(muscle, redirectUrl); // Llama a la función de resaltar y redirigir
+            const muscleId = part.id; // Obtiene el ID del músculo (debe coincidir con el ID en el HTML)
+            highlightMuscle(muscleId); // Llama a la función de redirección
         });
 
         // Opcional: cambia de color al pasar el cursor
@@ -76,4 +74,38 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// Función para añadir un comentario al chat
+function addComment() {
+    const input = document.getElementById("comment-input");
+    const chat = document.getElementById("chat");
+    const commentText = input.value.trim();
 
+    if (commentText) {
+        const p = document.createElement("p");
+        p.textContent = commentText;
+        chat.appendChild(p);
+        input.value = ""; // Limpia el campo de texto
+        chat.scrollTop = chat.scrollHeight; // Desplaza el chat al último comentario
+    } else {
+        alert("Por favor, escribe un comentario.");
+    }
+}
+
+// Función para borrar todos los comentarios del chat
+function deleteComments() {
+    const chat = document.getElementById("chat");
+    chat.innerHTML = ""; // Limpia todos los comentarios
+    alert("Todos los comentarios han sido borrados.");
+}
+
+// Función para borrar el ejercicio completo
+function deleteExercise() {
+    const exerciseContainer = document.getElementById("exercise-container");
+    if (exerciseContainer) {
+        exerciseContainer.remove(); // Elimina el contenedor del ejercicio
+        alert("El ejercicio ha sido eliminado.");
+    }
+}
+
+// Conectar los botones con las funciones
+document.getElementById("delete-exercise-button").addEventListener("click", deleteExercise);

@@ -700,7 +700,138 @@ p {
     background-color: #e0e0e0;
 }
 
+/* Contenedor principal para centrar los elementos */
+.exercise-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+/* Título del ejercicio */
+.exercise-container h2 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
 
+/* Contenedor para el video y los comentarios */
+.exercise-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
 
+/* Contenedor del video */
+.video-container {
+    width: 100%;
+    max-width: 700px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+}
 
+.video-container video {
+    width: 100%;
+    height: 340px; /* Ajusta la altura máxima del video */
+    border-radius: 8px;
+}
+
+.description-box {
+    margin-top: 15px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Estilo para la sección de comentarios */
+.comment-section {
+    width: 100%;
+    max-width: 700px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h3, .exercise-content h3 {
+    color: #444;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el chat */
+.chat {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.chat p {
+    background: #e9e9e9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Estilo del área de texto y el botón de enviar */
+.comment-section textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.comment-section button {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-section button:hover {
+    background-color: #004c99;
+}
+
+/* Botón de borrar para admin */
+.actions button {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.actions button:hover {
+    background-color: #c9302c;
+}
+
+/* Ajustes de diseño para dispositivos móviles */
+@media (max-width: 768px) {
+    .exercise-content {
+        flex-direction: column;
+    }
+
+    .video-container,
+    .comment-section {
+        max-width: 100%;
+    }
+}
