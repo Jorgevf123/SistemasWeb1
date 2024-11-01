@@ -128,10 +128,10 @@
             </div>
             </section>
 
-            <section id="body" class="exercise-container">
-                <h2>Ejercicios para Pecho</h2>
+            <section id="quads" class="exercise-container">
+                <h2>Ejercicios para Cuádriceps</h2>
                 <div class="exercise-content">
-                    <h3>Press de banca</h3>
+                    <h3>Prensa</h3>
                     <div class="video-container">
                         <video controls>
                             <source src="Ejercicio_Espalda.mp4" type="video/mp4">
@@ -140,7 +140,7 @@
                     </div>
                     <div class="description-box">
                         <h3>Descripción del ejercicio</h3>
-                        <p>Ejercicio de pecho en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                        <p>Ejercicio de prensa en el cual ... para realizar el movimiento.</p>
                         <span>Publicado por: Juan Antonio</span>
                     </div>
                     
@@ -162,10 +162,10 @@
                 </div>
                 </section>
 
-                <section id="body" class="exercise-container">
-                    <h2>Ejercicios para Pecho</h2>
+                <section id="lats" class="exercise-container">
+                    <h2>Ejercicios para Dorsales</h2>
                     <div class="exercise-content">
-                        <h3>Press de banca</h3>
+                        <h3>Jalón al pecho</h3>
                         <div class="video-container">
                             <video controls>
                                 <source src="Ejercicio_Espalda.mp4" type="video/mp4">
@@ -174,7 +174,7 @@
                         </div>
                         <div class="description-box">
                             <h3>Descripción del ejercicio</h3>
-                            <p>Ejercicio de pecho en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                            <p>Ejercicio de jalón al pecho, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
                             <span>Publicado por: Juan Antonio</span>
                         </div>
                         
@@ -195,8 +195,110 @@
                         </div>    
                     </div>
                     </section>
-    </main>
 
+                    <section id="triceps" class="exercise-container">
+                        <h2>Ejercicios para Triceps</h2>
+                        <div class="exercise-content">
+                            <h3>Cuerda en polea</h3>
+                            <div class="video-container">
+                                <video controls>
+                                    <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                                    Tu navegador no soporta el video.
+                                </video>
+                            </div>
+                            <div class="description-box">
+                                <h3>Descripción del ejercicio</h3>
+                                <p>Ejercicio de triceps con cuerda en polea, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                                <span>Publicado por: Juan Antonio</span>
+                            </div>
+                            
+                            <div class="comment-section">
+                                <h3>Comentarios</h3>
+                                <div id="chat" class="chat">
+                                    <!-- Comentarios existentes -->
+                                </div>
+                                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                                <button onclick="addComment()">Enviar</button>
+                            </div>
+                        </div>
+                
+                        <div id="exercise-container" class="exercise-container">
+                            <div class="actions">
+                                <button onclick="deleteComments()">Borrar Comentarios</button>
+                                <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+                            </div>    
+                        </div>
+                        </section>
+
+                        <section id="hamstrings" class="exercise-container">
+                            <h2>Ejercicios para Femoral</h2>
+                            <div class="exercise-content">
+                                <h3>Femoral tumbado boca abajo</h3>
+                                <div class="video-container">
+                                    <video controls>
+                                        <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                                        Tu navegador no soporta el video.
+                                    </video>
+                                </div>
+                                <div class="description-box">
+                                    <h3>Descripción del ejercicio</h3>
+                                    <p>Ejercicio de femoral, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                                    <span>Publicado por: Juan Antonio</span>
+                                </div>
+                                
+                                <div class="comment-section">
+                                    <h3>Comentarios</h3>
+                                    <div id="chat" class="chat">
+                                        <!-- Comentarios existentes -->
+                                    </div>
+                                    <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                                    <button onclick="addComment()">Enviar</button>
+                                </div>
+                            </div>
+                    
+                            <div id="exercise-container" class="exercise-container">
+                                <div class="actions">
+                                    <button onclick="deleteComments()">Borrar Comentarios</button>
+                                    <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+                                </div>    
+                            </div>
+                            </section>
+
+                            <section id="calves" class="exercise-container">
+                                <h2>Ejercicios para Gemelos</h2>
+                                <div class="exercise-content">
+                                    <h3>Gemelos con apoyo</h3>
+                                    <div class="video-container">
+                                        <video controls>
+                                            <source src="Ejercicio_Espalda.mp4" type="video/mp4">
+                                            Tu navegador no soporta el video.
+                                        </video>
+                                    </div>
+                                    <div class="description-box">
+                                        <h3>Descripción del ejercicio</h3>
+                                        <p>Ejercicio de gemelos, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                                        <span>Publicado por: Juan Antonio</span>
+                                    </div>
+                                    
+                                    <div class="comment-section">
+                                        <h3>Comentarios</h3>
+                                        <div id="chat" class="chat">
+                                            <!-- Comentarios existentes -->
+                                        </div>
+                                        <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                                        <button onclick="addComment()">Enviar</button>
+                                    </div>
+                                </div>
+                        
+                                <div id="exercise-container" class="exercise-container">
+                                    <div class="actions">
+                                        <button onclick="deleteComments()">Borrar Comentarios</button>
+                                        <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+                                    </div>    
+                                </div>
+                                </section>
+    </main>
+    
     <!-- Repite bloques similares para otros músculos, con IDs específicos como "quads", "chest", etc. -->
     <footer>
         <p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
