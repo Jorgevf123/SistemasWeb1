@@ -1,5 +1,5 @@
 /* General Styles */
-body, .choose-muscle, .muscle-map-container, h2 {
+body, .choose-muscle, .bodymap-container, h2 {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -252,7 +252,7 @@ area.hover-area:hover {
 }
 
 /* Contenedor principal para los dos mapas */
-.muscle-map-container, .joint-map-container {
+.bodymap-container, .joint-map-container {
     display: flex;
     justify-content: center;
     align-items: center; /* Cambia align-items a flex-start para que el SVG no se expanda demasiado */
@@ -266,7 +266,7 @@ area.hover-area:hover {
 }
 
 /* Estilo base para el SVG */
-.muscle-map, .joint-map {
+.bodymap, .joint-map {
     width: 100%;
     height: auto;
     max-width: 500px; /* Puedes ajustar el tamaño máximo aquí si es necesario */
@@ -275,26 +275,20 @@ area.hover-area:hover {
 }
 
 /* Estilo general para cada músculo */
-.muscle-map path, .joint-map path{
+.bodymap path, .joint-map path{
     fill: #333; /* Color base */
     transition: fill 0.3s ease; /* Animación para el cambio de color */
     fill-opacity: 0.8; /* Controla la transparencia solo del color */
 }
 
 /* Cambio de color al pasar el ratón por encima */
-.muscle-map path:hover, .joint-map path:hover{
+.bodymap path:hover, .joint-map path:hover{
     fill: #ff4d4d; /* Color al hacer hover */
     fill-opacity: 1; /* Resalta el color al hacer hover */
     cursor: pointer;
 }
-.bodymap:hover {
-    fill: #ff4d4d; /* Cambia este color según lo que necesites */
-    cursor: pointer;
-}
-.bodymap {
-    fill: currentColor;
-    transition: fill 0.3s ease;
-}
+
+*/
 .muscle-maps {
     display: flex; /* O 'grid', dependiendo de cómo quieras organizar los SVGs */
     gap: 20px; /* Espacio entre los SVGs */
@@ -303,7 +297,7 @@ area.hover-area:hover {
     /* Otros estilos necesarios */
 }
 
-.muscle-map{
+.bodymap{
     color: #333333;
 }
 .hovered {
