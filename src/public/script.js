@@ -74,28 +74,36 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
+// Objeto para manejar contadores de usuario por sección
+let userCounter = {
+    shoulders: 1,
+    chest: 1
+};
 // Función para añadir un comentario al chat
-function addComment() {
-    const input = document.getElementById("comment-input");
-    const chat = document.getElementById("chat");
+function addComment(section) {
+    const input = document.getElementById(`comment-input-${section}`);
+    const chat = document.getElementById(`chat-${section}`);
     const commentText = input.value.trim();
 
     if (commentText) {
         const p = document.createElement("p");
-        p.textContent = commentText;
+        p.innerHTML = `<strong>Usuario  ${userCounter[section]}:</strong> ${commentText}`;
         chat.appendChild(p);
         input.value = ""; // Limpia el campo de texto
         chat.scrollTop = chat.scrollHeight; // Desplaza el chat al último comentario
+        userCounter[section]++; // Incrementa el contador de usuario para esa sección
     } else {
         alert("Por favor, escribe un comentario.");
     }
 }
 
 // Función para borrar todos los comentarios del chat
-function deleteComments() {
-    const chat = document.getElementById("chat");
+function deleteComments(section) {
+    const chat = document.getElementById(`chat-${section}`);
     chat.innerHTML = ""; // Limpia todos los comentarios
     alert("Todos los comentarios han sido borrados.");
+    userCounters[section] = 1; // Reinicia el contador de usuario para esa sección
 }
 
 // Función para borrar el ejercicio completo

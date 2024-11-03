@@ -772,6 +772,16 @@ p {
     color: #555;
     font-size: 1.1rem;
 }
+.description-box ul {
+    list-style-type: disc;
+    padding-left: 20px; /* Ajusta el espacio de indentación */
+    margin-top: 10px;
+}
+
+.description-box li {
+    margin-bottom: 10px; /* Espacio entre cada paso */
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+}
 
 /* Estilo para la sección de comentarios */
 .comment-section {
@@ -801,7 +811,7 @@ p {
 }
 
 .chat p {
-    background: #e9e9e9;
+    background: #cfcece;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 8px;

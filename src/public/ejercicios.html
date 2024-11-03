@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <!-- Aquí debes añadir los IDs correspondientes a cada sección de ejercicios -->
+    <!-- Añadir los IDs correspondientes a cada sección de ejercicios -->
     <main class="exercise-container">
         <h2>Ejercicios para Hombros</h2>
         <section id="shoulders" class="exercise-content">
@@ -38,23 +38,34 @@
             </div>
             <div class="description-box">
                 <h3>Descripción del ejercicio</h3>
-                <p>Ejercicio de hombros en máquina smith, en el cual se debe elevar la barra con los brazos para realizar el movimiento.</p>
+                <p>El Press militar en máquina Smith es un ejercicio efectivo para desarrollar los músculos de los hombros. 
+                    Este ejercicio permite mantener un control más estricto sobre el peso, lo que minimiza el riesgo de lesión y 
+                    enfoca la carga en los deltoides.</p>
                 <span>Publicado por: Juan Antonio</span>
+                <h3>Pasos para realizar el ejercicio:</h3>
+                <ul>
+                    <li><strong>Paso 1:</strong> Ajusta la máquina Smith a la altura adecuada para que puedas empezar con la barra a nivel de los hombros.</li>
+                    <li><strong>Paso 2:</strong> Siéntate en el banco con la espalda recta y los pies firmemente plantados en el suelo.</li>
+                    <li><strong>Paso 3:</strong> Agarra la barra con las manos a una distancia un poco mayor que el ancho de los hombros.</li>
+                    <li><strong>Paso 4:</strong> Levanta la barra de los soportes y bájala lentamente hasta justo debajo de la barbilla.</li>
+                    <li><strong>Paso 5:</strong> Empuja la barra hacia arriba hasta que tus brazos estén completamente extendidos, pero sin bloquear los codos.</li>
+                    <li><strong>Paso 6:</strong> Baja la barra de manera controlada hasta la posición inicial y repite el movimiento.</li>
+                </ul>
             </div>
             
             <div class="comment-section">
                 <h3>Comentarios</h3>
-                <div id="chat" class="chat">
+                <div id="chat-shoulders" class="chat">
                     <!-- Comentarios existentes -->
                 </div>
-                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
-                <button onclick="addComment()">Enviar</button>
+                <textarea id="comment-input-shoulders" placeholder="Escribe tu comentario aquí..."></textarea>
+                <button onclick="addComment('shoulders')">Enviar</button>
             </div>
         </div>
 
         <div id="exercise-container" class="exercise-container">
             <div class="actions">
-                <button onclick="deleteComments()">Borrar Comentarios</button>
+                <button onclick="deleteComments('shoulders')">Borrar Comentarios</button>
                 <button id="delete-exercise-button" onclick="deleteExercise('shoulders')">Borrar Ejercicio</button>
             </div>    
         </div>
@@ -78,17 +89,17 @@
             
             <div class="comment-section">
                 <h3>Comentarios</h3>
-                <div id="chat" class="chat">
+                <div id="chat-chest" class="chat">
                     <!-- Comentarios existentes -->
                 </div>
-                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
-                <button onclick="addComment()">Enviar</button>
+                <textarea id="comment-input-chest" placeholder="Escribe tu comentario aquí..."></textarea>
+                <button onclick="addComment('chest')">Enviar</button>
             </div>
         </div>
 
         <div id="exercise-container" class="exercise-container">
             <div class="actions">
-                <button onclick="deleteComments()">Borrar Comentarios</button>
+                <button onclick="deleteComments('chest')">Borrar Comentarios</button>
                 <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
             </div>    
         </div>
