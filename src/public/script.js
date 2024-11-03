@@ -78,7 +78,12 @@ document.addEventListener("DOMContentLoaded", function() {
 // Objeto para manejar contadores de usuario por sección
 let userCounter = {
     shoulders: 1,
-    chest: 1
+    chest: 1,
+    quads: 1,
+    lats: 1,
+    triceps: 1,
+    hamstrings: 1,
+    calves: 1
 };
 // Función para añadir un comentario al chat
 function addComment(section) {
@@ -103,7 +108,7 @@ function deleteComments(section) {
     const chat = document.getElementById(`chat-${section}`);
     chat.innerHTML = ""; // Limpia todos los comentarios
     alert("Todos los comentarios han sido borrados.");
-    userCounters[section] = 1; // Reinicia el contador de usuario para esa sección
+    userCounter[section] = 1; // Reinicia el contador de usuario para esa sección
 }
 
 // Función para borrar el ejercicio completo
