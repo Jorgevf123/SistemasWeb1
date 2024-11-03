@@ -630,6 +630,17 @@ p {
     flex-wrap: wrap; /* Permitir que se envuelvan en pantallas más pequeñas */
 }
 
+/* Estilo para la información del usuario que subió en ejercicio_a_validar */
+.uploader-info {
+    font-size: 1em;
+    color: #444;
+    background-color: rgba(99, 96, 96, 0.8);
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
 /* Estilos para el video e imagen */
 .video-thumbnail, .image-thumbnail {
     width: 100%;
@@ -747,6 +758,14 @@ p {
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+/* Contenedor del título y la información del usuario de ejercicio_a_validar */
+.header-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 270px;
 }
 
 /* Título del ejercicio */
