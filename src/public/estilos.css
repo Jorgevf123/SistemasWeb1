@@ -8,7 +8,7 @@ body, .choose-muscle, .bodymap-container, h2 {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('fondo4.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
+    background: url('prueba.avif') no-repeat center center fixed; /* Fondo para toda la pantalla */
     background-size: cover;
     color: #333;
 }
