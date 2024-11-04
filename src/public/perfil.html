@@ -22,7 +22,15 @@
 
     <!-- Profile Section -->
     <div class="profile-section">
-        <img src="profile-placeholder.png" alt="Perfil" class="profile-pic">
+        <!-- Circular Image upload -->
+        <div class="image-upload">
+            <label for="file-upload" class="profile-pic">
+                <img id="profile-image" src="Fotoperfilpordefecto.png">
+            </label>
+            <input type="file" id="file-upload" accept="image/*" onchange="loadImage(event)">
+        </div>
+        
+        <!-- Email input -->
         <div class="email">
             <label for="email">Correo electrónico</label>
             <input type="text" id="email" placeholder="Correo electrónico">
@@ -38,5 +46,7 @@
         </div>
     </div>
 
+    <!-- JavaScript -->
+    <script src="scriptPerfil.js"></script>
 </body>
 </html>
