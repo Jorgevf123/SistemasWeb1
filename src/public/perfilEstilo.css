@@ -152,3 +152,17 @@ body {
     background-color: #f0f0f0; /* Cambia el fondo cuando se pasa el cursor */
 }
 
+.cerrarSesion{
+        font-size: 1em;
+        color: #333;
+        padding: 15px;
+        border: 1px solid #ddd; /* Bordes alrededor de cada opción */
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center; /* Centra el texto dentro de cada opción */
+        border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+}
+
+.cerrarSesion:hover{
+    background-color: red;
+}
