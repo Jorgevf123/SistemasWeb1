@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="perfilEstilo.css">
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <a href="#gymanual">Gymanual</a>
+        <a href="#ejercicios">Ejercicios</a>
+        <a href="#conocenos">Conócenos</a>
+        <a href="#contacto">Contacto</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+            <button>🔍</button>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <!-- Circular Image upload -->
+        <div class="image-upload">
+            <label for="file-upload" class="profile-pic">
+                <img id="profile-image" src="fotoadmin.png">
+            </label>
+            <input type="file" id="file-upload" accept="image/*" onchange="loadImage(event)">
+        </div>
+        
+        <!-- Email input -->
+        <div class="email">
+            <label for="email">Administrador/label>
+            <input type="text" id="email" placeholder="Correo electrónico">
+        </div>
+
+        <!-- Options -->
+        <div class="options">
+            <div class="option">Correo electrónico</div>
+            <div class="option" onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios Supervisar</div>
+            <div class="option">Atención al cliente</div>
+            <div class="option">Cerrar Cuenta</div>
+            <div class="option" onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</div>
+            <div class="option">Terminos y condiciones</div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scriptPerfil.js"></script>
+</body>
+</html>
