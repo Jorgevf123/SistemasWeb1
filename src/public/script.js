@@ -18,7 +18,7 @@ function toggleProfileMenu() {
 	const menu = document.getElementById("profile-menu");
 	menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
-
+/*
 // Cerrar el menú cuando se haga clic fuera de él
 window.addEventListener('click', function(event) {
 	const menu = document.getElementById("profile-menu");
@@ -27,7 +27,7 @@ window.addEventListener('click', function(event) {
 		menu.style.display = "none";
 	}
 });
-
+*/
 // Función para resaltar el músculo y redirigir
 function highlightMuscle(muscleId) {
     const redirectUrl = `ejercicios.html#${muscleId}`;
@@ -121,4 +121,46 @@ function deleteExercise() {
 }
 
 // Conectar los botones con las funciones
-document.getElementById("delete-exercise-button").addEventListener("click", deleteExercise);
+document.addEventListener('DOMContentLoaded', () => {
+    const deleteButton = document.getElementById("delete-exercise-button");
+    if (deleteButton) {
+        deleteButton.addEventListener("click", deleteExercise);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+   
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    carouselItems.forEach(item => {
+        const likeButton = item.querySelector('.likeButton');
+        const dislikeButton = item.querySelector('.dislikeButton');
+        const likeCount = item.querySelector('.likeCount');
+        const dislikeCount = item.querySelector('.dislikeCount');// Inicializamos los contadores en el DOM
+        likeCount.textContent = "0";
+        dislikeCount.textContent = "0";
+        // Añadimos el evento para incrementar el contador de 'like'
+        likeButton.addEventListener('click', () => {
+        let likes = parseInt(likeCount.textContent) || 0;
+        likes++;
+        likeCount.textContent = likes;
+        likeButton.classList.add('liked');
+        });
+        // Añadimos el evento para incrementar el contador de 'dislike'
+        dislikeButton.addEventListener('click', () => {
+        let dislikes = parseInt(dislikeCount.textContent) || 0;
+        dislikes++;
+        dislikeCount.textContent = dislikes;
+        dislikeButton.classList.add('disliked');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const starIcons = document.querySelectorAll('.star-icon');
+
+    starIcons.forEach(starIcon => {
+    starIcon.addEventListener('click', () => {
+        starIcon.classList.toggle('active');
+    });
+    });
+});
