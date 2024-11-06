@@ -78,16 +78,16 @@ nav ul li a:hover {
 }
 
 .search-bar button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    background-color: #007BFF;
+    background-color: #28a745;
     color: white;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
 }
 
 .search-bar button:hover {
-    background-color: #0056b3;
+    background-color: #28a745;
 }
 
 /* Imagen del perfil a la derecha */

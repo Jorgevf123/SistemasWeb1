@@ -1,5 +1,3 @@
-/* estilos3.css */
-
 /* Reset básico */
 * {
     margin: 0;
@@ -24,30 +22,142 @@ body {
 }
 
 header {
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-header nav ul {
-    list-style-type: none;
+nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex: 1; /* Toma el espacio restante para que el .header-right esté a la derecha */
 }
 
-header nav ul li {
-    display: inline;
-    margin-right: 15px;
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-header nav ul li a {
-    color: #cccccc;
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-header nav ul li a:hover {
-    color: #b3b3b3;
+nav ul li a:hover {
+    color: #00cc66;
+    transform: scale(1.1);
+}
+
+/* Estilos para el menú de usuario */
+.profile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.profile-menu button {
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+    color: #333;
+}
+
+.profile-menu button:hover {
+    background-color: #f0f0f0;
+}
+
+.username {
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+    
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 200px;
+    font-size: 1em;
+    color: #333;
+}
+
+.search-bar button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #28a745;
+}
+
+/* Imagen del perfil a la derecha */
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
 /* Hero section */
@@ -119,7 +229,7 @@ header nav ul li a:hover {
 .about-item h2 {
     font-size: 1.5rem;
     margin-top: 1rem;
-    color: #00cc66; /* Verde suave para títulos */
+    color: #00cc66;
 }
 
 .about-item p {
@@ -128,6 +238,7 @@ header nav ul li a:hover {
     padding: 0 1rem 1.5rem;
 }
 
+/* Footer */
 footer {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
