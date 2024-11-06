@@ -4,29 +4,29 @@
     padding: 0;
     box-sizing: border-box;
 }
-body, .choose-muscle, .bodymap-container, h2 {
+
+body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('prueba.avif') no-repeat center center fixed; /* Fondo para toda la pantalla */
+    background: url('prueba.avif') no-repeat center center fixed;
     background-size: cover;
     color: #333;
 }
 
+/* Encabezado */
 header {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
     color: white;
-    padding: 15px 30px;
+    padding: 15px 30px; /* Ajusta el padding uniformemente */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+    height: 80px; /* Define una altura fija para el header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
@@ -51,7 +51,6 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    
     color: #00cc66;
     transform: scale(1.1);
 }
@@ -61,20 +60,23 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-left: auto;
 }
 
-/* Barra de búsqueda */
 .search-bar {
     display: flex;
     align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
 }
 
 .search-bar input {
     padding: 10px;
     border: none;
-    border-radius: 4px 0 0 4px;
-    width: 200px; /* Ancho ajustado */
+    outline: none;
+    width: 200px;
     font-size: 1em;
+    color: #333;
 }
 
 .search-bar button {
@@ -87,20 +89,20 @@ nav ul li a:hover {
 }
 
 .search-bar button:hover {
-    background-color: #28a745;
+    background-color: #218838;
 }
 
-/* Imagen del perfil a la derecha */
 .user-profile {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .profile-pic {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid white; /* Añadido borde */
+    border: 2px solid white;
 }
 
 /* Sección de bienvenida */
@@ -148,6 +150,8 @@ nav ul li a:hover {
 .services {
     text-align: center;
     margin-top: 40px;
+
+    
 }
 
 .services h2 {
@@ -186,6 +190,54 @@ nav ul li a:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
 }
 
+.servicesM {
+    text-align: center;
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.899); /* Fondo blanco semitransparente */
+    padding: 90px;
+    margin: 70px auto;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 1500px; /* Ancho máximo */
+
+   
+}
+
+.servicesM h2 {
+    font-size: 2.5em;
+    color: #ff4e4e; 
+    margin-bottom: 70px;
+    background-color: rgba(88, 88, 88, 1); /* Fondo blanco semitransparente */
+    
+    
+}
+   
+     /* Esto permite que el fondo solo abarque el texto */
+
+
+.servicesM-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.serviceM-item {
+    text-align: center;
+}
+
+.serviceM-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.serviceM-image {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadida sombra */
+}
 /* Sección para elegir el músculo */
 .choose-muscle {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
@@ -312,13 +364,29 @@ area.hover-area:hover {
 }
 
 */
+/* Contenedor principal para los SVG */
 .muscle-maps {
-    display: flex; /* O 'grid', dependiendo de cómo quieras organizar los SVGs */
-    gap: 20px; /* Espacio entre los SVGs */
-    justify-content: center; /* Alinea al centro */
-    align-items: center;
-    /* Otros estilos necesarios */
+    display: flex;
+    justify-content: center; /* Centra los SVG en el contenedor */
+    align-items: center; /* Alinea verticalmente */
+    gap: 20px; /* Espacio entre los SVG */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 90%; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    box-sizing: border-box;
 }
+
+
+/* Asegúrate de que cada SVG tenga un tamaño adecuado */
+.muscle-maps svg {
+    width: 45%; /* Ajusta el ancho de cada SVG al 45% del contenedor */
+    max-width: 400px; /* Controla el tamaño máximo si es necesario */
+    height: auto;
+    object-fit: contain;
+}
+
 
 .bodymap{
     color: #333333;
@@ -762,10 +830,12 @@ p {
 
 /* Contenedor del título y la información del usuario de ejercicio_a_validar */
 .header-container {
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 30px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding-left: 270px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Título del ejercicio */

@@ -22,13 +22,16 @@ body {
 }
 
 header {
-    background: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
     color: white;
-    padding: 15px 30px;
+    padding: 15px 30px; /* Ajusta el padding uniformemente */
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    height: 80px; /* Define una altura fija para el header */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 nav {
     display: flex;
