@@ -1,6 +1,4 @@
-/* estilos_contacto.css */
 
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -23,31 +21,96 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+/* Encabezado */
 header {
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-header nav ul {
-    list-style-type: none;
+nav {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Toma el espacio restante para que el .header-right esté a la derecha */
 }
 
-header nav ul li {
-    display: inline;
-    margin-right: 15px;
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-header nav ul li a {
-    color: #cccccc;
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li a {
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
-header nav ul li a:hover {
-    color: #b3b3b3;
+nav ul li a:hover {
+    color: #00cc66;
+}
+
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 200px;
+    font-size: 1em;
+    color: #333;
+}
+
+.search-bar button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #00cc66;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #00994d;
+}
+
+/* Imagen del perfil */
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
 /* Hero section */
@@ -145,6 +208,7 @@ header nav ul li a:hover {
     background-color: #00994d;
 }
 
+/* Footer */
 footer {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
