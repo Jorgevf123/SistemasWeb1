@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const itemsPerPage = 4; // Cuatro elementos por página
-const carouselGrid = document.querySelector('.container-recomendaciones');
-const carouselItems = document.querySelectorAll('.imagen-comunidad');
+const carouselGrid = document.querySelector('.container-carousel');
+const carouselItems = document.querySelectorAll('.recomendacion');
 const paginationButtonsContainer = document.querySelector('.pagination-buttons');
 
 let currentIndex = 0;
@@ -202,8 +202,8 @@ function goToPage(pageIndex) {
 
 // Actualizar la posición del carrusel
 function updateCarousel() {
-    const offset = -(currentIndex / 2) * 100;
-    carouselGrid.style.transform = `translateY(${offset}%)`;
+    const offset = -(currentIndex * 25);
+    carouselGrid.style.transform = `translateX(${offset}%)`;
 }
 
 // Actualizar botón activo
