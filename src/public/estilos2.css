@@ -96,6 +96,8 @@
 	font-size: 20px; 
 	margin-top: -10px;
 	color: #fff; 
+	transition: background-color 0.3s ease, color 0.3s ease;
+	border-radius: 4px;
 	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 .author-name {
@@ -165,5 +167,13 @@
 	color: white;
 }
 
-
-
+.caja a {
+	color:white;
+}
+.titulo-ejercicio a {
+	text-decoration: none;
+}
+.titulo-ejercicio:hover {
+	background-color: rgba(255, 255, 255, 0.15); /* Fondo claro semi-transparente */
+	color: #fff; /* Color de texto en blanco para mayor contraste */
+}
