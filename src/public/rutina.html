@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutinas</title>
+  <link rel="stylesheet" href="estilorutina.css">
+</head>
+<body>
+  <div class="calendario-container">
+    <h1>Rutinas</h1>
+    <div class="calendario-header">
+      <button id="prev-mes" onclick="cambiarMes(-1)">&#9664;</button>
+      <span id="mes-actual">Enero 2024</span>
+      <button id="next-mes" onclick="cambiarMes(1)">&#9654;</button>
+    </div>
+    <div class="dias-semana">
+      <span>Dom</span>
+      <span>Lun</span>
+      <span>Mar</span>
+      <span>Mié</span>
+      <span>Jue</span>
+      <span>Vie</span>
+      <span>Sáb</span>
+    </div>
+    <div class="dias-mes" id="dias-mes"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <div id="modal-body">
+        <!-- Aquí puedes agregar contenido adicional en el futuro -->
+      </div>
+      <button onclick="modificar()">Modificar</button>
+    </div>
+  </div>
+
+  <script>
+    const meses = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    let mesActual = 0;
+    let añoActual = 2024;
+
+    function obtenerDiasDelMes(mes, año) {
+      return new Date(año, mes + 1, 0).getDate();
+    }
+
+    function generarCalendario() {
+      const diasMesContainer = document.getElementById("dias-mes");
+      diasMesContainer.innerHTML = "";
+
+      const primerDia = new Date(añoActual, mesActual, 1).getDay();
+      const diasEnMes = obtenerDiasDelMes(mesActual, añoActual);
+
+      for (let i = 0; i < primerDia; i++) {
+        const espacio = document.createElement("div");
+        espacio.classList.add("dia");
+        diasMesContainer.appendChild(espacio);
+      }
+
+      for (let dia = 1; dia <= diasEnMes; dia++) {
+        const diaElement = document.createElement("div");
+        diaElement.classList.add("dia");
+        diaElement.textContent = dia;
+        diaElement.onclick = () => abrirModal(dia); // Llamar a la función abrirModal
+        diasMesContainer.appendChild(diaElement);
+      }
+
+      document.getElementById("mes-actual").textContent = `${meses[mesActual]} ${añoActual}`;
+    }
+
+    function cambiarMes(direccion) {
+      mesActual += direccion;
+
+      if (mesActual < 0) {
+        mesActual = 11;
+        añoActual--;
+      } else if (mesActual > 11) {
+        mesActual = 0;
+        añoActual++;
+      }
+
+      generarCalendario();
+    }
+
+    function abrirModal(dia) {
+      document.getElementById("modal-body").innerHTML = `<h2>Día ${dia} de ${meses[mesActual]} ${añoActual}</h2>`;
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function modificar() {
+      alert("Función de modificar en desarrollo.");
+    }
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        cerrarModal();
+      }
+    }
+
+    generarCalendario();
+  </script>
+</body>
+</html>
+
+
