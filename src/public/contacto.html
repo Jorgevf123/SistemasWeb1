@@ -20,13 +20,24 @@
                     <input type="text" placeholder="Buscar...">
                     <button type="submit">Buscar</button>
                 </div>
-                <div class="user-profile" id="profile-icon">
+                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
                     <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
                 </div>
+                <div class="profile-menu" id="profile-menu">
+                    <p class="username">admin</p> 
+                    <button>Correo electrónico</button>
+                    <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
+                    <button>Atención al cliente</button>
+                    <button>Cerrar cuenta</button>
+                    <button onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
+                    <button>Términos y condiciones</button>
+                </div>
+                
             </div>
         </nav>
     </header>
     
+    <script src="script.js"></script>
 
     <main>
         <section class="contact-hero">
