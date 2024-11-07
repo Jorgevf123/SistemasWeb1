@@ -71,16 +71,16 @@ nav ul li a:hover {
 }
 
 .search-bar input {
-    padding: 10px;
+    padding: 11px;/*tamaño*/
     border: none;
     outline: none;
     width: 200px;
-    font-size: 1em;
+    font-size: 1.1em;
     color: #333;
 }
 
 .search-bar button {
-    padding: 12px 20px;
+    padding: 13px 20px;
     border: none;
     background-color: #28a745;
     color: white;
@@ -841,7 +841,7 @@ p {
 /* Título del ejercicio */
 .exercise-container h2 {
     font-size: 2.2rem;
-    color: #ffffff;
+    color: #e81313;
     margin-bottom: 20px;
 }
 
