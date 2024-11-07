@@ -64,10 +64,12 @@ nav ul li a:hover {
 }
 
 .search-bar {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     background-color: #ffffff;
     border-radius: 5px;
+    overflow: hidden;
+    width: auto; /* Cambia esto para que se ajuste al contenido */
 }
 
 .search-bar input {
