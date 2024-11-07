@@ -1,71 +1,74 @@
 .centered-title h3{
-    text-align: center;
-    color: white;
-    font-size: 36px;
-    margin-right: 70px;
-    font-weight: bold;
+	text-align: center;
+	color: white;
+	font-size: 36px;
+	margin-right: 70px;
+	font-weight: bold;
 }
 .lefted-title {
-    text-align: left;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
+	text-align: left;
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+}
+.container-recomendaciones{
+	margin-left:20px;
 }
 .caja{
-    text-align: center;
-    color: white;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-right: 60px;
-    margin-left: 60px;
-    margin-bottom: 10px;
-    border: 3px solid;
-    height: 80%;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-right: 60px;
+	margin-left: 60px;
+	margin-bottom: 10px;
+	border: 3px solid;
+	height: 80%;
 }
 .columna {
-    width: 48%;
+	width: 48%;
 }
 .row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 .imagen-comunidad {
-    flex: 0 0 250px; /* Controla el tamaño de la imagen */
-    margin-right: 20px;
-    position: relative;
-    display: inline-block;
+	flex: 0 0 250px; /* Controla el tamaño de la imagen */
+	margin-right: 20px;
+	position: relative;
+	display: inline-block;
 }
 .imagen-comunidad img {
-    width: 100%;
-    height: auto;
-    max-height: 125px;
-    min-height: 125px;
-    display: block;
+	width: 100%;
+	height: auto;
+	max-height: 125px;
+	min-height: 125px;
+	display: block;
 }
 .imagen-comunidad:hover .star-icon {
-    opacity: 1;
+	opacity: 1;
 }
 .star-icon.active {
-    color: gold;
-    opacity: 1;
+	color: gold;
+	opacity: 1;
 }
 .recomendacion {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 #background-comunidad{
 	background: url('fondo_comunidad.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
 	background-size: cover;
 }
 .centered-title h1{
-    text-align: right;
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    margin-right: 200px;
-    font-size: 48px;
+	text-align: right;
+	color: white;
+	font-size: 36px;
+	font-weight: bold;
+	margin-right: 200px;
+	font-size: 48px;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -91,54 +94,76 @@
 	font-family: Arial Black; 
 	font-weight: bold; 
 	font-size: 20px; 
-	margin-top:-10px;
+	margin-top: -10px;
 	color: #fff; 
 	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 .author-name {
-    font-size: 0.9em; /* Tamaño de la fuente del autor */
-    color: #ffffff; /* Cambia el color según el diseño */
-    margin-top: 5px; /* Espacio entre la imagen y el nombre del autor */
-    font-style: italic; /* Opcional: estilo en cursiva */
+	font-size: 0.9em; /* Tamaño de la fuente del autor */
+	color: #ffffff; /* Cambia el color según el diseño */
+	margin-top: 5px; /* Espacio entre la imagen y el nombre del autor */
+	font-style: italic; /* Opcional: estilo en cursiva */
 }
 .reaction-buttons {
-    display: flex;
-    gap: 10px; /* Espacio entre los botones */
-    margin-top: 10px; /* Espacio entre los botones y el nombre del autor */
+	display: flex;
+	gap: 10px; /* Espacio entre los botones */
+	margin-top: 10px; /* Espacio entre los botones y el nombre del autor */
 }
 
 .reaction-btn {
-    font-size: 15px;
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+	font-size: 15px;
+	padding: 5px 10px;
+	cursor: pointer;
+	background-color: #444;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
 }
 
 .reaction-btn:hover {
-    background-color: #666;
+	background-color: #666;
 }
 .liked {
-    background-color: #4CAF50; /* Cambia el color al hacer "like" */
+	background-color: #4CAF50; /* Cambia el color al hacer "like" */
 }
 
 .disliked {
-    background-color: #f44336; /* Cambia el color al hacer "dislike" */
+	background-color: #f44336; /* Cambia el color al hacer "dislike" */
 }
 .star-icon {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size: 24px;
-    color: gray; 
-    opacity: 0;
-    cursor: pointer;
-    transition: color 0.3s ease, opacity 0.3s ease;
-    padding: 4px;
-    border-radius: 3px;
-    background-color: #4B4B4B; /* Fondo para que se vea más */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra cuadrada */
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	font-size: 24px;
+	color: gray; 
+	opacity: 0;
+	cursor: pointer;
+	transition: color 0.3s ease, opacity 0.3s ease;
+	padding: 4px;
+	border-radius: 3px;
+	background-color: #4B4B4B; /* Fondo para que se vea más */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra cuadrada */
 }
+.pagination-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+	margin-top: 10px;
+}
+.pagination-buttons button {
+	padding: 5px 10px;
+	cursor: pointer;
+	background-color: #f0f0f0;
+	border: none;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.pagination-buttons button.active {
+	background-color: #007bff;
+	color: white;
+}
+
+
+

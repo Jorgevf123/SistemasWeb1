@@ -164,3 +164,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     });
 });
+
+const itemsPerPage = 4; // Cuatro elementos por página
+const carouselGrid = document.querySelector('.container-recomendaciones');
+const carouselItems = document.querySelectorAll('.imagen-comunidad');
+const paginationButtonsContainer = document.querySelector('.pagination-buttons');
+
+let currentIndex = 0;
+
+// Crear botones de paginación
+const totalPages = Math.ceil(carouselItems.length / itemsPerPage);
+for (let i = 0; i < totalPages; i++) {
+    const button = document.createElement('button');
+    button.textContent = i + 1;
+    button.addEventListener('click', () => goToPage(i));
+    paginationButtonsContainer.appendChild(button);
+}
+
+// Función para ir a la página seleccionada
+function goToPage(pageIndex) {
+    currentIndex = pageIndex * itemsPerPage;
+    updateCarousel();
+    updateActiveButton(pageIndex);
+}
+
+// Actualizar la posición del carrusel
+function updateCarousel() {
+    const offset = -(currentIndex / 2) * 100;
+    carouselGrid.style.transform = `translateY(${offset}%)`;
+}
+
+// Actualizar botón activo
+function updateActiveButton(activeIndex) {
+    const buttons = paginationButtonsContainer.querySelectorAll('button');
+    buttons.forEach((button, index) => {
+        button.classList.toggle('active', index === activeIndex);
+    });
+}
+
+// Inicializar el carrusel
+goToPage(0);
