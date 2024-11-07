@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="atencion.css">
 </head>
 <body>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+      <a href="index.html">Gymanual</a>
+      <a href="ejercicios.html">Ejercicios</a>
+      <a href="conocenos.html">Conócenos</a>
+      <a href="contacto.html">Contacto</a>
+      <div class="search-bar">
+          <input type="text" placeholder="Buscar...">
+          <button>🔍</button>
+      </div>
+  </nav>
+
   <h1 class="titulo">Atención al cliente</h1>
   
   <table class="tabla-clientes">
@@ -36,12 +49,21 @@
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Ivan Martinez FLoro</h2>
-      <p>Estás haciendo muy bien el ejercicio</p>
+      <h2>Ivan Martinez Floro</h2>
+      <p>Advertencia: has roto una mancuerna, debes pagarla.</p>
     </div>
   </div>
 
   <script src="atencion.js"></script>
+  <script>
+    function openModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
 

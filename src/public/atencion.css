@@ -6,6 +6,49 @@ body {
   padding: 20px;
 }
 
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+  padding: 10px 15px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #007bff;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 5px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
 .titulo {
   font-size: 2em;
   font-weight: bold;
@@ -50,7 +93,7 @@ body {
   background-color: #e0e0e0;
 }
 
-/* Estilos para el modal */
+/* Modal styling */
 .modal {
   display: none; /* Ocultar el modal por defecto */
   position: fixed;
@@ -89,4 +132,5 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
 
