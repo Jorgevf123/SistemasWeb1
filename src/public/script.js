@@ -128,6 +128,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Para editar perfil
+document.addEventListener('DOMContentLoaded', () => {
+    // Redirecciona al hacer clic en "Correo electrónico" en el menú de perfil
+    const emailButton = document.querySelector('.profile-menu button:nth-child(1)');
+    if (emailButton) {
+        emailButton.addEventListener('click', function() {
+            window.location.href = 'editar_perfil.html';
+        });
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
    
     const carouselItems = document.querySelectorAll('.carousel-item');
