@@ -8,17 +8,35 @@
 </head>
 <body>
 
-  <!-- Navigation bar -->
-  <nav class="navbar">
-      <a href="index.html">Gymanual</a>
-      <a href="ejercicios.html">Ejercicios</a>
-      <a href="conocenos.html">Conócenos</a>
-      <a href="contacto.html">Contacto</a>
-      <div class="search-bar">
-          <input type="text" placeholder="Buscar...">
-          <button>🔍</button>
-      </div>
-  </nav>
+  <!-- Navigation Bar -->
+  <header>
+      <nav>
+          <ul>
+              <li><a href="index.html">Gymanual</a></li>
+              <li><a href="ejercicios.html">Ejercicios</a></li>
+              <li><a href="conocenos.html">Conócenos</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+          <div class="header-right">
+              <div class="search-bar">
+                  <input type="text" placeholder="Buscar...">
+                  <button type="submit">Buscar</button>
+              </div>
+              <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
+                  <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
+              </div>
+              <div class="profile-menu" id="profile-menu">
+                  <p class="username">admin</p>
+                  <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
+                  <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
+                  <button>Atención al cliente</button>
+                  <button>Cerrar cuenta</button>
+                  <button onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
+                  <button>Términos y condiciones</button>
+              </div>
+          </div>
+      </nav>
+  </header>
 
   <h1 class="titulo">Atención al cliente</h1>
   
@@ -29,17 +47,17 @@
       <td><button class="ver-todo" onclick="openModal()">ver todo</button></td>
     </tr>
     <tr>
-      <td>jorge@gmail.com</td>
+      <td>maria@example.com</td>
       <td class="mensaje">Mensaje acotado</td>
       <td><button class="ver-todo" onclick="openModal()">ver todo</button></td>
     </tr>
     <tr>
-      <td>jorge@gmail.com</td>
+      <td>pedro@example.com</td>
       <td class="mensaje">Mensaje acotado</td>
       <td><button class="ver-todo" onclick="openModal()">ver todo</button></td>
     </tr>
     <tr>
-      <td>jorge@gmail.com</td>
+      <td>ana@example.com</td>
       <td class="mensaje">Mensaje acotado</td>
       <td><button class="ver-todo" onclick="openModal()">ver todo</button></td>
     </tr>
@@ -50,28 +68,13 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>Ivan Martinez Floro</h2>
-      <p>Advertencia: has roto una mancuerna, debes pagarla.</p>
+      <p>Estás haciendo muy bien el ejercicio</p>
     </div>
   </div>
 
   <script src="atencion.js"></script>
-  <script>
-    function openModal() {
-      document.getElementById("modal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-  </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 

@@ -1,136 +1,235 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-/* Navbar styling */
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  background-color: #ffffff;
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Encabezado */
+header {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    color: white;
+    padding: 15px 30px; /* Ajusta el padding uniformemente */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura fija */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.navbar a {
-  text-decoration: none;
-  color: black;
-  font-size: 1.1em;
-  padding: 10px 15px;
-  transition: color 0.3s;
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-.navbar a:hover {
-  color: #007bff;
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00cc66;
+    transform: scale(1.1);
+}
+
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
 }
 
 .search-bar {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
 }
 
 .search-bar input {
-  padding: 5px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    padding: 11px; /* Tamaño */
+    border: none;
+    outline: none;
+    width: 200px;
+    font-size: 1.1em;
+    color: #333;
 }
 
 .search-bar button {
-  background: none;
-  border: none;
-  font-size: 1.2em;
-  cursor: pointer;
-  margin-left: 5px;
+    padding: 13px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
 }
 
-.titulo {
-  font-size: 2em;
-  font-weight: bold;
-  border: 2px solid #800080;
-  padding: 10px;
-  color: black;
+.search-bar button:hover {
+    background-color: #218838;
 }
 
-.tabla-clientes {
-  width: 60%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.tabla-clientes td {
-  padding: 15px;
-  border: 1px solid #000;
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
-.tabla-clientes tr:nth-child(even) {
-  background-color: #f0f0f0;
+/* Estilos del menú de perfil */
+.profile-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    padding: 10px 0;
+    text-align: left;
+    z-index: 1000;
 }
 
-.tabla-clientes tr:nth-child(odd) {
-  background-color: #d3d3d3;
+.profile-menu p.username {
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
 }
 
-.mensaje {
-  text-align: center;
+.profile-menu button {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
 }
 
-.ver-todo {
-  background-color: white;
-  border: 1px solid #000;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: bold;
+.profile-menu button:hover {
+    background-color: #f5f5f5;
 }
 
-.ver-todo:hover {
-  background-color: #e0e0e0;
-}
-
-/* Modal styling */
+/* Modal Styles */
 .modal {
-  display: none; /* Ocultar el modal por defecto */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro */
-  overflow: auto;
-  padding-top: 60px;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    padding-top: 60px;
 }
 
 .modal-content {
-  background-color: white;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-  text-align: center;
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
 }
 
 .close {
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/* Estilos para la sección de Atención al cliente */
+.customer-service-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.customer-service-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.customer-service-list {
+    font-size: 1.5em;
+    line-height: 2;
+    text-align: left;
+    max-width: 600px;
+}
+
+.customer-service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.customer-service-email {
+    font-weight: bold;
+    color: #333;
+}
+
+.customer-service-message {
+    color: #666;
+}
+
+.view-all-button {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.view-all-button:hover {
+    background-color: #218838;
+}
 
