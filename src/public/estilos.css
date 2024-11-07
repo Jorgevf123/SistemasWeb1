@@ -558,6 +558,8 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
     margin: 0 0 10px 0;
     font-size: 1em;
     color: #333;
+    text-decoration: none;    
+    cursor: pointer
 }
 
 
