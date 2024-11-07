@@ -7,6 +7,18 @@
   <link rel="stylesheet" href="estilorutina.css">
 </head>
 <body>
+  <!-- Barra de navegación -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Gymanual</a></li>
+        <li><a href="ejercicios.html">Ejercicios</a></li>
+        <li><a href="rutinas.html">Rutinas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="calendario-container">
     <h1>Rutinas</h1>
     <div class="calendario-header">
@@ -31,7 +43,7 @@
     <div class="modal-content">
       <span class="close" onclick="cerrarModal()">&times;</span>
       <div id="modal-body">
-        <!-- Aquí puedes agregar contenido adicional en el futuro -->
+        <!-- Aquí aparecerá la lista de ejercicios -->
       </div>
       <button onclick="modificar()">Modificar</button>
     </div>
@@ -44,6 +56,15 @@
     ];
     let mesActual = 0;
     let añoActual = 2024;
+
+    // Lista de ejercicios de brazo (Curl de bíceps)
+    const ejercicios = [
+      "Curl de bíceps con barra",
+      "Curl de bíceps con mancuernas",
+      "Curl de bíceps en banco inclinado",
+      "Curl de bíceps concentrado",
+      "Curl de bíceps alterno"
+    ];
 
     function obtenerDiasDelMes(mes, año) {
       return new Date(año, mes + 1, 0).getDate();
@@ -88,7 +109,12 @@
     }
 
     function abrirModal(dia) {
-      document.getElementById("modal-body").innerHTML = `<h2>Día ${dia} de ${meses[mesActual]} ${añoActual}</h2>`;
+      const listaEjercicios = ejercicios.map(ejercicio => `<li>${ejercicio}</li>`).join('');
+      document.getElementById("modal-body").innerHTML = `
+        <h2>Día ${dia} de ${meses[mesActual]} ${añoActual}</h2>
+        <p>Ejercicios de brazo (Curl de bíceps):</p>
+        <ul>${listaEjercicios}</ul>
+      `;
       document.getElementById("modal").style.display = "block";
     }
 
@@ -112,5 +138,7 @@
   </script>
 </body>
 </html>
+
+
 
 

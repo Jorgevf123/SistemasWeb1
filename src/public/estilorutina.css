@@ -1,22 +1,63 @@
+/* Reseteo de márgenes y paddings globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cuerpo de la página */
 body {
   font-family: Arial, sans-serif;
+  margin-top: 60px; /* Evita que el contenido se superponga a la barra de navegación */
+}
+
+/* Barra de navegación */
+header {
+  background-color: #333;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header nav ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+header nav ul li {
   margin: 0;
 }
 
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+/* Contenedor del calendario */
 .calendario-container {
   text-align: center;
   width: 300px;
+  margin: 0 auto;
 }
 
+/* Estilo de encabezado del calendario */
 h1 {
   font-size: 2em;
   margin-bottom: 20px;
 }
 
+/* Estilos para el calendario */
 .calendario-header {
   display: flex;
   align-items: center;
@@ -108,5 +149,6 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
 
 
