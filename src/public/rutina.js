@@ -65,13 +65,13 @@ var meses=Array("Enero", "Febrero", "Marzo", "Abril", "Mayo",
         prevYear=year-1;
     }
 
-document.getElementById("calendar").getElementsByTagName("caption")
-[0].innerHTML="<div>"+meses
-[month-1]+" / "+year+"</div>
-<div>
-<a onclick='mostrarCalendario("+prevYear+","+prevMonth+")'>&lt;</a>
-<a onclick='mostrarCalendario("+nextYear+","+nextMonth+")'>&gt;</a>
-</div>";
+    document.getElementById("calendar").getElementsByTagName("caption")[0].innerHTML = `
+    <div>${meses[month-1]} / ${year}</div>
+    <div>
+        <a onclick="mostrarCalendario(${prevYear}, ${prevMonth})">&lt;</a>
+        <a onclick="mostrarCalendario(${nextYear}, ${nextMonth})">&gt;</a>
+    </div>
+`;
 document.getElementById("calendar").getElementsByTagName("tbody")
 [0].innerHTML=resultado;
 }
