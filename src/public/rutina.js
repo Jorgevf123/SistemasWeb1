@@ -77,3 +77,18 @@ document.getElementById("calendar").getElementsByTagName("tbody")
 }
 
 mostrarCalendario(actual.getFullYear(),actual.getMonth()+1);
+// Función para alternar el menú de perfil
+function toggleProfileMenu() {
+    const menu = document.getElementById("profile-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// Cerrar el menú cuando se haga clic fuera de él
+window.addEventListener('click', function(event) {
+    const menu = document.getElementById("profile-menu");
+    const profileIcon = document.getElementById("profile-icon");
+    if (!profileIcon.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+
