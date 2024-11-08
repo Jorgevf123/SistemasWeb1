@@ -47,13 +47,14 @@ header nav ul li a:hover {
 /* Contenedor del calendario */
 .calendario-container {
   text-align: center;
-  width: 300px;
   margin: 0 auto;
+  max-width: 800px; /* Aumentar el tamaño */
+  padding-top: 80px; /* Ajustar para la barra de navegación */
 }
 
 /* Estilo de encabezado del calendario */
 h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
 }
 
@@ -62,8 +63,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-size: 1.5em;
 }
 
 button {
@@ -77,22 +78,32 @@ button {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.3em;
 }
 
 .dias-mes {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 15px;
 }
 
 .dia {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 10px;
+  position: relative;
+  font-size: 1.5em;
+}
+
+.dia .numero-dia {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: bold;
 }
 
 .dia:hover {
@@ -118,7 +129,7 @@ button {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 400px;
+  max-width: 500px;
   text-align: center;
   border-radius: 8px;
 }
@@ -140,15 +151,8 @@ button {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
+ 
 
-button:hover {
-  background-color: #0056b3;
-}
 
 
 

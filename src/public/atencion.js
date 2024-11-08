@@ -16,19 +16,19 @@ window.onclick = function(event) {
   }
 }
 
-// Función para alternar la visibilidad del menú de perfil
 function toggleProfileMenu() {
-  const profileMenu = document.getElementById('profile-menu');
-  profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
+	const menu = document.getElementById("profile-menu");
+	menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
-
-// Cerrar el menú de perfil al hacer clic fuera de él
+/*
+// Cerrar el menú de perfil al hacer clic fuera de él (comentado para pruebas)
 window.addEventListener('click', function(event) {
   const profileMenu = document.getElementById('profile-menu');
   const profileIcon = document.getElementById('profile-icon');
 
   if (event.target !== profileMenu && event.target !== profileIcon && !profileMenu.contains(event.target)) {
-    profileMenu.style.display = 'none';
+    profileMenu.classList.remove('visible');
   }
 });
+
 

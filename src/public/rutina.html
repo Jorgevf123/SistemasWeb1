@@ -5,17 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rutinas</title>
   <link rel="stylesheet" href="estilorutina.css">
+  <link rel="stylesheet" href="atencion.css"> <!-- Asegúrate de tener estos estilos -->
 </head>
 <body>
+
   <!-- Barra de navegación -->
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Gymanual</a></li>
         <li><a href="ejercicios.html">Ejercicios</a></li>
-        <li><a href="rutinas.html">Rutinas</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
+      <div class="header-right">
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar...">
+          <button type="submit">Buscar</button>
+        </div>
+        <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
+          <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
+        </div>
+        <div class="profile-menu" id="profile-menu">
+          <p class="username">admin</p>
+          <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
+          <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
+          <button onclick="window.location.href='atclient.html'">Atención al cliente</button> <!-- Redirección añadida -->
+          <button>Cerrar cuenta</button>
+          <button onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
+          <button>Términos y condiciones</button>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -86,7 +106,7 @@
       for (let dia = 1; dia <= diasEnMes; dia++) {
         const diaElement = document.createElement("div");
         diaElement.classList.add("dia");
-        diaElement.textContent = dia;
+        diaElement.innerHTML = `<span class="numero-dia">${dia}</span>`;
         diaElement.onclick = () => abrirModal(dia); // Llamar a la función abrirModal
         diasMesContainer.appendChild(diaElement);
       }
@@ -110,7 +130,7 @@
 
     function abrirModal(dia) {
       const listaEjercicios = ejercicios.map(ejercicio => `<li>${ejercicio}</li>`).join('');
-      document.getElementById("modal-body").innerHTML = `
+      document.getElementById("modal-body").innerHTML = ` 
         <h2>Día ${dia} de ${meses[mesActual]} ${añoActual}</h2>
         <p>Ejercicios de brazo (Curl de bíceps):</p>
         <ul>${listaEjercicios}</ul>
@@ -135,10 +155,16 @@
     }
 
     generarCalendario();
+
+    // Toggle del menú de perfil
+    function toggleProfileMenu() {
+      const profileMenu = document.getElementById("profile-menu");
+      profileMenu.style.display = profileMenu.style.display === "block" ? "none" : "block";
+    }
   </script>
+
 </body>
 </html>
-
 
 
 
