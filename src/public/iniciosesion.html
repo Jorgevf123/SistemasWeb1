@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilosPP.css">
+    <link rel="stylesheet" href="estilosIS.css">
 </head>
 <body>
     <header>
@@ -36,15 +36,17 @@
         </nav>
     </header>
     
-    <div class="form-container">
-        <h1>Iniciar Sesión</h1>
-        <p>Para iniciar sesión rellene los siguientes campos:</p>
-        <form action="#" method="POST">
-            <input type="email" name="email" placeholder="Correo electrónico" required><br>
-            <input type="password" name="password" placeholder="Contraseña" required><br>
-            <button type="submit" onclick="window.location.href='perfil.html'">Continuar como Usuario</button>
-            <button type="submit" onclick="window.location.href='perfilAdmin.html'">Continuar como Administrador</button>
-        </form>
+    <div class="main-container">
+        <div class="form-container">
+            <h1>Iniciar Sesión</h1>
+            <p>Para iniciar sesión, rellena los siguientes campos:</p>
+            <form action="#" method="POST">
+                <input type="email" name="email" placeholder="Correo electrónico" required><br>
+                <input type="password" name="password" placeholder="Contraseña" required><br>
+                <button type="submit" onclick="window.location.href='perfil.html'">Continuar como Usuario</button>
+                <button type="submit" onclick="window.location.href='perfilAdmin.html'">Continuar como Administrador</button>
+            </form>
+        </div>
     </div>
 
 

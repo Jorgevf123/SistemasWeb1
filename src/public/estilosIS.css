@@ -1,16 +1,25 @@
-
 /* Encabezado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita desplazamiento en la página */
+}
 header {
     background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
     color: white;
-    padding: 15px 30px; /* Ajusta el padding uniformemente */
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px; /* Define una altura fija para el header */
+    height: 80px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 nav {
     display: flex;
@@ -42,7 +51,6 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* Contenedor derecho para buscador y perfil */
 .header-right {
     display: flex;
     align-items: center;
@@ -56,11 +64,11 @@ nav ul li a:hover {
     background-color: #ffffff;
     border-radius: 5px;
     overflow: hidden;
-    width: auto; /* Cambia esto para que se ajuste al contenido */
+    width: auto;
 }
 
 .search-bar input {
-    padding: 11px;/*tamaño*/
+    padding: 11px;
     border: none;
     outline: none;
     width: 200px;
@@ -94,11 +102,6 @@ nav ul li a:hover {
     border: 2px solid white;
 }
 
-
-   
-
-   
-/* Estilos para el menú de usuario */
 .profile-menu-container {
     position: relative;
     display: inline-block;
@@ -114,12 +117,10 @@ nav ul li a:hover {
     margin: 0 0 10px 0;
     font-size: 1em;
     color: #333;
-    text-decoration: none;    
-    cursor: pointer
+    text-decoration: none;
+    cursor: pointer;
 }
 
-
-/* Estilos para el menú de usuario */
 .profile-menu {
     display: none;
     flex-direction: column;
@@ -147,10 +148,80 @@ nav ul li a:hover {
     background-color: #f0f0f0;
 }
 
-.main-title {
-    text-align: center;
-    color: white; 
-    margin-top: 20px;
+/* Fondo de la página (excepto el header) */
+.main-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: calc(100vh - 80px); /* Altura fija menos el header */
+    background-image: url('fotoIS.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-right: 5%; /* Espacio en el borde derecho para no quedar pegado */
 }
 
+/* Contenedor del formulario de inicio de sesión */
+.form-container {
+    width: 400px; /* Tamaño fijo en ancho */
+    height: 350px; /* Tamaño fijo en alto */
+    padding: 15px;
+    background-color: rgba(240, 240, 240, 0.85); /* Fondo gris claro translúcido */
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-right: 40px; /* Mayor margen derecho para alejarlo del borde */
+    display: flex;
+    flex-direction: column;
+}
 
+.form-container h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los campos de entrada del formulario */
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #00cc66;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #218838;
+}
+
+.form-container button + button {
+    margin-top: 15px;
+}
