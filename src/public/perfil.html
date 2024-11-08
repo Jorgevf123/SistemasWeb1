@@ -1,52 +1,67 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="perfilEstilo.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="estiloperfildef.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Gymanual</a></li>
+                <li><a href="ejercicios.html">Ejercicios</a></li>
+                <li><a href="conocenos.html">Conócenos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar...">
+                    <button type="submit">Buscar</button>
+                </div>
+                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
+                    <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
+                </div>
+                <div class="profile-menu" id="profile-menu">
+                    <a  href="iniciosesion.html"  class="username">usuario</a> 
+                    <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
+                    <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
+                    <button>Atención al cliente</button>
+                    <button>Cerrar cuenta</button>
+                    <button onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
+                    <button>Términos y condiciones</button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Navigation bar -->
-    <nav class="navbar">
-        <a href="#gymanual">Gymanual</a>
-        <a href="#ejercicios">Ejercicios</a>
-        <a href="#conocenos">Conócenos</a>
-        <a href="#contacto">Contacto</a>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button>🔍</button>
-        </div>
-    </nav>
-
-    <!-- Profile Section -->
-    <div class="profile-section">
+    <div class="perfil-section">
         <!-- Circular Image upload -->
         <div class="image-upload">
-            <label for="file-upload" class="profile-pic">
-                <img id="profile-image" src="Fotoperfilpordefecto.png">
+            <label for="file-upload" class="perfil-pic">
+                <img id="perfil-image" src="Fotoperfilpordefecto.png">
             </label>
             <input type="file" id="file-upload" accept="image/*" onchange="loadImage(event)">
         </div>
         
         <!-- Email input -->
         <div class="email">
-            <label for="email">Correo electrónico</label>
-            <input type="text" id="email" placeholder="Correo electrónico">
+            <input type="text" id="email" placeholder="Correo electrónico"> <!--Aquí iría el correo electronico de la BBDD, asociado al usuario-->
         </div>
-
+    
         <!-- Options -->
         <div class="options">
-            <button onclick="window.location.href='rutina.html'">rutinas</button>
-            <button class="option">favoritos</button>
+            <button  class="option" onclick="window.location.href='rutina.html'">rutinas</button>
+            <button class="option" onclick="window.location.href='favoritos.html'">favoritos</button>
             <button class="option">Añadir post</button>
-            <button class="option">Términos y condiciones</div>
-            <button class="option" onclick="window.location.href='index.html'">Cerrar cuenta</button> <!-- Supón que no solo redirige sino que también cierra sesion -->
+            <button class="option">Términos y condiciones</button>
+            <button class="option" onclick="window.location.href='index.html'">Cerrar cuenta</button> <!-- Supón que no solo redirige sino que también cierra sesión -->
         </div>
     </div>
-
-    <!-- JavaScript -->
-    <script src="scriptPerfil.js"></script>
+    
+    
 </body>
+<script src="script.js"></script>
+<script src="scriptPerfil.js"></script>
 </html>

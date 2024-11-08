@@ -1,5 +1,15 @@
-
 /* Encabezado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita desplazamiento en la página */
+}
 header {
     background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
     color: white;
@@ -153,6 +163,9 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 /* Perfil Section */
+/* Perfil Section */
+/* Perfil Section */
+/* Perfil Section */
 .perfil-section {
     display: flex;
     flex-direction: column;
@@ -160,103 +173,129 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: calc(100vh - 60px); /* Resta el alto de la navbar */
-    background-color: #fff;
-    padding: 20px;
+    height: calc(100vh - 60px); /* Resta el alto del header */
+    background-image: url('fondoperfil.png'); /* Fondo específico solo para esta sección */
+    background-size: cover;
+    background-position: center center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Circular Image Upload */
 .image-upload {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .perfil-pic {
-    width: 120px;
-    height: 120px;
+    width: 200px; /* Tamaño más grande */
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: #f0f0f0;
-    border: 2px solid #ccc;
-    transition: border-color 0.3s;
+    background-color: #ffffff;
+    border: 4px solid #007bff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .perfil-pic:hover {
-    border-color: #007bff;
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    border-color: #28a745; /* Cambio de color de borde */
 }
 
 .perfil-pic img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Mantiene la imagen ajustada al contorno circular */
+    border-radius: 50%;
 }
 
+/* Ocultar el input de archivo real */
 #file-upload {
-    display: none; /* Oculta el input de archivo real */
+    display: none;
 }
 
 /* Email input */
 .email {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     width: 100%;
-    max-width: 300px;
-}
-
-.email label {
-    display: block;
-    font-size: 1em;
-    color: #333;
+    max-width: 380px;
 }
 
 .email input {
     width: 100%;
-    padding: 8px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 5px;
+    padding: 12px;
+    font-size: 1.2em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.email input::placeholder {
+    color: #333; /* Placeholder negro */
+}
+
+.email input:focus {
+    border-color: #007bff; /* Borde azul al hacer foco */
+    outline: none;
 }
 
 /* Opciones */
 .options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho */
-    gap: 20px; /* Espacio entre las columnas */
-    width: 100%; /* Ocupa todo el ancho de la pantalla */
-    padding: 0 20px; /* Añade un poco de espacio a los lados */
-    box-sizing: border-box; /* Asegura que el padding se mantenga dentro del ancho */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-top: 40px;
 }
 
 .option {
-    font-size: 1em;
-    color: #333;
+    font-size: 1.1em;
+    color: #fdfdfd; /* Texto gris oscuro */
     padding: 15px;
-    border: 1px solid #ddd; /* Bordes alrededor de cada opción */
+    border: 1px solid #333; /* Bordes gris oscuro */
+    background-color: #333; /* Fondo gris oscuro */
     cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center; /* Centra el texto dentro de cada opción */
-    border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: normal; /* Aseguramos que el texto no esté en negrita por defecto */
 }
 
 .option:hover {
-    background-color: #f0f0f0; /* Cambia el fondo cuando se pasa el cursor */
+    background-color: #28a745; /* Fondo verde al pasar el ratón */
+    color: white; /* Texto blanco al pasar el ratón */
+    font-weight: bold; /* Texto en negrita solo cuando se pasa el ratón */
+    transform: translateY(-4px);
 }
 
-.cerrarSesion {
-    font-size: 1em;
-    color: #333;
-    padding: 15px;
-    border: 1px solid #ddd; /* Bordes alrededor de cada opción */
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center; /* Centra el texto dentro de cada opción */
-    border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+.option:active {
+    transform: translateY(0); /* Restablece la posición al hacer clic */
 }
 
-.cerrarSesion:hover {
-    background-color: red;
+/* Opciones especiales */
+.option.cerrar-sesion {
+    background-color: #f44336; /* Color rojo para la opción de cerrar sesión */
+    color: white;
+}
+
+.option.cerrar-sesion:hover {
+    background-color: #e53935; /* Cambio de color en hover */
 }
