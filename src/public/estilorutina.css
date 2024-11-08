@@ -9,6 +9,7 @@
 body {
   font-family: Arial, sans-serif;
   margin-top: 60px; /* Evita que el contenido se superponga a la barra de navegación */
+  color: #333;
 }
 
 /* Barra de navegación */
@@ -44,6 +45,93 @@ header nav ul li a:hover {
   border-radius: 5px;
 }
 
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.search-bar input {
+  padding: 5px 10px;
+  width: 120px;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  font-size: 0.9em;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #218838;
+}
+
+/* Estilo para el perfil de usuario */
+.user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Menú desplegable de perfil */
+.profile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #ebe4e4;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(248, 246, 246, 0.2);
+}
+
+.profile-menu button,
+.profile-menu .username {
+  color: rgb(19, 18, 18);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 5px 0;
+  width: 100%;
+  font-size: 1em;
+}
+
+.profile-menu button:hover {
+  background-color: #ccc9c9;
+  border-radius: 5px;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 /* Contenedor del calendario */
 .calendario-container {
   text-align: center;
@@ -54,8 +142,15 @@ header nav ul li a:hover {
 
 /* Estilo de encabezado del calendario */
 h1 {
+<<<<<<< HEAD
   font-size: 2.5em;
+=======
+  font-size: 2em;
+  color: white; /* Cambiado a blanco */
+  margin-top: 130px; /* Aumentar margen superior */
+>>>>>>> f7466218ae0ca85c472776f632126bff85898df4
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Estilos para el calendario */
@@ -63,8 +158,14 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+<<<<<<< HEAD
   margin-bottom: 20px;
   font-size: 1.5em;
+=======
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: white; /* Cambiado a blanco */
+>>>>>>> f7466218ae0ca85c472776f632126bff85898df4
 }
 
 button {
@@ -72,14 +173,20 @@ button {
   border: none;
   font-size: 1.5em;
   cursor: pointer;
+  color: white;
 }
 
 .dias-semana {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: bold;
+<<<<<<< HEAD
   margin-bottom: 15px;
   font-size: 1.3em;
+=======
+  margin-bottom: 10px;
+  color: white; /* Cambiado a blanco */
+>>>>>>> f7466218ae0ca85c472776f632126bff85898df4
 }
 
 .dias-mes {
@@ -152,6 +259,9 @@ button {
   color: white;
   border: none;
  
+
+
+
 
 
 

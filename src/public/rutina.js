@@ -65,15 +65,30 @@ var meses=Array("Enero", "Febrero", "Marzo", "Abril", "Mayo",
         prevYear=year-1;
     }
 
-document.getElementById("calendar").getElementsByTagName("caption")
-[0].innerHTML="<div>"+meses
-[month-1]+" / "+year+"</div>
-<div>
-<a onclick='mostrarCalendario("+prevYear+","+prevMonth+")'>&lt;</a>
-<a onclick='mostrarCalendario("+nextYear+","+nextMonth+")'>&gt;</a>
-</div>";
+    document.getElementById("calendar").getElementsByTagName("caption")[0].innerHTML = `
+    <div>${meses[month-1]} / ${year}</div>
+    <div>
+        <a onclick="mostrarCalendario(${prevYear}, ${prevMonth})">&lt;</a>
+        <a onclick="mostrarCalendario(${nextYear}, ${nextMonth})">&gt;</a>
+    </div>
+`;
 document.getElementById("calendar").getElementsByTagName("tbody")
 [0].innerHTML=resultado;
 }
 
 mostrarCalendario(actual.getFullYear(),actual.getMonth()+1);
+// Función para alternar el menú de perfil
+function toggleProfileMenu() {
+    const menu = document.getElementById("profile-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// Cerrar el menú cuando se haga clic fuera de él
+window.addEventListener('click', function(event) {
+    const menu = document.getElementById("profile-menu");
+    const profileIcon = document.getElementById("profile-icon");
+    if (!profileIcon.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+

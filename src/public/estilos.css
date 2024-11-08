@@ -64,10 +64,12 @@ nav ul li a:hover {
 }
 
 .search-bar {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     background-color: #ffffff;
     border-radius: 5px;
+    overflow: hidden;
+    width: auto; /* Cambia esto para que se ajuste al contenido */
 }
 
 .search-bar input {
@@ -558,6 +560,8 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
     margin: 0 0 10px 0;
     font-size: 1em;
     color: #333;
+    text-decoration: none;    
+    cursor: pointer
 }
 
 
@@ -702,12 +706,13 @@ p {
 .uploader-info {
     font-size: 1em;
     color: #444;
-    background-color: rgba(99, 96, 96, 0.8);
-    padding: 5px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+    margin-top: 10px; /* Ajusta la posición para que quede debajo del contenedor */
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
+
 
 /* Estilos para el video e imagen */
 .video-thumbnail, .image-thumbnail {
