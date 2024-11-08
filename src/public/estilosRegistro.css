@@ -1,0 +1,213 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00cc66;
+    transform: scale(1.1);
+}
+
+/* Contenedor derecho para buscador y perfil */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.search-bar {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    width: auto;
+}
+
+.search-bar input {
+    padding: 11px;
+    border: none;
+    outline: none;
+    width: 200px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.search-bar button {
+    padding: 13px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #218838;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Estilos para el menú de usuario */
+.profile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.profile-menu button {
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+}
+
+.profile-menu button:hover {
+    background-color: #f0f0f0;
+}
+/* Fondo de la página */
+.main-container {
+    display: flex;
+    justify-content: flex-end; /* Ajusta el contenedor hacia la derecha */
+    align-items: center;
+    height: calc(100vh - 80px);
+    background-image: url('reg.png'); /* Cambia la imagen si es necesario */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-right: 5%; /* Añade margen a la derecha para centrar */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    width: 400px;
+    padding: 15px;
+    background-color: rgba(240, 240, 240, 0.85);
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-right: 5%; /* Ajusta el margen para más espacio desde el borde derecho */
+}
+
+.form-container h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.form-container a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para los campos del formulario */
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #00cc66;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #218838;
+}
