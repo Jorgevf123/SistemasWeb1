@@ -5,8 +5,23 @@
 	margin-right: 70px;
 	font-weight: bold;
 }
+.centered-title h2{
+	text-align: center;
+	color: white;
+	font-size: 36px;
+	font-weight: bold;
+	font-size: 48px;
+}
 .lefted-title {
 	text-align: left;
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+}
+.lefted-title h2{
+	text-align: left;
+	margin-top:30px;
+	margin-left:50px;
 	color: white;
 	font-size: 24px;
 	font-weight: bold;
@@ -115,10 +130,16 @@
 }
 .reaction-buttons {
 	display: flex;
-	gap: 10px; /* Espacio entre los botones */
-	margin-top: 10px; /* Espacio entre los botones y el nombre del autor */
+	gap: 10px; 
+	margin-top: 10px; 
+	margin-left:-130px;
 }
-
+.reaction-buttons-ariculo {
+	display: flex;
+	gap: 10px; 
+	margin-top: 10px; 
+	margin-left:0px;
+}
 .reaction-btn {
 	font-size: 15px;
 	padding: 5px 10px;
@@ -131,6 +152,22 @@
 }
 
 .reaction-btn:hover {
+	background-color: #666;
+}
+
+.reaction-btn-comentarios {
+	font-size: 10px;
+	margin-top:15px;
+	padding: 5px 10px;
+	cursor: pointer;
+	background-color: #444;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.reaction-btn-comentarios:hover {
 	background-color: #666;
 }
 .liked {
@@ -183,4 +220,84 @@
 .titulo-ejercicio:hover {
 	background-color: rgba(255, 255, 255, 0.15); /* Fondo claro semi-transparente */
 	color: #fff; /* Color de texto en blanco para mayor contraste */
+}
+.imagen-articulo {
+	display: flex;
+	justify-content: center;
+
+}
+.imagen-articulo img {
+	height: auto;
+	max-height: 325px;
+	min-height: 225px;
+}
+.margin-left{
+	margin-left:340px;
+}
+.descripcion-articulo {
+	width: 90%;
+	hyphens: auto;
+	word-wrap: break-word;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 40px;
+	margin-left: 50px;
+
+}
+#comment-section {
+	max-width: 100%;
+	margin: 20px auto;
+	background: white;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#comment-form {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+}
+#comment-input {
+	width: 100%;
+	height: 80px;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: none;
+}
+#comments-container {
+	margin-top: 20px;
+}
+.comment {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+.avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+.comment-content {
+	flex: 1;
+}
+.comment-content p {
+	margin: 0;
+	font-size: 16px;
+	color: #555;
+}
+.form-submit-button {
+	background: #0066A2;
+	color: white;
+	border-style: outset;
+	border-color: #0066A2;
+	height: 50px;
+	width: 100px;
+	font: bold15px arial,sans-serif;
+	text-shadow: none;
+	margin-top:30px;
 }
