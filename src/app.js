@@ -28,11 +28,11 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//app.use(session({
-//  secret: "Hola",
-//  resave: false,
-//  saveUninitialized: true
-//}));
+app.use(session({
+  secret: "Hola",
+  resave: false,
+  saveUninitialized: true
+}));
 
 //app.use((req,res,next) => {
   //const message = req.session.message;
