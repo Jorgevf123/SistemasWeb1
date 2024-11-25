@@ -1196,9 +1196,10 @@ p {
 .titulo-ejercicio a {
 	text-decoration: none;
 }
-.titulo-ejercicio:hover {
-	background-color: rgba(255, 255, 255, 0.15); /* Fondo claro semi-transparente */
-	color: #fff; /* Color de texto en blanco para mayor contraste */
+.sombreado{}
+.sombreado:hover {
+	background-color: rgba(255, 255, 255, 0.15); 
+	color: #fff; 
 }
 .imagen-articulo {
 	display: flex;

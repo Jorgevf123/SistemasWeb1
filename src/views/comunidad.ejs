@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<title><%= title %></title>
-		<meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-		<!-- Customized Bootstrap Stylesheet -->
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script  type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script  type="text/javascript" src="https://use.fontawesome.com/fe459689b4.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	</head>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="index.html">Gymanual</a></li>
-				<li><a href="ejercicios.html">Ejercicios</a></li>
-				<li><a href="conocenos.html">Conócenos</a></li>
-				<li><a href="contacto.html">Contacto</a></li>
-			</ul>
-			<div class="header-right">
-				<div class="search-bar">
-					<input type="text" placeholder="Buscar...">
-					<button type="submit">Buscar</button>
-				</div>
-				<div class="user-profile">
-					<img src="images/avatar.webp" alt="Foto de perfil" class="profile-pic">
-				</div>
-			</div>
-		</nav>
-	</header>
-	<body>
+<%- include("header", {}) %>
 		<div class= "background-comunidad">
 			<div class="columnas">
 				<div class="principal">
@@ -39,13 +6,15 @@
 						<h1>Comunidad</h1>
 					</div>
 				</div>
+				<% if(user) { %>
 				<div class="secundario">
 					<div class= "caja"> 
-						<a href= "ejercicios.html">
+						<a href= "articulo_comunidad">
 							<h3>Publicar <br> ejercicio</h3>
 						</a>
 					</div>
 				</div>
+				<% }%>
 			</div>
 			<div class= "centered-title">
 				<h3>Mas Gustados</h3>
@@ -61,7 +30,7 @@
 					</ol>
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<a href= "ejercicios.html">
+							<a href= "articulo_comunidad">
 								<img src="images/img1.jpg" alt="Imagen 1" > 
 								<div class="carousel-caption d-none d-md-block">
 									<h3> Título del artículo</h3>
@@ -70,7 +39,7 @@
 							</a>
 						</div>
 						<div class="item">	
-							<a href= "ejercicios.html">
+							<a href= "articulo_comunidad">
 								<img src="images/img2.jpg" alt="Imagen 2" > 
 								<div class="carousel-caption d-none d-md-block">
 									<h3> Título del artículo</h3>
@@ -79,7 +48,7 @@
 							</a>
 						</div>
 						<div class="item">	
-							<a href= "ejercicios.html">
+							<a href= "articulo_comunidad">
 								<img src="images/img3.jpg" alt="Imagen 3" >
 								<div class="carousel-caption d-none d-md-block">
 									<h3> Título del artículo</h3>
@@ -88,7 +57,7 @@
 							</a>
 						</div>
 						<div class="item">	
-							<a href= "ejercicios.html">
+							<a href= "articulo_comunidad">
 								<img src="images/img4.jpg" alt="Imagen 4" > 
 								<div class="carousel-caption d-none d-md-block">
 									<h3> Título del artículo</h3>
@@ -125,12 +94,14 @@
 									</div>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
-										<p>Título 1</p>
-										<div class="descripcion">
-											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
-										</div>
-									</a>
+									<div class="sombreado">
+										<a href= "articulo_comunidad">
+											<p>Título 1</p>
+											<div class="descripcion">
+												<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
+											</div>
+										</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>	
@@ -146,12 +117,14 @@
 									<p class="author-name">Usuario 2</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
+									<div class="sombreado">
+									<a href= "articulo_comunidad">
 										<p>Título 2</p>
 										<div class="descripcion">
 											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
 										</div>
 									</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -169,12 +142,14 @@
 									<p class="author-name">Usuario 3</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
-										<p>Título 3</p>
-										<div class="descripcion">
-											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
-										</div>
-									</a>
+									<div class="sombreado">
+										<a href= "articulo_comunidad">
+											<p>Título 3</p>
+											<div class="descripcion">
+												<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
+											</div>
+										</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -190,12 +165,14 @@
 									<p class="author-name">Usuario 4</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
+									<div class="sombreado">
+									<a href= "articulo_comunidad">
 										<p>Título 4</p>
 										<div class="descripcion">
 											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
 										</div>
 									</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -213,12 +190,14 @@
 									<p class="author-name">Usuario 5</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
+									<div class="sombreado">
+									<a href= "articulo_comunidad">
 										<p>Título 5</p>
 										<div class="descripcion">
 											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
 										</div>
 									</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -234,12 +213,14 @@
 									<p class="author-name">Usuario 6</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
+									<div class="sombreado">
+									<a href= "articulo_comunidad">
 										<p>Título 6</p>
 										<div class="descripcion">
 											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
 										</div>
 									</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -257,12 +238,14 @@
 									<p class="author-name">Usuario 7</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
+									<div class="sombreado">
+									<a href= "articulo_comunidad">
 										<p>Título 7</p>
 										<div class="descripcion">
 											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
 										</div>
 									</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -278,12 +261,14 @@
 									<p class="author-name">Usuario 8</p>
 								</div>
 								<div class="titulo-ejercicio">
-									<a href= "ejercicios.html">
+									<div class="sombreado">
+									<a href= "articulo_comunidad">
 										<p>Título 8</p>
 										<div class="descripcion">
 											<p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
 										</div>
 									</a>
+									</div>
 									<div class="reaction-buttons carousel-item">
 										<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
 										<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -301,12 +286,14 @@
                                                                         <p class="author-name">Usuario 3</p>
                                                                 </div>
                                                                 <div class="titulo-ejercicio">
-                                                                        <a href= "ejercicios.html">
+																	<div class="sombreado">
+                                                                        <a href= "articulo_comunidad">
                                                                                 <p>Título 3</p>
                                                                                 <div class="descripcion">
                                                                                         <p>Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativo Texto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativoTexto explicativo</p>
                                                                                 </div>
                                                                         </a>
+																	</div>
                                                                         <div class="reaction-buttons carousel-item">
                                                                                 <button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
                                                                                 <button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
@@ -319,10 +306,5 @@
 			</div>
 			<div class="pagination-buttons">
 			</div>
-			<footer>
-				<p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
-			</footer>
-			<script  type="text/javascript" src="js/script.js" defer></script>
 		</div>
-	</body>
-</html>
+		<%- include("footer", {}) %>
