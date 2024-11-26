@@ -4,6 +4,9 @@ const path = require('path');
 //const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+
+require('./sequelize');
+
 const indexRouter = require('./routes/index');
 //const aboutRouter = require('./routes/conocenos');
 const articulo_comunidad = require('./routes/articulo_comunidad');

@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('sistemas-web:server');
 var http = require('http');
-const database = require('../database');
 
 //const { Server } = require("socket.io");
 
