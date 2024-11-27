@@ -2,7 +2,7 @@
 // En un caso real, podrías obtener esta información de un servidor o una base de datos.
 const userType = 'admin'; // Cambia a 'cliente' para simular un usuario no admin
 
-window.onload = function() {
+/*window.onload = function() {
 	const adminContent = document.getElementById('admin-content');
 	const userContent = document.getElementById('user-content');
 
@@ -12,7 +12,7 @@ window.onload = function() {
 		userContent.classList.remove('hidden');
 	}
 };
-
+*/
 // Función para alternar el menú de usuario
 function toggleProfileMenu() {
 	const menu = document.getElementById("profile-menu");

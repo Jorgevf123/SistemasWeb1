@@ -1,35 +1,36 @@
 <%- include("header", {}) %>
 		<div class="background-comunidad">
-			<div class="lefted-title">
-				<h2>Categoria</h2>
-			</div>
-			<div class="centered-title">
-				<h2><%= titulo_articulo %></h2>
-			</div>
-			<div class="imagen-articulo">
-				<img src="<%= imagen_articulo %>" alt="Imagen de ejercicio">
-				<div class="star-icon">★</div>
-			</div>
-			<div class="margin-left">
-				<p class="author-name"><%= usuario_escritor %></p>
-				<div class="reaction-buttons carousel-item">
-					<button class="likeButton reaction-btn">👍 <span class="likeCount">0</span></button>
-					<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount">0</span></button>
+				<div class="lefted-title">
+					<h2>Categoria</h2>
 				</div>
-			</div>
-			<p class="descripcion-articulo"> <%= descripcion %> </p>
+				<div class="centered-title">
+					<h2><%= titulo_articulo %></h2>
+				</div>
+				<div class="imagen-articulo">
+					<img src="<%= imagen_articulo %>" alt="Imagen de ejercicio">
+					<div class="star-icon">★</div>
+				</div>
+				<div class="margin-left">
+					<p class="author-name"><%= usuario_escritor %></p>
+					<div class="reaction-buttons carousel-item">
+						<button class="likeButton reaction-btn">👍 <span class="likeCount"><%= likes %></span></button>
+						<button class="dislikeButton reaction-btn">👎 <span class="dislikeCount"><%= dislikes %></span></button>
+					</div>
+				</div>
+				<p class="descripcion-articulo"> <%= descripcion %></p>
+			</form>
 			<div id="comment-section">
 				<h2>Comentarios</h2>
 				<form id="comment-form">
 					<div class="comment">
-						<img src="public/images/Fotoperfilpordefecto.png" alt="Avatar" class="avatar">
+						<img src="/images/Fotoperfilpordefecto.png" alt="Avatar" class="avatar">
 						<textarea id="comment-input" placeholder="Escribe tu comentario aquí..." required></textarea>
 						<button class="form-submit-button" type="submit">Enviar</button>
 					</div>
 				</form>
 				<div id="comments-container">
 					<div class="comment">
-						<img src="public/images/Fotoperfilpordefecto.png" alt="Avatar" class="avatar">
+						<img src="/images/Fotoperfilpordefecto.png" alt="Avatar" class="avatar">
 						<div class="comment-content">
 							<p>Este es el ejemplo de un comentario</p>
 							<div class="reaction-buttons-articulo carousel-item">
@@ -40,5 +41,5 @@
 					</div>
 				</div>
 			</div>
-	</div>
+		</div>
 	<%- include("footer", {}) %>
