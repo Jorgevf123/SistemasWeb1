@@ -1,0 +1,23 @@
+<%- include("header", {}) %>
+		<div class="background-comunidad">
+			<form action="/articulo_comunidad_editable" method="POST" enctype="multipart/form-data">
+				<div class="lefted-title">
+					<h2>
+						<input type="text" name ="categoria" placeholder="Escoja categoría" required>
+					</h2>
+				</div>
+				<div class="centered-title">
+					<h2>
+						<input type="text" name ="titulo_articulo" placeholder="Escriba el título de su artículos" required>
+					</h2>
+				</div>
+				<div class="imagen-articulo">
+					<input type="file" name="imagen_articulo" accept="image/*">
+				</div>
+				<p class="descripcion-articulo"> 
+					<input type="text" name="descripcion" placeholder="Añada la descripción de su articulo" required>
+				</p>
+				<button type="submit">Guardar Artículo</button>
+			</form>
+		</div>
+	<%- include("footer", {}) %>
