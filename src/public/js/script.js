@@ -254,3 +254,25 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+	document.getElementById('imagen_articulo').addEventListener('change', function(event) {
+    	const file = event.target.files[0];
+		const preview = document.getElementById('image-preview');
+
+    	 if (file) {
+        	const reader = new FileReader(); // Instanciamos el FileReader
+        // Cuando la imagen se cargue, mostrarla
+      	  	reader.onload = function(e) {
+        	    preview.src = ""; // Asigna el Data URL generado al src de la imagen
+            	preview.style.display = 'block'; // Muestra la imagen en el contenedor
+  	      };
+
+        // Lee el archivo como un Data URL (esto convierte la imagen en una cadena que se puede mostrar en el navegador)
+    	    reader.readAsDataURL(file);
+	    } else {
+        // Si no se selecciona archivo, ocultar la previsualización
+    	    preview.src = '';
+        	preview.style.display = 'none';
+    	}
+	});
+});

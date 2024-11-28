@@ -2,20 +2,28 @@
 		<div class="background-comunidad">
 			<form action="/articulo_comunidad_editable" method="POST" enctype="multipart/form-data">
 				<div class="lefted-title">
-					<h2>
-						<input type="text" name ="categoria" placeholder="Escoja categoría" required>
-					</h2>
+					<h3>
+						<select name="categoria"  required>
+							<option value="" disabled selected>Categorías</option>
+							<option value="tecnologia">Tecnología</option>
+							<option value="salud">Salud</option>
+							<option value="educacion">Educación</option>
+						</select>
+					</h3>
 				</div>
 				<div class="centered-title">
 					<h2>
-						<input type="text" name ="titulo_articulo" placeholder="Escriba el título de su artículos" required>
+						<textarea id="titulo_articulo" name="titulo_articulo" rows="2" placeholder="Escribe el título aquí..." required></textarea>
 					</h2>
 				</div>
 				<div class="imagen-articulo">
-					<input type="file" name="imagen_articulo" accept="image/*">
+					<input type="file" id="imagen_articulo" name="imagen_articulo" accept="image/*">
+				</div>
+				<div id="preview-container">
+					<img id="image-preview" src="" alt="Previsualización de la imagen">
 				</div>
 				<p class="descripcion-articulo"> 
-					<input type="text" name="descripcion" placeholder="Añada la descripción de su articulo" required>
+					<textarea type="text" name="descripcion"  rows="10" placeholder="Escribe el artículo aquí..." required></textarea>
 				</p>
 				<button type="submit">Guardar Artículo</button>
 			</form>

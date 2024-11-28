@@ -987,9 +987,8 @@ p {
 .centered-title h2{
 	text-align: center;
 	color: white;
-	font-size: 36px;
+	font-size: 32px;
 	font-weight: bold;
-	font-size: 48px;
 }
 .lefted-title {
 	text-align: left;
@@ -1003,6 +1002,14 @@ p {
 	margin-left:50px;
 	color: white;
 	font-size: 24px;
+	font-weight: bold;
+}
+.lefted-title h3{
+	text-align: left;
+	margin-top:30px;
+	margin-left:50px;
+	color: black;
+	font-size: 20px;
 	font-weight: bold;
 }
 .container-recomendaciones{
@@ -1047,7 +1054,7 @@ p {
 	min-height: 125px;
 	display: block;
 }
-.imagen-comunidad:hover .star-icon {
+.imagen-comunidad:hover .star-icon{ 
 	opacity: 1;
 }
 .star-icon.active {
@@ -1062,6 +1069,7 @@ p {
 	background: url('../images/fondo_comunidad.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
 	background-size: cover;
 	overflow:hidden;
+    min-height: 100vh;
 }
 .centered-title h1{
 	text-align: right;
@@ -1196,7 +1204,6 @@ p {
 .titulo-ejercicio a {
 	text-decoration: none;
 }
-.sombreado{}
 .sombreado:hover {
 	background-color: rgba(255, 255, 255, 0.15); 
 	color: #fff; 
@@ -1280,4 +1287,33 @@ p {
 	font: bold15px arial,sans-serif;
 	text-shadow: none;
 	margin-top:30px;
+}
+.color-black{
+    color:#000;
+}
+.centered-title textarea {
+    width: 50%; 
+    box-sizing: border-box; 
+    color:#000;
+}
+#preview-container {
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50vh;
+    height: 50vh;
+    margin-left: 70vh;
+}
+
+#image-preview {
+    max-width: 100%; /* Se ajusta al contenedor */
+    height: auto;
+    display: none;
+}
+.descripcion-articulo textarea {
+    width: 98.5%; 
+    box-sizing: border-box; 
+    color:#000;
 }
