@@ -67,7 +67,7 @@
 						<div class="row">
 							<div class="recomendacion">
 								<div class="imagen-comunidad">
-									<img src="<%= articulos[i].imagen_articulo %>" alt="Imagen de ejercicio">
+										<img src="<%= articulos[i].imagen_articulo %>" alt="Imagen de ejercicio">
 									<div class="star-icon">★</div>
 									<p class="author-name"><%= articulos[i].usuario_escritor %></p>
 								</div>
@@ -88,7 +88,6 @@
 							</div>
 						</div>
 						<% i++; if(i == articulos.length) { %>
-							<% console.log(i)  %>
 						</div>	
 						<%break;} %>
 						<div class="row">
