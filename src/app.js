@@ -27,6 +27,7 @@ const favoritos = require('./routes/favoritos');
 //const foroRouter4 = require('./routes/rutina');
 //const foroRouter5 = require('./routes/terminosycondiciones');
 const rutinasRouter = require('./routes/rutina');
+const inicioRouter = require('./routes/iniciosesion');
 
 const app = express();
 // view engine setup
@@ -63,6 +64,7 @@ app.use('/articulo_comunidad_editable', articulo_comunidad_editable);
 app.use('/comunidad', comunidad);
 app.use('/favoritos', favoritos);
 app.use('/rutina', rutinasRouter);
+app.use('/iniciosesion', inicioRouter);
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);
 //app.use('/foro', foroRouter);
