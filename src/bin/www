@@ -8,7 +8,7 @@ var app = require('../app');
 var debug = require('debug')('sistemas-web:server');
 var http = require('http');
 
-//const { Server } = require("socket.io");
+const { Server } = require("socket.io");
 
 /**
  * Get port from environment and store in Express.
@@ -26,22 +26,24 @@ var server = http.createServer(app);
  * Socket
  */
 const messageHistory = [];
-//const io = new Server(server);
+const io = new Server(server);
 /* Evento de conexión */
-//const messages = [];
-//io.on('connection', (socket) => {
- // console.log('a user connected');
- // socket.emit('loadMessages', messages);
- // socket.on('chat', (msg)=>{
- //     console.log("Mensaje recibido del cliente: " + msg);
-   //   messages.push({username: msg.username, message:msg.message});
-     // io.emit('chat',  { username: msg.username, message: msg.message });
-  //});
+const messages = [];
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.emit('loadMessages', messages);
+  socket.on('chat', (msg)=>{
+      console.log("Mensaje recibido del cliente: " + msg);
+      //messages.push({username: msg.username, message:msg.message});
+      messages.push({username: "Carlos Ramos", message:msg.message});
+      //io.emit('chat',  { username: msg.username, message: msg.message });
+      io.emit('chat',  { username:"Juan CArlos Monedero", message: msg.message });
+  });
 
-  //socket.on('disconnect', () => {
-  //    console.log('user disconnected');
- // });
-//});
+  socket.on('disconnect', () => {
+      console.log('user disconnected');
+  });
+});
 
 /**
  * Listen on provided port, on all network interfaces.

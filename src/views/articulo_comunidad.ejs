@@ -20,27 +20,5 @@
 					</div>
 				</div>
 				<p class="descripcion-articulo"> <%= descripcion %></p>
-			<div id="comment-section">
-				<h2>Comentarios</h2>
-				<form id="comment-form">
-					<div class="comment">
-						<img src="/images/Fotoperfilpordefecto.png" alt="Avatar" class="avatar">
-						<textarea id="comment-input" placeholder="Escribe tu comentario aquí..." required></textarea>
-						<button class="form-submit-button" type="submit">Enviar</button>
-					</div>
-				</form>
-				<div id="comments-container">
-					<div class="comment">
-						<img src="/images/Fotoperfilpordefecto.png" alt="Avatar" class="avatar">
-						<div class="comment-content">
-							<p>Este es el ejemplo de un comentario</p>
-							<div class="reaction-buttons-articulo carousel-item">
-								<button class="likeButton reaction-btn-comentarios">👍 <span class="likeCount">0</span></button>
-								<button class="dislikeButton reaction-btn-comentarios">👎 <span class="dislikeCount">0</span></button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+				<%- include("chat", {}) %>
 	<%- include("footer", {}) %>

@@ -232,27 +232,6 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 	}
 }
-
-/*document.addEventListener('DOMContentLoaded', () => {
-	document.getElementById('comment-form').addEventListener('submit', function(e) {
-		e.preventDefault();
-
-		const commentInput = document.getElementById('comment-input');
-		const commentText = commentInput.value.trim();
-
-		if (commentText) {
-			const commentElement = document.createElement('div');
-			commentElement.classList.add('comment');
-			commentElement.innerHTML = `<p>${commentText}</p>`;
-
-			document.getElementById('comments-container').appendChild(commentElement);
-
-			commentInput.value = '';
-		}
-	});
-
-});
-*/
 /* document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('imagen_articulo').addEventListener('change', function(event) {
     	const file = event.target.files[0];
