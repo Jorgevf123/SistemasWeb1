@@ -30,7 +30,8 @@ const rutinasRouter = require('./routes/rutina');
 const inicioRouter = require('./routes/iniciosesion');
 const registroRouter = require('./routes/registro');
 const ejerciciosRouter = require('./routes/ejercicios');
-
+const contactoRouter = require('./routes/contacto');
+const conocenosRouter = require('./routes/conocenos');
 
 const app = express();
 // view engine setup
@@ -70,6 +71,8 @@ app.use('/rutina', rutinasRouter);
 app.use('/iniciosesion', inicioRouter);
 app.use('/registro', registroRouter);
 app.use('/ejercicios', ejerciciosRouter);
+app.use('/conocenos', conocenosRouter);
+app.use('/contacto', contactoRouter);
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);
 //app.use('/foro', foroRouter);

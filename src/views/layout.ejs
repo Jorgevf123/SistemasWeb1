@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <!-- Incluir la cabecera -->
+    <% include('partials/header') %>
+
+    <!-- Contenido dinámico -->
+    <main>
+        <%- body %>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
