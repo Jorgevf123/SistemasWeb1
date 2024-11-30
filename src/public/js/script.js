@@ -30,25 +30,25 @@ window.addEventListener('click', function(event) {
 */
 // Función para resaltar el músculo y redirigir
 function highlightMuscle(muscleId) {
-	const redirectUrl = `ejercicios.html#${muscleId}`;
+    const redirectUrl = `/ejercicios#${muscleId}`;
 
-	// Quitar la clase activa de todos los elementos
-	document.querySelectorAll('.bodymap').forEach(part => {
-		part.classList.remove('active');
-	});
+    document.querySelectorAll('.bodymap path').forEach(part => {
+        part.classList.remove('active');
+    });
 
-	// Añadir la clase activa al área seleccionada
-	const selectedPart = document.getElementById(muscleId);
-	if (selectedPart) {
-		selectedPart.classList.add('active');
+    const selectedPart = document.getElementById(muscleId);
+    if (selectedPart) {
+        selectedPart.classList.add('active');
 
-		// Redirigir a la URL después de un breve retraso
-		setTimeout(() => {
-			window.location.href = redirectUrl;
-		}, 300); // 300 ms de retraso para que se note el cambio de color
-	} else {
-		console.error("Error: La parte seleccionada no existe.");
-	}
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+            setTimeout(() => {
+                document.getElementById(muscleId)?.scrollIntoView({ behavior: 'smooth' });
+            }, 300); // Ajusta el tiempo si es necesario
+        }, 300);
+    } else {
+        console.error("Error: La parte seleccionada no existe.");
+    }
 }
 
 // Espera a que el documento esté cargado
