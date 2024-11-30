@@ -21,6 +21,7 @@ router.get('/', async function(req, res, next) {
           numero_dislikes: articulo.numero_dislike,
           pagina_enlaces: `articulo_comunidad/${articulo.id}`,
         }
+        
       });
       res.render('comunidad', { title: 'Comunidad',
                                 user:req.session.user, 
