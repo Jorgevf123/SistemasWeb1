@@ -1029,29 +1029,22 @@ p {
 .container-carousel {
 	display: grid;
 	width: 100%;
-	max-height: 425px;
-	grid-template-columns: repeat(1000000, 635px);
+	grid-template-columns: repeat(1000000, 50%);
 	transition: transform 0.5s ease;
 }
 .row {
 	display: flex;
-	justify-content: space-between;
-	margin-bottom: 20px;
-	margin-right: 30px;
-	margin-top: 20px;
-	margin-left: 10px;
+	margin-top: 5%;
+	margin-left: 5%;
 }
 .imagen-comunidad {
-	flex: 0 0 250px; /* Controla el tamaño de la imagen */
-	margin-right: 20px;
-	position: relative;
-	display: inline-block;
+	flex: 0 0 50%; /* Controla el tamaño de la imagen */
+	margin-right: 2.5%;
+    position: relative;
 }
 .imagen-comunidad img {
 	width: 100%;
-	height: auto;
-	max-height: 125px;
-	min-height: 125px;
+    max-height: 100%;
 	display: block;
 }
 .imagen-comunidad:hover .star-icon{ 
@@ -1063,7 +1056,6 @@ p {
 }
 .recomendacion {
 	display: flex;
-	align-items: center;
 }
 .background-comunidad{
 	background: url('../images/fondo_comunidad.jpg') no-repeat center center fixed; /* Fondo para toda la pantalla */
@@ -1103,29 +1095,26 @@ p {
 	font-family: Arial Black; 
 	font-weight: bold; 
 	font-size: 20px; 
-	margin-top: -10px;
 	color: #fff; 
 	transition: background-color 0.3s ease, color 0.3s ease;
 	border-radius: 4px;
 	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 .author-name {
-	font-size: 0.9em; /* Tamaño de la fuente del autor */
-	color: #ffffff; /* Cambia el color según el diseño */
-	margin-top: 5px; /* Espacio entre la imagen y el nombre del autor */
-	font-style: italic; /* Opcional: estilo en cursiva */
+	font-size: 0.9em; 
+	color: #ffffff; 
+	margin-top: 3%; 
+	font-style: italic; 
 }
 .reaction-buttons {
 	display: flex;
 	gap: 10px; 
 	margin-top: 10px; 
-	margin-left:-130px;
 }
 .reaction-buttons-ariculo {
 	display: flex;
 	gap: 10px; 
 	margin-top: 10px; 
-	margin-left:0px;
 }
 .reaction-btn {
 	font-size: 15px;
@@ -1182,7 +1171,7 @@ p {
 	display: flex;
 	justify-content: center;
 	gap: 5px;
-	margin-top: 10px;
+	margin-top: 1.5%;
 }
 .pagination-buttons button {
 	padding: 5px 10px;
@@ -1227,7 +1216,7 @@ p {
 	word-wrap: break-word;
 	font-size: 16px;
 	font-weight: bold;
-	margin-top: 40px;
+	margin-top: -10%;
 	margin-left: 50px;
 
 }

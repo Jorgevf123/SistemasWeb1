@@ -26,16 +26,50 @@ async function resetArticulos(){
             categoria: "prueba",
             numero_like: 0,
             numero_dislike: 0
+        },
+        {
+            titulo_articulo: "Esta es una prueba 2",
+            usuario_escritor: "Carlos Ramos",
+            descripcion: "Esta es una prueba de base de datos",
+            categoria: "prueba",
+            numero_like: 0,
+            numero_dislike: 0
+        },
+        {
+            titulo_articulo: "Esta es una prueba 3",
+            usuario_escritor: "Carlos Ramos",
+            descripcion: "Esta es una prueba de base de datos",
+            categoria: "prueba",
+            numero_like: 0,
+            numero_dislike: 0
+        },
+        {
+            titulo_articulo: "Esta es una prueba 4",
+            usuario_escritor: "Carlos Ramos",
+            descripcion: "Esta es una prueba de base de datos",
+            categoria: "prueba",
+            numero_like: 0,
+            numero_dislike: 0
+        },
+        {
+            titulo_articulo: "Esta es una prueba 5",
+            usuario_escritor: "Carlos Ramos",
+            descripcion: "Esta es una prueba de base de datos",
+            categoria: "prueba",
+            numero_like: 0,
+            numero_dislike: 0
+        },
+        {
+            titulo_articulo: "Esta es una prueba 6",
+            usuario_escritor: "Carlos Ramos",
+            descripcion: "Esta es una prueba de base de datos",
+            categoria: "prueba",
+            numero_like: 0,
+            numero_dislike: 0
         }
     ];
 
     if (count == 0){
-        for (let index = 0; index < articulos_comunidad.length; index++){
-            articulos_comunidad[index].titulo_articulo = "Esta es una prueba";
-            articulos_comunidad[index].usuario_escritor = "Carlos Ramos";
-            articulos_comunidad[index].descripcion = "Esta es una prueba de base de datso";
-            articulos_comunidad[index].categoria = "prueba";
-        }
         try{
             await sequelize.models.articulos_comunidad.bulkCreate(articulos_comunidad);
             logger.info('Creados articulos iniciales');

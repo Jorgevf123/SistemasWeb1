@@ -177,46 +177,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-const itemsPerPage = 4; // Cuatro elementos por página
-const carouselGrid = document.querySelector('.container-carousel');
-const carouselItems = document.querySelectorAll('.recomendacion');
-const paginationButtonsContainer = document.querySelector('.pagination-buttons');
+document.addEventListener('DOMContentLoaded', () => {
+	const itemsPerPage = 4; // Cuatro elementos por página
+	const carouselGrid = document.querySelector('.container-carousel');
+	const carouselItems = document.querySelectorAll('.recomendacion')
+	const paginationButtonsContainer = document.querySelector('.pagination-buttons');
+	let currentIndex = 0;
 
-let currentIndex = 0;
+	// Crear botones de paginación
+	const totalPages = Math.ceil(carouselItems.length / itemsPerPage);
+	for (let i = 0; i < totalPages; i++) {
+		const button = document.createElement('button');
+		button.textContent = i + 1;
+		button.addEventListener('click', () => goToPage(i));
+		paginationButtonsContainer.appendChild(button);
+	}
 
-// Crear botones de paginación
-const totalPages = Math.ceil(carouselItems.length / itemsPerPage);
-for (let i = 0; i < totalPages; i++) {
-	const button = document.createElement('button');
-	button.textContent = i + 1;
-	button.addEventListener('click', () => goToPage(i));
-	paginationButtonsContainer.appendChild(button);
-}
+	// Función para ir a la página seleccionada
+	function goToPage(pageIndex) {
+		currentIndex = pageIndex * itemsPerPage;
+		updateCarousel();
+		updateActiveButton(pageIndex);
+	}
 
-// Función para ir a la página seleccionada
-function goToPage(pageIndex) {
-	currentIndex = pageIndex * itemsPerPage;
-	updateCarousel();
-	updateActiveButton(pageIndex);
-}
+	// Actualizar la posición del carrusel
+	function updateCarousel() {
+		const offset = -(currentIndex * 25);
+		carouselGrid.style.transform = `translateX(${offset}%)`;
+	}
 
-// Actualizar la posición del carrusel
-function updateCarousel() {
-	const offset = -(currentIndex * 25);
-	carouselGrid.style.transform = `translateX(${offset}%)`;
-}
+	// Actualizar botón activo
+	function updateActiveButton(activeIndex) {
+		const buttons = paginationButtonsContainer.querySelectorAll('button');
+		buttons.forEach((button, index) => {
+			button.classList.toggle('active', index === activeIndex);
+		});
+	}
 
-// Actualizar botón activo
-function updateActiveButton(activeIndex) {
-	const buttons = paginationButtonsContainer.querySelectorAll('button');
-	buttons.forEach((button, index) => {
-		button.classList.toggle('active', index === activeIndex);
-	});
-}
-
-// Inicializar el carrusel
-goToPage(0);
-
+	// Inicializar el carrusel
+	goToPage(0);
+});
 // Función para abrir el modal
 function openModal() {
 	document.getElementById('modal').style.display = 'block';
@@ -235,7 +235,7 @@ window.onclick = function(event) {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('comment-form').addEventListener('submit', function(e) {
 		e.preventDefault();
 
@@ -254,7 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 });
-document.addEventListener('DOMContentLoaded', () => {
+*/
+/* document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('imagen_articulo').addEventListener('change', function(event) {
     	const file = event.target.files[0];
 		const preview = document.getElementById('image-preview');
@@ -276,3 +277,4 @@ document.addEventListener('DOMContentLoaded', () => {
     	}
 	});
 });
+*/
