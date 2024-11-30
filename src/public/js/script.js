@@ -147,9 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const likeButton = item.querySelector('.likeButton');
 		const dislikeButton = item.querySelector('.dislikeButton');
 		const likeCount = item.querySelector('.likeCount');
-		const dislikeCount = item.querySelector('.dislikeCount');// Inicializamos los contadores en el DOM
-		likeCount.textContent = "0";
-		dislikeCount.textContent = "0";
+		const dislikeCount = item.querySelector('.dislikeCount');
 		// Añadimos el evento para incrementar el contador de 'like'
 		likeButton.addEventListener('click', () => {
 			let likes = parseInt(likeCount.textContent) || 0;

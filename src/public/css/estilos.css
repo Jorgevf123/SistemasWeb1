@@ -1035,12 +1035,13 @@ p {
 .row {
 	display: flex;
 	margin-top: 5%;
-	margin-left: 5%;
+	margin-left: 2.5%;
 }
 .imagen-comunidad {
 	flex: 0 0 50%; /* Controla el tamaño de la imagen */
 	margin-right: 2.5%;
     position: relative;
+    margin-top: 5%;
 }
 .imagen-comunidad img {
 	width: 100%;
@@ -1094,8 +1095,9 @@ p {
 	text-align: left; 
 	font-family: Arial Black; 
 	font-weight: bold; 
-	font-size: 20px; 
+	font-size: 16px; 
 	color: #fff; 
+    margin-right: 5%;
 	transition: background-color 0.3s ease, color 0.3s ease;
 	border-radius: 4px;
 	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
