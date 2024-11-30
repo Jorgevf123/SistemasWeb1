@@ -32,20 +32,20 @@ window.addEventListener('click', function(event) {
 function highlightMuscle(muscleId) {
     const redirectUrl = `/ejercicios#${muscleId}`;
 
-    document.querySelectorAll('.bodymap path').forEach(part => {
+    // Quitar la clase activa de todos los elementos
+    document.querySelectorAll('.bodymap').forEach(part => {
         part.classList.remove('active');
     });
 
+    // Añadir la clase activa al área seleccionada
     const selectedPart = document.getElementById(muscleId);
     if (selectedPart) {
         selectedPart.classList.add('active');
 
+        // Redirigir a la URL después de un breve retraso
         setTimeout(() => {
             window.location.href = redirectUrl;
-            setTimeout(() => {
-                document.getElementById(muscleId)?.scrollIntoView({ behavior: 'smooth' });
-            }, 300); // Ajusta el tiempo si es necesario
-        }, 300);
+        }, 300); // 300 ms de retraso para que se note el cambio de color
     } else {
         console.error("Error: La parte seleccionada no existe.");
     }
@@ -53,24 +53,24 @@ function highlightMuscle(muscleId) {
 
 // Espera a que el documento esté cargado
 document.addEventListener("DOMContentLoaded", function() {
-	// Selecciona todas las partes del SVG que deseas hacer clic
-	const muscleParts = document.querySelectorAll(".bodymap g");
+    // Selecciona todas las partes del SVG que deseas hacer clic
+    const muscleParts = document.querySelectorAll(".bodymap g");
 
-	muscleParts.forEach(part => {
-		part.addEventListener("click", () => {
-			const muscleId = part.id; // Obtiene el ID del músculo (debe coincidir con el ID en el HTML)
-			highlightMuscle(muscleId); // Llama a la función de redirección
-		});
+    muscleParts.forEach(part => {
+        part.addEventListener("click", () => {
+            const muscleId = part.id; // Obtiene el ID del músculo (debe coincidir con el ID en el HTML)
+            highlightMuscle(muscleId); // Llama a la función de redirección
+        });
 
-		// Opcional: cambia de color al pasar el cursor
-		part.addEventListener("mouseover", () => {
-			part.style.fill = "red"; // Color al pasar el cursor
-		});
+        // Opcional: cambia de color al pasar el cursor
+        part.addEventListener("mouseover", () => {
+            part.style.fill = "red"; // Color al pasar el cursor
+        });
 
-		part.addEventListener("mouseout", () => {
-			part.style.fill = "black"; // Color original al salir del cursor
-		});
-	});
+        part.addEventListener("mouseout", () => {
+            part.style.fill = "black"; // Color original al salir del cursor
+        });
+    });
 });
 
 
