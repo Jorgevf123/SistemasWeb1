@@ -5,7 +5,9 @@ const sequelize = require('../sequelize')
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   try {
-      const articulos = await sequelize.models.articulos_comunidad.findAll();
+      const articulos = await sequelize.models.articulos_comunidad.findAll({
+        order: [['numero_like', 'DESC']] 
+      });
       const total_items = await sequelize.models.articulos_comunidad.count();
       const articulosProcesados = articulos.map((articulo) => {
         let imagenBase64 = '';

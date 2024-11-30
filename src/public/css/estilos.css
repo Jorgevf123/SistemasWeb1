@@ -1045,7 +1045,7 @@ p {
 }
 .imagen-comunidad img {
 	width: 100%;
-    max-height: 100%;
+    max-height: 175px;
 	display: block;
 }
 .imagen-comunidad:hover .star-icon{ 
@@ -1079,6 +1079,11 @@ p {
 	min-height: 375px;
 	margin: auto;
 	object-fit: contain;
+}
+.multiple-lines{
+    margin-left:5%;
+    width:50%;
+    text-align: center;
 }
 .descripcion{
 	font-family: monospace;

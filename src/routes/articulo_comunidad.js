@@ -19,7 +19,8 @@ router.get('/:id', async function(req, res, next) {
                                     usuario_escritor: articulo.usuario_escritor, 
                                     descripcion: articulo.descripcion,
                                     likes: articulo.numero_like,
-                                    dislikes: articulo.numero_dislike
+                                    dislikes: articulo.numero_dislike,
+                                    categoria: articulo.categoria,
                                   });
   } catch (error) {
     console.error(error);

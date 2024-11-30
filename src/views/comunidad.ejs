@@ -1,4 +1,4 @@
-<%- include("header", {}) %>
+<%- include('partials/header') %>
 		<div class= "background-comunidad">
 			<div class="columnas">
 				<div class="principal">
@@ -29,42 +29,21 @@
 						<li data-target="#theCarousel" data-slide-to="3"></li>
 					</ol>
 					<div class="carousel-inner" role="listbox">
+						<% for (let i = 0; i < 4; i++) { %>
+							<% if(i== 0) { %>
 						<div class="item active">
-							<a href= "articulo_comunidad_editable/1">
-								<img src= "/images/img1.jpg" alt="Imagen 1" > 
-								<div class="carousel-caption d-none d-md-block">
-									<h3> Título 1</h3>
-									<p>Usuario 1</p>
-								</div>
-							</a>
-						</div>
+							<% } else { %>
 						<div class="item">	
-							<a href= "articulo_comunidad">
-								<img src="images/img2.jpg" alt="Imagen 2" > 
-								<div class="carousel-caption d-none d-md-block">
-									<h3> Título del artículo</h3>
-									<p>Usuario 2</p>
+							<% } %>
+							<a href= "<%= articulos[i].pagina_enlaces %>">
+								<img src= "<%= articulos[i].imagen_articulo %>" alt="Imagen 1" > 
+								<div class="carousel-caption d-none d-md-block multiple-lines">
+									<h3> <%= articulos[i].titulo_articulo %></h3>
+									<p><%= articulos[i].usuario_escritor %></p>
 								</div>
 							</a>
 						</div>
-						<div class="item">	
-							<a href= "articulo_comunidad">
-								<img src="images/img3.jpg" alt="Imagen 3" >
-								<div class="carousel-caption d-none d-md-block">
-									<h3> Título del artículo</h3>
-									<p>Usuario 3</p>
-								</div>
-							</a>
-						</div>
-						<div class="item">	
-							<a href= "articulo_comunidad">
-								<img src="images/img4.jpg" alt="Imagen 4" > 
-								<div class="carousel-caption d-none d-md-block">
-									<h3> Título del artículo</h3>
-									<p> Usuario 4</p>
-								</div>
-							</a>
-						</div>
+						<% } %>
 						<a class="left carousel-control" href="#theCarousel" role="button" data-slide="prev">
 							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 							<span class="sr-only">anterior</span>
@@ -83,7 +62,7 @@
 					<h1>Recomendaciones de ejercicios</h1>
 				</div>
 				<div class="container-carousel">
-					<% for (let i = 0; i < articulos.length; i++) { %>
+					<% for (let i = 4; i < articulos.length; i++) { %>
 					<div class="columna"> 
 						<div class="row">
 							<div class="recomendacion">
@@ -108,7 +87,10 @@
 								</div>
 							</div>
 						</div>
-						<% i++ %>
+						<% i++; if(i == articulos.length) { %>
+							<% console.log(i)  %>
+						</div>	
+						<%break;} %>
 						<div class="row">
 							<div class="recomendacion">
 								<div class="imagen-comunidad">
