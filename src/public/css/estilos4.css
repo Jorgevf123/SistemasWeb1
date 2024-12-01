@@ -115,7 +115,7 @@ nav ul li a:hover {
 
 /* Hero section */
 .contact-hero {
-    background-image: url('contact2_background.jpg'); /* Añade una imagen de fondo relevante */
+    background-image: url('../images/contact2_background.jpg'); /* Añade una imagen de fondo relevante */
     background-size: cover;
     background-position: center;
     height: 50vh;

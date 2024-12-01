@@ -165,7 +165,7 @@ nav ul li a:hover {
 
 /* Hero section */
 .about-hero {
-    background-image: url('fondo3.jpg');
+    background-image: url("../images/fondo3.jpg");
     background-size: cover;
     background-position: center;
     height: 50vh;
