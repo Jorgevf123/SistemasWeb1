@@ -32,7 +32,7 @@ const registroRouter = require('./routes/registro');
 const ejerciciosRouter = require('./routes/ejercicios');
 const contactoRouter = require('./routes/contacto');
 const conocenosRouter = require('./routes/conocenos');
-
+const buscarRouter = require('./routes/buscar'); // Asegúrate de que el path sea correcto
 
 const app = express();
 // view engine setup
@@ -74,7 +74,7 @@ app.use('/registro', registroRouter);
 app.use('/ejercicios', ejerciciosRouter);
 app.use('/conocenos', conocenosRouter);
 app.use('/contacto', contactoRouter);
-
+app.use('/', buscarRouter);
 
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);

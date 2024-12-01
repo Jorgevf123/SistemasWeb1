@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 
     const mailOptions = {
         from: email, // El remitente es el correo ingresado en el formulario
-        to: 'opinionesgymanual@gmail.com', // Tu correo donde recibirás los mensajes
+        to: 'opinionesgymanual@gmail.com', // Tu correo donde recibirás los mensajes Gymanual2024
         subject: `Nuevo mensaje de contacto de ${name}`,
         text: `Has recibido un mensaje de ${name} (${email}):\n\n${message}`,
     };

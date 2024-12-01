@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de búsqueda</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main>
+        <section class="search-results">
+            <h1>Resultados de búsqueda para "<%= query %>"</h1>
+            <% if (resultados.length > 0) { %>
+                <ul>
+                    <% resultados.forEach(resultado => { %>
+                        <li>
+                            <a href="<%= resultado.url %>">
+                                <h2><%= resultado.titulo %></h2>
+                                <p><%= resultado.contenido %></p>
+                            </a>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No se encontraron resultados para tu búsqueda.</p>
+            <% } %>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

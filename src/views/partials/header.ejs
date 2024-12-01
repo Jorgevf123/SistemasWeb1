@@ -22,8 +22,11 @@
 			</ul>
 			<div class="header-right">
                 <div class="search-bar">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit">Buscar</button>
+					<form action="/buscar" method="GET">
+                    <input type="text" name="q" placeholder="Buscar..." required>
+					<button type="submit">Buscar</button>
+					</form>
+                    
                 </div>
                 <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
                     <img src="/images/avatar.webp" alt="Foto de perfil" class="profile-pic">
