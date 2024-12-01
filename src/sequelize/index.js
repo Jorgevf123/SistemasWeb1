@@ -9,9 +9,11 @@ const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: 'sequelize/db.sqlite'
 });
-
+//AÑADIMOS modelos
 const modelDefiners = [
     require('./models/articulos_comunidad.model'),
+    require('./models/usuarios.js'), // Agrega aquí el modelo de usuarios
+
 ];
 
 for (const modelDefiner of modelDefiners){
@@ -150,6 +152,8 @@ async function reset(){
     try{
         await sequelize.sync({force: true}); // false para que no se reinice la DB
         await resetArticulos();
+        console.log('Base de datos sincronizada correctamente.');
+        
     }catch{
         console.error('Error al sincronizar la base de datos:', error);
         console.error(error.stack);

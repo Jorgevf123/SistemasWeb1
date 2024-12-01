@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 
-require('./sequelize');
+require('./sequelize'); //un ORM (Object-Relational Mapping) para interactuar con una base de datos relacional
 
 const indexRouter = require('./routes/index');
 //const aboutRouter = require('./routes/conocenos');
