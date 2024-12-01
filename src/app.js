@@ -33,6 +33,7 @@ const ejerciciosRouter = require('./routes/ejercicios');
 const contactoRouter = require('./routes/contacto');
 const conocenosRouter = require('./routes/conocenos');
 
+
 const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -73,6 +74,8 @@ app.use('/registro', registroRouter);
 app.use('/ejercicios', ejerciciosRouter);
 app.use('/conocenos', conocenosRouter);
 app.use('/contacto', contactoRouter);
+
+
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);
 //app.use('/foro', foroRouter);

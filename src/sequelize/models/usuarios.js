@@ -1,5 +1,12 @@
 
+const path = require('path');
 const { DataTypes } = require('sequelize');
+const fs = require('fs');
+
+
+
+const defaultImagePath = path.join('public', 'images', 'img1.jpg');
+const defaultImageBuffer = fs.readFileSync(defaultImagePath);
 
 module.exports = (sequelize) => {
     sequelize.define('usuarios', {
