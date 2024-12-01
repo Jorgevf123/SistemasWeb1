@@ -37,7 +37,7 @@ io.on('connection', (socket) => {
       //messages.push({username: msg.username, message:msg.message});
       messages.push({username: "Carlos Ramos", message:msg.message});
       //io.emit('chat',  { username: msg.username, message: msg.message });
-      io.emit('chat',  { username:"Juan CArlos Monedero", message: msg.message });
+      io.emit('chat',  { username:"Juan Carlos Monedero", message: msg.message });
   });
 
   socket.on('disconnect', () => {
