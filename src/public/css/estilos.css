@@ -1048,7 +1048,7 @@ p {
 }
 .imagen-comunidad img {
 	width: 100%;
-    max-height: auto;
+    max-height: 175px;
 	display: block;
 }
 .imagen-articulo {
