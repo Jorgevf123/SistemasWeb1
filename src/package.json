@@ -18,6 +18,7 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.16",
     "sequelize": "^6.37.5",
+    "sistemas-web": "file:",
     "socket.io": "^4.7.3",
     "sqlite3": "^5.1.6",
     "validator": "^13.12.0",
