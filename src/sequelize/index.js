@@ -4,7 +4,7 @@ const logger = require('../logger');
 const { error } = require('winston');
 const fs = require('fs');
 const path = require('path');
-
+const validator = require('validator');  // Para la validación de correos electrónicos
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: 'sequelize/db.sqlite'
@@ -147,11 +147,39 @@ async function resetArticulos(){
         logger.info('La DB articulos de la comunindad ya estaba inicializada');
     }
 }
+async function resetUsuarios() {
+    const count = await sequelize.models.Usuario.count();
+    const usuarios = [
+        {
+            correo_electronico: "usuario1@example.com",
+            nombre: "Juan Pérez",
+            contrasena: bcrypt.hashSync("contraseñaSegura123!", 10), // Hasheando la contraseña
+            es_admin: false,
+        },
+        {
+            correo_electronico: "admin@example.com",
+            nombre: "Admin",
+            contrasena: bcrypt.hashSync("adminPassword#2024", 10), // Hasheando la contraseña
+            es_admin: true,
+        },
+    ];
 
+    if (count === 0) {
+        try {
+            await sequelize.models.Usuario.bulkCreate(usuarios);
+            logger.info('Usuarios iniciales creados');
+        } catch (error) {
+            logger.error('Error al crear los usuarios:', error);
+        }
+    } else {
+        logger.info('La DB de usuarios ya estaba inicializada');
+    }
+}
 async function reset(){
     try{
         await sequelize.sync({force: true}); // false para que no se reinice la DB
         await resetArticulos();
+        await resetUsuarios();
         console.log('Base de datos sincronizada correctamente.');
         
     }catch{

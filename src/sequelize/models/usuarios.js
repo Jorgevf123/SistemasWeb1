@@ -1,26 +1,71 @@
-
-const path = require('path');
 const { DataTypes } = require('sequelize');
-const fs = require('fs');
-
-
-
-const defaultImagePath = path.join('public', 'images', 'img1.jpg');
-const defaultImageBuffer = fs.readFileSync(defaultImagePath);
+const validator = require('validator');  // Para la validación de correos electrónicos
 
 module.exports = (sequelize) => {
-    sequelize.define('usuarios', {
-        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        correo_electronico: { type: DataTypes.STRING, allowNull: false, unique: true },
-        nombre: { type: DataTypes.STRING, allowNull: false },
-        contrasena: { type: DataTypes.STRING, allowNull: false },
-        es_admin: { type: DataTypes.BOOLEAN, defaultValue: false },
-        favoritos: { type: DataTypes.BOOLEAN, defaultValue: false },
-        fecha_creacion: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
+    const Usuario = sequelize.define('Usuario', {
+        id: { 
+            type: DataTypes.INTEGER, 
+            primaryKey: true, 
+            autoIncrement: true 
+        },
+        correo_electronico: { 
+            type: DataTypes.STRING, 
+            allowNull: false, 
+            unique: true,
+            validate: {
+                // Validación para el formato del correo electrónico
+                isEmail: {
+                    msg: "El correo electrónico no es válido"
+                },
+                // Validación personalizada (más controlada)
+                customEmail: {
+                    validator(value) {
+                        if (!validator.isEmail(value)) {
+                            throw new Error('El correo electrónico debe tener un formato válido');
+                        }
+                    },
+                    msg: "El correo electrónico no es válido"
+                }
+            }
+        },
+        nombre: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        contrasena: { 
+            type: DataTypes.STRING, 
+            allowNull: false,
+            validate: {
+                // Validación personalizada para contraseña
+                minLength(value) {
+                    if (value.length < 8) {
+                        throw new Error('La contraseña debe tener al menos 8 caracteres');
+                    }
+                },
+                hasSpecialChar(value) {
+                    const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])/;
+                    if (!passwordRegex.test(value)) {
+                        throw new Error('La contraseña debe contener al menos un carácter especial');
+                    }
+                }
+            }
+        },
+        es_admin: { 
+            type: DataTypes.BOOLEAN, 
+            defaultValue: false 
+        },
+        favoritos: { 
+            type: DataTypes.BOOLEAN, 
+            defaultValue: false 
+        },
+        fecha_creacion: { 
+            type: DataTypes.DATE, 
+            defaultValue: DataTypes.NOW 
+        }
     });
+
+    return Usuario;
 };
-
-
 
 
 /*const fs = require('fs');
