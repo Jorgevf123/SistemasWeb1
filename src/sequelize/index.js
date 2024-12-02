@@ -12,7 +12,7 @@ const sequelize = new Sequelize({
 //AÑADIMOS modelos
 const modelDefiners = [
     require('./models/articulos_comunidad.model'),
-    require('./models/usuarios.js'), // Agrega aquí el modelo de usuarios
+    require('./models/usuarios.js'),
 
 ];
 
@@ -152,9 +152,10 @@ async function resetUsuarios() {
     const usuarios = [
         {
             correo_electronico: "usuario1@example.com",
-            nombre: "Juan Pérez",
+            nombre: "Juan Perez",
             contrasena: bcrypt.hashSync("contraseñaSegura123!", 10), // Hasheando la contraseña
             es_admin: false,
+            favoritos :"[1,2,7,5,9]",
         },
         {
             correo_electronico: "admin@example.com",

@@ -1053,17 +1053,19 @@ p {
 }
 .imagen-articulo {
     flex: 0 0 100%; /* Controla el tamaño de la imagen */
-	margin-right: 20%;
+	margin-right: 10%;
+    margin-left: 15%;
     position: relative;
-    text-align: center;
-    margin-left: 20%;
+    margin-left: 0;
 }
 .imagen-articulo img {
-    width: 50%;
+    width: 100%;
     max-height: auto;
 	display: block;
 }
-
+.imagen-articulo:hover .star-icon{ 
+	opacity: 1;
+}
 .imagen-comunidad:hover .star-icon{ 
 	opacity: 1;
 }

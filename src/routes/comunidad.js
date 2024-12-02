@@ -27,6 +27,7 @@ router.get('/', async function(req, res, next) {
       });
       res.render('comunidad', { title: 'Comunidad',
                                 user:req.session.user, 
+                                numero_carrusel:4,
                                 total_items: total_items.length ,
                                 articulos: articulosProcesados,
       });
