@@ -21,6 +21,7 @@ router.get('/:id', async function(req, res, next) {
                                     likes: articulo.numero_like,
                                     dislikes: articulo.numero_dislike,
                                     categoria: articulo.categoria,
+                                    pageData: req.params.id
                                   });
   } catch (error) {
     console.error(error);

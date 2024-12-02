@@ -1136,11 +1136,6 @@ p {
 	gap: 10px; 
 	margin-top: 10px; 
 }
-.reaction-buttons-ariculo {
-	display: flex;
-	gap: 10px; 
-	margin-top: 10px; 
-}
 .reaction-btn {
 	font-size: 15px;
 	padding: 5px 10px;
@@ -1275,6 +1270,7 @@ p {
 }
 .comment-content {
 	flex: 1;
+    margin-bottom:12.5%;
 }
 .comment-content p {
 	margin: 0;

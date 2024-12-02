@@ -31,13 +31,24 @@ const io = new Server(server);
 const messages = [];
 io.on('connection', (socket) => {
   console.log('a user connected');
-  socket.emit('loadMessages', messages);
+  socket.on('joinPage', (pageId) => {
+    console.log(`Usuario conectado a la página ${pageId}`);
+    
+    // Unirse a un "room" de la página
+    socket.join(pageId);
+
+    // Enviar los mensajes anteriores para esa página
+    if (messageHistory[pageId]) {
+        socket.emit('loadMessages', messageHistory[pageId]);
+    }
+  });
   socket.on('chat', (msg)=>{
       console.log("Mensaje recibido del cliente: " + msg);
-      //messages.push({username: msg.username, message:msg.message});
-      messages.push({username: "Carlos Ramos", message:msg.message});
-      //io.emit('chat',  { username: msg.username, message: msg.message });
-      io.emit('chat',  { username:"Juan Carlos Monedero", message: msg.message });
+      if (!messageHistory[msg.pageId]) {
+        messageHistory[msg.pageId] = [];
+    }
+      messageHistory[msg.pageId].push({ username: msg.username, message: msg.message });
+      io.to(msg.pageId).emit('chat', { username: msg.username, message: msg.message });
   });
 
   socket.on('disconnect', () => {
