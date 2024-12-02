@@ -13,19 +13,9 @@ module.exports = (sequelize) => {
             allowNull: false, 
             unique: true,
             validate: {
-                // Validación para el formato del correo electrónico
-                isEmail: {
+                isEmail: { // Usando el validador incorporado
                     msg: "El correo electrónico no es válido"
                 },
-                // Validación personalizada (más controlada)
-                customEmail: {
-                    validator(value) {
-                        if (!validator.isEmail(value)) {
-                            throw new Error('El correo electrónico debe tener un formato válido');
-                        }
-                    },
-                    msg: "El correo electrónico no es válido"
-                }
             }
         },
         nombre: { 
@@ -36,7 +26,6 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING, 
             allowNull: false,
             validate: {
-                // Validación personalizada para contraseña
                 minLength(value) {
                     if (value.length < 8) {
                         throw new Error('La contraseña debe tener al menos 8 caracteres');

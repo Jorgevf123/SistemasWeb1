@@ -1,20 +1,10 @@
-/*const express = require('express');
-const router = express.Router();
-
-// Ruta principal para las rutinas
-router.get('/', (req, res) => {
-    res.render('registro'); // Renderiza la plantilla `rutina.ejs`
-});
-
-module.exports = router;
-*/
-
 const express = require('express');
 const bcrypt = require('bcrypt');
 const sequelize = require('../sequelize'); // Asegúrate de que el path sea correcto
 const router = express.Router();
 
-const Usuario = sequelize.models.usuarios;
+// Acceder correctamente al modelo Usuario
+const Usuario = sequelize.models.Usuario; // Nombre correcto del modelo
 
 // Mostrar la página de registro
 router.get('/', (req, res) => {
@@ -23,13 +13,20 @@ router.get('/', (req, res) => {
 
 // Procesar el registro del usuario
 router.post('/', async (req, res) => {
-    const { correo_electronico, nombre, contrasena } = req.body;
+    const { correo_electronico, nombre, contrasena, confirm_password } = req.body;
 
     try {
+        // Validar que las contraseñas coincidan
+        if (contrasena !== confirm_password) {
+            return res.status(400).send('Las contraseñas no coinciden.');
+        }
+
         // Validar si el correo ya está registrado
-        const usuarioExistente = await Usuario.findOne({ where: { correo_electronico } });
-        if (usuarioExistente) {
-            return res.status(400).send('El correo electrónico ya está registrado.');
+        
+
+        // Validar longitud y complejidad de la contraseña
+        if (contrasena.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/g.test(contrasena)) {
+            return res.status(400).send('La contraseña debe tener al menos 8 caracteres y un carácter especial.');
         }
 
         // Encriptar la contraseña
@@ -50,5 +47,6 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+
 
 
