@@ -5,6 +5,39 @@
     box-sizing: border-box;
 }
 
+head1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+head2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+head3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: url('../images/prueba.avif') no-repeat center center fixed;
@@ -118,8 +151,8 @@ nav ul li a:hover {
     max-width: 800px; /* Ancho máximo */
 }
 
-.welcome h1 {
-    font-size: 3em;
+.welcome head1 {
+    font-size: 4em;
     margin-bottom: 10px;
     color: #333;
     
@@ -158,8 +191,8 @@ nav ul li a:hover {
     
 }
 
-.services h2 {
-    font-size: 2.5em;
+.services head2 {
+    font-size: 3em;
     color: #d81515; 
     margin-bottom: 70px;
     background-color: rgba(255, 255, 255, 254.8); /* Fondo blanco semitransparente */
@@ -180,8 +213,8 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.service-item h3 {
-    font-size: 1.8em;
+.service-item head3 {
+    font-size: 2.5em;
     margin-bottom: 10px;
     color: #ffffff;
 }
@@ -207,8 +240,8 @@ nav ul li a:hover {
    
 }
 
-.servicesM h2 {
-    font-size: 2.5em;
+.servicesM head2 {
+    font-size: 3em;
     color: #ff4e4e; 
     margin-bottom: 70px;
     background-color: rgba(88, 88, 88, 1); /* Fondo blanco semitransparente */
@@ -229,7 +262,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.serviceM-item h3 {
+.serviceM-item head3 {
     font-size: 1.8em;
     margin-bottom: 10px;
     color: #ffffff;
@@ -253,7 +286,7 @@ nav ul li a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.choose-muscle h2 {
+.choose-muscle head2 {
     color: #e61919; /* Color del texto blanco */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
     margin-bottom: 50px;
@@ -513,7 +546,7 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 	margin-left: 120px;
 }
 
-.comment-box h3 {
+.comment-box head3 {
 	margin: 0 0 10px;
 	color: #eb0505;
 }
@@ -846,7 +879,7 @@ p {
 }
 
 /* Título del ejercicio */
-.exercise-container h2 {
+.exercise-container head2 {
     font-size: 2.2rem;
     color: #e81313;
     margin-bottom: 20px;
@@ -904,7 +937,7 @@ p {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.comment-section h3, .exercise-content h3 {
+.comment-section head3, .exercise-content head3 {
     color: #444;
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -979,14 +1012,14 @@ p {
         max-width: 100%;
     }
 }
-.centered-title h3{
+.centered-title head3{
 	text-align: center;
 	color: white;
 	font-size: 36px;
 	margin-right: 70px;
 	font-weight: bold;
 }
-.centered-title h2{
+.centered-title head2{
 	text-align: center;
 	color: white;
 	font-size: 32px;
@@ -999,7 +1032,7 @@ p {
 	font-size: 24px;
 	font-weight: bold;
 }
-.lefted-title h2{
+.lefted-title head2{
 	text-align: left;
 	margin-top:30px;
 	margin-left:50px;
@@ -1007,7 +1040,7 @@ p {
 	font-size: 24px;
 	font-weight: bold;
 }
-.lefted-title h3{
+.lefted-title head3{
 	text-align: left;
 	margin-top:30px;
 	margin-left:50px;
@@ -1082,7 +1115,7 @@ p {
 	overflow:hidden;
     min-height: 100vh;
 }
-.centered-title h1{
+.centered-title head1{
 	text-align: right;
 	color: white;
 	font-size: 36px;
