@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-head1 {
+h1 {
     display: block;
     font-size: 2em;
     margin-block-start: 0.67em;
@@ -16,7 +16,7 @@ head1 {
     unicode-bidi: isolate;
 }
 
-head2 {
+h2 {
     display: block;
     font-size: 1.5em;
     margin-block-start: 0.83em;
@@ -27,7 +27,7 @@ head2 {
     unicode-bidi: isolate;
 }
 
-head3 {
+h3 {
     display: block;
     font-size: 1.17em;
     margin-block-start: 1em;
@@ -38,7 +38,7 @@ head3 {
     unicode-bidi: isolate;
 }
 
-body {
+body.home{
     font-family: Arial, sans-serif;
     background: url('../images/prueba.avif') no-repeat center center fixed;
     background-size: cover;
@@ -151,7 +151,7 @@ nav ul li a:hover {
     max-width: 800px; /* Ancho máximo */
 }
 
-.welcome head1 {
+.welcome h1 {
     font-size: 4em;
     margin-bottom: 10px;
     color: #333;
@@ -191,7 +191,7 @@ nav ul li a:hover {
     
 }
 
-.services head2 {
+.services h2 {
     font-size: 3em;
     color: #d81515; 
     margin-bottom: 70px;
@@ -213,7 +213,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.service-item head3 {
+.service-item h3 {
     font-size: 2.5em;
     margin-bottom: 10px;
     color: #ffffff;
@@ -240,7 +240,7 @@ nav ul li a:hover {
    
 }
 
-.servicesM head2 {
+.servicesM h2 {
     font-size: 3em;
     color: #ff4e4e; 
     margin-bottom: 70px;
@@ -262,7 +262,7 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.serviceM-item head3 {
+.serviceM-item h3 {
     font-size: 1.8em;
     margin-bottom: 10px;
     color: #ffffff;
@@ -286,7 +286,7 @@ nav ul li a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.choose-muscle head2 {
+.choose-muscle h2 {
     color: #e61919; /* Color del texto blanco */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
     margin-bottom: 50px;
@@ -546,7 +546,7 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 	margin-left: 120px;
 }
 
-.comment-box head3 {
+.comment-box h3 {
 	margin: 0 0 10px;
 	color: #eb0505;
 }
@@ -879,7 +879,7 @@ p {
 }
 
 /* Título del ejercicio */
-.exercise-container head2 {
+.exercise-container h2 {
     font-size: 2.2rem;
     color: #e81313;
     margin-bottom: 20px;
@@ -937,7 +937,7 @@ p {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.comment-section head3, .exercise-content head3 {
+.comment-section h3, .exercise-content h3 {
     color: #444;
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -1012,14 +1012,14 @@ p {
         max-width: 100%;
     }
 }
-.centered-title head3{
+.centered-title h3{
 	text-align: center;
 	color: white;
 	font-size: 36px;
 	margin-right: 70px;
 	font-weight: bold;
 }
-.centered-title head2{
+.centered-title h2{
 	text-align: center;
 	color: white;
 	font-size: 32px;
@@ -1032,7 +1032,7 @@ p {
 	font-size: 24px;
 	font-weight: bold;
 }
-.lefted-title head2{
+.lefted-title h2{
 	text-align: left;
 	margin-top:30px;
 	margin-left:50px;
@@ -1040,7 +1040,7 @@ p {
 	font-size: 24px;
 	font-weight: bold;
 }
-.lefted-title head3{
+.lefted-title h3{
 	text-align: left;
 	margin-top:30px;
 	margin-left:50px;
@@ -1115,7 +1115,7 @@ p {
 	overflow:hidden;
     min-height: 100vh;
 }
-.centered-title head1{
+.centered-title h1{
 	text-align: right;
 	color: white;
 	font-size: 36px;

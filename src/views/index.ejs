@@ -6,7 +6,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="home">
     
      <!-- Incluye el encabezado desde header.ejs -->
      <%- include('partials/header') %>
@@ -16,7 +16,7 @@
     <main>
         <!-- Sección de bienvenida (y boton inicio sesión)-->
         <section class="welcome">
-            <head1>¡Saca tu mejor versión con Gymanual!</head1>
+            <h1>¡Saca tu mejor versión con Gymanual!</h1>
             <p></p>
             <div class="user-options centered">
                 <a href="/iniciosesion" class="btn">Iniciar Sesión</a>
@@ -27,11 +27,11 @@
         <!-- Sección de "¿Qué ofrecemos?" con imágenes de comunidad y entrenamientos -->
         <section class="services">
              
-            <head2>¿Qué ofrecemos?</head2>
+            <h2>¿Qué ofrecemos?</h2>
             <div class="services-container">
                 <div class="service-item">
                  <div class="image-wrapper">
-                    <head3>Comunidad</head3>
+                    <h3>Comunidad</h3>
                 <!--    <a href="comunidad.html">  Enlace alrededor de la imagen -->
                     <a href="/comunidad">
                         <img src="images/comunidad.jpg" alt="Comunidad" class="service-image">
@@ -41,7 +41,7 @@
                     
                 </div>
                 <div class="service-item">
-                    <head3>Rutinas recomendadas</head3>
+                    <h3>Rutinas recomendadas</h3>
             <!--        <a href="rutina.html">  Enlace alrededor de la imagen -->
                     <a href="/rutina">
                     <img src="images/entrena.jpg" alt="Entrenamientos" class="service-image">
@@ -55,7 +55,7 @@
                
         
        <section class="servicesM">
-            <head2>Elige el músculo que quieres trabajar</head2>
+            <h2>Elige el músculo que quieres trabajar</h2>
             
         
             <div class="muscle-maps">
