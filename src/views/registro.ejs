@@ -3,39 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="css/estilosRegistro.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Gymanual</a></li>
-                <li><a href="/ejercicios">Ejercicios</a></li>
-                <li><a href="/conocenos">Conócenos</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-            <div class="header-right">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit">Buscar</button>
-                </div>
-                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="images/avatar.webp" alt="Foto de perfil" class="profile-pic">
-                </div>
-                <div class="profile-menu" id="profile-menu">
-                    <a href="/iniciosesion" class="username">usuario</a> 
-                    <button onclick="window.location.href='/editar_perfil'">Cambiar Credenciales</button>
-                    <button onclick="window.location.href='/ejercicios_supervisar'">Ejercicios a supervisar</button>
-                    <button>Atención al cliente</button>
-                    <button>Cerrar cuenta</button>
-                    <button onclick="window.location.href='/gestion_usuarios'">Gestión de usuarios</button>
-                    <button onclick="window.location.href='/terminosycondiciones'">Términos y condiciones</button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    
 
+     <!-- Incluye el encabezado desde header.ejs 
+     <%- include('partials/header') %>
+
+    <script src="js/script.js"></script>
     <div class="main-container">
         <div class="form-container">
             <h1>Registro</h1>
@@ -55,6 +33,5 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
