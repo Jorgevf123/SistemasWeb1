@@ -11,8 +11,22 @@ LOGO(opcional)
 ## Información breve del proyecto
 Gymanual es una plataforma diseñada para aficionados y profesionales del gimnasio. Ofrecemos una base de datos rica en ejercicios, rutinas personalizadas y guías visuales que facilitan alcanzar tus objetivos físicos. Los usuarios pueden guardar ejercicios favoritos, crear rutinas personalizadas, y compartir su conocimiento al proponer nuevos ejercicios. Además, Gymanual está diseñada para fomentar la interacción comunitaria, permitiendo que tanto administradores como usuarios registrados contribuyan activamente.
 
-## Información de despliegue
-Para desplegar el proyecto Gymanual, sigue estos pasos:
+
+## Requisitos
+1. **Sistema operativo**:
+   - Windows 10 o superior.
+
+2. **Herramientas necesarias**:
+   - **Node.js**: Instalado con `nvm` (Node Version Manager).
+   - **Git**: Para clonar el repositorio.
+   - **Navegador web moderno**: Google Chrome, Microsoft Edge o Firefox.
+
+3. **Dependencias del proyecto**:
+   - `http-errors`: Manejo de errores HTTP en Node.js.
+   - Otras dependencias definidas en el archivo `package.json`.
+
+### Pasos de despliegue y ejecución
+Para desplegar y ejecutar el proyecto Gymanual, sigue los pasos detallados a continuación:
 
 1. **Clonar el repositorio**:
    ```bash
@@ -46,5 +60,8 @@ Para desplegar el proyecto Gymanual, sigue estos pasos:
 ```http
    localhost:3000
 
+## Requisitos de funcionamiento
 
-– Información de ejecución, incluyendo posibles requisitos
+Usuarios invitados: Visualización de ejercicios sin necesidad de iniciar sesión.
+Usuarios registrados: Posibilidad de guardar ejercicios favoritos, crear rutinas personalizadas y sugerir nuevos ejercicios.
+Administradores: Gestión de usuarios, aceptación/rechazo de ejercicios sugeridos y supervisión del sistema.
