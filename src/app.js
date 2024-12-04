@@ -38,7 +38,6 @@ const contactoRouter = require('./routes/contacto');
 const conocenosRouter = require('./routes/conocenos');
 const buscarRouter = require('./routes/buscar'); // Asegúrate de que el path sea correcto
 
-
 const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -84,7 +83,6 @@ app.use('/gestion_usuarios', gestionUsuariosRouter);
 app.use('/ejercicios_supervisar', ejerciciosSupervisarRouter);
 app.use('/ejercicio_a_validar', ejercicioAValidarRouter);
 app.use('/', buscarRouter);
-
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);
 //app.use('/foro', foroRouter);
