@@ -21,7 +21,7 @@
                     <button type="submit">Buscar</button>
                 </div>
                 <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
+                    <img src="images/avatar.webp" alt="Foto de perfil" class="profile-pic">
                 </div>
                 <div class="profile-menu" id="profile-menu">
                     <a href="/iniciosesion" class="username">usuario</a> 
@@ -42,16 +42,15 @@
             <p>Para crearse una cuenta rellene los siguientes campos:</p>
             <!-- Cambia la acción para enviar los datos al servidor -->
             <form action="/registro" method="POST">
-                <input type="email" name="correo_electronico" placeholder="Correo electrónico" required><br>
-                <input type="text" name="nombre" placeholder="Nombre completo" required><br>
-                <input type="password" name="contrasena" placeholder="Contraseña" required><br>
-                <input type="password" name="confirm_password" placeholder="Repita la contraseña" required><br>
-                <p><a href="/terminos">Términos y condiciones</a></p>
-                <button type="submit">Finalizar</button>
+                <input type="email" name="correo_electronico" placeholder="Correo electrónico" required>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="password" name="contrasena" placeholder="Contraseña" required>
+                <input type="password" name="confirm_password" placeholder="Repita la contraseña" required>
                 <div>
                     <input type="checkbox" name="aceptar_terminos" required>
                     <label for="aceptar_terminos">Acepto los <a href="/terminos" target="_blank">Términos y Condiciones</a></label>
                 </div>
+                <button type="submit">Finalizar</button>
             </form>
         </div>
     </div>

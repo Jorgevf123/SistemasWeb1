@@ -139,7 +139,7 @@ nav ul li a:hover {
     justify-content: flex-end; /* Ajusta el contenedor hacia la derecha */
     align-items: center;
     height: calc(100vh - 80px);
-    background-image: url('reg.png'); /* Cambia la imagen si es necesario */
+    background-image: url('/images/reg.png'); /* Cambia la imagen si es necesario */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -179,28 +179,31 @@ nav ul li a:hover {
 
 /* Estilos para los campos del formulario */
 .form-container input[type="email"],
+.form-container input[type="text"],
 .form-container input[type="password"] {
-    width: calc(100% - 20px);
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 100%;
     padding: 12px 10px;
-    margin: 10px 0;
+    margin: 10px 0; /* Espaciado entre los inputs */
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    color: #333;
     outline: none;
     transition: border-color 0.3s;
 }
 
 .form-container input[type="email"]:focus,
+.form-container input[type="text"]:focus,
 .form-container input[type="password"]:focus {
-    border-color: #00cc66;
+    border-color: #00cc66; /* Color de borde al hacer foco */
 }
 
+/* Botones (si es necesario) */
 .form-container button {
     width: 100%;
     padding: 12px;
     font-size: 1.1em;
-    color: #ffffff;
+    color: white;
     background-color: #28a745;
     border: none;
     border-radius: 5px;
@@ -210,4 +213,20 @@ nav ul li a:hover {
 
 .form-container button:hover {
     background-color: #218838;
+}
+/* Media Queries para responsividad */
+@media screen and (max-width: 768px) {
+    .form-container {
+        padding: 15px; /* Ajusta el padding en pantallas pequeñas */
+    }
+
+    .form-container input {
+        font-size: 0.9em; /* Reduce el tamaño de fuente para inputs */
+        padding: 10px; /* Menor padding en pantallas pequeñas */
+    }
+
+    .form-container button {
+        font-size: 1em;
+        padding: 10px;
+    }
 }
