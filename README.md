@@ -38,9 +38,19 @@ Para desplegar y ejecutar el proyecto Gymanual, sigue los pasos detallados a con
    nvm version
 
 ## Comandos para configurar Node.js con nvm
-3. **Si `nvm` no está instalado, lo instalamos con**:
+3. **Si `nvm` no está instalado, lo instalamos**:
+
+Accediendo al repositorio oficial: https://github.com/coreybutler/nvm-windows/releases.
+
+Tras ello, en las variables entorno, seleccionamos el Path y añadimos:
+
+C:\nvm
+C:\nvm\nodejs
+
+Posteriormente, procedemos a la terminal de vscode y ejecutamos:
 ```bash
    nvm install latest
+
 
 4. ** Para activar una versión específica de Node.js instalada con nvm (en este caso, 23.3.0**:
  ```bash  
