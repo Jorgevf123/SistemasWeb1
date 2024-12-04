@@ -60,7 +60,9 @@ router.get('/admin', function(req, res) {
   // Verificar que el usuario es admin
   if (req.session.user && req.session.user.es_admin) {
     res.render('PerfilAdmin', { usuario: req.session.user }); // Redirige a la página de administración
-  } else {
+  } else if(req.session.user &&  ! req.session.user.es_admin) {
+    res.redirect('Perfil', {usuario: req.session.user });
+  }else{
     res.redirect('/'); // Si no es admin, redirige al home o donde consideres
   }
 });
