@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
                     <button type="submit">Buscar</button>
                 </div>
                 <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
+                    <img src="/images/avatar.webp" alt="Foto de perfil" class="profile-pic">
                 </div>
                 <div class="profile-menu" id="profile-menu">
                     <a  href="/iniciosesion"  class="username">usuario</a> 
@@ -40,16 +40,20 @@
         <div class="form-container">
             <h1>Iniciar Sesión</h1>
             <p>Para iniciar sesión, rellena los siguientes campos:</p>
-            <form method="POST" action="/iniciosesion">
-                <label>Username: </label> <input type="text" name="correo_electronico"><br>
-                <label>Password: </label> <input type="password" name="contrasena"><br>
-                <button type="submit">Submit</button>
-                </form>
-              
+            <form method="POST" action="/iniciosesion" class="login-form">
+                <label for="correo_electronico">Correo Electrónico:</label>
+                <input type="text" id="correo_electronico" name="correo_electronico" placeholder="Introduce tu correo" required>
+                
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Introduce tu contraseña" required>
+                
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+                         
         </div>
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

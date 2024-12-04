@@ -1,0 +1,37 @@
+<!-- views/tyc.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones</title>
+    <link rel="stylesheet" href="/css/estiloTyC.css">
+</head>
+<body>
+    <div class="popup-background">
+        <!-- Ventana emergente de Términos y Condiciones -->
+        <div class="popup">
+            <h1 class="popup-title">Términos y Condiciones</h1>
+            <div class="terms-content">
+                <p><%= privacyPolicy %></p>
+                <p><%= termsOfUse %></p>
+                <p><%= dataProtectionLaw %></p>
+                <p><%= privacyNotice %></p>
+            </div>
+            <button class="close-button" onclick="closePopup()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Script para cerrar la ventana emergente -->
+    <script>
+       function closePopup() {
+            // Verifica si hay una página previa en el historial
+            if (window.history.length > 1) {
+                window.history.back();  // Redirige a la página anterior
+            } else {
+                window.location.href = "/registro"; // Redirige a la página de inicio si no hay historial
+            }
+        }
+    </script>
+</body>
+</html>

@@ -8,6 +8,7 @@ const session = require('express-session');
 require('./sequelize'); //un ORM (Object-Relational Mapping) para interactuar con una base de datos relacional
 
 const indexRouter = require('./routes/index');
+const terminosRouter = require('./routes/terminos');
 //const aboutRouter = require('./routes/conocenos');
 const articulo_comunidad = require('./routes/articulo_comunidad');
 const articulo_comunidad_editable = require('./routes/articulo_comunidad_editable');
@@ -39,6 +40,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use('/terminos', terminosRouter);
 
 app.use(session({
   secret: "Hola",

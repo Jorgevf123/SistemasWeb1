@@ -10,6 +10,7 @@ html, body {
     height: 100%;
     overflow: hidden; /* Evita desplazamiento en la página */
 }
+
 header {
     background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
     color: white;
@@ -154,7 +155,7 @@ nav ul li a:hover {
     justify-content: flex-end;
     align-items: center;
     height: calc(100vh - 80px); /* Altura fija menos el header */
-    background-image: url('fotoIS.png');
+    background-image: url("/images/fotoIS.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -164,8 +165,8 @@ nav ul li a:hover {
 /* Contenedor del formulario de inicio de sesión */
 .form-container {
     width: 400px; /* Tamaño fijo en ancho */
-    height: 350px; /* Tamaño fijo en alto */
-    padding: 15px;
+    height: 420px; /* Tamaño más grande en alto para ajustarse al contenido */
+    padding: 25px; /* Aumento el padding para que haya más espacio entre los bordes y el contenido */
     background-color: rgba(240, 240, 240, 0.85); /* Fondo gris claro translúcido */
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
@@ -173,8 +174,10 @@ nav ul li a:hover {
     margin-right: 40px; /* Mayor margen derecho para alejarlo del borde */
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Asegura que el contenido esté centrado verticalmente */
 }
 
+/* Asegura que los botones y campos de entrada se distribuyan correctamente */
 .form-container h1 {
     color: #333;
     font-size: 1.8em;
@@ -224,4 +227,126 @@ nav ul li a:hover {
 
 .form-container button + button {
     margin-top: 15px;
+}
+
+/* Contenedor del formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px; /* Espaciado uniforme entre los elementos */
+    width: 100%; /* Ajuste automático del tamaño */
+    margin-top: 10px;
+}
+
+/* Estilo para las etiquetas */
+.login-form label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px; /* Separación del campo de entrada */
+}
+
+/* Estilo para los campos de entrada */
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Cambios al enfocar los campos */
+.login-form input:focus {
+    border-color: #00cc66;
+    box-shadow: 0px 0px 5px rgba(0, 204, 102, 0.5);
+}
+
+/* Estilo del botón */
+.login-form button {
+    padding: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto hover en el botón */
+.login-form button:hover {
+    background-color: #218838;
+    transform: scale(1.02);
+}
+
+/* Placeholder estilizado */
+.login-form input::placeholder {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+    /* Ajustar el formulario para pantallas más pequeñas */
+    .form-container {
+        width: 90%; /* Ancho más pequeño para pantallas más pequeñas */
+        height: auto; /* Altura automática para ajustar el contenido */
+        margin-right: 0; /* Eliminar margen derecho */
+        padding: 20px; /* Aumentar el padding para espacio en pantallas pequeñas */
+    }
+
+    .form-container h1 {
+        font-size: 1.5em; /* Reducir el tamaño del título */
+    }
+
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+        padding: 10px; /* Reducir padding para ajustarse mejor */
+    }
+
+    .form-container button {
+        font-size: 1em; /* Reducir tamaño del botón */
+        padding: 10px; /* Reducir padding del botón */
+    }
+
+    /* Mejorar la visibilidad en dispositivos móviles */
+    .main-container {
+        padding-right: 0; /* Quitar padding derecho */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajuste adicional para pantallas muy pequeñas */
+    header {
+        flex-direction: column; /* Cambiar la dirección del header */
+        padding: 10px; /* Reducir padding del header */
+    }
+
+    nav ul {
+        flex-direction: column; /* Hacer que los links se apilen */
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .search-bar input {
+        width: 100%; /* Hacer la barra de búsqueda más ancha */
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        width: 100%; /* Botón más grande en pantallas pequeñas */
+    }
+
+    .user-profile .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
 }
