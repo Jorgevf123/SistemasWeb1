@@ -19,6 +19,7 @@ const comunidad = require('./routes/comunidad');
 //const loginRouter = require('./routes/ejerciicios_supervisar');
 //const registerRouter = require('./routes/ejercicios');
 const favoritos = require('./routes/favoritos');
+const gestionUsuariosRouter = require('./routes/gestion_usuarios');
 //const editProfileRouter = require('./routes/gestion_usuarios');
 //const myticketsRouter = require('./routes/iniciosesion');
 //const foroRouter = require('./routes/perfil');
@@ -74,6 +75,7 @@ app.use('/registro', registroRouter);
 app.use('/ejercicios', ejerciciosRouter);
 app.use('/conocenos', conocenosRouter);
 app.use('/contacto', contactoRouter);
+app.use('/gestion_usuarios', gestionUsuariosRouter);
 app.use('/', buscarRouter);
 
 //app.use('/otherevents', othereventsRouter);
