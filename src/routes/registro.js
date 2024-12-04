@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 // Procesar el registro del usuario
 router.post('/', async (req, res) => {
-    const { correo_electronico, nombre, contrasena, confirm_password } = req.body;
+    const { correo_electronico, nombre, contrasena, confirm_password, aceptar_terminos } = req.body;
 
     try {
         // Validar que las contraseñas coincidan
@@ -21,12 +21,16 @@ router.post('/', async (req, res) => {
             return res.status(400).send('Las contraseñas no coinciden.');
         }
 
-        // Validar si el correo ya está registrado
+        // Validar si el correo ya está registrado (puedes agregar esta lógica si es necesario)
         
-
         // Validar longitud y complejidad de la contraseña
         if (contrasena.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/g.test(contrasena)) {
             return res.status(400).send('La contraseña debe tener al menos 8 caracteres y un carácter especial.');
+        }
+
+        // Validar si el usuario ha aceptado los términos y condiciones
+        if (!aceptar_terminos) {
+            return res.status(400).send('Debes aceptar los Términos y Condiciones para registrarte.');
         }
 
         // Encriptar la contraseña
@@ -39,7 +43,8 @@ router.post('/', async (req, res) => {
             contrasena: hash,
         });
 
-        res.status(201).redirect('/iniciosesion'); // Redirigir al inicio de sesión tras registrarse
+        // Redirigir al inicio de sesión tras registrarse
+        res.status(201).redirect('/iniciosesion');
     } catch (error) {
         console.error('Error al registrar usuario:', error);
         res.status(500).send('Hubo un error al registrar el usuario.');
@@ -47,6 +52,3 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-
-
-
