@@ -47,17 +47,16 @@
         
         <!-- Email input -->
         <div class="email">
-               <input type="text" id="email" placeholder="Correo electrónico"> <!--Aquí iría el correo electronico de la BBDD, asociado al usuario-->
+            <input type="text" id="nombre" value="<%= usuario.nombre %>" placeholder="Nombre completo">
          </div>
     
         <!-- Options -->
         <div class="options">
-            <button class="option">Correo electrónico</button>
             <button class="option" onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios Supervisar</button>
             <button class="option">Atención al cliente</button>
-            <button class="option">Cerrar Cuenta</button>
+            <button class="option" onclick="window.location.href='/iniciosesion'">Cerrar sesión</button>
             <button class="option" onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
-            <button class="option">Terminos y condiciones</button>
+            <button class="option" onclick="window.location.href='/terminos'">Terminos y condiciones</button>
         </div>
     </div>
     

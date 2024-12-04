@@ -47,16 +47,16 @@
         
         <!-- Email input -->
         <div class="email">
-            <input type="text" id="email" placeholder="Correo electrónico"> <!--Aquí iría el correo electronico de la BBDD, asociado al usuario-->
+            <input type="text" id="nombre" value="<%= usuario.nombre %>" placeholder="Nombre completo">
         </div>
     
         <!-- Options -->
         <div class="options">
-            <button  class="option" onclick="window.location.href='rutina.html'">rutinas</button>
-            <button class="option" onclick="window.location.href='favoritos.html'">favoritos</button>
-            <button class="option" onclick="window.location.href='comunidad.html'">Añadir post</button>
-            <a class="option"  href="terminosycondiciones.html">Términos y condiciones</a>
-            <button class="option" onclick="window.location.href='index.html'">Cerrar cuenta</button> <!-- Supón que no solo redirige sino que también cierra sesión -->
+            <button  class="option" onclick="window.location.href='/rutina'">rutinas</button>
+            <button class="option" onclick="window.location.href='/favoritos'">favoritos</button>
+            <button class="option" onclick="window.location.href='/comunidad'">Añadir post</button>
+            <button class="option" onclick="window.location.href='/terminos'">Terminos y condiciones</button>
+            <button class="option" onclick="window.location.href='/iniciosesion'">Cerrar cuenta</button> <!-- Supón que no solo redirige sino que también cierra sesión -->
         </div>
     </div>
     
