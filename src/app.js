@@ -21,6 +21,8 @@ const comunidad = require('./routes/comunidad');
 //const registerRouter = require('./routes/ejercicios');
 const favoritos = require('./routes/favoritos');
 const gestionUsuariosRouter = require('./routes/gestion_usuarios');
+const ejerciciosSupervisarRouter = require('./routes/ejercicios_supervisar');
+const ejercicioAValidarRouter = require('./routes/ejercicio_a_validar');
 //const editProfileRouter = require('./routes/gestion_usuarios');
 //const myticketsRouter = require('./routes/iniciosesion');
 //const foroRouter = require('./routes/perfil');
@@ -78,6 +80,8 @@ app.use('/ejercicios', ejerciciosRouter);
 app.use('/conocenos', conocenosRouter);
 app.use('/contacto', contactoRouter);
 app.use('/gestion_usuarios', gestionUsuariosRouter);
+app.use('/ejercicios_supervisar', ejerciciosSupervisarRouter);
+app.use('/ejercicio_a_validar', ejercicioAValidarRouter);
 app.use('/', buscarRouter);
 
 //app.use('/otherevents', othereventsRouter);

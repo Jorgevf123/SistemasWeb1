@@ -7,37 +7,9 @@
     <link rel="stylesheet" href="css/estilos.css"> 
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Gymanual</a></li>
-                <li><a href="ejercicios.html">Ejercicios</a></li>
-                <li><a href="conocenos.html">Conócenos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <div class="header-right">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit">Buscar</button>
-                </div>
-                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
-                </div>
-                <div class="profile-menu" id="profile-menu">
-                    <a  href="iniciosesion.html"  class="username">usuario</a> 
-                    <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
-                    <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
-                    <button>Atención al cliente</button>
-                    <button>Cerrar cuenta</button>
-                    
-                
-                    <button>Términos y condiciones</button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <%- include('partials/header') %>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <h1 class="user-management-title">gestión de usuarios</h1>
     <p>¿Qué usuario buscas?</p>
     <div class="search-bar">
@@ -68,7 +40,7 @@
         </tbody>
     </table>
     <div class="back-button-container">
-        <button onclick="window.location.href='index.html'" class="back-button">Volver</button>
+        <button onclick="window.location.href='/'" class="back-button">Volver</button>
     </div>
 </body>
 </html>
