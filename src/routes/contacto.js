@@ -1,16 +1,3 @@
-/*const express = require('express');
-const router = express.Router();
-
-router.get('/', (req, res) => {
-    res.render('contacto', { 
-        title: 'Contacto',
-        layout: 'layout.ejs'
-    });
-});
-
-module.exports = router;
-
-*/
 const express = require('express');
 const nodemailer = require('nodemailer');
 const router = express.Router();

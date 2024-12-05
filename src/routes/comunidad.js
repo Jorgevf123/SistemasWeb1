@@ -5,9 +5,16 @@ const sequelize = require('../sequelize')
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   try {
+      let favoritos = {};
+      const usuario = req.session.user;
       const articulos = await sequelize.models.articulos_comunidad.findAll({
         order: [['numero_like', 'DESC']] 
       });
+      if(usuario){
+        favoritos = await sequelize.models.Usuario.findOne({
+          where: {nombre: usuario.nombre}
+        }); 
+      }
       const total_items = await sequelize.models.articulos_comunidad.count();
       const articulosProcesados = articulos.map((articulo) => {
         let imagenBase64 = '';
@@ -15,6 +22,7 @@ router.get('/', async function(req, res, next) {
           imagenBase64 = articulo.imagen_articulo.toString('base64');
         }
         return{
+          id: articulo.id,
           titulo_articulo: articulo.titulo_articulo, 
           imagen_articulo: `data:image/jpeg;base64,${imagenBase64}`,
           usuario_escritor: articulo.usuario_escritor, 
@@ -26,10 +34,11 @@ router.get('/', async function(req, res, next) {
         
       });
       res.render('comunidad', { title: 'Comunidad',
-                                user:req.session.user, 
+                                user: usuario, 
                                 numero_carrusel:4,
                                 total_items: total_items.length ,
                                 articulos: articulosProcesados,
+                                usuarioFavoritos : favoritos.favoritos,
       });
     }catch (error) {
       console.error(error);

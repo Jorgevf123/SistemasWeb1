@@ -4,6 +4,7 @@ const pageId = document.getElementById('pageId').value;
 const chatInput = document.getElementById("comment-input");
 const messagesDiv = document.getElementById("messages");
 const chatContainer = document.getElementById("comment-section");
+let usuario = document.getElementById("userId");
 
 socket.emit('joinPage', pageId);
 
@@ -47,11 +48,14 @@ socket.on('loadMessages', (messages) => {
 // Enviar un mensaje al servidor
 form.addEventListener('submit', function(e){
     e.preventDefault();
+    if(!usuario){
+        usuario = "Invitado";
+    }
     const message = chatInput.value.trim();
     if (message) {
         socket.emit('chat', {
             pageId: pageId,   // El ID de la página
-            username: 'Usuario',  // Esto lo puedes cambiar por el nombre real del usuario
+            username: usuario.value,  // Esto lo puedes cambiar por el nombre real del usuario
             message: message
         });
 

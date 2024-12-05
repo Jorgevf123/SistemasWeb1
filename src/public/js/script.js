@@ -169,9 +169,33 @@ document.addEventListener('DOMContentLoaded', () => {
 	const starIcons = document.querySelectorAll('.star-icon');
 
 	starIcons.forEach(starIcon => {
-		starIcon.addEventListener('click', () => {
-			starIcon.classList.toggle('active');
-		});
+		starIcon.addEventListener('click', async () => {
+			const userId = document.getElementById('userId').value;
+			const articleId = starIcon.dataset.id;
+			const isActive = starIcon.classList.toggle('active');
+
+			const url = isActive ? '/api/favoritos/add' : '/api/favoritos/remove';
+
+			try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        articleId: articleId,
+                        userId
+                    })
+				});
+				const result = await response.json();
+                if (!response.ok) {
+                    throw new Error(result.error || 'Error al actualizar favoritos');
+                }
+				console.log(result.message);
+            } catch (error) {
+                console.error(error.message);
+            }
+		}); 
 	});
 });
 
@@ -251,7 +275,7 @@ window.onclick = function(event) {
         // Si no se selecciona archivo, ocultar la previsualización
     	    preview.src = '';
         	preview.style.display = 'none';
-    	}
+    	} 
 	});
 });
 */

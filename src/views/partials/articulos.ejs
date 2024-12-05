@@ -1,12 +1,17 @@
 
 				<div class="container-carousel"> 
+					<% if(user) { %>
+					<input type="hidden" id="userId" value="<%= user.nombre %>">
+					<% } %>
 					<% for (let i = numero_carrusel ; i < articulos.length; i++) { %>
 					<div class="columna"> 
 						<div class="row">
 							<div class="recomendacion">
 								<div class="imagen-comunidad">
 										<img src="<%= articulos[i].imagen_articulo %>" alt="Imagen de ejercicio">
-									<div class="star-icon">★</div>
+										<% if(user) { %>
+										<i class="star-icon <%=  usuarioFavoritos.includes(articulos[i].id) ? 'active' : '' %>" data-id="<%= articulos[i].id %>">★</i>
+										<% } %>
 									<p class="author-name"><%= articulos[i].usuario_escritor %></p>
 								</div>
 								<div class="titulo-ejercicio">
@@ -32,7 +37,9 @@
 							<div class="recomendacion">
 								<div class="imagen-comunidad">
 									<img src="<%= articulos[i].imagen_articulo %>" alt="Imagen de ejercicio">
-									<div class="star-icon">★</div>
+									<% if(user) { %>
+									<i class="star-icon <%=  usuarioFavoritos.includes(articulos[i].id) ? 'active' : '' %>" data-id="<%= articulos[i].id %>">★</i>
+									<% } %>
 									<p class="author-name"><%= articulos[i].usuario_escritor %></p>
 								</div>
 								<div class="titulo-ejercicio">

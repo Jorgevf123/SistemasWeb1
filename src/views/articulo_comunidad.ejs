@@ -1,5 +1,8 @@
 <%- include('partials/header') %>
 		<div class="background-comunidad">
+			<% if(user) { %>
+				<input type="hidden" id="userId" value="<%= user.nombre %>">
+				<% } %>
 				<div class="lefted-title">
 					<h2><%= categoria %></h2>
 				</div>
@@ -9,7 +12,9 @@
 				<div class = "cuadro-elementos">
 					<div class="imagen-articulo">
 						<img src="<%= imagen_articulo %>" alt="Imagen de ejercicio">
-						<div class="star-icon">★</div>
+						<% if(user) { %>
+							<i class="star-icon <%=  usuarioFavoritos.includes(id) ? 'active' : '' %>" data-id="<%= id %>">★</i>
+							<% } %>
 					</div>
 				</div>
 				<div class="margin-left">

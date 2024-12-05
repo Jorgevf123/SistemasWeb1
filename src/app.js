@@ -20,6 +20,7 @@ const comunidad = require('./routes/comunidad');
 //const loginRouter = require('./routes/ejerciicios_supervisar');
 //const registerRouter = require('./routes/ejercicios');
 const favoritos = require('./routes/favoritos');
+const apiFavoritos = require('./routes/api/favoritos');
 const gestionUsuariosRouter = require('./routes/gestion_usuarios');
 const ejerciciosSupervisarRouter = require('./routes/ejercicios_supervisar');
 const ejercicioAValidarRouter = require('./routes/ejercicio_a_validar');
@@ -70,9 +71,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/articulo_comunidad', articulo_comunidad);
-app.use('/articulo_comunidad_editable', articulo_comunidad_editable);
+app.use('/articulo_comunidad_editable', restrict, articulo_comunidad_editable);
 app.use('/comunidad', comunidad);
-app.use('/favoritos', favoritos);
+app.use('/favoritos', restrict, favoritos);
+app.use('/api/favoritos', apiFavoritos);
 app.use('/rutina', rutinasRouter);
 app.use('/iniciosesion', inicioRouter);
 app.use('/registro', registroRouter);
@@ -98,13 +100,21 @@ app.use('/', buscarRouter);
 //  req.session.destroy();
 //  res.redirect("/");
 //});
+function restrict(req, res, next){
+  if(req.session.user){
+    next();
+  } else {
+    req.session.error = "Unauthorized access";
+    res.redirect("/iniciosesion");
+  }
+}
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+/*app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -112,4 +122,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', { error: err });
 });
+*/
 module.exports = app;

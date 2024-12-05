@@ -13,8 +13,7 @@ router.post('/', upload.single('imagen_articulo'), async (req, res) => {
   try {
     const { categoria, titulo_articulo, descripcion } = req.body;
     const imagen_articulo = req.file ? req.file.buffer : null; 
-   //const usuario_escritor = req.session.user.name;
-   const usuario_escritor = "Carlos ramos";
+    const usuario_escritor = req.session.user.nombre;
 
     await sequelize.models.articulos_comunidad.create({
       categoria,
@@ -32,4 +31,4 @@ router.post('/', upload.single('imagen_articulo'), async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router; 

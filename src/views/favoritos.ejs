@@ -1,10 +1,15 @@
 <%- include('partials/header') %>
+<body>
 		<div class= "background-comunidad">
 			<div class="container-recomendaciones">
 				<div class= "lefted-title">
 					<h1>Favoritos</h1>
 				</div>
+				<% if(total_items >0) { %>
 					<%- include('partials/articulos') %>
+					<% }else{ %>
+						<p> Añade árticulos a favoritos para que se muestren aquí </p>
+					<% } %>
 			</div>
 		</div>
 <%- include("footer", {}) %> 

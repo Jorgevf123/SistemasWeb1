@@ -8,10 +8,8 @@ router.get('/', async function(req, res, next) {
       let total_items = 0;
       let articulosProcesados = [];
       const nombre_articulos = await sequelize.models.Usuario.findOne({
-        //where: {nombre: "req.session.username"}
-        where: {nombre: "Juan Perez"}
+        where: {nombre: req.session.user.nombre}
       });
-      console.log(nombre_articulos, nombre_articulos.favoritos)
       if(nombre_articulos && nombre_articulos.favoritos){
         const favoritos = JSON.parse(nombre_articulos.favoritos || "[]");
         if (favoritos.length > 0) {
@@ -25,6 +23,7 @@ router.get('/', async function(req, res, next) {
           imagenBase64 = articulo.imagen_articulo.toString('base64');
         }
         return{
+          id: articulo.id,
           titulo_articulo: articulo.titulo_articulo, 
           imagen_articulo: `data:image/jpeg;base64,${imagenBase64}`,
           usuario_escritor: articulo.usuario_escritor, 
@@ -41,6 +40,8 @@ router.get('/', async function(req, res, next) {
                                 numero_carrusel:0,
                                 total_items,
                                 articulos: articulosProcesados,
+                                usuarioFavoritos: nombre_articulos.favoritos,
+
       });
     }catch (error) {
       console.error(error);
