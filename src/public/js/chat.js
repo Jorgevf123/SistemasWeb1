@@ -5,6 +5,7 @@ const chatInput = document.getElementById("comment-input");
 const messagesDiv = document.getElementById("messages");
 const chatContainer = document.getElementById("comment-section");
 let usuario = document.getElementById("userId");
+const imagen_perfil = document.getElementById("imagen_perfil").src;
 
 socket.emit('joinPage', pageId);
 
@@ -21,7 +22,7 @@ function createMessageElement(msg) {
     
     // Imagen de perfil por defecto
     const img = document.createElement('img');
-    img.src = '/images/Fotoperfilpordefecto.png';  // Ruta de la imagen
+    img.src = imagen_perfil;
     img.classList.add('avatar');
     messageElement.appendChild(img);
     
@@ -55,7 +56,7 @@ form.addEventListener('submit', function(e){
     if (message) {
         socket.emit('chat', {
             pageId: pageId,   // El ID de la página
-            username: usuario.value,  // Esto lo puedes cambiar por el nombre real del usuario
+            username: usuario.value || "Invitado",  // Esto lo puedes cambiar por el nombre real del usuario
             message: message
         });
 
