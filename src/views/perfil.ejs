@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="css/estiloperfildef.css">
 </head>
 <body>
@@ -21,10 +21,10 @@
                     <button type="submit">Buscar</button>
                 </div>
                 <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="images/avatar.webp" alt="Foto de perfil" class="profile-pic">
+                    <img src="<%= usuario.imagen_perfil %>" alt="Foto de perfil" class="profile-pic">
                 </div>
                 <div class="profile-menu" id="profile-menu">
-                    <a  href="iniciosesion.html"  class="username">usuario</a> 
+                    <a href="iniciosesion.html" class="username"><%= usuario.nombre %></a>
                     <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
                     <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
                     <button>Atención al cliente</button>
@@ -40,7 +40,7 @@
         <!-- Circular Image upload -->
         <div class="image-upload">
             <label for="file-upload" class="perfil-pic">
-                <img id="perfil-image" src="images/Fotoperfilpordefecto.png">
+                <img id="perfil-image" src="<%= usuario.imagen_perfil %>" alt="Foto de perfil">
             </label>
             <input type="file" id="file-upload" accept="image/*" onchange="loadImage(event)">
         </div>
@@ -52,15 +52,13 @@
     
         <!-- Options -->
         <div class="options">
-            <button  class="option" onclick="window.location.href='/rutina'">rutinas</button>
-            <button class="option" onclick="window.location.href='/favoritos'">favoritos</button>
+            <button class="option" onclick="window.location.href='/rutina'">Rutinas</button>
+            <button class="option" onclick="window.location.href='/favoritos'">Favoritos</button>
             <button class="option" onclick="window.location.href='/comunidad'">Añadir post</button>
-            <button class="option" onclick="window.location.href='/terminos'">Terminos y condiciones</button>
-            <button class="option" onclick="window.location.href='/iniciosesion'">Cerrar cuenta</button> <!-- Supón que no solo redirige sino que también cierra sesión -->
+            <button class="option" onclick="window.location.href='/terminos'">Términos y condiciones</button>
+            <button class="option" onclick="window.location.href='/iniciosesion'">Cerrar cuenta</button>
         </div>
     </div>
-    
-    
 </body>
 <script src="script.js"></script>
 <script src="scriptPerfil.js"></script>

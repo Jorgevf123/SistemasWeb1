@@ -1,11 +1,10 @@
-// Rutas de Express
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../sequelize');
 const bcrypt = require('bcrypt');
 
 // Renderiza la página de inicio de sesión
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('iniciosesion', { user: req.session.user });
 });
 
@@ -21,31 +20,35 @@ router.post('/', async (req, res) => {
     });
 
     if (usuario) {
+      // Verifica la contraseña
       bcrypt.compare(contrasena, usuario.contrasena, function (err, result) {
         if (result) {
           // Inicio de sesión exitoso
-          req.session.user = { 
-            correo_electronico: usuario.correo_electronico, 
-            nombre: usuario.nombre, 
-            es_admin: usuario.es_admin 
+          req.session.user = {
+            correo_electronico: usuario.correo_electronico,
+            nombre: usuario.nombre,
+            es_admin: usuario.es_admin,
+            imagen_perfil: usuario.imagen_perfil, // Agrega la imagen de perfil
           };
           req.session.message = "¡Inicio de sesión exitoso!";
+          console.log("Usuario autenticado:", req.session.user);
 
+          // Redirección según tipo de usuario
           if (usuario.es_admin) {
-            // Redirigir a la página de administración si es admin
             res.render('PerfilAdmin', { usuario: req.session.user });
           } else {
-            // Redirige a perfil normal si no es admin
             res.render('perfil', { usuario: req.session.user });
           }
         } else {
           // Contraseña incorrecta
+          console.log("Contraseña incorrecta para:", correoElectronico);
           req.session.error = "Correo electrónico o contraseña incorrectos.";
           res.redirect("/iniciosesion");
         }
       });
     } else {
       // Usuario no encontrado
+      console.log("Usuario no encontrado:", correoElectronico);
       req.session.error = "Correo electrónico o contraseña incorrectos.";
       res.redirect("/iniciosesion");
     }
@@ -56,14 +59,24 @@ router.post('/', async (req, res) => {
 });
 
 // Ruta para la página de administración
-router.get('/admin', function(req, res) {
+router.get('/admin', function (req, res) {
   // Verificar que el usuario es admin
   if (req.session.user && req.session.user.es_admin) {
-    res.render('PerfilAdmin', { usuario: req.session.user }); // Redirige a la página de administración
-  } else if(req.session.user &&  ! req.session.user.es_admin) {
-    res.redirect('Perfil', {usuario: req.session.user });
-  }else{
+    res.render('PerfilAdmin', { usuario: req.session.user });
+  } else if (req.session.user && !req.session.user.es_admin) {
+    res.redirect('/perfil', { usuario: req.session.user });
+  } else {
     res.redirect('/'); // Si no es admin, redirige al home o donde consideres
+  }
+});
+
+// Ruta para perfil del usuario
+router.get('/perfil', function (req, res) {
+  if (req.session.user) {
+    console.log("Perfil del usuario cargado:", req.session.user);
+    res.render('perfil', { usuario: req.session.user });
+  } else {
+    res.redirect('/iniciosesion');
   }
 });
 

@@ -1,16 +1,16 @@
 const { DataTypes } = require('sequelize');
-const validator = require('validator');  // Para la validación de correos electrónicos
+const validator = require('validator'); // Para la validación de correos electrónicos
 
 module.exports = (sequelize) => {
     const Usuario = sequelize.define('Usuario', {
-        id: { 
-            type: DataTypes.INTEGER, 
-            primaryKey: true, 
-            autoIncrement: true 
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
         },
-        correo_electronico: { 
-            type: DataTypes.STRING, 
-            allowNull: false, 
+        correo_electronico: {
+            type: DataTypes.STRING,
+            allowNull: false,
             unique: true,
             validate: {
                 isEmail: { // Usando el validador incorporado
@@ -18,12 +18,12 @@ module.exports = (sequelize) => {
                 },
             }
         },
-        nombre: { 
-            type: DataTypes.STRING, 
-            allowNull: false 
+        nombre: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        contrasena: { 
-            type: DataTypes.STRING, 
+        contrasena: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 minLength(value) {
@@ -39,18 +39,23 @@ module.exports = (sequelize) => {
                 }
             }
         },
-        es_admin: { 
-            type: DataTypes.BOOLEAN, 
-            defaultValue: false 
+        es_admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         },
         favoritos: {
             allowNull: true,
             type: DataTypes.JSON,
             defaultValue: [],
         },
-        fecha_creacion: { 
-            type: DataTypes.DATE, 
-            defaultValue: DataTypes.NOW 
+        fecha_creacion: {
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW
+        },
+        imagen_perfil: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "images/Fotoperfilpordefecto.png"
         }
     });
 
