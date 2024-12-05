@@ -41,6 +41,7 @@ router.get('/', async function(req, res, next) {
                                 total_items,
                                 articulos: articulosProcesados,
                                 usuarioFavoritos: nombre_articulos.favoritos,
+                                imagen_perfil: nombre_articulos.imagen_perfil,
 
       });
     }catch (error) {

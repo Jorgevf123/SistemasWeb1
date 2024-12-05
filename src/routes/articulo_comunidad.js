@@ -4,7 +4,7 @@ const sequelize = require('../sequelize')
 
 router.get('/:id', async function(req, res, next) {
   try {
-    let favoritos ={}
+    let favoritos ={};
     const usuario = req.session.user;
     const articulo = await sequelize.models.articulos_comunidad.findOne({where: {id: req.params.id}});
     if (!articulo) {
@@ -31,6 +31,7 @@ router.get('/:id', async function(req, res, next) {
                                     categoria: articulo.categoria,
                                     pageData: req.params.id,
                                     usuarioFavoritos : favoritos.favoritos,
+                                    imagen_perfil: favoritos.imagen_perfil,
                                   });
   } catch (error) {
     console.error(error);

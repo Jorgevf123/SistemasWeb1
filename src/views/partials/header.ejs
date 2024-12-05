@@ -29,7 +29,11 @@
                     
                 </div>
                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="/images/avatar.webp" id= "imagen_perfil" alt="Foto de perfil" class="profile-pic">
+				<% if(user){ %>
+                    <img src="<%= imagen_perfil %>" id= "imagen_perfil" alt="Foto de perfil" class="profile-pic">
+					<% } else{ %>
+						<img src="/images/avatar.webp" id= "imagen_perfil" alt="Foto de perfil" class="profile-pic">
+						<% } %>
                 </div>
                 <div class="profile-menu" id="profile-menu">
                     <p class="username">admin</p> 

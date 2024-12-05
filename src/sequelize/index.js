@@ -156,7 +156,7 @@ async function resetUsuarios() {
             contrasena: bcrypt.hashSync("contraseñaSegura123!", 10), // Hasheando la contraseña
             es_admin: false,
             favoritos :"[1,2,7,5,9]",
-            imagen_perfil: "images/juanperez.png" 
+            imagen_perfil: "/images/juanperez.png" 
         },
         {
             correo_electronico: "admin@example.com",

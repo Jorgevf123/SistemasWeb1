@@ -39,6 +39,7 @@ router.get('/', async function(req, res, next) {
                                 total_items: total_items.length ,
                                 articulos: articulosProcesados,
                                 usuarioFavoritos : favoritos.favoritos,
+                                imagen_perfil: favoritos.imagen_perfil,
       });
     }catch (error) {
       console.error(error);

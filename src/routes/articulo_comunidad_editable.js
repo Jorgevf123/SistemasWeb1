@@ -7,7 +7,10 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 router.get('/', async function(req, res, next) {
-  res.render('articulo_comunidad_editable', {title: 'Artículo de la comunidad', user:req.session.user});
+  usuario = await sequelize.models.Usuario.findOne({
+    where: {nombre: req.session.nombre}
+  }); 
+  res.render('articulo_comunidad_editable', {title: 'Artículo de la comunidad', user:req.session.user, imagen_perfil: usuario.imagen_perfil});
 });
 router.post('/', upload.single('imagen_articulo'), async (req, res) => {
   try {
