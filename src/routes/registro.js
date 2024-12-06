@@ -27,11 +27,6 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     const { correo_electronico, nombre, contrasena, confirm_password, aceptar_terminos } = req.body;
 
-    if (!req.session.user) {
-        // Si el usuario no está autenticado, no se permite el registro
-        return res.status(401).send('Debes iniciar sesión para registrarte.');
-    }
-
     try {
         // Validar que las contraseñas coincidan
         if (contrasena !== confirm_password) {
