@@ -56,14 +56,14 @@
             .then(data => {
                 if (data.success) {
                     alert('Imagen de perfil actualizada correctamente.');
-    
+
                     // Volver a la página anterior y recargar el perfil
-                    window.history.back(); // Vuelve a la página anterior
+                    window.location.href = '/perfil';// Vuelve a la página anterior
                         
                     // Después de un breve retraso, recargar la página del perfil
-                    setTimeout(() => {
-                        window.location.reload(); // Recarga la página de perfil
-                    }, 100); // 100ms de retraso antes de recargar  
+                    //setTimeout(() => {
+                      //  window.location.reload(); // Recarga la página de perfil
+                    //}, 100); // 100ms de retraso antes de recargar  
                 } else {
                     alert('Hubo un error al actualizar la imagen.');
                 }
