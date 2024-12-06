@@ -3,82 +3,94 @@ const router = express.Router();
 const sequelize = require('../sequelize');
 const bcrypt = require('bcrypt');
 
-// Renderiza la página de inicio de sesión
+// Ruta de inicio de sesión
 router.get('/', function (req, res, next) {
   res.render('iniciosesion', { user: req.session.user });
 });
 
-// Manejo del inicio de sesión
+// Manejo de inicio de sesión
 router.post('/', async (req, res) => {
   const correoElectronico = req.body.correo_electronico;
   const contrasena = req.body.contrasena;
 
   try {
-    // Busca al usuario por su correo electrónico
     const usuario = await sequelize.models.Usuario.findOne({
       where: { correo_electronico: correoElectronico },
     });
 
     if (usuario) {
-      // Verifica la contraseña
       bcrypt.compare(contrasena, usuario.contrasena, function (err, result) {
         if (result) {
-          // Inicio de sesión exitoso
           req.session.user = {
             correo_electronico: usuario.correo_electronico,
             nombre: usuario.nombre,
             es_admin: usuario.es_admin,
-            imagen_perfil: usuario.imagen_perfil, // Agrega la imagen de perfil
+            imagen_perfil: usuario.imagen_perfil,
           };
           req.session.message = "¡Inicio de sesión exitoso!";
-          console.log("Usuario autenticado:", req.session.user);
 
-          // Redirección según tipo de usuario
           if (usuario.es_admin) {
-            res.render('PerfilAdmin', { usuario: req.session.user });
+            // Redirigir al perfil admin con recarga
+            res.redirect('/iniciosesion');  // Redirige con recarga a la página de inicio de sesión
           } else {
-            res.render('perfil', { usuario: req.session.user });
+            // Redirigir al perfil de usuario con recarga
+            res.redirect('/iniciosesion');  // Redirige con recarga a la página de inicio de sesión
           }
         } else {
-          // Contraseña incorrecta
-          console.log("Contraseña incorrecta para:", correoElectronico);
           req.session.error = "Correo electrónico o contraseña incorrectos.";
-          res.redirect("/iniciosesion");
+          res.redirect("/iniciosesion");  // Redirige con error y recarga
         }
       });
     } else {
-      // Usuario no encontrado
-      console.log("Usuario no encontrado:", correoElectronico);
       req.session.error = "Correo electrónico o contraseña incorrectos.";
-      res.redirect("/iniciosesion");
+      res.redirect("/iniciosesion");  // Redirige con error y recarga
     }
   } catch (error) {
-    console.error("Error durante el inicio de sesión:", error);
     res.status(500).send("Hubo un problema con el servidor.");
   }
 });
 
-// Ruta para la página de administración
-router.get('/admin', function (req, res) {
-  // Verificar que el usuario es admin
-  if (req.session.user && req.session.user.es_admin) {
-    res.render('PerfilAdmin', { usuario: req.session.user });
-  } else if (req.session.user && !req.session.user.es_admin) {
-    res.redirect('/perfil', { usuario: req.session.user });
-  } else {
-    res.redirect('/'); // Si no es admin, redirige al home o donde consideres
-  }
+// Ruta para actualizar la imagen de perfil
+router.post('/update-image', async (req, res) => {
+    const { image } = req.body;
+
+    if (!image) {
+        return res.status(400).json({ success: false, message: 'No se ha enviado ninguna imagen.' });
+    }
+
+    try {
+        // Obtener el usuario actual de la sesión
+        const usuario = await sequelize.models.Usuario.findOne({
+            where: { correo_electronico: req.session.user.correo_electronico }
+        });
+
+        if (usuario) {
+            // Actualiza la imagen de perfil en la base de datos
+            usuario.imagen_perfil = image;
+            await usuario.save();
+
+            // Responder con éxito y redirigir al origen
+            req.session.user.imagen_perfil = image;  // Actualizamos la sesión con la nueva imagen
+            res.json({ success: true, message: 'Imagen de perfil actualizada correctamente.' });
+
+            // Redirigir al perfil con recarga
+            res.redirect('/iniciosesion');  // Redirige con recarga a la página de inicio de sesión
+        } else {
+            res.status(404).json({ success: false, message: 'Usuario no encontrado.' });
+        }
+    } catch (error) {
+        console.error('Error al actualizar la imagen:', error);
+        res.status(500).json({ success: false, message: 'Error al actualizar la imagen de perfil.' });
+    }
 });
 
-// Ruta para perfil del usuario
+// Otras rutas relacionadas con el perfil y la administración
 router.get('/perfil', function (req, res) {
   if (req.session.user) {
-    console.log("Perfil del usuario cargado:", req.session.user);
     res.render('perfil', { usuario: req.session.user });
   } else {
     res.redirect('/iniciosesion');
   }
 });
-
 
 module.exports = router;
