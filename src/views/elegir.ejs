@@ -19,50 +19,61 @@
                 <img src="/images/opcion4.png" alt="Opción 4" class="image-option" onclick="changeImage('images/opcion4.png')">
             </div>
 
-            <button class="close-button" onclick="confirmSelection()">Confirmar selección</button>
+            <!-- Botón de confirmación de cambios -->
+            <button id="confirm-button" class="confirm-button" onclick="confirmSelection()" disabled>Confirmar cambios</button>
         </div>
     </div>
 
     <script>
         let selectedImage = null;
 
+        // Función que maneja la selección de una imagen
         function changeImage(imagePath) {
             selectedImage = imagePath;
             console.log(`Imagen seleccionada: ${selectedImage}`);
+
+            // Habilitar el botón de confirmar si se selecciona una imagen
+            const confirmButton = document.getElementById('confirm-button');
+            confirmButton.disabled = false;  // Habilita el botón de confirmación
         }
 
+        // Función que maneja la confirmación de la selección
         function confirmSelection() {
-            if (selectedImage) {
-                // Enviar la imagen seleccionada al servidor
-                fetch('/iniciosesion/update-image', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ image: selectedImage })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Imagen de perfil actualizada correctamente.');
-                        
-                        window.location.href = '/perfil';  // Redirige a la página anterior
-                    
-                    } else {
-                        alert('Hubo un error al actualizar la imagen.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error al actualizar la imagen.');
-                });
-            } else {
-                alert('Por favor, selecciona una imagen.');
+            if (!selectedImage) {
+                alert("Por favor, selecciona una imagen.");
+                return;
             }
+
+            // Enviar la imagen seleccionada al servidor
+            fetch('/perfil/update-image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ image: selectedImage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Imagen de perfil actualizada correctamente.');
+    
+                    // Volver a la página anterior y recargar el perfil
+                    window.history.back(); // Vuelve a la página anterior
+                        
+                    // Después de un breve retraso, recargar la página del perfil
+                    setTimeout(() => {
+                        window.location.reload(); // Recarga la página de perfil
+                    }, 100); // 100ms de retraso antes de recargar  
+                } else {
+                    alert('Hubo un error al actualizar la imagen.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al actualizar la imagen.');
+            });
         }
     </script>
+
 </body>
 </html>
-
-
-   
