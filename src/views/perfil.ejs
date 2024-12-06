@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+<%- include('partials/header') %>
     <style>
         /* Estilo adicional para el botón cuando está activado en rojo */
         .confirmar-rojo {
@@ -12,49 +7,18 @@
         }
     </style>
     <link rel="stylesheet" href="css/estiloperfildef.css">
-    
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Gymanual</a></li>
-                <li><a href="ejercicios.html">Ejercicios</a></li>
-                <li><a href="conocenos.html">Conócenos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <div class="header-right">
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit">Buscar</button>
-                </div>
-                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <img src="<%= usuario.imagen_perfil %>" alt="Foto de perfil" class="profile-pic">
-                </div>
-                <div class="profile-menu" id="profile-menu">
-                    <a href="iniciosesion.html" class="username"><%= usuario.nombre %></a>
-                    <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
-                    <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
-                    <button>Atención al cliente</button>
-                    <button>Cerrar cuenta</button>
-                    <button onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
-                    <button>Términos y condiciones</button>
-                </div>
-            </div>
-        </nav>
-    </header>
 
     <div class="perfil-section">
         <!-- Circular Image -->
         <div class="image-upload">
             <a href="/elegir" class="perfil-link">
-                <img id="perfil-image" src="<%= usuario.imagen_perfil %>" alt="Foto de perfil" class="perfil-pic">
+                <img id="perfil-image" src="<%= user.imagen_perfil %>" alt="Foto de perfil" class="perfil-pic">
             </a>
         </div>
         
         <!-- Email input -->
         <div class="email">
-            <input type="text" id="nombre" value="<%= usuario.nombre %>" placeholder="Nombre completo">
+            <input type="text" id="nombre" value="<%= user.nombre %>" placeholder="Nombre completo">
         </div>
     
         <!-- Options -->

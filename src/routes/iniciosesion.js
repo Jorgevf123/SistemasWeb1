@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 // Ruta de inicio de sesión
 router.get('/', function (req, res, next) {
-  res.render('iniciosesion', { user: req.session.user });
+  res.render('iniciosesion', { title: 'Inicio de sesión', user: req.session.user });
 });
 
 // Manejo de inicio de sesión

@@ -3,11 +3,14 @@ const router = express.Router();
 const sequelize = require('../sequelize');
 
 // Ruta para el perfil del usuario
-router.get('/', function (req, res) {
+router.get('/', async function (req, res) {
   // Verificamos si hay un usuario en la sesión
   if (req.session.user) {
+    const imagen_perfil = await sequelize.models.Usuario.findOne({
+      where: { nombre: req.session.user.nombre }
+    });; 
     // Si está logueado, renderizamos la página del perfil
-    res.render('perfil', { usuario: req.session.user });
+    res.render('perfil', { title: 'Página Principal', user: req.session.user , imagen_perfil: imagen_perfil.imagen_perfil});
   } else {
     // Si no hay un usuario en sesión, redirigimos al inicio de sesión
     req.session.error = "Debes iniciar sesión para acceder a tu perfil.";
