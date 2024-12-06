@@ -39,6 +39,7 @@ const contactoRouter = require('./routes/contacto');
 const conocenosRouter = require('./routes/conocenos');
 const buscarRouter = require('./routes/buscar'); // Asegúrate de que el path sea correcto
 const elegirRoutes = require('./routes/elegir');
+const perfilRouter = require('./routes/perfil'); 
 
 const app = express();
 // view engine setup
@@ -87,6 +88,7 @@ app.use('/ejercicios_supervisar', ejerciciosSupervisarRouter);
 app.use('/ejercicio_a_validar', ejercicioAValidarRouter);
 app.use('/', buscarRouter);
 app.use('/', elegirRoutes);
+app.use('/perfil', perfilRouter);  // Asegúrate de que la ruta /perfil esté registrada
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);
 //app.use('/foro', foroRouter);
