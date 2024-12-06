@@ -4,19 +4,40 @@ const sequelize = require('../sequelize');
 
 // Ruta para el perfil del usuario
 router.get('/', async function (req, res) {
-  // Verificamos si hay un usuario en la sesión
   if (req.session.user) {
-    const imagen_perfil = await sequelize.models.Usuario.findOne({
-      where: { nombre: req.session.user.nombre }
-    });; 
-    // Si está logueado, renderizamos la página del perfil
-    res.render('perfil', { title: 'Página Principal', user: req.session.user , imagen_perfil: imagen_perfil.imagen_perfil});
+    try {
+      // Buscar la información del usuario en la base de datos
+      const usuario = await sequelize.models.Usuario.findOne({
+        where: { nombre: req.session.user.nombre }
+      });
+
+      if (usuario) {
+        // Renderizar el perfil con la información del usuario
+        res.render('perfil', { 
+          title: 'Página Principal', 
+          user: req.session.user, 
+          imagen_perfil: usuario.imagen_perfil 
+        });
+      } else {
+        // Si no se encuentra el usuario en la base de datos, usar imagen por defecto
+        res.render('perfil', { 
+          title: 'Página Principal', 
+          user: req.session.user, 
+          imagen_perfil: "images/Fotoperfilpordefecto.png" 
+        });
+      }
+    } catch (error) {
+      console.error('Error al obtener los datos del usuario:', error);
+      // Manejar errores (opcionalmente redirigir a una página de error)
+      res.status(500).send('Hubo un error al cargar tu perfil.');
+    }
   } else {
-    // Si no hay un usuario en sesión, redirigimos al inicio de sesión
+    // Si no hay un usuario en sesión, redirigir al inicio de sesión
     req.session.error = "Debes iniciar sesión para acceder a tu perfil.";
     res.redirect('/iniciosesion');
   }
 });
+
 
 // Ruta para actualizar la imagen de perfil
 router.post('/update-image', async (req, res) => {

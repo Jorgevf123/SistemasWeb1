@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<title><%= title %></title>
-		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-		<!-- Customized Bootstrap Stylesheet 
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-		<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script  type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script  type="text/javascript" src="https://use.fontawesome.com/fe459689b4.js"></script>
-		<link rel="stylesheet" href="/css/estilos.css">
-	</head>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="/">Gymanual</a></li>
-				<li><a href="/ejercicios">Ejercicios</a></li>
-				<li><a href="/conocenos">Conócenos</a></li>
-				<li><a href="/contacto">Contacto</a></li>
-			</ul>
-			<div class="header-right">
-                <div class="search-bar">
-					<form action="/buscar" method="GET">
+    <!-- Customized Bootstrap Stylesheet -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://use.fontawesome.com/fe459689b4.js"></script>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Gymanual</a></li>
+            <li><a href="/ejercicios">Ejercicios</a></li>
+            <li><a href="/conocenos">Conócenos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+        </ul>
+        <div class="header-right">
+            <div class="search-bar">
+                <form action="/buscar" method="GET">
                     <input type="text" name="q" placeholder="Buscar..." required>
-					<button type="submit">Buscar</button>
-					</form>
-                    
-                </div>
-               <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-				<% if(user){ %>
-                    <img src="<%= imagen_perfil %>" id= "imagen_perfil" alt="Foto de perfil" class="profile-pic">
-					<% } else{ %>
-						<img src="/images/avatar.webp" id= "imagen_perfil" alt="Foto de perfil" class="profile-pic">
-						<% } %>
-                </div>
-                <div class="profile-menu" id="profile-menu">
-                    <p class="username">admin</p> 
-                    <button>Correo electrónico</button>
-                    <button onclick="window.location.href='/ejercicios_supervisar'">Ejercicios a supervisar</button>
-                    <button>Atención al cliente</button>
-                    <button>Cerrar cuenta</button>
-                    <button onclick="window.location.href='/gestion_usuarios'">Gestión de usuarios</button>
-					
-                    <button>Términos y condiciones</button>
-                </div>
+                    <button type="submit">Buscar</button>
+                </form>
             </div>
-		</nav>
-	</header> 
-	
+            <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
+                <% if (user) { %>
+                    <img src="<%= imagen_perfil %>" id="imagen_perfil" alt="Foto de perfil" class="profile-pic">
+                <% } else { %>
+                    <img src="/images/avatar.webp" id="imagen_perfil" alt="Foto de perfil" class="profile-pic">
+                <% } %>
+            </div>
+            <div class="profile-menu" id="profile-menu">
+                <% if (user) { %>
+                    <p class="username"><%= user.nombre %></p>
+                <% } else { %>
+                    <p class="username">Invitado</p>
+                <% } %>
+                <button>Correo electrónico</button>
+                <button onclick="window.location.href='/ejercicios_supervisar'">Ejercicios a supervisar</button>
+                <button>Atención al cliente</button>
+                <button>Cerrar cuenta</button>
+                <button onclick="window.location.href='/gestion_usuarios'">Gestión de usuarios</button>
+                <button>Términos y condiciones</button>
+            </div>
+        </div>
+    </nav>
+</header>

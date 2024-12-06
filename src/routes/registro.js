@@ -8,10 +8,18 @@ const Usuario = sequelize.models.Usuario; // Nombre correcto del modelo
 
 // Mostrar la página de registro
 router.get('/', (req, res) => {
-    if(req.session.user){
-        res.render('registro', { title: 'Página Principal', user: req.session.user , imagen_perfil: imagen_perfil.imagen_perfil}); 
-    } else{
-        res.render('registro', { title: 'Página Principal', user: 'inicie Sesion', imagen_perfil: "images/Fotoperfilpordefecto.png"});
+    if (req.session.user) {
+        res.render('registro', { 
+            title: 'Página Principal', 
+            user: req.session.user, 
+            imagen_perfil: req.session.user.imagen_perfil || "images/Fotoperfilpordefecto.png" 
+        });
+    } else {
+        res.render('registro', { 
+            title: 'Página Principal', 
+            user: null, 
+            imagen_perfil: "images/Fotoperfilpordefecto.png" 
+        });
     }
 });
 
@@ -19,14 +27,17 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     const { correo_electronico, nombre, contrasena, confirm_password, aceptar_terminos } = req.body;
 
+    if (!req.session.user) {
+        // Si el usuario no está autenticado, no se permite el registro
+        return res.status(401).send('Debes iniciar sesión para registrarte.');
+    }
+
     try {
         // Validar que las contraseñas coincidan
         if (contrasena !== confirm_password) {
             return res.status(400).send('Las contraseñas no coinciden.');
         }
 
-        // Validar si el correo ya está registrado (puedes agregar esta lógica si es necesario)
-        
         // Validar longitud y complejidad de la contraseña
         if (contrasena.length < 8 || !/[!@#$%^&*(),.?":{}|<>]/g.test(contrasena)) {
             return res.status(400).send('La contraseña debe tener al menos 8 caracteres y un carácter especial.');
