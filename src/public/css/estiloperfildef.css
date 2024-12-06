@@ -174,7 +174,7 @@ nav ul li a:hover {
     text-align: center;
     width: 100%;
     height: calc(100vh - 60px); /* Resta el alto del header */
-    background-image: url('fondoperfil.png'); /* Fondo específico solo para esta sección */
+    background-image: url('/images/fondoperfil.png'); /* Fondo específico solo para esta sección */
     background-size: cover;
     background-position: center center;
     padding: 50px 20px;
@@ -298,4 +298,24 @@ nav ul li a:hover {
 
 .option.cerrar-sesion:hover {
     background-color: #e53935; /* Cambio de color en hover */
+}
+.perfil-link {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    text-decoration: none;
+}
+
+.perfil-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.perfil-pic:hover {
+    border-color: #007bff;
 }

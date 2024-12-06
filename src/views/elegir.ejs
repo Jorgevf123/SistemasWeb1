@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegir Foto de Perfil</title>
+    <link rel="stylesheet" href="/css/elegir.css">
+</head>
+<body>
+
+    <!-- Contenedor del popup -->
+    <div class="popup-background">
+        <div class="popup">
+            <h1>Selecciona tu foto de perfil</h1>
+
+            <!-- Cuadrícula de imágenes -->
+            <div class="image-grid">
+                <img src="/images/opcion1.png" alt="Opción 1" class="image-option">
+                <img src="/images/opcion2.png" alt="Opción 2" class="image-option">
+                <img src="/images/opcion3.png" alt="Opción 3" class="image-option">
+                <img src="/images/opcion4.png" alt="Opción 4" class="image-option">
+            </div>
+
+            <!-- Botón para cerrar -->
+            <button class="close-button" onclick="closePopup()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+       
+        function closePopup() {
+                window.history.back();  // Redirige a la página anterior
+        }
+    </script>
+</body>
+</html>

@@ -37,12 +37,11 @@
     </header>
 
     <div class="perfil-section">
-        <!-- Circular Image upload -->
+        <!-- Circular Image -->
         <div class="image-upload">
-            <label for="file-upload" class="perfil-pic">
-                <img id="perfil-image" src="<%= usuario.imagen_perfil %>" alt="Foto de perfil">
-            </label>
-            <input type="file" id="file-upload" accept="image/*" onchange="loadImage(event)">
+            <a href="/elegir" class="perfil-link">
+                <img id="perfil-image" src="<%= usuario.imagen_perfil %>" alt="Foto de perfil" class="perfil-pic">
+            </a>
         </div>
         
         <!-- Email input -->
