@@ -8,7 +8,11 @@ const Usuario = sequelize.models.Usuario; // Nombre correcto del modelo
 
 // Mostrar la página de registro
 router.get('/', (req, res) => {
-    res.render('registro', { title: 'Registro' });; // Renderiza la plantilla `registro.ejs`
+    if(req.session.user){
+        res.render('registro', { title: 'Página Principal', user: req.session.user , imagen_perfil: imagen_perfil.imagen_perfil}); 
+    } else{
+        res.render('registro', { title: 'Página Principal', user: 'inicie Sesion', imagen_perfil: "images/Fotoperfilpordefecto.png"});
+    }
 });
 
 // Procesar el registro del usuario
