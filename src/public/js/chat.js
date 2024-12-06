@@ -14,15 +14,14 @@ socket.on('chat', (msg) => {
     messagesDiv.appendChild(messageElement);
 });
 
-
-
 function createMessageElement(msg) {    
     const messageElement = document.createElement('div');
     messageElement.classList.add('comment-content');
     
     // Imagen de perfil por defecto
     const img = document.createElement('img');
-    img.src = imagen_perfil;
+    const image = msg.imagen_perfil;
+    img.src = image;
     img.classList.add('avatar');
     messageElement.appendChild(img);
     
@@ -55,11 +54,12 @@ form.addEventListener('submit', function(e){
     const message = chatInput.value.trim();
     if (message) {
         socket.emit('chat', {
-            pageId: pageId,   // El ID de la página
-            username: usuario.value || "Invitado",  // Esto lo puedes cambiar por el nombre real del usuario
-            message: message
+            pageId: pageId,   
+            username: usuario.value || "Invitado", 
+            message: message,
+            imagen_perfil: imagen_perfil
         });
 
-        chatInput.value = '';  // Limpiar el campo de entrada
+        chatInput.value = '';  
     }
 });

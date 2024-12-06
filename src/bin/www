@@ -47,8 +47,8 @@ io.on('connection', (socket) => {
       if (!messageHistory[msg.pageId]) {
         messageHistory[msg.pageId] = [];
     }
-      messageHistory[msg.pageId].push({ username: msg.username, message: msg.message });
-      io.to(msg.pageId).emit('chat', { username: msg.username, message: msg.message });
+      messageHistory[msg.pageId].push({ username: msg.username, message: msg.message, imagen_perfil:msg.imagen_perfil});
+      io.to(msg.pageId).emit('chat', { username: msg.username, message: msg.message, imagen_perfil: msg.imagen_perfil });
   });
 
   socket.on('disconnect', () => {

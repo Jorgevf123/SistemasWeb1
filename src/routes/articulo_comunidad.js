@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../sequelize')
+const path = require('path');
 
 router.get('/:id', async function(req, res, next) {
   try {
     let favoritos ={};
+    let imagen_perfil = 'images/Fotoperfilpordefecto.png';
     const usuario = req.session.user;
     const articulo = await sequelize.models.articulos_comunidad.findOne({where: {id: req.params.id}});
     if (!articulo) {
@@ -18,6 +20,10 @@ router.get('/:id', async function(req, res, next) {
     let imagenBase64 = '';
     if (articulo.imagen_articulo) {
       imagenBase64 = articulo.imagen_articulo.toString('base64');
+    } 
+    if(favoritos.imagen_perfil){
+      console.log(typeof(favoritos.imagen_perfil))
+      imagen_perfil = path.join('../', favoritos.imagen_perfil); 
     }
     res.render('articulo_comunidad', { title: 'Artículo de la comunidad',
                                     user:usuario, 
@@ -31,7 +37,7 @@ router.get('/:id', async function(req, res, next) {
                                     categoria: articulo.categoria,
                                     pageData: req.params.id,
                                     usuarioFavoritos : favoritos.favoritos,
-                                    imagen_perfil: favoritos.imagen_perfil,
+                                    imagen_perfil: imagen_perfil,
                                   });
   } catch (error) {
     console.error(error);
