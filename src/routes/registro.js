@@ -6,20 +6,51 @@ const router = express.Router();
 // Acceder correctamente al modelo Usuario
 const Usuario = sequelize.models.Usuario; // Nombre correcto del modelo
 
-// Mostrar la página de registro
-router.get('/', (req, res) => {
-    if (req.session.user) {
-        res.render('registro', { 
-            title: 'Página Principal', 
-            user: req.session.user, 
-            imagen_perfil: req.session.user.imagen_perfil || "images/Fotoperfilpordefecto.png" 
-        });
+// Ruta para la página de registro
+router.get('/', async (req, res) => {
+    if (req.session.user) {  // Verificamos si hay un usuario en la sesión
+        try {
+            // Buscar la información del usuario en la base de datos
+            const usuario = await sequelize.models.Usuario.findOne({
+                where: { correo_electronico: req.session.user.correo_electronico } // Usamos el correo electrónico para la búsqueda
+            });
+
+            if (usuario) {
+                // Verificar si el usuario es administrador
+                if (usuario.es_admin) {
+                    // Si es administrador, pasamos el parámetro 'admin' a la vista
+                    res.render('registro', { 
+                        title: 'Página de Registro', 
+                        user: req.session.user, 
+                        imagen_perfil: usuario.imagen_perfil || "images/Fotoperfilpordefecto.png",
+                        esAdmin: true // Indicamos que es admin
+                    });
+                } else {
+                    // Si no es administrador, solo mostramos la vista sin opción de 'admin'
+                    res.render('registro', { 
+                        title: 'Página de Registro', 
+                        user: req.session.user, 
+                        imagen_perfil: usuario.imagen_perfil || "images/Fotoperfilpordefecto.png",
+                        esAdmin: false // No permitir asignar 'admin'
+                    });
+                }
+            } else {
+                // Si no se encuentra el usuario en la base de datos
+                res.render('registro', { 
+                    title: 'Página de Registro', 
+                    user: req.session.user, 
+                    imagen_perfil: "images/Fotoperfilpordefecto.png",
+                    esAdmin: false // No permitir asignar 'admin'
+                });
+            }
+        } catch (error) {
+            console.error('Error al obtener los datos del usuario:', error);
+            res.status(500).send('Hubo un error al cargar la página de registro.');
+        }
     } else {
-        res.render('registro', { 
-            title: 'Página Principal', 
-            user: null, 
-            imagen_perfil: "images/Fotoperfilpordefecto.png" 
-        });
+        // Si no hay un usuario en sesión, redirigir al inicio de sesión
+        req.session.error = "Debes iniciar sesión para registrarte.";
+        res.redirect('/iniciosesion');
     }
 });
 
