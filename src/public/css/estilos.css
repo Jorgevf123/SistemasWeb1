@@ -108,7 +108,7 @@ nav ul li a:hover {
 /* Estilo para el nombre de usuario */
 .profile-menu p.username {
     margin: 5px 0; /* Espaciado alrededor */
-    color: white; /* Color del texto */
+    color: rgb(255, 251, 251); /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
     font-weight: bold; /* Resalta el texto */
 }
@@ -117,7 +117,7 @@ nav ul li a:hover {
 .profile-menu a {
     display: block; /* Cada enlace ocupa toda la línea */
     text-decoration: none; /* Quita el subrayado */
-    color: white; /* Color del texto */
+    color: rgb(247, 242, 242); /* Color del texto */
     font-size: 0.9em; /* Tamaño del texto */
     font-weight: normal; /* Peso normal */
     padding: 5px 0; /* Espaciado interno uniforme */
