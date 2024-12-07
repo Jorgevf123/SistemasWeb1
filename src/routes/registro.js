@@ -47,11 +47,7 @@ router.get('/', async (req, res) => {
             console.error('Error al obtener los datos del usuario:', error);
             res.status(500).send('Hubo un error al cargar la página de registro.');
         }
-    } else {
-        // Si no hay un usuario en sesión, redirigir al inicio de sesión
-        req.session.error = "Debes iniciar sesión para registrarte.";
-        res.redirect('/iniciosesion');
-    }
+    } 
 });
 
 // Procesar el registro del usuario
