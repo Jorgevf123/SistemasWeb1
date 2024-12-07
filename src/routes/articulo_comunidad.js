@@ -26,7 +26,7 @@ router.get('/:id', async function(req, res, next) {
       imagen_perfil = path.join('../', favoritos.imagen_perfil); 
     }
     res.render('articulo_comunidad', { title: 'Artículo de la comunidad',
-                                    user:usuario, 
+                                    user:usuario ? usuario : false, 
                                     id: articulo.id,
                                     titulo_articulo: articulo.titulo_articulo, 
                                     imagen_articulo: `data:image/jpeg;base64,${imagenBase64}`,

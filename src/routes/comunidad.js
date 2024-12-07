@@ -34,7 +34,7 @@ router.get('/', async function(req, res, next) {
         
       });
       res.render('comunidad', { title: 'Comunidad',
-                                user: usuario, 
+                                user:usuario ? usuario : false, 
                                 numero_carrusel:4,
                                 total_items: total_items.length ,
                                 articulos: articulosProcesados,
