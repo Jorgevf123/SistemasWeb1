@@ -62,6 +62,13 @@
                 </div>
                 <a href="/iniciosesion">Cerrar Sesión</a>
                 <a href="/terminos"> Terminos y condiciones</a> 
+               <!-- Comprobación si el usuario es administrador -->
+               <% if (user.es_admin) { %>
+                <div>
+                    <a href="/ejerciciossupervisar">Ejercicios a Supervisar</a> <!-- Enlace para administradores -->
+                </div>
+            <% } %>
+                </div>
             </div>
         </div>
     </nav>
