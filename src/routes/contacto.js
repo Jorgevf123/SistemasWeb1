@@ -12,35 +12,40 @@ const transporter = nodemailer.createTransport({
     pass: "LMQygBSR7zGn6wfI", // Tu contraseña de Outlook o contraseña de aplicación
     },
 });
-
-// Ruta para mostrar la página de contacto
 router.get('/', (req, res) => {
-    res.render('contacto', { 
+    const usuario = req.session.user || null;
+    res.render('contacto', {
         title: 'Contacto',
-        layout: 'layout.ejs'
+        user: usuario,
+        imagen_perfil: usuario ? usuario.imagen_perfil : '/images/avatar.webp'
     });
 });
 
-// Ruta para procesar el formulario
 router.post('/', async (req, res) => {
     const { name, email, message } = req.body;
 
-    const mailOptions = {
-        from: email, // El remitente es el correo ingresado en el formulario
-        to: 'opinionesgymanual@gmail.com', // Tu correo donde recibirás los mensajes Gymanual2024
-        subject: `Nuevo mensaje de contacto de ${name}`,
-        text: `Has recibido un mensaje de ${name} (${email}):\n\n${message}`,
-    };
-
     try {
-        // Enviar el correo
-        await transporter.sendMail(mailOptions);
-        console.log('Correo enviado correctamente');
-        res.send('Gracias por tu mensaje. Te responderemos pronto.');
+        await transporter.sendMail({
+            from: email,
+            to: 'opinionesgymanual@gmail.com',
+            subject: `Nuevo mensaje de contacto de ${name}`,
+            text: `Has recibido un mensaje de ${name} (${email}):\n\n${message}`
+        });
+        res.render('respuesta_contacto', {
+            title: 'Mensaje Enviado',
+            mensaje: 'Gracias por tu mensaje. Te responderemos pronto.',
+            volverUrl: '/contacto'
+        });
     } catch (error) {
         console.error('Error al enviar el correo:', error);
-        res.status(500).send('Hubo un error al enviar tu mensaje. Por favor, inténtalo más tarde.');
+        res.status(500).render('respuesta_contacto', {
+            title: 'Error al Enviar',
+            mensaje: 'Hubo un error al enviar tu mensaje. Por favor, inténtalo más tarde.',
+            volverUrl: '/contacto'
+        });
     }
 });
+
+
 
 module.exports = router;
