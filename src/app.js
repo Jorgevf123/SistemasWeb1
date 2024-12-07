@@ -40,7 +40,7 @@ const conocenosRouter = require('./routes/conocenos');
 const buscarRouter = require('./routes/buscar'); // Asegúrate de que el path sea correcto
 const elegirRoutes = require('./routes/elegir');
 const perfilRouter = require('./routes/perfil'); 
-
+const perfiladminRouter = require('./routes/PerfilAdmin');
 const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -89,6 +89,7 @@ app.use('/ejercicio_a_validar', ejercicioAValidarRouter);
 app.use('/', buscarRouter);
 app.use('/', elegirRoutes);
 app.use('/perfil', perfilRouter);  // Asegúrate de que la ruta /perfil esté registrada
+app.use('/PerfilAdmin', perfiladminRouter);
 //app.use('/otherevents', othereventsRouter);
 //app.use('/formulario_compra', formularioCompraRouter);
 //app.use('/foro', foroRouter);

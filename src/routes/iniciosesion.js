@@ -19,7 +19,13 @@ router.post('/', async (req, res) => {
     });
 
     if (usuario) {
-      bcrypt.compare(contrasena, usuario.contrasena, function (err, result) {
+      bcrypt.compare(contrasena, usuario.contrasena, (err, result) => {
+        if (err) {
+          console.error("Error al comparar contraseñas:", err);
+          req.session.error = "Ocurrió un problema al verificar la contraseña.";
+          return res.redirect("/iniciosesion");
+        }
+
         if (result) {
           // Guardamos el usuario en la sesión
           req.session.user = {
@@ -28,21 +34,29 @@ router.post('/', async (req, res) => {
             es_admin: usuario.es_admin,
             imagen_perfil: usuario.imagen_perfil,
           };
+
           req.session.message = "¡Inicio de sesión exitoso!";
 
-          // Redirigimos al perfil
-          res.redirect('/perfil');  // Redirige al perfil del usuario
+          // Redirigir según si es administrador o no
+          if (usuario.es_admin) {
+            return res.redirect("/perfiladmin"); // Página de administrador
+          } else {
+            return res.redirect("/perfil"); // Página de usuario regular
+          }
         } else {
           req.session.error = "Correo electrónico o contraseña incorrectos.";
-          res.redirect("/iniciosesion");
+          return res.redirect("/iniciosesion");
         }
       });
     } else {
       req.session.error = "Correo electrónico o contraseña incorrectos.";
-      res.redirect("/iniciosesion");
+      return res.redirect("/iniciosesion");
     }
   } catch (error) {
-    res.status(500).send("Hubo un problema con el servidor.");
+    console.error("Error al manejar el inicio de sesión:", error);
+    req.session.error = "Hubo un problema con el servidor.";
+    return res.redirect("/iniciosesion");
   }
 });
+
 module.exports = router;
