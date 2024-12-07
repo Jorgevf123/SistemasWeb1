@@ -61,16 +61,14 @@
                     <% } %>
                 </div>
                  <!-- Comprobación si el usuario es administrador -->
-               <% if (user.es_admin) { %>
-                <div>
-                    <a href="/ejerciciossupervisar">Ejercicios a Supervisar</a> <!-- Enlace para administradores -->
-                </div>
-            <% } %>
-            <% if (user.es_admin) { %>
-                <div>
-                    <a href="/atecionclientes">Atención Clientes</a> <!-- Enlace para administradores -->
-                </div>
-            <% } %>
+                 <% if (user && user.es_admin) { %>
+                    <div>
+                        <a href="/ejerciciossupervisar">Ejercicios a Supervisar</a> <!-- Enlace para administradores -->
+                    </div>
+                    <div>
+                        <a href="/atecionclientes">Atención Clientes</a> <!-- Enlace para administradores -->
+                    </div>
+                <% } %>
                 <a href="/iniciosesion">Cerrar Sesión</a>
                 <a href="/terminos"> Terminos y condiciones</a> 
             

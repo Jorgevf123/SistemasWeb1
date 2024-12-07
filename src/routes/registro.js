@@ -8,47 +8,38 @@ const Usuario = sequelize.models.Usuario; // Nombre correcto del modelo
 
 // Ruta para la página de registro
 router.get('/', async (req, res) => {
-    if (req.session.user) {  // Verificamos si hay un usuario en la sesión
-        try {
-            // Buscar la información del usuario en la base de datos
+    try {
+        let esAdmin = false; // Por defecto, no es administrador
+        let imagen_perfil = "images/Fotoperfilpordefecto.png"; // Imagen predeterminada
+
+        if (req.session.user) { // Si hay un usuario en sesión
             const usuario = await sequelize.models.Usuario.findOne({
-                where: { correo_electronico: req.session.user.correo_electronico } // Usamos el correo electrónico para la búsqueda
+                where: { correo_electronico: req.session.user.correo_electronico }
             });
 
             if (usuario) {
-                // Verificar si el usuario es administrador
                 if (usuario.es_admin) {
-                    // Si es administrador, pasamos el parámetro 'admin' a la vista
-                    res.render('registro', { 
-                        title: 'Página de Registro', 
-                        user: req.session.user, 
-                        imagen_perfil: usuario.imagen_perfil || "images/Fotoperfilpordefecto.png",
-                        esAdmin: true // Indicamos que es admin
-                    });
+                    esAdmin = true;
                 } else {
-                    // Si no es administrador, solo mostramos la vista sin opción de 'admin'
-                    res.render('registro', { 
-                        title: 'Página de Registro', 
-                        user: req.session.user, 
-                        imagen_perfil: usuario.imagen_perfil || "images/Fotoperfilpordefecto.png",
-                        esAdmin: false // No permitir asignar 'admin'
-                    });
+                    esAdmin = false;
                 }
-            } else {
-                // Si no se encuentra el usuario en la base de datos
-                res.render('registro', { 
-                    title: 'Página de Registro', 
-                    user: req.session.user, 
-                    imagen_perfil: "images/Fotoperfilpordefecto.png",
-                    esAdmin: false // No permitir asignar 'admin'
-                });
+                imagen_perfil = usuario.imagen_perfil || imagen_perfil; // Usamos la imagen del usuario si existe
             }
-        } catch (error) {
-            console.error('Error al obtener los datos del usuario:', error);
-            res.status(500).send('Hubo un error al cargar la página de registro.');
         }
-    } 
+
+        // Renderizamos la vista de registro
+        res.render('registro', { 
+            title: 'Página de Registro',
+            user: req.session.user || null,
+            imagen_perfil,
+            esAdmin
+        });
+    } catch (error) {
+        console.error('Error al cargar la página de registro:', error);
+        res.status(500).send('Hubo un error al cargar la página de registro.');
+    }
 });
+
 
 // Procesar el registro del usuario
 router.post('/', async (req, res) => {
