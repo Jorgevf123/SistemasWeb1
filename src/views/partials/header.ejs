@@ -40,7 +40,13 @@
                     <p class="username">Invitado</p>
                 <% } %>
                 <button>Correo electrónico</button>
-                <button onclick="btnEjerciciosSupervisar()">Ejercicios a supervisar</button>
+                <div>
+                    <% if (user) { %>
+                      <a href="/ejercicios_supervisar"> Ejercicios a Supervisar</a>
+                    <% } else { %>
+                       <a href="/iniciosesion"> Ejercicios a Supervisar</a>
+                    <% } %>
+                </div>
                 <button>Atención al cliente</button>
                 <button onclick="cerrarSesion()">Cerrar sesión</button>
                 <button onclick="btngestion()">Gestión de usuarios</button>
@@ -53,21 +59,25 @@
 <script>
     // Redirige a "Ejercicios a Supervisar" si el usuario está autenticado
     function btnEjerciciosSupervisar() {
-        if (user) {  // Si el usuario está autenticado
-            window.location.href = '/ejercicios_supervisar';
-         } else { 
-            window.location.href = '/iniciosesion';
-            alert("Debes iniciar sesión primero.");
-         } 
-    }
+	         if (! user) {   // Si el usuario está autenticado
+                window.location.href = '/iniciosesion';
+	            alert("Debes iniciar sesión primero.");
+	            window.location.href = '/ejercicios_supervisar';
+	         } else { 
+	            window.location.href = '/ejercicios_supervisar';
+	         } 
+	    }
+	
+	    // Cierra la sesión del usuario y lo redirige a la página de inicio de sesión
+	    function btngestion() {
+	         if (user) {  // Si el usuario está autenticado
+	            window.location.href = '/gestion_usuarios'; // Ruta para cerrar sesión en el backend
+	         } else { 
+	            window.location.href = '/iniciosesion';
+	            alert("Debes iniciar sesión primero.");
+	         } 
+	    }
+	</script>
 
-    // Cierra la sesión del usuario y lo redirige a la página de inicio de sesión
-    function btngestion() {
-         if (user) {  // Si el usuario está autenticado
-            window.location.href = '/gestion_usuarios'; // Ruta para cerrar sesión en el backend
-         } else { 
-            window.location.href = '/iniciosesion';
-            alert("Debes iniciar sesión primero.");
-         } 
-    }
+
 </script>
