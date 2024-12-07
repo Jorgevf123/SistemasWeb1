@@ -1,41 +1,41 @@
 
-    <link rel="stylesheet" href="css/estilos.css"> 
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Enlace al archivo CSS -->
+</head>
 <body>
-    <%- include('partials/header') %>
-
+    <%- include('partials/header') %> <!-- Incluir el header -->
     <script src="js/script.js"></script>
-    <h1 class="user-management-title">gestión de usuarios</h1>
-    <p>¿Qué usuario buscas?</p>
-    <div class="search-bar">
-        <input type="text" placeholder="Buscar...">
-        <button type="submit">🔍</button>
-    </div>
+
+    <h1 class="user-management-title">Gestión de Usuarios</h1>
 
     <table class="user-management-table">
         <thead>
             <tr>
-                <th>Correo</th>
-                <th>Permisos</th>
-                <th>Ejs publicados</th>
-                <th>Usuarios baneados</th>
-                <th>Vídeos rechazados</th>
-                <th>Actividad</th>
+                <th>ID</th>
+                <th>Correo Electrónico</th>
+                <th>Nombre</th>
+                <th>Contraseña</th>
+                <th>Es Admin</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>jorge@gmail.com</td>
-                <td>Administrador</td>
-                <td>2</td>
-                <td>1</td>
-                <td>0</td>
-                <td>En línea</td>
-            </tr>
+            <% usuarios.forEach(usuario => { %>
+                <tr>
+                    <td><%= usuario.id %></td>
+                    <td><%= usuario.correo_electronico %></td>
+                    <td><%= usuario.nombre %></td>
+                    <td><%= usuario.contrasena %></td>
+                    <td><%= usuario.es_admin ? 'Sí' : 'No' %></td>
+                </tr>
+            <% }); %>
         </tbody>
     </table>
-    <div class="back-button-container">
-        <button onclick="window.location.href='/'" class="back-button">Volver</button>
-    </div>
 </body>
 </html>
+
+

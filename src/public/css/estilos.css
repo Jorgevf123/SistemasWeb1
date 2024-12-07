@@ -117,7 +117,7 @@ nav ul li a:hover {
 .profile-menu a {
     display: block; /* Cada enlace ocupa toda la línea */
     text-decoration: none; /* Quita el subrayado */
-    color: rgb(247, 242, 242); /* Color del texto */
+    color: rgb(19, 19, 19); /* Color del texto */
     font-size: 0.9em; /* Tamaño del texto */
     font-weight: normal; /* Peso normal */
     padding: 5px 0; /* Espaciado interno uniforme */
@@ -160,7 +160,7 @@ nav ul li a:hover {
 .profile-menu p.username {
     margin: 5px 0; /* Espaciado alrededor */
     text-align: center; /* Centra el texto horizontalmente */
-    color: white; /* Color del texto */
+    color: rgb(14, 14, 14); /* Color del texto */
     font-size: 0.9em; /* Tamaño del texto */
     font-weight: bold; /* Resalta el texto */
 }
@@ -683,7 +683,7 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
     position: absolute;
     right: 10px;
     top: 60px;
-    background-color: #0f0e0e;
+    background-color: #f7f3f3;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     padding: 10px;
     border-radius: 8px;

@@ -60,6 +60,8 @@ app.use((req,res,next) => {
   delete req.session.error;
   res.locals.message = "";
   res.locals.error = "";
+  res.locals.imagen_perfil = req.session?.user?.imagen_perfil || '/images/avatar.webp'; // Valor por defecto
+  res.locals.user = req.session?.user || null; // Asegura que user esté disponible
   if(message) res.locals.message = `<p>${message}</p>`;
   if(error) res.locals.error = `<p>${error}</p>`;
   next();
