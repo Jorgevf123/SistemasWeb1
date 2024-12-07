@@ -88,11 +88,87 @@ nav ul li a:hover {
     color: #00cc66;
     transform: scale(1.1);
 }
+/* Estilo general del menú */
+.profile-menu {
+    padding: 8px; /* Espaciado interno reducido */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    border-radius: 6px; /* Bordes redondeados */
+    width: 150px; /* Ancho ajustado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    position: absolute;
+    top: 100%;
+    right: 0; /* Mantiene el menú alineado a la derecha */
+    display: flex;
+    flex-direction: column; /* Ordena elementos verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos */
+    gap: 5px; /* Espaciado uniforme entre los elementos */
+    text-align: center; /* Centra el texto horizontalmente */
+}
 
-/* Contenedor derecho para buscador y perfil */
+/* Estilo para el nombre de usuario */
+.profile-menu p.username {
+    margin: 5px 0; /* Espaciado alrededor */
+    color: white; /* Color del texto */
+    font-size: 1em; /* Tamaño del texto */
+    font-weight: bold; /* Resalta el texto */
+}
+
+/* Estilo de los enlaces */
+.profile-menu a {
+    display: block; /* Cada enlace ocupa toda la línea */
+    text-decoration: none; /* Quita el subrayado */
+    color: white; /* Color del texto */
+    font-size: 0.9em; /* Tamaño del texto */
+    font-weight: normal; /* Peso normal */
+    padding: 5px 0; /* Espaciado interno uniforme */
+    text-align: center; /* Centra el texto dentro del enlace */
+    cursor: default; /* Cursor sin efecto de enlace */
+}
+
+/* Estilo en hover para mantener uniformidad */
+.profile-menu a:hover {
+    color: white; /* Sin cambio de color */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* Ajuste para el contenedor general */
+.profile-menu div {
+    width: 100%; /* Asegura que el contenido ocupe el ancho total */
+    text-align: center; /* Centra el texto dentro de los contenedores */
+}
+
+/* Botones como texto plano */
+.text-button {
+    background: none; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    color: white; /* Mismo color que el texto */
+    font-size: 0.9em; /* Tamaño del texto */
+    font-weight: normal; /* Peso normal */
+    padding: 5px; /* Espaciado interno */
+    margin: 3px 0; /* Espaciado entre botones */
+    text-align: center; /* Centra el texto dentro del botón */
+    cursor: default; /* Cursor como texto */
+}
+
+/* Sin cambios en hover para los botones */
+.text-button:hover {
+    color: white; /* Sin cambio de color */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* Ajuste del texto centrado */
+.profile-menu p.username {
+    margin: 5px 0; /* Espaciado alrededor */
+    text-align: center; /* Centra el texto horizontalmente */
+    color: white; /* Color del texto */
+    font-size: 0.9em; /* Tamaño del texto */
+    font-weight: bold; /* Resalta el texto */
+}
+
+/* Ajuste del buscador y perfil */
 .header-right {
     display: flex;
-    align-items: center;
+    align-items: center; /* Centra verticalmente el contenido */
     gap: 15px;
     margin-left: auto;
 }
