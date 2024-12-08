@@ -510,6 +510,20 @@ area.hover-area:hover {
 }
 
 
+.fondo-gestion-usuarios {
+    background-image: url('../images/FondoPantallaGestión.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fondo-ejer-validar {
+    background-image: url('../images/FondoPantallaGestión.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 
 /* Footer */
 footer {
