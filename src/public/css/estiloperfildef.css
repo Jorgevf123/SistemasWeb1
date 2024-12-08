@@ -4,6 +4,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Elimina el scroll */
+}
 
 /* Perfil de la sección */
 .perfil-section {
@@ -22,6 +27,27 @@
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+/* Email input */
+.email {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.email label {
+    display: block;
+    font-size: 1em;
+    color: #333;
+}
+
+.email input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 /* Imagen de perfil circular */
