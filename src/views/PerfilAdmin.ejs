@@ -1,13 +1,11 @@
 <%- include('partials/header') %>
-    <link rel="stylesheet" href="css/estilosadminddef.css">
+<link rel="stylesheet" href="css/estilosadminddef.css">
 
 <body>
     <div class="perfil-section">
         <!-- Circular Image upload -->
         <div class="image-upload">
-            <a href="/elegir" class="perfil-link">
-                <img id="perfil-image" src="<%= user.imagen_perfil %>" alt="Foto de perfil" class="perfil-pic">
-            </a>
+            <img id="perfil-image" src="images/fotoadmin.png" alt="Foto de perfil" class="perfil-pic">
         </div>
 
         <!-- Nombre input -->
@@ -19,9 +17,20 @@
         <div class="options">
             <button class="option" onclick="window.location.href='/ejercicios_supervisar'">Ejercicios Supervisar</button>
             <button class="option">Atención al cliente</button>
-            <button id="cerrarSesion" onclick="window.location.href='/iniciosesion'">Cerrar sesión</button>
+            <button class="option" onclick="window.location.href='/iniciosesion'">Cerrar sesión</button>
             <button class="option" onclick="window.location.href='/gestion_usuarios'">Gestión de usuarios</button>
             <button class="option" onclick="window.location.href='/terminos'">Términos y condiciones</button>
+           
+            
+            <!-- Nuevo botón con submenú -->
+            <div class="submenu-container">
+                <button class="option">Opciones avanzadas</button>
+                <div class="submenu">
+                    <button class="option" onclick="window.location.href='/rutina'">Rutinas</button>
+                    <button class="option" onclick="window.location.href='/favoritos'">Favoritos</button>
+                    <button class="option" onclick="window.location.href='/comunidad'">Añadir Post</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -29,4 +38,3 @@
     <script src="/js/scriptPerfil.js"></script>
 </body>
 </html>
-    

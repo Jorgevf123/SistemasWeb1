@@ -1,25 +1,39 @@
+/* Encabezado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Elimina el scroll */
+}
+
 /* Perfil Section */
 .perfil-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Mueve el contenido hacia arriba */
     text-align: center;
     width: 100%;
-    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    height: 100vh; /* Altura fija ajustada para evitar scroll */
     background-color: #fff;
     padding: 20px;
+    gap: 20px; /* Espaciado entre elementos */
 }
 
 /* Circular Image Upload */
 .image-upload {
-    margin-bottom: 20px;
+    margin-bottom: 40px; /* Aumenta el espacio entre la imagen y las opciones */
     position: relative;
 }
 
 .perfil-pic {
-    width: 120px;
-    height: 120px;
+    width: 180px; /* Aumenta el tamaño de la imagen */
+    height: 180px; /* Aumenta el tamaño de la imagen */
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -29,10 +43,6 @@
     background-color: #f0f0f0;
     border: 2px solid #ccc;
     transition: border-color 0.3s;
-}
-
-.perfil-pic:hover {
-    border-color: #007bff;
 }
 
 .perfil-pic img {
@@ -86,6 +96,7 @@
     transition: background-color 0.3s, color 0.3s;
     text-align: center; /* Centra el texto dentro de cada opción */
     border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+    width: 100%; /* Hace que todos los botones ocupen el ancho completo de su contenedor */
 }
 
 .option:hover {
@@ -93,21 +104,55 @@
     color: white;
 }
 
-.cerrarSesion {
-    font-size: 1em;
-    color: #333;
-    padding: 15px;
-    border: 1px solid #ddd; /* Bordes alrededor de cada opción */
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    text-align: center; /* Centra el texto dentro de cada opción */
-    border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+/* Contenedor del submenú */
+.submenu-container {
+    position: relative;
+    width: 100%; /* Asegura que el submenú tenga el mismo ancho que el botón de opción */
+    text-align: center; /* Centra el submenú horizontalmente */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
-.cerrarSesion:hover {
-    background-color: rgb(243, 79, 79); /* Rojo al pasar el cursor */
+/* Aseguramos que el botón dentro de .submenu-container tenga el mismo tamaño que los demás */
+.submenu-container > .option {
+    width: 100%; /* Forzamos el botón de "Opciones avanzadas" a ocupar el mismo ancho que los demás */
+}
+
+/* Submenú oculto inicialmente */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Coloca el submenú justo debajo del botón */
+    left: 50%; /* Centra el submenú horizontalmente */
+    transform: translateX(-50%); /* Ajusta la posición centrada */
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 10px 0; /* Ajusta el padding para mejor diseño */
+    width: 100%; /* Hace que el submenú tenga el mismo ancho que su contenedor */
+    max-width: 282px; /* Limita el ancho máximo al mismo que el de los botones */
+    box-sizing: border-box;
+}
+
+/* Submenú visible al pasar el mouse */
+.submenu-container:hover .submenu {
+    display: block;
+}
+
+/* Submenú visible cuando se activa (click, fijado con clase activa) */
+.submenu-container.active .submenu {
+    display: block;
+}
+
+/* Hover verde en los botones */
+.option:hover {
+    background-color: #28a745; /* Verde */
     color: white;
-    
+}
+
+/* Submenú visible cuando se activa */
+.submenu-container.active .submenu {
+    display: block;
 }
 
 /* Responsividad */
@@ -115,12 +160,12 @@
 /* Ajustes para pantallas medianas (tabletas y dispositivos similares) */
 @media (max-width: 768px) {
     .perfil-section {
-        height: auto; /* Permite que crezca dinámicamente en altura */
+        height: 90vh; /* Ajusta la altura (más pequeña en tablets) */
     }
 
     .perfil-pic {
-        width: 100px;
-        height: 100px;
+        width: 120px; /* Reduce el tamaño de la imagen */
+        height: 120px;
     }
 
     .email {
@@ -135,13 +180,17 @@
         font-size: 0.9em;
         padding: 12px;
     }
+    .submenu {
+        max-width: 150px; /* Reduce el tamaño del submenú */
+    }
 }
+
 
 /* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
     .perfil-pic {
-        width: 80px;
-        height: 80px;
+        width: 100px; /* Reduce aún más la imagen */
+        height: 100px;
     }
 
     .email {
@@ -160,4 +209,9 @@
     .perfil-section {
         padding: 10px; /* Reduce el padding en dispositivos más pequeños */
     }
+    .submenu {
+        max-width: 120px; /* Reduce el tamaño del submenú */
+    }
 }
+
+
