@@ -152,3 +152,57 @@ html, body {
 .perfil-pic:hover {
     border-color: #007bff;
 }
+
+/* Responsividad */
+
+/* Ajustes para pantallas medianas (tabletas y dispositivos similares) */
+@media (max-width: 768px) {
+    .perfil-section {
+        height: 90vh; /* Ajusta la altura en tabletas */
+        padding: 40px 20px; /* Ajusta el padding */
+    }
+
+    .perfil-pic {
+        width: 150px; /* Reduce el tamaño de la imagen */
+        height: 150px;
+    }
+
+    .email {
+        max-width: 250px; /* Reduce el ancho del input */
+    }
+
+    .options {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en lugar de tres */
+    }
+
+    .option {
+        font-size: 1em; /* Ajusta el tamaño de la fuente */
+        padding: 12px; /* Ajusta el padding */
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .perfil-section {
+        height: 80vh; /* Reduce la altura en dispositivos más pequeños */
+        padding: 20px; /* Reduce el padding */
+    }
+
+    .perfil-pic {
+        width: 120px; /* Reduce aún más la imagen */
+        height: 120px;
+    }
+
+    .email {
+        max-width: 200px; /* Reduce el ancho del input */
+    }
+
+    .options {
+        grid-template-columns: 1fr; /* Una sola columna en lugar de varias */
+    }
+
+    .option {
+        font-size: 0.9em; /* Reduce el tamaño de la fuente */
+        padding: 10px; /* Reduce el padding */
+    }
+}
