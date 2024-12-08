@@ -74,6 +74,19 @@ router.post('/update-image', async (req, res) => {
       return res.status(500).json({ success: false, message: 'Error al actualizar la imagen de perfil.' });
     }
   });
+  // Ruta para cerrar sesión
+router.get('/cerrar-sesion', (req, res) => {
+  // Eliminar la sesión del usuario
+  req.session.destroy((err) => {
+      if (err) {
+          console.error('Error al destruir la sesión:', err);
+          return res.status(500).send('Hubo un error al cerrar sesión.');
+      }
+
+      // Redirigir al inicio de sesión
+      res.redirect('/iniciosesion');
+  });
+});
   
 module.exports = router;
 

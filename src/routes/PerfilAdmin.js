@@ -48,4 +48,18 @@ router.get('/', async function (req, res) {
   }
 });
 
+ // Ruta para cerrar sesión
+ router.get('/cerrar-sesion', (req, res) => {
+  // Eliminar la sesión del usuario
+  req.session.destroy((err) => {
+      if (err) {
+          console.error('Error al destruir la sesión:', err);
+          return res.status(500).send('Hubo un error al cerrar sesión.');
+      }
+
+      // Redirigir al inicio de sesión
+      res.redirect('/iniciosesion');
+  });
+});
+
 module.exports = router;
