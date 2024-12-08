@@ -41,7 +41,7 @@ router.post('/add', async (req, res) => {
 // Eliminar un artículo de favoritos
 router.post('/remove', async (req, res) => {
     let { articleId } = req.body;
-    articleId = parseInt(articleId, 10);
+    let articleId2 = parseInt(articleId, 10);
 
     if (!articleId) {
         return res.status(400).json({ error: 'Faltan datos necesarios' });
@@ -59,17 +59,16 @@ router.post('/remove', async (req, res) => {
             favoritos = JSON.parse(favoritos);
         }
         // Verificar si el artículo está en favoritos
-        if (!favoritos.includes(articleId)) {
+        if (!(favoritos.includes(articleId2) || favoritos.includes(articleId) ) ) {
           return res.status(404).json({ error: 'El artículo no está en favoritos' });
         }
         // Eliminar el artículo
-        favoritos = favoritos.filter(id => id !== articleId);
+        favoritos = favoritos.filter(id => id !== articleId &&  id !== articleId2);
         // Actualizar en la base de datos
         await sequelize.models.Usuario.update(
           { favoritos: JSON.stringify(favoritos) },
           { where: { nombre: req.session.user.nombre } }
         );
-        console.log(favoritos, articleId);
         res.status(200).json({ message: 'Artículo eliminado de favoritos', favoritos });
     } catch (error) {
         console.error(error);

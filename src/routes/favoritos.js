@@ -10,9 +10,8 @@ router.get('/', async function(req, res, next) {
       const nombre_articulos = await sequelize.models.Usuario.findOne({
         where: {nombre: req.session.user.nombre}
       });
-      if(nombre_articulos && nombre_articulos.favoritos){
-        const favoritos = JSON.parse(nombre_articulos.favoritos || "[]");
-        if (favoritos.length > 0) {
+      if(nombre_articulos && nombre_articulos.favoritos.length > 0){
+        const favoritos = JSON.parse(nombre_articulos.favoritos) || "[]";
         const articulos = await sequelize.models.articulos_comunidad.findAll({
         where: {id: favoritos}
         });
@@ -33,7 +32,6 @@ router.get('/', async function(req, res, next) {
           pagina_enlaces: `articulo_comunidad/${articulo.id}`, 
         }
         });
-      }
       }
       res.render('favoritos', { title: 'Favoritos',
                                 user: req.session.user, 
