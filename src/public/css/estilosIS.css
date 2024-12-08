@@ -11,143 +11,6 @@ html, body {
     overflow: hidden; /* Evita desplazamiento en la página */
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
-    color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-right: 25px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.5em;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #00cc66;
-    transform: scale(1.1);
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-left: auto;
-}
-
-.search-bar {
-    display: inline-flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 5px;
-    overflow: hidden;
-    width: auto;
-}
-
-.search-bar input {
-    padding: 11px;
-    border: none;
-    outline: none;
-    width: 200px;
-    font-size: 1.1em;
-    color: #333;
-}
-
-.search-bar button {
-    padding: 13px 20px;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
-
-.search-bar button:hover {
-    background-color: #218838;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.profile-menu-container {
-    position: relative;
-    display: inline-block;
-}
-
-.profile-icon {
-    cursor: pointer;
-}
-
-.username {
-    font-weight: bold;
-    text-align: center;
-    margin: 0 0 10px 0;
-    font-size: 1em;
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.profile-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    right: 10px;
-    top: 60px;
-    background-color: #fff;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border-radius: 8px;
-    min-width: 200px;
-    z-index: 1000;
-}
-
-.profile-menu button {
-    background: none;
-    border: none;
-    padding: 10px;
-    text-align: left;
-    cursor: pointer;
-    width: 100%;
-}
-
-.profile-menu button:hover {
-    background-color: #f0f0f0;
-}
 
 /* Fondo de la página (excepto el header) */
 .main-container {
@@ -292,61 +155,63 @@ nav ul li a:hover {
 
 /* Diseño responsive */
 @media (max-width: 768px) {
-    /* Ajustar el formulario para pantallas más pequeñas */
+    /* Formulario ajustado para pantallas medianas */
     .form-container {
-        width: 90%; /* Ancho más pequeño para pantallas más pequeñas */
-        height: auto; /* Altura automática para ajustar el contenido */
-        margin-right: 0; /* Eliminar margen derecho */
-        padding: 20px; /* Aumentar el padding para espacio en pantallas pequeñas */
+        width: 90%; /* Aumenta el ancho relativo */
+        height: auto; /* Ajusta la altura al contenido */
+        margin-right: 0; /* Elimina el margen lateral */
+        padding: 20px; /* Agrega más espacio interno */
     }
 
     .form-container h1 {
-        font-size: 1.5em; /* Reducir el tamaño del título */
+        font-size: 1.5em; /* Reduce el tamaño del título */
     }
 
     .form-container input[type="email"],
     .form-container input[type="password"] {
-        padding: 10px; /* Reducir padding para ajustarse mejor */
+        padding: 10px; /* Reduce el padding de los campos */
     }
 
     .form-container button {
-        font-size: 1em; /* Reducir tamaño del botón */
-        padding: 10px; /* Reducir padding del botón */
+        font-size: 1em; /* Ajusta el tamaño del texto */
+        padding: 10px; /* Ajusta el espacio interno */
     }
 
-    /* Mejorar la visibilidad en dispositivos móviles */
     .main-container {
-        padding-right: 0; /* Quitar padding derecho */
+        padding-right: 0; /* Quita el padding derecho */
     }
 }
 
 @media (max-width: 480px) {
-    /* Ajuste adicional para pantallas muy pequeñas */
-    header {
-        flex-direction: column; /* Cambiar la dirección del header */
-        padding: 10px; /* Reducir padding del header */
+    /* Formulario ajustado para pantallas pequeñas */
+    .form-container {
+        width: 95%; /* Se expande más en pantallas pequeñas */
+        padding: 15px; /* Reduce el padding general */
     }
 
-    nav ul {
-        flex-direction: column; /* Hacer que los links se apilen */
+    .form-container h1 {
+        font-size: 1.3em; /* Título más pequeño */
     }
 
-    nav ul li {
-        margin-right: 0;
-        margin-bottom: 10px;
+    .form-container p {
+        font-size: 0.9em; /* Reduce el tamaño del texto adicional */
     }
 
-    .search-bar input {
-        width: 100%; /* Hacer la barra de búsqueda más ancha */
-        margin-bottom: 10px;
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+        font-size: 0.9em; /* Reduce el tamaño del texto en los campos */
+        padding: 8px; /* Espaciado más ajustado */
     }
 
-    .search-bar button {
-        width: 100%; /* Botón más grande en pantallas pequeñas */
+    .form-container button {
+        font-size: 0.9em; /* Botón más compacto */
+        padding: 8px; /* Menor espacio interno */
     }
 
-    .user-profile .profile-pic {
-        width: 40px;
-        height: 40px;
+    /* Contenedor principal centrado */
+    .main-container {
+        flex-direction: column; /* Apila contenido */
+        align-items: center; /* Centra el formulario */
+        padding: 0; /* Elimina cualquier padding adicional */
     }
 }
