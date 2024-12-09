@@ -8,13 +8,22 @@
 /* Cuerpo de la página */
 body {
   font-family: Arial, sans-serif;
-  margin-top: 60px; /* Evita que el contenido se superponga a la barra de navegación */
-  color: #333;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Fondo gris claro */
+  color: #333; /* Texto oscuro */
+}
+
+/* Contenido principal */
+main {
+  flex: 1; /* Ocupa el espacio disponible entre el header y el footer */
 }
 
 /* Barra de navegación */
 header {
-  background-color: #333;
+  background-color: #333; /* Fondo oscuro */
   padding: 10px 20px;
   position: fixed;
   width: 100%;
@@ -29,10 +38,6 @@ header nav ul {
   list-style-type: none;
 }
 
-header nav ul li {
-  margin: 0;
-}
-
 header nav ul li a {
   color: white;
   text-decoration: none;
@@ -45,176 +50,83 @@ header nav ul li a:hover {
   border-radius: 5px;
 }
 
-/* Contenedor derecho para buscador y perfil */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-left: auto;
-}
-
-/* Barra de búsqueda */
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  overflow: hidden;
-  width: fit-content;
-}
-
-.search-bar input {
-  padding: 5px 10px;
-  width: 120px;
-  font-size: 0.9em;
-  border: none;
-  outline: none;
-}
-
-.search-bar button {
-  padding: 6px 10px;
-  font-size: 0.9em;
-  background-color: #28a745;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background-color: #218838;
-}
-
-/* Estilo para el perfil de usuario */
-.user-profile {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-/* Menú desplegable de perfil */
-.profile-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #ebe4e4;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0px 4px 8px rgba(248, 246, 246, 0.2);
-}
-
-.profile-menu button,
-.profile-menu .username {
-  color: rgb(19, 18, 18);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding: 5px 0;
-  width: 100%;
-  font-size: 1em;
-}
-
-.profile-menu button:hover {
-  background-color: #ccc9c9;
-  border-radius: 5px;
-}
-
-.username {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
 /* Contenedor del calendario */
 .calendario-container {
   text-align: center;
-  margin: 0 auto;
-  max-width: 800px; /* Aumentar el tamaño */
-  padding-top: 80px; /* Ajustar para la barra de navegación */
+  margin: 200px auto 0 auto; /* Baja todo el calendario */
+  max-width: 1000px; /* Incrementa el tamaño del calendario */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo de encabezado del calendario */
+/* Título del calendario */
 h1 {
-<<<<<<< HEAD
-  font-size: 2.5em;
-=======
-  font-size: 2em;
-  color: white; /* Cambiado a blanco */
-  margin-top: 130px; /* Aumentar margen superior */
->>>>>>> f7466218ae0ca85c472776f632126bff85898df4
+  font-size: 2.5em; /* Incrementa el tamaño del título */
+  color: #333; /* Texto oscuro */
   margin-bottom: 20px;
-  text-align: center;
 }
 
-/* Estilos para el calendario */
+/* Encabezado del calendario */
 .calendario-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-<<<<<<< HEAD
   margin-bottom: 20px;
-  font-size: 1.5em;
-=======
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: white; /* Cambiado a blanco */
->>>>>>> f7466218ae0ca85c472776f632126bff85898df4
+  font-size: 1.8em; /* Incrementa el tamaño del texto */
+  color: #333; /* Texto oscuro */
 }
 
-button {
-  background-color: transparent;
+.calendario-header button {
+  background-color: #007bff;
   border: none;
-  font-size: 1.5em;
-  cursor: pointer;
+  font-size: 2em; /* Botones más grandes */
   color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
+.calendario-header button:hover {
+  background-color: #0056b3;
+}
+
+/* Días de la semana */
 .dias-semana {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: bold;
-<<<<<<< HEAD
   margin-bottom: 15px;
-  font-size: 1.3em;
-=======
-  margin-bottom: 10px;
-  color: white; /* Cambiado a blanco */
->>>>>>> f7466218ae0ca85c472776f632126bff85898df4
+  font-size: 1.5em; /* Texto más grande */
+  color: #333; /* Texto oscuro */
 }
 
+/* Días del mes */
 .dias-mes {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 15px;
+  gap: 15px; /* Más espacio entre celdas */
 }
 
 .dia {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 20px;
-  background-color: #f0f0f0;
+  align-items: center;
+  justify-content: center;
+  padding: 30px; /* Celdas más grandes */
+  background-color: #f9f9f9;
   border-radius: 10px;
   position: relative;
-  font-size: 1.5em;
+  font-size: 1.5em; /* Texto más grande */
+  border: 1px solid #ddd;
 }
 
 .dia .numero-dia {
-  position: absolute;
-  top: 10px;
-  left: 10px;
   font-weight: bold;
 }
 
 .dia:hover {
-  background-color: #d0d0d0;
+  background-color: #e0e0e0;
   cursor: pointer;
 }
 
@@ -227,42 +139,54 @@ button {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
+  margin: 10% auto;
+  padding: 30px; /* Incrementa el padding */
   border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
+  width: 50%; /* Ancho del modal ajustado */
+  max-width: 600px; /* Limita el tamaño máximo */
   text-align: center;
-  border-radius: 8px;
+  border-radius: 10px; /* Bordes redondeados */
+  font-size: 1.2em; /* Texto más grande */
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
+textarea {
+  width: 100%; /* Usa todo el ancho disponible */
+  height: 150px; /* Altura más grande */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 1em; /* Texto más grande */
+  border: 1px solid #ddd;
 }
 
 button {
   background-color: #007bff;
   color: white;
   border: none;
- 
+  border-radius: 5px;
+  padding: 15px 25px; /* Botón más grande */
+  font-size: 1.1em;
+  cursor: pointer;
+}
 
+button:hover {
+  background-color: #0056b3;
+}
 
-
-
-
-
+/* Pie de página */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
 

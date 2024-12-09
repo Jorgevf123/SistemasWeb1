@@ -1,162 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rutinas</title>
-  <link rel="stylesheet" href="css/estilos.css">
-  <link rel="stylesheet" href="css/estilorutina.css">
-  <link rel="stylesheet" href="css/atencion.css">
+    <meta charset="utf-8">
+    <title>Rutinas</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://use.fontawesome.com/fe459689b4.js"></script>
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="css/estilorutina.css">
+    <style>
+        /* Añadir imagen de fondo al cuerpo */
+        body {
+            background-image: url('/images/fondo3.jpg'); /* Ruta de la imagen */
+            background-size: cover; /* La imagen cubre toda la pantalla */
+            background-position: center; /* Centrar la imagen */
+            background-repeat: no-repeat; /* No repetir la imagen */
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Gymanual</a></li>
-        <li><a href="ejercicios.html">Ejercicios</a></li>
-        <li><a href="conocenos.html">Conócenos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Gymanual</a></li>
+                <li><a href="/ejercicios">Ejercicios</a></li>
+                <li><a href="/conocenos">Conócenos</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+            <div class="header-right">
+                <div class="search-bar">
+                    <form action="/buscar" method="GET">
+                        <input type="text" name="q" placeholder="Buscar..." required>
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
+                    <% if (user) { %>
+                        <img src="<%= imagen_perfil %>" id="imagen_perfil" alt="Foto de perfil" class="profile-pic">
+                    <% } else { %>
+                        <img src="/images/avatar.webp" id="imagen_perfil" alt="Foto de perfil" class="profile-pic">
+                    <% } %>
+                </div>
+                <div class="profile-menu" id="profile-menu">
+                    <% if (user) { %>
+                        <p class="username"><%= user.nombre %></p>
+                    <% } else { %>
+                        <p class="username">Invitado</p>
+                    <% } %>
+                    <div>
+                        <% if (user) { %>
+                          <a href="/rutinas">Rutinas</a>
+                        <% } else { %>
+                           <a href="/iniciosesion">Rutinas</a>
+                        <% } %>
+                    </div>
+                    <div>
+                        <% if (user) { %>
+                          <a href="/favoritos">Favoritos</a>
+                        <% } else { %>
+                           <a href="/iniciosesion">Favoritos</a>
+                        <% } %>
+                    </div>
+                    <div>
+                        <% if (user) { %>
+                          <a href="/comunidad">Añadir Post</a>
+                        <% } else { %>
+                           <a href="/iniciosesion">Añadir Post</a>
+                        <% } %>
+                    </div>
+                    <% if (user && user.es_admin) { %>
+                        <div>
+                            <a href="/ejercicios_supervisar">Ejercicios a Supervisar</a>
+                        </div>
+                        <div>
+                            <a href="/atecionclientes">Atención Clientes</a>
+                        </div>
+                    <% } %>
+                    <a href="/perfil/cerrar-sesion">Cerrar Sesión</a>
+                    <a href="/terminos">Términos y condiciones</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-  <div class="calendario-container">
-    <h1>Rutinas</h1>
-    <div class="calendario-header">
-      <button id="prev-mes" onclick="cambiarMes(-1)">&#9664;</button>
-      <span id="mes-actual">Enero 2024</span>
-      <button id="next-mes" onclick="cambiarMes(1)">&#9654;</button>
-    </div>
-    <div class="dias-semana">
-      <span>Dom</span>
-      <span>Lun</span>
-      <span>Mar</span>
-      <span>Mié</span>
-      <span>Jue</span>
-      <span>Vie</span>
-      <span>Sáb</span>
-    </div>
-    <div class="dias-mes" id="dias-mes"></div>
-  </div>
+    <main>
+        <div class="calendario-container">
+            <h1>Rutinas</h1>
+            <div class="calendario-header">
+                <button id="prev-mes" onclick="cambiarMes(-1)">&#9664;</button>
+                <span id="mes-actual">Enero 2024</span>
+                <button id="next-mes" onclick="cambiarMes(1)">&#9654;</button>
+            </div>
+            <div class="dias-semana">
+                <span>Dom</span>
+                <span>Lun</span>
+                <span>Mar</span>
+                <span>Mié</span>
+                <span>Jue</span>
+                <span>Vie</span>
+                <span>Sáb</span>
+            </div>
+            <div class="dias-mes" id="dias-mes"></div>
+        </div>
 
-  <!-- Modal para añadir/modificar rutina -->
-  <div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close" onclick="cerrarModal()">&times;</span>
-      <h2 id="modal-fecha"></h2>
-      <textarea id="modal-texto" rows="5" placeholder="Escribe tu rutina aquí..."></textarea>
-      <button onclick="guardarRutina()">Guardar</button>
-    </div>
-  </div>
+        <!-- Modal para añadir/modificar rutina -->
+        <div id="modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal()">&times;</span>
+                <h2 id="modal-fecha"></h2>
+                <textarea id="modal-texto" rows="5" placeholder="Escribe tu rutina aquí..."></textarea>
+                <button onclick="guardarRutina()">Guardar</button>
+            </div>
+        </div>
+    </main>
 
-  <script>
-    const meses = [
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-    ];
-    let mesActual = 0;
-    let añoActual = 2024;
-    let fechaSeleccionada = null;
+    <footer>
+        <p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
+    </footer>
 
-    function obtenerDiasDelMes(mes, año) {
-      return new Date(año, mes + 1, 0).getDate();
-    }
+    <script>
+        const meses = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+        let mesActual = 0;
+        let añoActual = 2024;
+        let fechaSeleccionada = null;
 
-    function generarCalendario() {
-      const diasMesContainer = document.getElementById("dias-mes");
-      diasMesContainer.innerHTML = "";
+        function obtenerDiasDelMes(mes, año) {
+            return new Date(año, mes + 1, 0).getDate();
+        }
 
-      const primerDia = new Date(añoActual, mesActual, 1).getDay();
-      const diasEnMes = obtenerDiasDelMes(mesActual, añoActual);
+        function generarCalendario() {
+            const diasMesContainer = document.getElementById("dias-mes");
+            diasMesContainer.innerHTML = "";
 
-      for (let i = 0; i < primerDia; i++) {
-        const espacio = document.createElement("div");
-        espacio.classList.add("dia");
-        diasMesContainer.appendChild(espacio);
-      }
+            const primerDia = new Date(añoActual, mesActual, 1).getDay();
+            const diasEnMes = obtenerDiasDelMes(mesActual, añoActual);
 
-      for (let dia = 1; dia <= diasEnMes; dia++) {
-        const diaElement = document.createElement("div");
-        const fecha = `${añoActual}-${String(mesActual + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
-        diaElement.classList.add("dia");
-        diaElement.setAttribute("data-fecha", fecha);
-        diaElement.innerHTML = `<span class="numero-dia">${dia}</span>`;
-        diaElement.onclick = () => abrirModal(fecha);
-        diasMesContainer.appendChild(diaElement);
-      }
+            for (let i = 0; i < primerDia; i++) {
+                const espacio = document.createElement("div");
+                espacio.classList.add("dia");
+                diasMesContainer.appendChild(espacio);
+            }
 
-      document.getElementById("mes-actual").textContent = `${meses[mesActual]} ${añoActual}`;
-    }
+            for (let dia = 1; dia <= diasEnMes; dia++) {
+                const diaElement = document.createElement("div");
+                const fecha = `${añoActual}-${String(mesActual + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+                diaElement.classList.add("dia");
+                diaElement.setAttribute("data-fecha", fecha);
+                diaElement.innerHTML = `<span class="numero-dia">${dia}</span>`;
+                diaElement.onclick = () => abrirModal(fecha);
+                diasMesContainer.appendChild(diaElement);
+            }
 
-    function cambiarMes(direccion) {
-      mesActual += direccion;
+            document.getElementById("mes-actual").textContent = `${meses[mesActual]} ${añoActual}`;
+        }
 
-      if (mesActual < 0) {
-        mesActual = 11;
-        añoActual--;
-      } else if (mesActual > 11) {
-        mesActual = 0;
-        añoActual++;
-      }
+        function cambiarMes(direccion) {
+            mesActual += direccion;
 
-      generarCalendario();
-    }
+            if (mesActual < 0) {
+                mesActual = 11;
+                añoActual--;
+            } else if (mesActual > 11) {
+                mesActual = 0;
+                añoActual++;
+            }
 
-    function abrirModal(fecha) {
-      fechaSeleccionada = fecha;
-      document.getElementById("modal-fecha").textContent = `Rutinas para el ${fecha}`;
-      const rutina = localStorage.getItem(fecha) || '';
-      document.getElementById("modal-texto").value = rutina;
-      document.getElementById("modal").style.display = "block";
-    }
+            generarCalendario();
+        }
 
-    function cerrarModal() {
-      document.getElementById("modal").style.display = "none";
-    }
+        function abrirModal(fecha) {
+            fechaSeleccionada = fecha;
+            document.getElementById("modal-fecha").textContent = `Rutinas para el ${fecha}`;
+            const rutina = localStorage.getItem(fecha) || '';
+            document.getElementById("modal-texto").value = rutina;
+            document.getElementById("modal").style.display = "block";
+        }
 
-    function guardarRutina() {
-      const texto = document.getElementById("modal-texto").value;
-      localStorage.setItem(fechaSeleccionada, texto);
-      cerrarModal();
-    }
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
 
-    // Generar el calendario inicial
-    generarCalendario();
-  </script>
+        function guardarRutina() {
+            const texto = document.getElementById("modal-texto").value;
+            localStorage.setItem(fechaSeleccionada, texto);
+            cerrarModal();
+        }
 
-  <style>
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 20px;
-      border-radius: 5px;
-      width: 300px;
-      text-align: center;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-    }
-
-    textarea {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-  </style>
+        // Generar el calendario inicial
+        generarCalendario();
+    </script>
 </body>
 </html>
 
