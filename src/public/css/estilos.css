@@ -181,7 +181,7 @@ nav ul li a:hover {
     border-radius: 5px;
     overflow: hidden;
     flex-wrap: wrap;
-    width: 300px; /* se ajuste al contenido */
+    width: auto; /* se ajuste al contenido */
 }
 
 .search-bar input {
