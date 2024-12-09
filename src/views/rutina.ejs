@@ -4,42 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rutinas</title>
-  <!-- <link rel="stylesheet" href="estilos.css"> -->
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/estilorutina.css">
-  <link rel="stylesheet" href="css/atencion.css">  
+  <link rel="stylesheet" href="css/atencion.css">
 </head>
 <body>
-  <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Gymanual</a></li>
-                    <li><a href="ejercicios.html">Ejercicios</a></li>
-                    <li><a href="conocenos.html">Conócenos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-                <div class="header-right">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Buscar...">
-                        <button type="submit">Buscar</button>
-                    </div>
-                    <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                        <img src="avatar.webp" alt="Foto de perfil" class="profile-pic">
-                    </div>
-                    <div class="profile-menu" id="profile-menu">
-                        <p class="username">admin</p> 
-                        <button onclick="window.location.href='editar_perfil.html'">Cambiar Credenciales</button>
-                        <button onclick="window.location.href='ejercicios_supervisar.html'">Ejercicios a supervisar</button>
-                        <button>Atención al cliente</button>
-                        <button>Cerrar cuenta</button>
-                        <button onclick="window.location.href='gestion_usuarios.html'">Gestión de usuarios</button>
-                        <button>Términos y condiciones</button>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <script src="script.js"></script>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Gymanual</a></li>
+        <li><a href="ejercicios.html">Ejercicios</a></li>
+        <li><a href="conocenos.html">Conócenos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <div class="calendario-container">
     <h1>Rutinas</h1>
@@ -60,14 +39,13 @@
     <div class="dias-mes" id="dias-mes"></div>
   </div>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
+  <!-- Modal para añadir/modificar rutina -->
+  <div id="modal" class="modal" style="display: none;">
     <div class="modal-content">
       <span class="close" onclick="cerrarModal()">&times;</span>
-      <div id="modal-body">
-        <!-- Aquí aparecerá la lista de ejercicios -->
-      </div>
-      <button onclick="modificar()">Modificar</button>
+      <h2 id="modal-fecha"></h2>
+      <textarea id="modal-texto" rows="5" placeholder="Escribe tu rutina aquí..."></textarea>
+      <button onclick="guardarRutina()">Guardar</button>
     </div>
   </div>
 
@@ -78,15 +56,7 @@
     ];
     let mesActual = 0;
     let añoActual = 2024;
-
-    // Lista de ejercicios de brazo (Curl de bíceps)
-    const ejercicios = [
-      "Curl de bíceps con barra",
-      "Curl de bíceps con mancuernas",
-      "Curl de bíceps en banco inclinado",
-      "Curl de bíceps concentrado",
-      "Curl de bíceps alterno"
-    ];
+    let fechaSeleccionada = null;
 
     function obtenerDiasDelMes(mes, año) {
       return new Date(año, mes + 1, 0).getDate();
@@ -107,9 +77,11 @@
 
       for (let dia = 1; dia <= diasEnMes; dia++) {
         const diaElement = document.createElement("div");
+        const fecha = `${añoActual}-${String(mesActual + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
         diaElement.classList.add("dia");
+        diaElement.setAttribute("data-fecha", fecha);
         diaElement.innerHTML = `<span class="numero-dia">${dia}</span>`;
-        diaElement.onclick = () => abrirModal(dia); // Llamar a la función abrirModal
+        diaElement.onclick = () => abrirModal(fecha);
         diasMesContainer.appendChild(diaElement);
       }
 
@@ -130,13 +102,11 @@
       generarCalendario();
     }
 
-    function abrirModal(dia) {
-      const listaEjercicios = ejercicios.map(ejercicio => `<li>${ejercicio}</li>`).join('');
-      document.getElementById("modal-body").innerHTML = ` 
-        <h2>Día ${dia} de ${meses[mesActual]} ${añoActual}</h2>
-        <p>Ejercicios de brazo (Curl de bíceps):</p>
-        <ul>${listaEjercicios}</ul>
-      `;
+    function abrirModal(fecha) {
+      fechaSeleccionada = fecha;
+      document.getElementById("modal-fecha").textContent = `Rutinas para el ${fecha}`;
+      const rutina = localStorage.getItem(fecha) || '';
+      document.getElementById("modal-texto").value = rutina;
       document.getElementById("modal").style.display = "block";
     }
 
@@ -144,29 +114,49 @@
       document.getElementById("modal").style.display = "none";
     }
 
-    function modificar() {
-      alert("Función de modificar en desarrollo.");
+    function guardarRutina() {
+      const texto = document.getElementById("modal-texto").value;
+      localStorage.setItem(fechaSeleccionada, texto);
+      cerrarModal();
     }
 
-    // Cerrar el modal al hacer clic fuera de él
-    window.onclick = function(event) {
-      const modal = document.getElementById("modal");
-      if (event.target === modal) {
-        cerrarModal();
-      }
-    }
-
+    // Generar el calendario inicial
     generarCalendario();
-
-    // Toggle del menú de perfil
-    function toggleProfileMenu() {
-      const profileMenu = document.getElementById("profile-menu");
-      profileMenu.style.display = profileMenu.style.display === "block" ? "none" : "block";
-    }
   </script>
 
+  <style>
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
 </body>
 </html>
-
-
 
