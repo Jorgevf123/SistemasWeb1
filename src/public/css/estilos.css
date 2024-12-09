@@ -172,14 +172,16 @@ nav ul li a:hover {
     gap: 15px;
     margin-left: auto;
 }
-
+/* Estilo para la barra de búsqueda */
 .search-bar {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     background-color: #ffffff;
+    justify-content: space-between;
     border-radius: 5px;
     overflow: hidden;
-    width: auto; /* Cambia esto para que se ajuste al contenido */
+    flex-wrap: wrap;
+    width: 300px; /* se ajuste al contenido */
 }
 
 .search-bar input {
@@ -192,7 +194,7 @@ nav ul li a:hover {
 }
 
 .search-bar button {
-    padding: 15px 20px;
+    padding: 15px 27px;
     border: none;
     background-color: #28a745;
     color: white;
@@ -709,7 +711,7 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
     background: none;
     border: none;
     padding: 10px;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     width: 100%;
 }
