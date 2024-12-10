@@ -30,5 +30,4 @@ window.addEventListener('click', function(event) {
     profileMenu.classList.remove('visible');
   }
 });
-
-
+*/

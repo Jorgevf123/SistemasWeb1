@@ -1,32 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const multer = require('multer');
 const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
+const express = require('express');
+const sequelize = require('../sequelize')
+const router = express.Router();
 
 // Configuración de multer para subir videos
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/images'); // Carpeta donde se guardan los videos
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Nombre único para los archivos
-    },
-});
-const upload = multer({
-    storage,
-    fileFilter: (req, file, cb) => {
-        const fileTypes = /jpeg|jpg|png|gif|mp4|mov|avi/;
-        const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
-        const mimeType = fileTypes.test(file.mimetype);
-
-        if (extName && mimeType) {
-            return cb(null, true);
-        } else {
-            cb(new Error('Solo se permiten imágenes y videos.'));
-        }
-    },
-});
 
 // Middleware para restringir acceso a usuarios registrados o administradores
 function restrictToUsers(req, res, next) {
@@ -48,7 +25,7 @@ router.get('/publicar_ejercicio', restrictToUsers, (req, res) => {
     });
 
 // Ruta para manejar la publicación de ejercicios
-router.post('/guardar-ejercicio', restrictToUsers, upload.single('media'), (req, res) => {
+router.post('/guardar-ejercicio', async (req, res) => {
     const { nombre, titulo, descripcion } = req.body;
     const media = req.file ? `/images/${req.file.filename}` : null;
 
@@ -63,43 +40,39 @@ router.post('/guardar-ejercicio', restrictToUsers, upload.single('media'), (req,
     }
 
     // Conexión a la base de datos SQLite
-    const db = new sqlite3.Database('sequelize/db.sqlite');
-
-    const query = `INSERT INTO Ejercicios (titulo, descripcion, video, nombre) VALUES (?, ?, ?, ?)`;
-    db.run(query, [titulo, descripcion, media, nombre], function (err) {
-        if (err) {
-            console.error('Error al guardar el ejercicio:', err);
-            return res.status(500).send('Error al guardar el ejercicio');
-        }
+    await sequelize.models.articulos_comunidad.create({
+        titulo,
+        descripcion,
+        media,
+        nombre,
+      });
 
         console.log('Ejercicio guardado con éxito, ID:', this.lastID);
         res.redirect('/ejercicios'); // Redirigir a la lista de ejercicios
-    });
-
-    db.close();
 });
 
 
 // Ruta para mostrar la lista de ejercicios (sin restricción para invitados)
-router.get('/', (req, res) => {
-    const db = new sqlite3.Database('sequelize/db.sqlite');
-    const query = `SELECT id, titulo, descripcion, video, nombre FROM Ejercicios`;
-
-    db.all(query, (err, rows) => {
-        if (err) {
-            console.error('Error al obtener ejercicios:', err);
-            return res.status(500).send('Error al obtener los ejercicios');
+router.get('/', async (req, res) => {
+    let titulo= "";
+    let descripcion= null;
+    let media= "";
+    let id= "";
+    const usuario = req.session.user;
+    const ejercicios = await sequelize.models.Ejercicios.findAll();
+        total_items = ejercicios.length;
+        ejerciciosProcesados = ejercicios.map((ejercicios) => {
+        return{
+          id: ejercicios.id,
+          titulo: ejercicios.titulo, 
+          descripcion: ejercicios.descripcion,
         }
-
-        const user = req.session?.user || null; // Pasar el usuario a la vista
-        res.render('ejercicios', { ejercicios: rows, 
-            user,
-        title: 'Lista de ejercicios' 
     });
-
-    });
-
-    db.close();
+       res.render('ejercicios', { title: 'Ejercicios',
+                                    user:usuario ? usuario : false, 
+                                    ejercicios,
+                                    imagen_perfil:usuario ? usuario.imagen_perfil : '/images/avatar.webp',
+                                  });
 });
 
 

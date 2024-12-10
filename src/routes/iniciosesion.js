@@ -29,6 +29,7 @@ router.post('/', async (req, res) => {
         if (result) {
           // Guardamos el usuario en la sesión
           req.session.user = {
+            id: usuario.id,
             correo_electronico: usuario.correo_electronico,
             nombre: usuario.nombre,
             es_admin: usuario.es_admin,

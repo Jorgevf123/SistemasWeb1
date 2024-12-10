@@ -13,12 +13,14 @@ const sequelize = new Sequelize({
 const modelDefiners = [
     require('./models/articulos_comunidad.model'),
     require('./models/usuarios.js'),
+    require('./models/ejercicios.js')
 
 ];
 
 for (const modelDefiner of modelDefiners){
     modelDefiner(sequelize);
 }
+
 const images= [
     path.join(__dirname, '../public/images/img2.jpg'),
     path.join(__dirname, '../public/images/img3.jpg'),
@@ -178,11 +180,40 @@ async function resetUsuarios() {
         logger.info('La DB de usuarios ya estaba inicializada');
     }
 }
+
+async function resetEjercicios() { 
+    const ejercicios= [
+        {
+            titulo:"Piernas",
+            descripcion: "Piernas",
+            video:"images/1733828574722.jpg",
+            autor:"Jorge Vázquez"
+        },{
+            titulo:"Piernas",
+            descripcion: "Prueba Piernas",
+            video:"images/1733828574722.jpg",
+            autor:"Jorge Vázquez"
+         },{
+            titulo:"Piernas",
+            descripcion: "Piernas",
+            video:"images/1733828574722.jpg",
+            autor:"Pepe"
+        },{
+            titulo:"Pecho",
+            descripcion: "Pecho",
+            video:"images/Jalon_al_pecho.mp4",
+            autor:"Juan"
+        }
+    ];
+    await sequelize.models.Ejercicios.bulkCreate(ejercicios);
+}
+
 async function reset(){
     try{
-        await sequelize.sync({force: false}); // false para que no se reinice la DB
+        await sequelize.sync({force: true}); // false para que no se reinice la DB
         await resetArticulos();
         await resetUsuarios();
+        await resetEjercicios();
         console.log('Base de datos sincronizada correctamente.');
         
     }catch{

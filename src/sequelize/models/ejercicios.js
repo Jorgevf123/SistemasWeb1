@@ -1,9 +1,12 @@
-module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('Ejercicios', {
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+    sequelize.define('Ejercicios', {
         id: {
-            type: DataTypes.INTEGER,
+            allowNull: true,
+            autoIncrement: true,
             primaryKey: true,
-            autoIncrement: true
+            type: DataTypes.INTEGER,
         },
         titulo: {
             type: DataTypes.STRING,
@@ -15,15 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         video: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'Usuarios',
-                key: 'id'
-            }
+        autor:{
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
 };
