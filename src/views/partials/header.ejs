@@ -85,10 +85,11 @@
     </nav>
 </header>
 <script>
-    // Lógica para el buscador dinámico
+  
     document.addEventListener('DOMContentLoaded', () => {
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
+        const searchButton = document.querySelector('.search-bar button');
 
         // Escuchar el evento de entrada en el campo de búsqueda
         searchInput.addEventListener('input', async () => {
@@ -114,8 +115,29 @@
                     `).join('');
                     searchResults.style.display = 'block';
                 } else {
-                    searchResults.innerHTML = '<p style="padding: 10px;">No se encontraron resultados.</p>';
+                    searchResults.innerHTML = '<p>No se encontraron resultados.</p>';
                     searchResults.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error al buscar:', error);
+            }
+        });
+
+        // Redirigir al primer resultado cuando se presiona el botón de búsqueda
+        searchButton.addEventListener('click', async (e) => {
+            e.preventDefault(); // Prevenir el envío del formulario
+
+            const query = searchInput.value.trim();
+            if (!query) return;
+
+            try {
+                const response = await fetch(`/buscar?q=${encodeURIComponent(query)}`);
+                const resultados = await response.json();
+
+                if (resultados.length > 0) {
+                    window.location.href = resultados[0].url; // Redirigir al primer resultado
+                } else {
+                    alert('No se encontraron resultados para tu búsqueda.');
                 }
             } catch (error) {
                 console.error('Error al buscar:', error);
@@ -130,4 +152,3 @@
         });
     });
 </script>
-
