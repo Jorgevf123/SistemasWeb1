@@ -163,6 +163,7 @@ async function resetUsuarios() {
             nombre: "Admin",
             contrasena: bcrypt.hashSync("adminPassword#2024", 10), // Hasheando la contraseña
             es_admin: true,
+            imagen_perfil: "images/fotoadmin.png",
         },
     ];
 
