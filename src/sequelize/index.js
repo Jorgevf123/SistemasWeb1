@@ -180,7 +180,7 @@ async function resetUsuarios() {
 }
 async function reset(){
     try{
-        await sequelize.sync({force: true}); // false para que no se reinice la DB
+        await sequelize.sync({force: false}); // false para que no se reinice la DB
         await resetArticulos();
         await resetUsuarios();
         console.log('Base de datos sincronizada correctamente.');
