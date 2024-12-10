@@ -3,34 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados de búsqueda</title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="/css/estilos.css">
+    <style>
+        /* Estilos para el desplegable */
+        .search-dropdown {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none; /* Ocultar por defecto */
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-item:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/header') %>
+    
+    <!-- Campo de búsqueda dinámico -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Buscar...">
+        <div id="search-results" class="search-dropdown"></div>
+    </div>
 
     <main>
-        <section class="search-results">
-            <h1>Resultados de búsqueda para "<%= query %>"</h1>
-            <% if (resultados.length > 0) { %>
-                <ul>
-                    <% resultados.forEach(resultado => { %>
-                        <li>
-                            <a href="<%= resultado.url %>">
-                                <h2><%= resultado.titulo %></h2>
-                                <p><%= resultado.contenido %></p>
-                            </a>
-                        </li>
-                    <% }) %>
-                </ul>
-            <% } else { %>
-                <p>No se encontraron resultados para tu búsqueda.</p>
-            <% } %>
-        </section>
+        <!-- Puedes incluir contenido adicional aquí si es necesario -->
+        <p>Introduce texto en el buscador para ver sugerencias.</p>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Gymanual. Todos los derechos reservados.</p>
-    </footer>
+    <%- include('partials/footer') %>
+
+    <script>
+        // Lógica de búsqueda dinámica
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search-input');
+            const searchResults = document.getElementById('search-results');
+
+            // Escuchar el evento de entrada en el campo de búsqueda
+            searchInput.addEventListener('input', async () => {
+                const query = searchInput.value.trim();
+
+                if (query.length === 0) {
+                    searchResults.style.display = 'none'; // Ocultar si no hay texto
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                try {
+                    // Realizar una solicitud a la API para buscar coincidencias
+                    const response = await fetch(`/buscar?q=${encodeURIComponent(query)}`);
+                    const resultados = await response.json();
+
+                    // Mostrar resultados en el desplegable
+                    if (resultados.length > 0) {
+                        searchResults.innerHTML = resultados.map(resultado => `
+                            <a href="${resultado.url}" class="dropdown-item">
+                                <strong>${resultado.titulo}</strong>: ${resultado.contenido}
+                            </a>
+                        `).join('');
+                        searchResults.style.display = 'block';
+                    } else {
+                        searchResults.innerHTML = '<p style="padding: 10px;">No se encontraron resultados.</p>';
+                        searchResults.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Error al buscar:', error);
+                }
+            });
+
+            // Ocultar el desplegable si el usuario hace clic fuera de él
+            document.addEventListener('click', (e) => {
+                if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                    searchResults.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

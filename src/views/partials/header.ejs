@@ -10,6 +10,10 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://use.fontawesome.com/fe459689b4.js"></script>
     <link rel="stylesheet" href="/css/estilos.css">
+    <style>
+        /* Estilos del desplegable */
+       
+    </style>
 </head>
 <header>
     <nav>
@@ -21,10 +25,13 @@
         </ul>
         <div class="header-right">
             <div class="search-bar">
-                <form action="/buscar" method="GET">
-                    <input type="text" name="q" placeholder="Buscar..." required>
-                    <button type="submit">Buscar</button>
-                </form>
+                <!-- Formulario de búsqueda -->
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <div id="search-results" class="search-dropdown"></div>
+                <button type="submit">Buscar</button>
+            </div>
+                   
+               
             </div>
             <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
                 <% if (user) { %>
@@ -77,5 +84,50 @@
         </div>
     </nav>
 </header>
+<script>
+    // Lógica para el buscador dinámico
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
 
+        // Escuchar el evento de entrada en el campo de búsqueda
+        searchInput.addEventListener('input', async () => {
+            const query = searchInput.value.trim();
+
+            if (query.length === 0) {
+                searchResults.style.display = 'none'; // Ocultar si no hay texto
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            try {
+                // Realizar una solicitud a la API para buscar coincidencias
+                const response = await fetch(`/buscar?q=${encodeURIComponent(query)}`);
+                const resultados = await response.json();
+
+                // Mostrar resultados en el desplegable
+                if (resultados.length > 0) {
+                    searchResults.innerHTML = resultados.map(resultado => `
+                        <a href="${resultado.url}" class="dropdown-item">
+                            <strong>${resultado.titulo}</strong>: ${resultado.contenido}
+                        </a>
+                    `).join('');
+                    searchResults.style.display = 'block';
+                } else {
+                    searchResults.innerHTML = '<p style="padding: 10px;">No se encontraron resultados.</p>';
+                    searchResults.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error al buscar:', error);
+            }
+        });
+
+        // Ocultar el desplegable si el usuario hace clic fuera de él
+        document.addEventListener('click', (e) => {
+            if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                searchResults.style.display = 'none';
+            }
+        });
+    });
+</script>
 

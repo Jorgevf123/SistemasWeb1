@@ -37,7 +37,7 @@ const registroRouter = require('./routes/registro');
 const ejerciciosRouter = require('./routes/ejercicios');
 const contactoRouter = require('./routes/contacto');
 const conocenosRouter = require('./routes/conocenos');
-const buscarRouter = require('./routes/buscar'); // Asegúrate de que el path sea correcto
+const buscarRouter = require('./routes/buscar'); 
 const elegirRoutes = require('./routes/elegir');
 const perfilRouter = require('./routes/perfil'); 
 const perfiladminRouter = require('./routes/PerfilAdmin');
@@ -90,7 +90,7 @@ app.use('/gestion_usuarios', gestionUsuariosRouter);
 app.use('/ejercicios_supervisar', ejerciciosSupervisarRouter);
 app.use('/ejercicio_a_validar', ejercicioAValidarRouter);
 app.use('/publicar_ejercicio', publicarEjercicioRouter);
-app.use('/', buscarRouter);
+app.use('/buscar', buscarRouter);
 app.use('/', elegirRoutes);
 app.use('/perfil', perfilRouter);  // Asegúrate de que la ruta /perfil esté registrada
 app.use('/PerfilAdmin', perfiladminRouter);
