@@ -87,7 +87,7 @@ app.use('/perfil', perfilRouter);  // Asegúrate de que la ruta /perfil esté re
 app.use('/PerfilAdmin', perfiladminRouter);
 
 function restrict(req, res, next) {
-  if (req.session.user && (req.session.user.rol === 'user' || req.session.user.rol === 'admin')) {
+  if (req.session.user) {
     next();
   } else {
     req.session.error = "Acceso no autorizado. Por favor, inicia sesión.";

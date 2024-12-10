@@ -3,9 +3,13 @@ const router = express.Router();
 
 // Ruta para mostrar el formulario
 router.get('/', (req, res) => {
-    res.render('publicar_ejercicio', { title: 'Publicar Ejercicio' });
-});
+    const usuario = req.session.user || null; // Asegúrate de que `user` no sea undefined
+    res.render('publicar_ejercicio', { title: 'Publicar Ejercicio',
+        user:usuario,
+        imagen_perfil:usuario ? usuario.imagen_perfil : '/images/avatar.webp'});
+     });
 
+ 
 // Ruta para manejar el envío del formulario
 router.post('/guardar', (req, res) => {
     const { titulo, descripcion } = req.body;

@@ -730,7 +730,7 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 
 /* Estilo para el texto encima del buscador */
 p {
-    color: white; 
+    color: rgb(16, 16, 16); 
     font-size: 1.1em; /* yamaño letra */
     margin-top: 10px;
 }

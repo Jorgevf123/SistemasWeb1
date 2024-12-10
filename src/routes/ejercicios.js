@@ -38,11 +38,14 @@ function restrictToUsers(req, res, next) {
 
 // Ruta para mostrar el formulario de publicación de ejercicios
 router.get('/publicar_ejercicio', restrictToUsers, (req, res) => {
+    const usuario = req.session.user || null; // Asegúrate de que `user` no sea undefined
     res.render('publicar_ejercicio', { 
         title: 'Publicar Ejercicio',
-        user: req.session.user 
+        user:usuario, 
+        imagen_perfil:usuario ? usuario.imagen_perfil : '/images/avatar.webp'
     });
-});
+        
+    });
 
 // Ruta para manejar la publicación de ejercicios
 router.post('/guardar-ejercicio', restrictToUsers, upload.single('media'), (req, res) => {
@@ -89,7 +92,11 @@ router.get('/', (req, res) => {
         }
 
         const user = req.session?.user || null; // Pasar el usuario a la vista
-        res.render('ejercicios', { ejercicios: rows, user });
+        res.render('ejercicios', { ejercicios: rows, 
+            user,
+        title: 'Lista de ejercicios' 
+    });
+
     });
 
     db.close();

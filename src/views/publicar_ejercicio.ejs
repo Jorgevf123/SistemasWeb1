@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicar Ejercicio</title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <%- include('partials/header') %>
+    <script src="js/script.js"></script>
     <main>
         <h1>Publicar Ejercicio</h1>
         <form action="/ejercicios/guardar-ejercicio" method="post" enctype="multipart/form-data">
