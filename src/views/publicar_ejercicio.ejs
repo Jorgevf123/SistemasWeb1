@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Ejercicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <script src="js/script.js"></script>
+    <main>
+        <h1>Publicar Ejercicio</h1>
+        <form action="/ejercicios/guardar-ejercicio" method="post" enctype="multipart/form-data">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            
+            <label for="video">Video:</label>
+            <input type="file" id="video" name="video" accept="video/*" required>
+            
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+            
+            <button type="submit">Publicar</button>
+        </form>
+    </main>
+</body>
+</html>

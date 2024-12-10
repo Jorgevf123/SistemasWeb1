@@ -37,8 +37,10 @@
     </header>
 
     <script src="js/script.js"></script>
-
-    <!-- Añadir los IDs correspondientes a cada sección de ejercicios -->
+    <% if (user && !user.es_invitado) { %>
+        <button onclick="window.location.href='/ejercicios/publicar_ejercicio'" class="publicar-ejercicio-btn">Publicar ejercicio</button>
+    <% } %>
+   
     <main class="exercise-container">
         <h2>Ejercicios para Hombros</h2>
         <section id="shoulders" class="exercise-content">
