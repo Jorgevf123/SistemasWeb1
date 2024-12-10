@@ -1469,3 +1469,18 @@ p {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+/* Estilo para los enlaces restringidos */
+.restricted {
+    pointer-events: none; /* Desactiva la interacción */
+    color: gray; /* Cambia el color para indicar restricción */
+    cursor: not-allowed; /* Muestra el cursor de prohibido */
+    opacity: 0.6; /* Hace el enlace más tenue */
+    text-decoration: none; /* Evita subrayados */
+}
+
+/* Al pasar el ratón sobre enlaces restringidos */
+.restricted:hover {
+    opacity: 0.8; /* Destaca ligeramente al pasar el ratón */
+    text-decoration: line-through; /* Opcional: muestra una línea tachada */
+}

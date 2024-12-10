@@ -48,38 +48,47 @@
                 <% } %>
                 <div>
                     <% if (user) { %>
-                      <a href="/rutinas">Rutinas</a>
+                        <a href="/rutinas">Rutinas</a>
                     <% } else { %>
-                       <a href="/iniciosesion"> Rutinas</a>
+                        <a href="/iniciosesion" class="restricted">Rutinas</a>
                     <% } %>
                 </div>
                 <div>
                     <% if (user) { %>
-                      <a href="/favoritos">Favoritos</a>
+                        <a href="/favoritos">Favoritos</a>
                     <% } else { %>
-                       <a href="/iniciosesion">Favoritos</a>
+                        <a href="/iniciosesion" class="restricted">Favoritos</a>
                     <% } %>
                 </div>
                 <div>
                     <% if (user) { %>
-                      <a href="/comunidad">Añadir Post</a>
+                        <a href="/comunidad">Añadir Post</a>
                     <% } else { %>
-                       <a href="/iniciosesion"> Añadir Post</a>
+                        <a href="/iniciosesion" class="restricted">Añadir Post</a>
                     <% } %>
                 </div>
-                 <!-- Comprobación si el usuario es administrador -->
-                 <% if (user && user.es_admin) { %>
+                
+                <!-- Comprobación si el usuario es administrador -->
+                <% if (user && user.es_admin) { %>
                     <div>
-                        <a href="/ejercicios_supervisar">Ejercicios a Supervisar</a> <!-- Enlace para administradores -->
+                        <a href="/ejercicios_supervisar">Ejercicios a Supervisar</a>
                     </div>
                     <div>
-                        <a href="/atecionclientes">Atención Clientes</a> <!-- Enlace para administradores -->
+                        <a href="/atecionclientes">Atención Clientes</a>
                     </div>
                 <% } %>
-                <a href="/perfil/cerrar-sesion">Cerrar Sesión</a>
-                <a href="/terminos"> Terminos y condiciones</a> 
-                <button onclick="toggleProfileMenu()">Cerrar</button>   <!--Botón de cierre -->
+                <div>
+                    <% if (user) { %>
+                        <a href="/perfil/cerrar-sesion">Cerrar Sesión</a>
+                    <% } else { %>
+                        <a href="/iniciosesion" class="restricted">Cerrar Sesión</a>
+                    <% } %>
                 </div>
+                
+                <a href="/terminos">Términos y condiciones</a>
+                <button onclick="toggleProfileMenu()">Cerrar</button>
+            </div>
+            
             </div>
         </div>
     </nav>
