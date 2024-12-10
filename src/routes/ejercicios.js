@@ -25,7 +25,21 @@ router.get('/publicar_ejercicio', restrictToUsers, (req, res) => {
     });
 
 // Ruta para manejar la publicación de ejercicios
-router.post('/guardar-ejercicio', async (req, res) => {
+const multer = require('multer');
+
+// Configuración de multer para manejar la subida de archivos
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images'); // Carpeta para guardar imágenes/videos
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Nombre único
+    }
+});
+
+const upload = multer({ storage });
+
+router.post('/guardar-ejercicio', restrictToUsers, upload.single('media'), async (req, res) => {
     const { nombre, titulo, descripcion } = req.body;
     const media = req.file ? `/images/${req.file.filename}` : null;
 
@@ -39,16 +53,20 @@ router.post('/guardar-ejercicio', async (req, res) => {
         return res.status(400).send('Todos los campos son obligatorios');
     }
 
-    // Conexión a la base de datos SQLite
-    await sequelize.models.articulos_comunidad.create({
-        titulo,
-        descripcion,
-        media,
-        nombre,
-      });
-
-        console.log('Ejercicio guardado con éxito, ID:', this.lastID);
+    try {
+        // Guardar el ejercicio en la base de datos
+        const ejercicio = await sequelize.models.Ejercicios.create({
+            titulo,
+            descripcion,
+            video: media,
+            autor: nombre,
+        });
+        console.log('Ejercicio guardado con éxito:', ejercicio.id);
         res.redirect('/ejercicios'); // Redirigir a la lista de ejercicios
+    } catch (err) {
+        console.error('Error al guardar el ejercicio:', err);
+        res.status(500).send('Error al guardar el ejercicio');
+    }
 });
 
 

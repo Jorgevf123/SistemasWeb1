@@ -1,28 +1,32 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('Ejercicios', {
+    const Ejercicios = sequelize.define('Ejercicios', {
         id: {
-            allowNull: true,
-            autoIncrement: true,
-            primaryKey: true,
             type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
         },
         titulo: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         descripcion: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         video: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
         },
-        autor:{
+        autor: {
             type: DataTypes.STRING,
-            allowNull: true
-        }
+            allowNull: false,
+        },
+    }, {
+        timestamps: true, // Para createdAt y updatedAt
     });
+    return Ejercicios;
 };
+
+

@@ -1,4 +1,4 @@
-const {Sequelize} = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const logger = require('../logger');
 const { error } = require('winston');
@@ -182,6 +182,7 @@ async function resetUsuarios() {
 }
 
 async function resetEjercicios() { 
+    const count = await sequelize.models.Ejercicios.count();
     const ejercicios= [
         {
             titulo:"Piernas",
@@ -205,12 +206,22 @@ async function resetEjercicios() {
             autor:"Juan"
         }
     ];
-    await sequelize.models.Ejercicios.bulkCreate(ejercicios);
+    
+    if (count === 0) {
+        try {
+            await sequelize.models.Usuario.bulkCreate(usuarios);
+            logger.info('Usuarios iniciales creados');
+        } catch (error) {
+            logger.error('Error al crear los usuarios:', error);
+        }
+    } else {
+        logger.info('La DB de usuarios ya estaba inicializada');
+    }
 }
 
 async function reset(){
     try{
-        await sequelize.sync({force: true}); // false para que no se reinice la DB
+        await sequelize.sync({force: false}); // false para que no se reinice la DB
         await resetArticulos();
         await resetUsuarios();
         await resetEjercicios();

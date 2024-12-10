@@ -16,8 +16,8 @@
         <% if (ejercicios && ejercicios.length > 0) { %>
             <% ejercicios.forEach(ejercicio => { %>
                 <div class="exercise-item">
-                    <h2><%= ejercicio.titulo %></h2>
-                    <p><strong>Publicado por:</strong> <%= ejercicio.nombre %></p>
+                    <h2 style="color: red;"><%= ejercicio.titulo %></h2>
+                    <p><strong>Publicado por:</strong> <%= ejercicio.autor %></p>
                     <p><%= ejercicio.descripcion %></p>
                     <% if (ejercicio.video.endsWith('.mp4') || ejercicio.video.endsWith('.mov')) { %>
                         <video controls>

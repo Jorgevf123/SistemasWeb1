@@ -13,12 +13,12 @@
         <h1>Publicar Ejercicio</h1>
         <form action="/ejercicios/guardar-ejercicio" method="post" enctype="multipart/form-data">
             <label for="nombre">Nombre del Usuario:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
+            <input type="text" id="nombre" name="nombre" value="<%= user ? user.nombre : '' %>">
+        
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" required>
             
-            <label for="video">Video o imagen</label>
+            <label for="video">Video o imagen:</label>
             <input type="file" id="media" name="media" accept="image/*,video/*" required>
             
             <label for="descripcion">Descripción:</label>
@@ -26,6 +26,7 @@
             
             <button type="submit">Publicar</button>
         </form>
+        
     </main>
 </body>
 </html>
