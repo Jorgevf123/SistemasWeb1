@@ -80,7 +80,7 @@ app.use('/articulo_comunidad_editable', restrict, articulo_comunidad_editable);
 app.use('/comunidad', comunidad);
 app.use('/favoritos', restrict, favoritos);
 app.use('/api/favoritos', apiFavoritos);
-app.use('/rutina', rutinasRouter);
+app.use('/rutina', restrict, rutinasRouter);
 app.use('/iniciosesion', inicioRouter);
 app.use('/registro', registroRouter);
 app.use('/ejercicios', ejerciciosRouter);
@@ -109,14 +109,17 @@ app.use('/PerfilAdmin', perfiladminRouter);
 //  req.session.destroy();
 //  res.redirect("/");
 //});
-function restrict(req, res, next){
-  if(req.session.user){
+function restrict(req, res, next) {
+  if (req.session.user && (req.session.user.rol === 'user' || req.session.user.rol === 'admin')) {
     next();
   } else {
-    req.session.error = "Unauthorized access";
+    req.session.error = "Acceso no autorizado. Por favor, inicia sesión.";
     res.redirect("/iniciosesion");
   }
 }
+
+module.exports = { restrict };
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -134,4 +137,4 @@ app.use(function(req, res, next) {
 */
 
 
-module.exports = app;
+//module.exports = app;

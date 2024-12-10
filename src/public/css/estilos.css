@@ -1457,3 +1457,15 @@ p {
     display: block;
     transition: background-color 0.3s ease;
 }
+
+.no-access {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.no-access img {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
