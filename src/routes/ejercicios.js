@@ -13,7 +13,20 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + path.extname(file.originalname)); // Nombre único para los archivos
     },
 });
-const upload = multer({ storage });
+const upload = multer({
+    storage,
+    fileFilter: (req, file, cb) => {
+        const fileTypes = /jpeg|jpg|png|gif|mp4|mov|avi/;
+        const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+        const mimeType = fileTypes.test(file.mimetype);
+
+        if (extName && mimeType) {
+            return cb(null, true);
+        } else {
+            cb(new Error('Solo se permiten imágenes y videos.'));
+        }
+    },
+});
 
 // Middleware para restringir acceso a usuarios registrados o administradores
 function restrictToUsers(req, res, next) {
@@ -32,17 +45,16 @@ router.get('/publicar_ejercicio', restrictToUsers, (req, res) => {
 });
 
 // Ruta para manejar la publicación de ejercicios
-router.post('/guardar-ejercicio', restrictToUsers, upload.single('video'), (req, res) => {
-    const { titulo, descripcion } = req.body;
-    const video = req.file ? `/images/${req.file.filename}` : null;
-    const userId = req.session.user.id; // ID del usuario registrado
+router.post('/guardar-ejercicio', restrictToUsers, upload.single('media'), (req, res) => {
+    const { nombre, titulo, descripcion } = req.body;
+    const media = req.file ? `/images/${req.file.filename}` : null;
 
+    console.log('Nombre del Usuario:', nombre);
     console.log('Título:', titulo);
     console.log('Descripción:', descripcion);
-    console.log('Video:', video);
-    console.log('Usuario ID:', userId);
+    console.log('Media:', media);
 
-    if (!titulo || !descripcion || !video) {
+    if (!nombre || !titulo || !descripcion || !media) {
         console.error('Faltan campos obligatorios');
         return res.status(400).send('Todos los campos son obligatorios');
     }
@@ -50,32 +62,25 @@ router.post('/guardar-ejercicio', restrictToUsers, upload.single('video'), (req,
     // Conexión a la base de datos SQLite
     const db = new sqlite3.Database('sequelize/db.sqlite');
 
-    // Insertar el ejercicio en la base de datos
-    const query = `INSERT INTO Ejercicios (titulo, descripcion, video, user_id) VALUES (?, ?, ?, ?)`;
-    console.log('Título:', titulo);
-    console.log('Descripción:', descripcion);
-    console.log('Video ruta:', video); // Asegúrate de que esta ruta es válida
-    console.log('Usuario ID:', userId);
-
-    db.run(query, [titulo, descripcion, video, userId], function (err) {
+    const query = `INSERT INTO Ejercicios (titulo, descripcion, video, nombre) VALUES (?, ?, ?, ?)`;
+    db.run(query, [titulo, descripcion, media, nombre], function (err) {
         if (err) {
             console.error('Error al guardar el ejercicio:', err);
             return res.status(500).send('Error al guardar el ejercicio');
         }
 
         console.log('Ejercicio guardado con éxito, ID:', this.lastID);
-        res.redirect('/ejercicios'); // Redirigir de vuelta a la lista de ejercicios
+        res.redirect('/ejercicios'); // Redirigir a la lista de ejercicios
     });
 
-    db.close(); // Cerrar conexión a la base de datos
+    db.close();
 });
 
-// Ruta para mostrar la lista de ejercicios
+
+// Ruta para mostrar la lista de ejercicios (sin restricción para invitados)
 router.get('/', (req, res) => {
     const db = new sqlite3.Database('sequelize/db.sqlite');
-    const query = `SELECT Ejercicios.id, Ejercicios.titulo, Ejercicios.descripcion, Ejercicios.video, Usuarios.nombre AS usuario 
-                   FROM Ejercicios 
-                   INNER JOIN Usuarios ON Ejercicios.user_id = Usuarios.id`;
+    const query = `SELECT id, titulo, descripcion, video, nombre FROM Ejercicios`;
 
     db.all(query, (err, rows) => {
         if (err) {
@@ -90,37 +95,9 @@ router.get('/', (req, res) => {
     db.close();
 });
 
-// Ruta para manejar el inicio de sesión y establecer la sesión del usuario
-router.post('/iniciar_sesion', (req, res) => {
-    const { correo, contrasena } = req.body;
-
-    const db = new sqlite3.Database('sequelize/db.sqlite');
-    const query = `SELECT * FROM Usuarios WHERE correo_electronico = ? AND contrasena = ?`;
-    db.get(query, [correo, contrasena], (err, usuario) => {
-        if (err) {
-            console.error('Error en la base de datos:', err);
-            return res.status(500).send('Error interno');
-        }
-
-        if (!usuario) {
-            return res.status(401).send('Credenciales incorrectas');
-        }
-
-        req.session.user = {
-            id: usuario.id,
-            nombre: usuario.nombre,
-            correo: usuario.correo_electronico,
-            es_admin: usuario.es_admin,
-            es_invitado: false
-        };
-
-        res.redirect('/'); // Redirigir al inicio o página principal
-    });
-
-    db.close(); // Cierra la conexión a la base de datos
-});
 
 module.exports = router;
+
 
 
 

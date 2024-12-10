@@ -42,6 +42,25 @@
     <% } %>
    
     <main class="exercise-container">
+        <% if (ejercicios && ejercicios.length > 0) { %>
+            <% ejercicios.forEach(ejercicio => { %>
+                <div class="exercise-item">
+                    <h2><%= ejercicio.titulo %></h2>
+                    <p><strong>Publicado por:</strong> <%= ejercicio.nombre %></p>
+                    <p><%= ejercicio.descripcion %></p>
+                    <% if (ejercicio.video.endsWith('.mp4') || ejercicio.video.endsWith('.mov')) { %>
+                        <video controls>
+                            <source src="<%= ejercicio.video %>" type="video/mp4">
+                            Tu navegador no soporta el video.
+                        </video>
+                    <% } else { %>
+                        <img src="<%= ejercicio.video %>" alt="<%= ejercicio.titulo %>" style="max-width: 100%; height: auto;">
+                    <% } %>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No hay ejercicios publicados aún.</p>
+        <% } %>
         <h2>Ejercicios para Hombros</h2>
         <section id="shoulders" class="exercise-content">
             <h3>Press militar</h3>
