@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Rutinas</title>
+    <title><%= title %></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -22,70 +22,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Gymanual</a></li>
-                <li><a href="/ejercicios">Ejercicios</a></li>
-                <li><a href="/conocenos">Conócenos</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-            <div class="header-right">
-                <div class="search-bar">
-                    <form action="/buscar" method="GET">
-                        <input type="text" name="q" placeholder="Buscar..." required>
-                        <button type="submit">Buscar</button>
-                    </form>
-                </div>
-                <div class="user-profile" id="profile-icon" onclick="toggleProfileMenu()">
-                    <% if (user) { %>
-                        <img src="<%= imagen_perfil %>" id="imagen_perfil" alt="Foto de perfil" class="profile-pic">
-                    <% } else { %>
-                        <img src="/images/avatar.webp" id="imagen_perfil" alt="Foto de perfil" class="profile-pic">
-                    <% } %>
-                </div>
-                <div class="profile-menu" id="profile-menu">
-                    <% if (user) { %>
-                        <p class="username"><%= user.nombre %></p>
-                    <% } else { %>
-                        <p class="username">Invitado</p>
-                    <% } %>
-                    <div>
-                        <% if (user) { %>
-                          <a href="/rutinas">Rutinas</a>
-                        <% } else { %>
-                           <a href="/iniciosesion">Rutinas</a>
-                        <% } %>
-                    </div>
-                    <div>
-                        <% if (user) { %>
-                          <a href="/favoritos">Favoritos</a>
-                        <% } else { %>
-                           <a href="/iniciosesion">Favoritos</a>
-                        <% } %>
-                    </div>
-                    <div>
-                        <% if (user) { %>
-                          <a href="/comunidad">Añadir Post</a>
-                        <% } else { %>
-                           <a href="/iniciosesion">Añadir Post</a>
-                        <% } %>
-                    </div>
-                    <% if (user && user.es_admin) { %>
-                        <div>
-                            <a href="/ejercicios_supervisar">Ejercicios a Supervisar</a>
-                        </div>
-                        <div>
-                            <a href="/atecionclientes">Atención Clientes</a>
-                        </div>
-                    <% } %>
-                    <a href="/perfil/cerrar-sesion">Cerrar Sesión</a>
-                    <a href="/terminos">Términos y condiciones</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
+   <!-- Incluye el encabezado desde header.ejs -->
+   <%- include('partials/header') %>
+   <script src="js/script.js"></script>
     <main>
         <div class="calendario-container">
             <h1>Rutinas</h1>
