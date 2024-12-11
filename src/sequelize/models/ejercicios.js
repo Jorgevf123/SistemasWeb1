@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        aprobado: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false, // Inicialmente no aprobado
+        },
     }, {
         timestamps: true, // Para createdAt y updatedAt
     });

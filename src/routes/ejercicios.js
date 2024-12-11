@@ -72,26 +72,29 @@ router.post('/guardar-ejercicio', restrictToUsers, upload.single('media'), async
 
 // Ruta para mostrar la lista de ejercicios (sin restricción para invitados)
 router.get('/', async (req, res) => {
-    let titulo= "";
-    let descripcion= null;
-    let media= "";
-    let id= "";
-    const usuario = req.session.user;
-    const ejercicios = await sequelize.models.Ejercicios.findAll();
-        total_items = ejercicios.length;
-        ejerciciosProcesados = ejercicios.map((ejercicios) => {
-        return{
-          id: ejercicios.id,
-          titulo: ejercicios.titulo, 
-          descripcion: ejercicios.descripcion,
-        }
-    });
-       res.render('ejercicios', { title: 'Ejercicios',
-                                    user:usuario ? usuario : false, 
-                                    ejercicios,
-                                    imagen_perfil:usuario ? usuario.imagen_perfil : '/images/avatar.webp',
-                                  });
+    try {
+        const usuario = req.session.user;
+
+        // Obtener solo los ejercicios aprobados
+        const ejercicios = await sequelize.models.Ejercicios.findAll({
+            where: { aprobado: true }, // Filtrar por ejercicios aprobados
+        });
+
+        const total_items = ejercicios.length; // Contar el número total de ejercicios
+
+        res.render('ejercicios', { 
+            title: 'Ejercicios',
+            user: usuario ? usuario : false, 
+            ejercicios,
+            total_items, // Pasar la variable a la vista si es necesaria
+            imagen_perfil: usuario ? usuario.imagen_perfil : '/images/avatar.webp',
+        });
+    } catch (error) {
+        console.error('Error al cargar los ejercicios:', error);
+        res.status(500).send('Error al cargar los ejercicios');
+    }
 });
+
 
 
 module.exports = router;

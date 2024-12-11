@@ -15,14 +15,31 @@
 
     <div class="exercise-validation">
         <table class="validation-table">
-            <tr>
-                <td>jorge@gmail.com</td>
-                <td><button onclick="window.location.href='/ejercicio_a_validar'">ver aquí</button></td>
-            </tr>
+            <% if (ejercicios && ejercicios.length > 0) { %>
+                <% ejercicios.forEach(ejercicio => { %>
+                    <tr>
+                        <td><%= ejercicio.autor %></td> <!-- Mostramos el autor del ejercicio -->
+                        <td><%= ejercicio.titulo %></td> <!-- Mostramos el título del ejercicio -->
+                        <td>
+                            <form action="/ejercicio_a_validar" method="get">
+                                <input type="hidden" name="ejercicio_id" value="<%= ejercicio.id %>">
+                                <button type="submit">Ver aquí</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">No hay ejercicios pendientes de supervisar.</td>
+                </tr>
+            <% } %>
         </table>
+        
     </div>
+
     <div class="back-button-container">
         <button onclick="window.location.href='/'" class="back-button">Volver</button>
     </div>
 </body>
 </html>
+

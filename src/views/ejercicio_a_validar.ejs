@@ -3,50 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio a Validar</title>
-    <link rel="stylesheet" href="css/estilos.css"> <!-- Enlaza tu archivo CSS -->
+    <title><%= title %></title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body class="fondo-ejer-validar">
     <%- include('partials/header') %>
 
-    <script src="js/script.js"></script>
- 
-        <div class="uploader-info" >
-            <p>Subido por: <strong>Admin</strong></p>
-        </div>
-
     <h2 class="exercise-title">Ejercicio a validar</h2>
 
-    <div class="exercise-content">
-        <!-- Video del ejercicio -->
-        <div class="exercise-video">
-            <video controls class="video-thumbnail">
-                <source src="images/Press_de_banca.mp4" type="video/mp4">
-                Tu navegador no soporta el elemento de video.
+    <div class="exercise-container" style="text-align: center; margin-top: 20px;">
+        <h2>Ejercicio: <%= ejercicio.titulo %></h2>
+        <p>Publicado por: <strong><%= ejercicio.autor %></strong></p>
+
+        <% if (ejercicio.video.endsWith('.mp4') || ejercicio.video.endsWith('.mov')) { %>
+            <video controls style="max-width: 80%; height: auto;">
+                <source src="<%= ejercicio.video %>" type="video/mp4">
+                Tu navegador no soporta este video.
             </video>
+        <% } else { %>
+            <img src="<%= ejercicio.video %>" alt="Imagen del Ejercicio" style="max-width: 80%; height: auto;">
+        <% } %>
+
+        <div class="action-buttons" style="margin-top: 20px;">
+            <form action="/ejercicio_a_validar/aceptar" method="post" style="display: inline-block;">
+                <input type="hidden" name="id" value="<%= ejercicio.id %>">
+                <button type="submit" class="accept-button">Aceptar</button>
+            </form>
+            <form action="/ejercicio_a_validar/rechazar" method="post" style="display: inline-block; margin-left: 10px;">
+                <input type="hidden" name="id" value="<%= ejercicio.id %>">
+                <button type="submit" class="reject-button">Rechazar</button>
+            </form>
         </div>
-
-        <!-- Imagen asociada al ejercicio -->
-        <div class="exercise-image">
-            <img src="images/Captura_PressBanca.png" alt="Imagen del Ejercicio" class="image-thumbnail">
-        </div>
+        
     </div>
 
-    <!-- Caja de descripción -->
-    <div class="description-box">
-        <p>Descripción del video:</p>
-        <div class="description-content">Es un excelente ejercicio para trabajar los músculos del pecho, particularmente el pectoral mayor. Al utilizar la máquina Smith, se proporciona estabilidad adicional, permitiendo enfocarse en el movimiento y la contracción muscular sin preocuparse por el equilibrio del peso. Este ejercicio también involucra los tríceps y los deltoides frontales como músculos secundarios.</div>
-    </div>
-
-    <!-- Botones de Aceptar y Rechazar -->
-    <div class="action-buttons">
-        <button class="accept-button">Aceptar</button>
-        <button class="reject-button">Rechazar</button>
-    </div>
-    <div class="back-button-container">
+    <div class="back-button-container" style="margin-top: 20px;">
         <button onclick="window.location.href='/ejercicios_supervisar'" class="back-button">Volver</button>
     </div>
 </body>
 </html>
+
+
 
 
