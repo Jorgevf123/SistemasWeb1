@@ -95,7 +95,7 @@
                 </div>
             
                 <% if (user && !user.es_invitado) { %>
-                    <form action="/comentarios/predefinidos" method="POST">
+                    <form action="ejercicios/comentarios/predefinidos" method="POST">
                         <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
                         <input type="hidden" name="ejercicio" value="shoulders">
                         <button type="submit">Enviar</button>
@@ -141,8 +141,8 @@
             <div class="comment-section">
                 <h3>Comentarios</h3>
                 <div id="chat-chest" class="chat">
-                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                        <% comentariosShoulders.forEach(comentario => { %>
+                    <% if (comentariosChest && comentariosChest.length > 0) { %>
+                        <% comentariosChest.forEach(comentario => { %>
                             <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                         <% }); %>
                     <% } else { %>
@@ -197,8 +197,8 @@
                 <div class="comment-section">
                     <h3>Comentarios</h3>
                     <div id="chat-biceps" class="chat">
-                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                            <% comentariosShoulders.forEach(comentario => { %>
+                        <% if (comentariosBiceps && comentariosBiceps.length > 0) { %>
+                            <% comentariosBiceps.forEach(comentario => { %>
                                 <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                             <% }); %>
                         <% } else { %>
@@ -254,8 +254,8 @@
                     <div class="comment-section">
                         <h3>Comentarios</h3>
                         <div id="chat-quads" class="chat">
-                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                <% comentariosShoulders.forEach(comentario => { %>
+                            <% if (comentariosQuads && comentariosQuads.length > 0) { %>
+                                <% comentariosQuads.forEach(comentario => { %>
                                     <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                 <% }); %>
                             <% } else { %>
@@ -309,8 +309,8 @@
                         <div class="comment-section">
                             <h3>Comentarios</h3>
                             <div id="chat-lats" class="chat">
-                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                    <% comentariosShoulders.forEach(comentario => { %>
+                                <% if (comentariosLats && comentariosLats.length > 0) { %>
+                                    <% comentariosLats.forEach(comentario => { %>
                                         <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                     <% }); %>
                                 <% } else { %>
@@ -365,8 +365,8 @@
                             <div class="comment-section">
                                 <h3>Comentarios</h3>
                                 <div id="chat-lats" class="chat">
-                                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                        <% comentariosShoulders.forEach(comentario => { %>
+                                    <% if (comentariosLats && comentariosLats.length > 0) { %>
+                                        <% comentariosLats.forEach(comentario => { %>
                                             <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                         <% }); %>
                                     <% } else { %>
@@ -420,8 +420,8 @@
                                 <div class="comment-section">
                                     <h3>Comentarios</h3>
                                     <div id="chat-lats" class="chat">
-                                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                            <% comentariosShoulders.forEach(comentario => { %>
+                                        <% if (comentariosLats && comentariosLats.length > 0) { %>
+                                            <% comentariosLats.forEach(comentario => { %>
                                                 <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                             <% }); %>
                                         <% } else { %>
@@ -475,8 +475,8 @@
                                     <div class="comment-section">
                                         <h3>Comentarios</h3>
                                         <div id="chat-lats" class="chat">
-                                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                                <% comentariosShoulders.forEach(comentario => { %>
+                                            <% if (comentariosLats && comentariosLats.length > 0) { %>
+                                                <% comentariosLats.forEach(comentario => { %>
                                                     <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                                 <% }); %>
                                             <% } else { %>
@@ -532,8 +532,8 @@
                             <div class="comment-section">
                                 <h3>Comentarios</h3>
                                 <div id="chat-triceps" class="chat">
-                                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                        <% comentariosShoulders.forEach(comentario => { %>
+                                    <% if (comentariosTriceps && comentariosTriceps.length > 0) { %>
+                                        <% comentariosTriceps.forEach(comentario => { %>
                                             <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                         <% }); %>
                                     <% } else { %>
@@ -589,8 +589,8 @@
                                 <div class="comment-section">
                                     <h3>Comentarios</h3>
                                     <div id="chat-triceps" class="chat">
-                                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                            <% comentariosShoulders.forEach(comentario => { %>
+                                        <% if (comentariosTriceps && comentariosTriceps.length > 0) { %>
+                                            <% comentariosTriceps.forEach(comentario => { %>
                                                 <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                             <% }); %>
                                         <% } else { %>
@@ -645,8 +645,8 @@
                                 <div class="comment-section">
                                     <h3>Comentarios</h3>
                                     <div id="chat-hamstrings" class="chat">
-                                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                            <% comentariosShoulders.forEach(comentario => { %>
+                                        <% if (comentariosHamstrings && comentariosHamstrings.length > 0) { %>
+                                            <% comentariosHamstrings.forEach(comentario => { %>
                                                 <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                             <% }); %>
                                         <% } else { %>
@@ -701,8 +701,8 @@
                                     <div class="comment-section">
                                         <h3>Comentarios</h3>
                                         <div id="chat-hamstrings" class="chat">
-                                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                                <% comentariosShoulders.forEach(comentario => { %>
+                                            <% if (comentariosHamstrings && comentariosHamstrings.length > 0) { %>
+                                                <% comentariosHamstrings.forEach(comentario => { %>
                                                     <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                                 <% }); %>
                                             <% } else { %>
@@ -757,8 +757,8 @@
                                         <div class="comment-section">
                                             <h3>Comentarios</h3>
                                             <div id="chat-hamstrings" class="chat">
-                                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                                    <% comentariosShoulders.forEach(comentario => { %>
+                                                <% if (comentariosHamstrings && comentariosHamstrings.length > 0) { %>
+                                                    <% comentariosHamstrings.forEach(comentario => { %>
                                                         <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                                     <% }); %>
                                                 <% } else { %>
@@ -813,8 +813,8 @@
                                     <div class="comment-section">
                                         <h3>Comentarios</h3>
                                         <div id="chat-calves" class="chat">
-                                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                                <% comentariosShoulders.forEach(comentario => { %>
+                                            <% if (comentariosCalves && comentariosCalves.length > 0) { %>
+                                                <% comentariosCalves.forEach(comentario => { %>
                                                     <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                                 <% }); %>
                                             <% } else { %>
@@ -868,8 +868,8 @@
                                         <div class="comment-section">
                                             <h3>Comentarios</h3>
                                             <div id="chat-calves" class="chat">
-                                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                                    <% comentariosShoulders.forEach(comentario => { %>
+                                                <% if (comentariosCalves && comentariosCalves.length > 0) { %>
+                                                    <% comentariosCalves.forEach(comentario => { %>
                                                         <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                                     <% }); %>
                                                 <% } else { %>
@@ -925,8 +925,8 @@
                                         <div class="comment-section">
                                             <h3>Comentarios</h3>
                                             <div id="chat-calves" class="chat">
-                                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
-                                                    <% comentariosShoulders.forEach(comentario => { %>
+                                                <% if (comentariosCalves && comentariosCalves.length > 0) { %>
+                                                    <% comentariosCalves.forEach(comentario => { %>
                                                         <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
                                                     <% }); %>
                                                 <% } else { %>

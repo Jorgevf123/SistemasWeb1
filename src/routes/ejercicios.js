@@ -59,6 +59,12 @@ router.get('/', restrictBannedUsers, async (req, res) => {
             ejercicios: ejerciciosConComentarios,
             comentariosShoulders: global.comentariosShoulders || [],
             comentariosChest: global.comentariosChest || [],
+            comentariosBiceps: global.comentariosBiceps || [],
+            comentariosQuads: global.comentariosQuads || [],
+            comentariosLats: global.comentariosLats || [],
+            comentariosTriceps: global.comentariosTriceps || [],
+            comentariosHamstrings: global.comentariosHamstrings || [],
+            comentariosCalves: global.comentariosCalves || [],
         });
     } catch (error) {
         console.error('Error al cargar los ejercicios:', error);
@@ -151,6 +157,12 @@ router.post('/comentarios/predefinidos', restrictToUsers, async (req, res) => {
         const predefinidosComentarios = {
             shoulders: "comentariosShoulders",
             chest: "comentariosChest",
+            biceps: "comentariosBiceps",
+            quads: "comentariosQuads",
+            lats: "comentariosLats",
+            triceps: "comentariosTriceps",
+            hamstrings: "comentariosHamstrings",
+            calves: "comentariosCalves",
         };
 
         const comentariosKey = predefinidosComentarios[ejercicio];
