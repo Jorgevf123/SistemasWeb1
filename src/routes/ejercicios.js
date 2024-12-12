@@ -49,9 +49,10 @@ router.get('/', restrictBannedUsers, async (req, res) => {
             const comentarios = Array.isArray(ejercicio.comentarios)
                 ? ejercicio.comentarios
                 : JSON.parse(ejercicio.comentarios || '[]');
-
+        
             return { ...ejercicio.toJSON(), comentarios };
         });
+        
 
         res.render('ejercicios', {
             title: 'Ejercicios',
@@ -97,7 +98,14 @@ router.post('/guardar-ejercicio', restrictToUsers, restrictBannedUsers, upload.s
     }
 
     try {
-        await sequelize.models.Ejercicios.create({ titulo, descripcion, video: media, autor: nombre, comentarios: [] });
+        // Inicializar comentarios como un array vacío
+        await sequelize.models.Ejercicios.create({ 
+            titulo, 
+            descripcion, 
+            video: media, 
+            autor: nombre, 
+            comentarios: [] // Esto asegura que los comentarios siempre se inicialicen
+        });
         res.redirect('/ejercicios');
     } catch (err) {
         console.error('Error al guardar el ejercicio:', err);
@@ -105,43 +113,49 @@ router.post('/guardar-ejercicio', restrictToUsers, restrictBannedUsers, upload.s
     }
 });
 
+
 router.post('/comentarios', restrictToUsers, async (req, res) => {
-    const { texto, ejercicioId } = req.body;
-    const usuario = req.session.user; // Usuario de la sesión
+    const { texto, ejercicioId } = req.body; // Texto del comentario y ID del ejercicio
+    const usuario = req.session.user; // Usuario de la sesión actual
 
     if (!texto || !ejercicioId) {
         return res.status(400).send('Todos los campos son obligatorios.');
     }
 
     try {
+        // Busca el ejercicio en la base de datos
         const ejercicio = await sequelize.models.Ejercicios.findByPk(ejercicioId);
 
         if (!ejercicio) {
             return res.status(404).send('Ejercicio no encontrado.');
         }
 
-        // Parsear comentarios existentes si no es un array
+        // Asegurar que comentarios es un array válido
         const comentarios = Array.isArray(ejercicio.comentarios)
             ? ejercicio.comentarios
             : JSON.parse(ejercicio.comentarios || '[]');
 
-        // Añadir nuevo comentario con el nombre del usuario
+        // Añadir el nuevo comentario
         comentarios.push({
-            usuario: usuario.nombre || "Desconocido", // Nombre del usuario registrado
+            usuario: usuario.nombre || 'Desconocido', // Nombre del usuario
             texto,
-            fecha: new Date(),
+            fecha: new Date().toISOString(),
         });
 
-        // Guardar comentarios actualizados
+        // Actualizar el campo `comentarios` en la base de datos
         ejercicio.comentarios = comentarios;
         await ejercicio.save();
 
+        // Redirige a la página de ejercicios
         res.redirect('/ejercicios');
     } catch (error) {
         console.error('Error al guardar el comentario:', error);
         res.status(500).send('Error al guardar el comentario.');
     }
 });
+
+
+
 
 
 router.post('/comentarios/predefinidos', restrictToUsers, async (req, res) => {
@@ -189,6 +203,48 @@ router.post('/comentarios/predefinidos', restrictToUsers, async (req, res) => {
 });
 
 
+router.post('/borrar-comentarios', restrictToUsers, async (req, res) => {
+    const { ejercicioId } = req.body;
+
+    if (!ejercicioId) {
+        return res.status(400).send('Falta el ID del ejercicio.');
+    }
+
+    try {
+        const ejercicio = await sequelize.models.Ejercicios.findByPk(ejercicioId);
+
+        if (!ejercicio) {
+            return res.status(404).send('Ejercicio no encontrado.');
+        }
+
+        // Vaciar los comentarios
+        ejercicio.comentarios = [];
+        await ejercicio.save();
+
+        res.redirect('/ejercicios');
+    } catch (error) {
+        console.error('Error al borrar los comentarios:', error);
+        res.status(500).send('Error al borrar los comentarios.');
+    }
+});
+
+
+router.post('/borrar-ejercicio', restrictToUsers, async (req, res) => {
+    const { ejercicioId } = req.body;
+
+    if (!ejercicioId) {
+        return res.status(400).send('Falta el ID del ejercicio.');
+    }
+
+    try {
+        await sequelize.models.Ejercicios.destroy({ where: { id: ejercicioId } });
+
+        res.redirect('/ejercicios');
+    } catch (error) {
+        console.error('Error al borrar el ejercicio:', error);
+        res.status(500).send('Error al borrar el ejercicio.');
+    }
+});
 
 
 

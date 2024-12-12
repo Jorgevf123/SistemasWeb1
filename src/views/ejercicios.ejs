@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body class="home">
+    <%- include('partials/header') %>
     <script src="js/script.js"></script>
     <% if (user && !user.es_invitado) { %>
         <button onclick="window.location.href='/ejercicios/publicar_ejercicio'" class="publicar-ejercicio-btn">Publicar ejercicio</button>
@@ -31,15 +32,15 @@
                     <!-- Sección de comentarios -->
                     <div class="comment-section">
                         <h3>Comentarios</h3>
-                        <div id="chat-<%= ejercicio.id %>" class="chat">
-                            <% if (ejercicio.comentarios && ejercicio.comentarios.length > 0) { %>
-                                <% ejercicio.comentarios.forEach(comentario => { %>
-                                    <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
-                                <% }); %>
-                            <% } else { %>
-                                <p>No hay comentarios aún.</p>
-                            <% } %>
-                        </div>
+    <div id="chat-<%= ejercicio.id %>" class="chat">
+        <% if (ejercicio.comentarios && ejercicio.comentarios.length > 0) { %>
+            <% ejercicio.comentarios.forEach(comentario => { %>
+                <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+            <% }); %>
+        <% } else { %>
+            <p>No hay comentarios aún.</p>
+        <% } %>
+    </div>
     
                         <% if (user && !user.es_invitado) { %>
                             <form action="/ejercicios/comentarios" method="POST">
@@ -50,6 +51,19 @@
                         <% } else { %>
                             <p>Debes iniciar sesión para comentar.</p>
                         <% } %>
+                    </div>
+                    <!-- Botones de acción -->
+                    <div class="actions">
+                        <button 
+                            class="delete-published-comments" 
+                            data-ejercicio-id="<%= ejercicio.id %>">
+                            Borrar Comentarios
+                        </button>
+                        <button 
+                            class="delete-published-exercise" 
+                            data-ejercicio-id="<%= ejercicio.id %>">
+                            Borrar Ejercicio
+                        </button>
                     </div>
                 </div>
             <% }) %>

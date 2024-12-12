@@ -103,15 +103,35 @@ function addComment(section) {
 	}
 }
 
-// Función para borrar todos los comentarios del chat
+// Función para borrar todos los comentarios del chat en ejercicios predefinidos
 function deleteComments(section) {
 	const chat = document.getElementById(`chat-${section}`);
-	chat.innerHTML = ""; // Limpia todos los comentarios
-	alert("Todos los comentarios han sido borrados.");
-	userCounter[section] = 1; // Reinicia el contador de usuario para esa sección
+	if (chat) {
+		chat.innerHTML = ""; // Limpia todos los comentarios
+		alert("Todos los comentarios han sido borrados.");
+		userCounter[section] = 1; // Reinicia el contador de usuario para esa sección
+	}
 }
 
-// Función para borrar el ejercicio completo
+// Función para borrar todos los comentarios de un ejercicio publicado
+function deleteCommentsForPublished(ejercicioId) {
+	if (confirm("¿Estás seguro de borrar todos los comentarios?")) {
+		const form = document.createElement("form");
+		form.method = "POST";
+		form.action = "/ejercicios/borrar-comentarios";
+
+		const input = document.createElement("input");
+		input.type = "hidden";
+		input.name = "ejercicioId";
+		input.value = ejercicioId;
+
+		form.appendChild(input);
+		document.body.appendChild(form);
+		form.submit();
+	}
+}
+
+// Función para borrar el ejercicio completo en ejercicios predefinidos
 function deleteExercise() {
 	const exerciseContainer = document.getElementById("exercise-container");
 	if (exerciseContainer) {
@@ -120,13 +140,48 @@ function deleteExercise() {
 	}
 }
 
+// Función para borrar un ejercicio publicado
+function deletePublishedExercise(ejercicioId) {
+	if (confirm("¿Estás seguro de borrar este ejercicio?")) {
+		const form = document.createElement("form");
+		form.method = "POST";
+		form.action = "/ejercicios/borrar-ejercicio";
+
+		const input = document.createElement("input");
+		input.type = "hidden";
+		input.name = "ejercicioId";
+		input.value = ejercicioId;
+
+		form.appendChild(input);
+		document.body.appendChild(form);
+		form.submit();
+	}
+}
+
 // Conectar los botones con las funciones
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+	// Borrado para ejercicios predefinidos
 	const deleteButton = document.getElementById("delete-exercise-button");
 	if (deleteButton) {
 		deleteButton.addEventListener("click", deleteExercise);
 	}
+
+	// Borrado dinámico para ejercicios publicados
+	const publishedDeleteButtons = document.querySelectorAll(".delete-published-exercise");
+	publishedDeleteButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			deletePublishedExercise(button.dataset.ejercicioId);
+		});
+	});
+
+	const publishedCommentDeleteButtons = document.querySelectorAll(".delete-published-comments");
+	publishedCommentDeleteButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			deleteCommentsForPublished(button.dataset.ejercicioId);
+		});
+	});
 });
+
 
 // Para editar perfil
 document.addEventListener('DOMContentLoaded', () => {
