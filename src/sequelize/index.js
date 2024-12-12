@@ -209,13 +209,13 @@ async function resetEjercicios() {
     
     if (count === 0) {
         try {
-            await sequelize.models.Usuario.bulkCreate(usuarios);
-            logger.info('Usuarios iniciales creados');
+            await sequelize.models.Ejercicios.bulkCreate(ejercicios);
+            logger.info('Ejercicios iniciales creados');
         } catch (error) {
-            logger.error('Error al crear los usuarios:', error);
+            logger.error('Error al crear los ejercicios:', error);
         }
     } else {
-        logger.info('La DB de usuarios ya estaba inicializada');
+        logger.info('La DB de ejercicios ya estaba inicializada');
     }
 }
 

@@ -27,6 +27,11 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             defaultValue: false, // Inicialmente no aprobado
         },
+        comentarios: {
+            type: DataTypes.JSON, // Nueva columna para los comentarios
+            allowNull: true,
+            defaultValue: [], // Lista vacía al inicio
+        },
     }, {
         timestamps: true, // Para createdAt y updatedAt
     });

@@ -19,14 +19,38 @@
                     <h2 style="color: red;"><%= ejercicio.titulo %></h2>
                     <p><strong>Publicado por:</strong> <%= ejercicio.autor %></p>
                     <p><%= ejercicio.descripcion %></p>
-                    <% if (ejercicio.video.endsWith('.mp4') || ejercicio.video.endsWith('.mov')) { %>
+                    <% if (ejercicio.video && (ejercicio.video.endsWith('.mp4') || ejercicio.video.endsWith('.mov'))) { %>
                         <video controls>
                             <source src="<%= ejercicio.video %>" type="video/mp4">
                             Tu navegador no soporta el video.
                         </video>
-                    <% } else { %>
+                    <% } else if (ejercicio.video) { %>
                         <img src="<%= ejercicio.video %>" alt="<%= ejercicio.titulo %>" style="max-width: 100%; height: auto;">
                     <% } %>
+    
+                    <!-- Sección de comentarios -->
+                    <div class="comment-section">
+                        <h3>Comentarios</h3>
+                        <div id="chat-<%= ejercicio.id %>" class="chat">
+                            <% if (ejercicio.comentarios && ejercicio.comentarios.length > 0) { %>
+                                <% ejercicio.comentarios.forEach(comentario => { %>
+                                    <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                <% }); %>
+                            <% } else { %>
+                                <p>No hay comentarios aún.</p>
+                            <% } %>
+                        </div>
+    
+                        <% if (user && !user.es_invitado) { %>
+                            <form action="/ejercicios/comentarios" method="POST">
+                                <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                <input type="hidden" name="ejercicioId" value="<%= ejercicio.id %>">
+                                <button type="submit">Enviar</button>
+                            </form>
+                        <% } else { %>
+                            <p>Debes iniciar sesión para comentar.</p>
+                        <% } %>
+                    </div>
                 </div>
             <% }) %>
         <% } else { %>
@@ -61,10 +85,24 @@
             <div class="comment-section">
                 <h3>Comentarios</h3>
                 <div id="chat-shoulders" class="chat">
-                    <!-- Comentarios existentes -->
+                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                        <% comentariosShoulders.forEach(comentario => { %>
+                            <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                        <% }); %>
+                    <% } else { %>
+                        <p>No hay comentarios aún.</p>
+                    <% } %>
                 </div>
-                <textarea id="comment-input-shoulders" placeholder="Escribe tu comentario aquí..."></textarea>
-                <button onclick="addComment('shoulders')">Enviar</button>
+            
+                <% if (user && !user.es_invitado) { %>
+                    <form action="/comentarios/predefinidos" method="POST">
+                        <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                        <input type="hidden" name="ejercicio" value="shoulders">
+                        <button type="submit">Enviar</button>
+                    </form>
+                <% } else { %>
+                    <p>Debes iniciar sesión para comentar.</p>
+                <% } %>
             </div>
         </div>
 
@@ -103,10 +141,24 @@
             <div class="comment-section">
                 <h3>Comentarios</h3>
                 <div id="chat-chest" class="chat">
-                    <!-- Comentarios existentes -->
+                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                        <% comentariosShoulders.forEach(comentario => { %>
+                            <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                        <% }); %>
+                    <% } else { %>
+                        <p>No hay comentarios aún.</p>
+                    <% } %>
                 </div>
-                <textarea id="comment-input-chest" placeholder="Escribe tu comentario aquí..."></textarea>
-                <button onclick="addComment('chest')">Enviar</button>
+            
+                <% if (user && !user.es_invitado) { %>
+                    <form action="/comentarios/predefinidos" method="POST">
+                        <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                        <input type="hidden" name="ejercicio" value="shoulders">
+                        <button type="submit">Enviar</button>
+                    </form>
+                <% } else { %>
+                    <p>Debes iniciar sesión para comentar.</p>
+                <% } %>
             </div>
         </div>
 
@@ -145,10 +197,24 @@
                 <div class="comment-section">
                     <h3>Comentarios</h3>
                     <div id="chat-biceps" class="chat">
-                        <!-- Comentarios existentes -->
+                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                            <% comentariosShoulders.forEach(comentario => { %>
+                                <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                            <% }); %>
+                        <% } else { %>
+                            <p>No hay comentarios aún.</p>
+                        <% } %>
                     </div>
-                    <textarea id="comment-input-biceps" placeholder="Escribe tu comentario aquí..."></textarea>
-                    <button onclick="addComment('biceps')">Enviar</button>
+                
+                    <% if (user && !user.es_invitado) { %>
+                        <form action="/comentarios/predefinidos" method="POST">
+                            <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                            <input type="hidden" name="ejercicio" value="shoulders">
+                            <button type="submit">Enviar</button>
+                        </form>
+                    <% } else { %>
+                        <p>Debes iniciar sesión para comentar.</p>
+                    <% } %>
                 </div>
             </div>
     
@@ -188,10 +254,24 @@
                     <div class="comment-section">
                         <h3>Comentarios</h3>
                         <div id="chat-quads" class="chat">
-                            <!-- Comentarios existentes -->
+                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                <% comentariosShoulders.forEach(comentario => { %>
+                                    <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                <% }); %>
+                            <% } else { %>
+                                <p>No hay comentarios aún.</p>
+                            <% } %>
                         </div>
-                        <textarea id="comment-input-quads" placeholder="Escribe tu comentario aquí..."></textarea>
-                        <button onclick="addComment('quads')">Enviar</button>
+                    
+                        <% if (user && !user.es_invitado) { %>
+                            <form action="/comentarios/predefinidos" method="POST">
+                                <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                <input type="hidden" name="ejercicio" value="shoulders">
+                                <button type="submit">Enviar</button>
+                            </form>
+                        <% } else { %>
+                            <p>Debes iniciar sesión para comentar.</p>
+                        <% } %>
                     </div>
                 </div>
         
@@ -229,10 +309,24 @@
                         <div class="comment-section">
                             <h3>Comentarios</h3>
                             <div id="chat-lats" class="chat">
-                                <!-- Comentarios existentes -->
+                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                    <% comentariosShoulders.forEach(comentario => { %>
+                                        <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                    <% }); %>
+                                <% } else { %>
+                                    <p>No hay comentarios aún.</p>
+                                <% } %>
                             </div>
-                            <textarea id="comment-input-lats" placeholder="Escribe tu comentario aquí..."></textarea>
-                            <button onclick="addComment('lats')">Enviar</button>
+                        
+                            <% if (user && !user.es_invitado) { %>
+                                <form action="/comentarios/predefinidos" method="POST">
+                                    <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                    <input type="hidden" name="ejercicio" value="shoulders">
+                                    <button type="submit">Enviar</button>
+                                </form>
+                            <% } else { %>
+                                <p>Debes iniciar sesión para comentar.</p>
+                            <% } %>
                         </div>
                     </div>
             
@@ -271,10 +365,24 @@
                             <div class="comment-section">
                                 <h3>Comentarios</h3>
                                 <div id="chat-lats" class="chat">
-                                    <!-- Comentarios existentes -->
+                                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                        <% comentariosShoulders.forEach(comentario => { %>
+                                            <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <p>No hay comentarios aún.</p>
+                                    <% } %>
                                 </div>
-                                <textarea id="comment-input-lats" placeholder="Escribe tu comentario aquí..."></textarea>
-                                <button onclick="addComment('lats')">Enviar</button>
+                            
+                                <% if (user && !user.es_invitado) { %>
+                                    <form action="/comentarios/predefinidos" method="POST">
+                                        <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                        <input type="hidden" name="ejercicio" value="shoulders">
+                                        <button type="submit">Enviar</button>
+                                    </form>
+                                <% } else { %>
+                                    <p>Debes iniciar sesión para comentar.</p>
+                                <% } %>
                             </div>
                         </div>
                 
@@ -312,10 +420,24 @@
                                 <div class="comment-section">
                                     <h3>Comentarios</h3>
                                     <div id="chat-lats" class="chat">
-                                        <!-- Comentarios existentes -->
+                                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                            <% comentariosShoulders.forEach(comentario => { %>
+                                                <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                            <% }); %>
+                                        <% } else { %>
+                                            <p>No hay comentarios aún.</p>
+                                        <% } %>
                                     </div>
-                                    <textarea id="comment-input-lats" placeholder="Escribe tu comentario aquí..."></textarea>
-                                    <button onclick="addComment('lats')">Enviar</button>
+                                
+                                    <% if (user && !user.es_invitado) { %>
+                                        <form action="/comentarios/predefinidos" method="POST">
+                                            <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                            <input type="hidden" name="ejercicio" value="shoulders">
+                                            <button type="submit">Enviar</button>
+                                        </form>
+                                    <% } else { %>
+                                        <p>Debes iniciar sesión para comentar.</p>
+                                    <% } %>
                                 </div>
                             </div>
                     
@@ -353,10 +475,24 @@
                                     <div class="comment-section">
                                         <h3>Comentarios</h3>
                                         <div id="chat-lats" class="chat">
-                                            <!-- Comentarios existentes -->
+                                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                                <% comentariosShoulders.forEach(comentario => { %>
+                                                    <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                                <% }); %>
+                                            <% } else { %>
+                                                <p>No hay comentarios aún.</p>
+                                            <% } %>
                                         </div>
-                                        <textarea id="comment-input-lats" placeholder="Escribe tu comentario aquí..."></textarea>
-                                        <button onclick="addComment('lats')">Enviar</button>
+                                    
+                                        <% if (user && !user.es_invitado) { %>
+                                            <form action="/comentarios/predefinidos" method="POST">
+                                                <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                                <input type="hidden" name="ejercicio" value="shoulders">
+                                                <button type="submit">Enviar</button>
+                                            </form>
+                                        <% } else { %>
+                                            <p>Debes iniciar sesión para comentar.</p>
+                                        <% } %>
                                     </div>
                                 </div>
                         
@@ -396,10 +532,24 @@
                             <div class="comment-section">
                                 <h3>Comentarios</h3>
                                 <div id="chat-triceps" class="chat">
-                                    <!-- Comentarios existentes -->
+                                    <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                        <% comentariosShoulders.forEach(comentario => { %>
+                                            <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <p>No hay comentarios aún.</p>
+                                    <% } %>
                                 </div>
-                                <textarea id="comment-input-triceps" placeholder="Escribe tu comentario aquí..."></textarea>
-                                <button onclick="addComment('triceps')">Enviar</button>
+                            
+                                <% if (user && !user.es_invitado) { %>
+                                    <form action="/comentarios/predefinidos" method="POST">
+                                        <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                        <input type="hidden" name="ejercicio" value="shoulders">
+                                        <button type="submit">Enviar</button>
+                                    </form>
+                                <% } else { %>
+                                    <p>Debes iniciar sesión para comentar.</p>
+                                <% } %>
                             </div>
                         </div>
                 
@@ -439,10 +589,24 @@
                                 <div class="comment-section">
                                     <h3>Comentarios</h3>
                                     <div id="chat-triceps" class="chat">
-                                        <!-- Comentarios existentes -->
+                                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                            <% comentariosShoulders.forEach(comentario => { %>
+                                                <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                            <% }); %>
+                                        <% } else { %>
+                                            <p>No hay comentarios aún.</p>
+                                        <% } %>
                                     </div>
-                                    <textarea id="comment-input-triceps" placeholder="Escribe tu comentario aquí..."></textarea>
-                                    <button onclick="addComment('triceps')">Enviar</button>
+                                
+                                    <% if (user && !user.es_invitado) { %>
+                                        <form action="/comentarios/predefinidos" method="POST">
+                                            <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                            <input type="hidden" name="ejercicio" value="shoulders">
+                                            <button type="submit">Enviar</button>
+                                        </form>
+                                    <% } else { %>
+                                        <p>Debes iniciar sesión para comentar.</p>
+                                    <% } %>
                                 </div>
                             </div>
                     
@@ -481,10 +645,24 @@
                                 <div class="comment-section">
                                     <h3>Comentarios</h3>
                                     <div id="chat-hamstrings" class="chat">
-                                        <!-- Comentarios existentes -->
+                                        <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                            <% comentariosShoulders.forEach(comentario => { %>
+                                                <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                            <% }); %>
+                                        <% } else { %>
+                                            <p>No hay comentarios aún.</p>
+                                        <% } %>
                                     </div>
-                                    <textarea id="comment-input-hamstrings" placeholder="Escribe tu comentario aquí..."></textarea>
-                                    <button onclick="addComment('hamstrings')">Enviar</button>
+                                
+                                    <% if (user && !user.es_invitado) { %>
+                                        <form action="/comentarios/predefinidos" method="POST">
+                                            <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                            <input type="hidden" name="ejercicio" value="shoulders">
+                                            <button type="submit">Enviar</button>
+                                        </form>
+                                    <% } else { %>
+                                        <p>Debes iniciar sesión para comentar.</p>
+                                    <% } %>
                                 </div>
                             </div>
                     
@@ -523,10 +701,24 @@
                                     <div class="comment-section">
                                         <h3>Comentarios</h3>
                                         <div id="chat-hamstrings" class="chat">
-                                            <!-- Comentarios existentes -->
+                                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                                <% comentariosShoulders.forEach(comentario => { %>
+                                                    <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                                <% }); %>
+                                            <% } else { %>
+                                                <p>No hay comentarios aún.</p>
+                                            <% } %>
                                         </div>
-                                        <textarea id="comment-input-hamstrings" placeholder="Escribe tu comentario aquí..."></textarea>
-                                        <button onclick="addComment('hamstrings')">Enviar</button>
+                                    
+                                        <% if (user && !user.es_invitado) { %>
+                                            <form action="/comentarios/predefinidos" method="POST">
+                                                <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                                <input type="hidden" name="ejercicio" value="shoulders">
+                                                <button type="submit">Enviar</button>
+                                            </form>
+                                        <% } else { %>
+                                            <p>Debes iniciar sesión para comentar.</p>
+                                        <% } %>
                                     </div>
                                 </div>
                         
@@ -565,10 +757,24 @@
                                         <div class="comment-section">
                                             <h3>Comentarios</h3>
                                             <div id="chat-hamstrings" class="chat">
-                                                <!-- Comentarios existentes -->
+                                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                                    <% comentariosShoulders.forEach(comentario => { %>
+                                                        <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                                    <% }); %>
+                                                <% } else { %>
+                                                    <p>No hay comentarios aún.</p>
+                                                <% } %>
                                             </div>
-                                            <textarea id="comment-input-hamstrings" placeholder="Escribe tu comentario aquí..."></textarea>
-                                            <button onclick="addComment('hamstrings')">Enviar</button>
+                                        
+                                            <% if (user && !user.es_invitado) { %>
+                                                <form action="/comentarios/predefinidos" method="POST">
+                                                    <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                                    <input type="hidden" name="ejercicio" value="shoulders">
+                                                    <button type="submit">Enviar</button>
+                                                </form>
+                                            <% } else { %>
+                                                <p>Debes iniciar sesión para comentar.</p>
+                                            <% } %>
                                         </div>
                                     </div>
                             
@@ -607,10 +813,24 @@
                                     <div class="comment-section">
                                         <h3>Comentarios</h3>
                                         <div id="chat-calves" class="chat">
-                                            <!-- Comentarios existentes -->
+                                            <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                                <% comentariosShoulders.forEach(comentario => { %>
+                                                    <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                                <% }); %>
+                                            <% } else { %>
+                                                <p>No hay comentarios aún.</p>
+                                            <% } %>
                                         </div>
-                                        <textarea id="comment-input-calves" placeholder="Escribe tu comentario aquí..."></textarea>
-                                        <button onclick="addComment('calves')">Enviar</button>
+                                    
+                                        <% if (user && !user.es_invitado) { %>
+                                            <form action="/comentarios/predefinidos" method="POST">
+                                                <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                                <input type="hidden" name="ejercicio" value="shoulders">
+                                                <button type="submit">Enviar</button>
+                                            </form>
+                                        <% } else { %>
+                                            <p>Debes iniciar sesión para comentar.</p>
+                                        <% } %>
                                     </div>
                                 </div>
                         
@@ -648,10 +868,24 @@
                                         <div class="comment-section">
                                             <h3>Comentarios</h3>
                                             <div id="chat-calves" class="chat">
-                                                <!-- Comentarios existentes -->
+                                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                                    <% comentariosShoulders.forEach(comentario => { %>
+                                                        <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                                    <% }); %>
+                                                <% } else { %>
+                                                    <p>No hay comentarios aún.</p>
+                                                <% } %>
                                             </div>
-                                            <textarea id="comment-input-calves" placeholder="Escribe tu comentario aquí..."></textarea>
-                                            <button onclick="addComment('calves')">Enviar</button>
+                                        
+                                            <% if (user && !user.es_invitado) { %>
+                                                <form action="/comentarios/predefinidos" method="POST">
+                                                    <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                                    <input type="hidden" name="ejercicio" value="shoulders">
+                                                    <button type="submit">Enviar</button>
+                                                </form>
+                                            <% } else { %>
+                                                <p>Debes iniciar sesión para comentar.</p>
+                                            <% } %>
                                         </div>
                                     </div>
                                     
@@ -691,10 +925,24 @@
                                         <div class="comment-section">
                                             <h3>Comentarios</h3>
                                             <div id="chat-calves" class="chat">
-                                                <!-- Comentarios existentes -->
+                                                <% if (comentariosShoulders && comentariosShoulders.length > 0) { %>
+                                                    <% comentariosShoulders.forEach(comentario => { %>
+                                                        <p><strong><%= comentario.usuario %>:</strong> <%= comentario.texto %></p>
+                                                    <% }); %>
+                                                <% } else { %>
+                                                    <p>No hay comentarios aún.</p>
+                                                <% } %>
                                             </div>
-                                            <textarea id="comment-input-calves" placeholder="Escribe tu comentario aquí..."></textarea>
-                                            <button onclick="addComment('calves')">Enviar</button>
+                                        
+                                            <% if (user && !user.es_invitado) { %>
+                                                <form action="/comentarios/predefinidos" method="POST">
+                                                    <textarea name="texto" placeholder="Escribe tu comentario aquí..." required></textarea>
+                                                    <input type="hidden" name="ejercicio" value="shoulders">
+                                                    <button type="submit">Enviar</button>
+                                                </form>
+                                            <% } else { %>
+                                                <p>Debes iniciar sesión para comentar.</p>
+                                            <% } %>
                                         </div>
                                     </div>
                                     

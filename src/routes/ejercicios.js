@@ -37,20 +37,38 @@ const restrictBannedUsers = (req, res, next) => {
 router.get('/', restrictBannedUsers, async (req, res) => {
     try {
         const usuario = req.session.user;
+
+        // Obtén los ejercicios aprobados
         const ejercicios = await sequelize.models.Ejercicios.findAll({
-            where: { aprobado: true }, // Solo ejercicios aprobados
+            attributes: ['id', 'titulo', 'descripcion', 'video', 'autor', 'comentarios'],
+            where: { aprobado: true }, // Filtrar solo ejercicios aprobados
+        });
+
+        // Si los comentarios están en formato JSON, asegúrate de parsearlos
+        const ejerciciosConComentarios = ejercicios.map(ejercicio => {
+            const comentarios = Array.isArray(ejercicio.comentarios)
+                ? ejercicio.comentarios
+                : JSON.parse(ejercicio.comentarios || '[]');
+
+            return { ...ejercicio.toJSON(), comentarios };
         });
 
         res.render('ejercicios', {
             title: 'Ejercicios',
             user: usuario || null,
-            ejercicios,
+            ejercicios: ejerciciosConComentarios,
+            comentariosShoulders: global.comentariosShoulders || [],
+            comentariosChest: global.comentariosChest || [],
         });
     } catch (error) {
         console.error('Error al cargar los ejercicios:', error);
         res.status(500).send('Error al cargar los ejercicios.');
     }
 });
+
+
+
+
 
 // Ruta para mostrar el formulario de publicación de ejercicios
 router.get('/publicar_ejercicio', restrictToUsers, restrictBannedUsers, (req, res) => {
@@ -73,13 +91,95 @@ router.post('/guardar-ejercicio', restrictToUsers, restrictBannedUsers, upload.s
     }
 
     try {
-        await sequelize.models.Ejercicios.create({ titulo, descripcion, video: media, autor: nombre });
+        await sequelize.models.Ejercicios.create({ titulo, descripcion, video: media, autor: nombre, comentarios: [] });
         res.redirect('/ejercicios');
     } catch (err) {
         console.error('Error al guardar el ejercicio:', err);
         res.status(500).send('Error al guardar el ejercicio');
     }
 });
+
+router.post('/comentarios', restrictToUsers, async (req, res) => {
+    const { texto, ejercicioId } = req.body;
+    const usuario = req.session.user; // Usuario de la sesión
+
+    if (!texto || !ejercicioId) {
+        return res.status(400).send('Todos los campos son obligatorios.');
+    }
+
+    try {
+        const ejercicio = await sequelize.models.Ejercicios.findByPk(ejercicioId);
+
+        if (!ejercicio) {
+            return res.status(404).send('Ejercicio no encontrado.');
+        }
+
+        // Parsear comentarios existentes si no es un array
+        const comentarios = Array.isArray(ejercicio.comentarios)
+            ? ejercicio.comentarios
+            : JSON.parse(ejercicio.comentarios || '[]');
+
+        // Añadir nuevo comentario con el nombre del usuario
+        comentarios.push({
+            usuario: usuario.nombre || "Desconocido", // Nombre del usuario registrado
+            texto,
+            fecha: new Date(),
+        });
+
+        // Guardar comentarios actualizados
+        ejercicio.comentarios = comentarios;
+        await ejercicio.save();
+
+        res.redirect('/ejercicios');
+    } catch (error) {
+        console.error('Error al guardar el comentario:', error);
+        res.status(500).send('Error al guardar el comentario.');
+    }
+});
+
+
+router.post('/comentarios/predefinidos', restrictToUsers, async (req, res) => {
+    const { texto, ejercicio } = req.body;
+    const usuario = req.session.user;
+
+    if (!texto || !ejercicio) {
+        return res.status(400).send('Todos los campos son obligatorios.');
+    }
+
+    try {
+        // Lógica para agregar comentarios a ejercicios predefinidos
+        const predefinidosComentarios = {
+            shoulders: "comentariosShoulders",
+            chest: "comentariosChest",
+        };
+
+        const comentariosKey = predefinidosComentarios[ejercicio];
+        if (!comentariosKey) {
+            return res.status(400).send('Ejercicio no válido.');
+        }
+
+        // Simula el almacenamiento en un objeto global o base de datos (modificar según tu implementación)
+        if (!global[comentariosKey]) {
+            global[comentariosKey] = [];
+        }
+
+        global[comentariosKey].push({
+            usuario: usuario.nombre,
+            texto,
+            fecha: new Date(),
+        });
+
+        res.redirect('/ejercicios');
+    } catch (error) {
+        console.error('Error al guardar el comentario:', error);
+        res.status(500).send('Error al guardar el comentario.');
+    }
+});
+
+
+
+
+
 
 module.exports = router;
 
