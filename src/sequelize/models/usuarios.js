@@ -43,6 +43,10 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
+        baneado: { // Nueva columna
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         favoritos: {
             allowNull: true,
             type: DataTypes.JSON,

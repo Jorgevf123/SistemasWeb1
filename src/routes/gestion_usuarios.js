@@ -7,7 +7,7 @@ const db = new sqlite3.Database('sequelize/db.sqlite'); // Ajusta la ruta si es 
 
 // Ruta para gestión de usuarios
 router.get('/', (req, res) => {
-    db.all('SELECT id, correo_electronico, nombre, contrasena, es_admin FROM Usuarios', (err, rows) => {
+    db.all('SELECT id, correo_electronico, nombre, contrasena, es_admin, baneado FROM Usuarios', (err, rows) => {
         if (err) {
             console.error("Error al obtener los usuarios:", err);
             res.status(500).send("Error al cargar los datos de usuarios.");
@@ -20,6 +20,25 @@ router.get('/', (req, res) => {
         }
     });
 });
+
+router.post('/banear', (req, res) => {
+    const usuarioId = req.body.id;
+
+    db.run(
+        'UPDATE Usuarios SET baneado = 1 WHERE id = ?',
+        [usuarioId],
+        (err) => {
+            if (err) {
+                console.error("Error al banear el usuario:", err);
+                res.status(500).send("Error al banear el usuario.");
+            } else {
+                res.redirect('/gestion_usuarios'); // Redirige y asegura que la tabla se actualice
+            }
+        }
+    );
+});
+
+
 
 module.exports = router;
 

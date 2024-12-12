@@ -5,8 +5,16 @@ const bcrypt = require('bcrypt');
 
 // Ruta de inicio de sesión
 router.get('/', function (req, res, next) {
-  res.render('iniciosesion', { title: 'Inicio de sesión', user: req.session.user });
+  const errorMessage = req.query.error || req.session.error || null;
+  req.session.error = null; // Limpiar el error almacenado en la sesión
+
+  res.render('iniciosesion', {
+      title: 'Inicio de sesión',
+      user: req.session.user,
+      error: errorMessage, // Pasar el mensaje de error al renderizar
+  });
 });
+
 
 // Manejo de inicio de sesión
 router.post('/', async (req, res) => {
@@ -19,6 +27,12 @@ router.post('/', async (req, res) => {
     });
 
     if (usuario) {
+      // Verificar si el usuario está baneado
+      if (usuario.baneado) {
+        req.session.error = "Tu cuenta ha sido baneada. No puedes iniciar sesión.";
+        return res.redirect("/iniciosesion");
+      }
+
       bcrypt.compare(contrasena, usuario.contrasena, (err, result) => {
         if (err) {
           console.error("Error al comparar contraseñas:", err);
@@ -34,6 +48,7 @@ router.post('/', async (req, res) => {
             nombre: usuario.nombre,
             es_admin: usuario.es_admin,
             imagen_perfil: usuario.imagen_perfil,
+            baneado: usuario.baneado, // Agregado para verificar en otras partes
           };
 
           req.session.message = "¡Inicio de sesión exitoso!";
@@ -59,5 +74,6 @@ router.post('/', async (req, res) => {
     return res.redirect("/iniciosesion");
   }
 });
+
 
 module.exports = router;

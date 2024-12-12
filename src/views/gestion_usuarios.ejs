@@ -21,6 +21,8 @@
                 <th>Nombre</th>
                 <th>Contraseña</th>
                 <th>Es Admin</th>
+                <th>Baneado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +33,17 @@
                     <td><%= usuario.nombre %></td>
                     <td><%= usuario.contrasena %></td>
                     <td><%= usuario.es_admin ? 'Sí' : 'No' %></td>
+                    <td><%= usuario.baneado ? 'Sí' : 'No' %></td>
+                    <td>
+                        <% if (!usuario.baneado) { %>
+                            <form action="/gestion_usuarios/banear" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= usuario.id %>">
+                                <button type="submit">Banear</button>
+                            </form>
+                        <% } else { %>
+                                Baneado
+                        <% } %>
+                    </td>
                 </tr>
             <% }); %>
         </tbody>

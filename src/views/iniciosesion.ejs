@@ -7,6 +7,11 @@
     <div class="main-container">
         <div class="form-container">
             <h1>Iniciar Sesión</h1>
+            <% if (error) { %>
+                <div class="error-message">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
             <p>Para iniciar sesión, rellena los siguientes campos:</p>
             <form method="POST" action="/iniciosesion" class="login-form">
                 <label for="correo_electronico">Correo Electrónico:</label>

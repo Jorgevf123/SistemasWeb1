@@ -85,6 +85,8 @@ app.use('/buscar', buscarRouter);
 app.use('/', elegirRoutes);
 app.use('/perfil', perfilRouter);  // Asegúrate de que la ruta /perfil esté registrada
 app.use('/PerfilAdmin', perfiladminRouter);
+app.use(restrictBannedUsers);
+
 
 function restrict(req, res, next) {
   if (req.session.user) {
@@ -95,7 +97,17 @@ function restrict(req, res, next) {
   }
 }
 
-module.exports = { restrict };
+// Middleware para restringir el acceso de usuarios baneados
+function restrictBannedUsers(req, res, next) {
+  if (req.session.user && req.session.user.baneado) {
+      return res.status(403).send("Tu cuenta está baneada.");
+  }
+  next();
+}
+
+module.exports = { restrict, restrictBannedUsers };
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
