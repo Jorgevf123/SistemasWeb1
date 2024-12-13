@@ -562,13 +562,20 @@ footer {
 .columnas{
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+    align-items: center;
 }
 .principal {
 	width: 75%;
 }
-.secundario {
+.secundario, 
+.secundario-izquierda {
 	width: 25%;
+}
+
+.secundario-izquierda {
+	margin-left: 0;
+    order: 1; /* Este mantiene su posición */
+    margin-top: 0; /* Elimina márgenes verticales innecesarios */
 }
 
 .video-container {
@@ -730,7 +737,7 @@ min-height: calc(100vh - 40px); /* Ajuste para asegurar que el contenido no se s
 
 /* Estilo para el texto encima del buscador */
 p {
-    color: rgb(16, 16, 16); 
+    color: rgb(128, 126, 126); 
     font-size: 1.1em; /* yamaño letra */
     margin-top: 10px;
 }
@@ -1227,7 +1234,7 @@ p {
 	color: white;
 	font-size: 36px;
 	font-weight: bold;
-	margin-right: 200px;
+	margin-right: 30px;
 	font-size: 48px;
 }
 .carousel-inner > .item > img,
