@@ -13,13 +13,13 @@
 										<i class="star-icon <%=  usuarioFavoritos.includes(articulos[i].id) ? 'active' : '' %>" data-id="<%= articulos[i].id %>">★</i>
 										<% } %>
 									<p class="author-name"><%= articulos[i].usuario_escritor %></p>
-								</div>
+								</div> 
 								<div class="titulo-ejercicio">
 									<div class="sombreado">
 										<a href= "<%= articulos[i].pagina_enlaces %>">
-											<p><%= articulos[i].titulo_articulo %></p>
-											<div class="descripcion">
-												<p><%= articulos[i].descripcion %></p>
+											<p class="titulo-ejercicio"><%= articulos[i].titulo_articulo %></p>
+											<div>
+												<p class= "descripcion"> <%= articulos[i].descripcion %></p>
 											</div>
 										</a>
 									</div>
@@ -45,9 +45,9 @@
 								<div class="titulo-ejercicio">
 									<div class="sombreado">
 										<a href= "<%= articulos[i].pagina_enlaces %>">
-											<p><%= articulos[i].titulo_articulo %></p>
-											<div class="descripcion">
-												<p><%= articulos[i].descripcion %></p>
+											<p class="titulo-ejercicio"><%= articulos[i].titulo_articulo %></p>
+											<div>
+												<p class="descripcion"><%= articulos[i].descripcion %></p>
 											</div>
 										</a>
 									</div>

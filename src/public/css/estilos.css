@@ -1245,7 +1245,7 @@ p {
 }
 .descripcion{
 	font-family: monospace;
-	font-size:small;
+	font-size:normal;
 	color:white;
 	font-weight: normal;
 	display: -webkit-box;
@@ -1256,9 +1256,9 @@ p {
 }
 .titulo-ejercicio{
 	text-align: left; 
-	font-family: Arial Black; 
+	font-family: Arial; 
 	font-weight: bold; 
-	font-size: 16px; 
+	font-size: large; 
 	color: #fff; 
     margin-right: 5%;
 	transition: background-color 0.3s ease, color 0.3s ease;
@@ -1266,7 +1266,7 @@ p {
 	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 .author-name {
-	font-size: 0.9em; 
+	font-size: 1.4em; 
 	color: #ffffff; 
 	margin-top: 3%; 
 	font-style: italic; 
@@ -1363,8 +1363,9 @@ p {
 .descripcion-articulo {
 	width: 90%;
 	hyphens: auto;
+    color:white;
 	word-wrap: break-word;
-	font-size: 16px;
+	font-size: large;
 	font-weight: bold;
     margin-top: 2.5%;
 	margin-left: 50px;

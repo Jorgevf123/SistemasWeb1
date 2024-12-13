@@ -4,7 +4,6 @@ const logger = require('../logger');
 const { error } = require('winston');
 const fs = require('fs');
 const path = require('path');
-const validator = require('validator');  // Para la validación de correos electrónicos
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: 'sequelize/db.sqlite'
