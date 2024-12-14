@@ -54,6 +54,7 @@
                     </div>
                     <!-- Botones de acción -->
                     <div class="actions">
+                        <% if (user && !user.es_invitado) { %>
                         <button 
                             class="delete-published-comments" 
                             data-ejercicio-id="<%= ejercicio.id %>">
@@ -64,6 +65,7 @@
                             data-ejercicio-id="<%= ejercicio.id %>">
                             Borrar Ejercicio
                         </button>
+                        <% } %>
                     </div>
                 </div>
             <% }) %>
@@ -122,8 +124,10 @@
 
         <div id="exercise-container" class="exercise-container">
             <div class="actions">
+                <% if (user && !user.es_invitado) { %>
                 <button onclick="deleteComments('shoulders')">Borrar Comentarios</button>
                 <button id="delete-exercise-button" onclick="deleteExercise('shoulders')">Borrar Ejercicio</button>
+                <% } %>
             </div>    
         </div>
         </section>
@@ -178,8 +182,10 @@
 
         <div id="exercise-container" class="exercise-container">
             <div class="actions">
+                <% if (user && !user.es_invitado) { %>
                 <button onclick="deleteComments('chest')">Borrar Comentarios</button>
                 <button id="delete-exercise-button" onclick="deleteExercise('chest')">Borrar Ejercicio</button>
+                <% } %>
             </div>    
         </div>
         </section>
@@ -234,8 +240,10 @@
     
             <div id="exercise-container" class="exercise-container">
                 <div class="actions">
+                    <% if (user && !user.es_invitado) { %>
                     <button onclick="deleteComments('biceps')">Borrar Comentarios</button>
                     <button id="delete-exercise-button" onclick="deleteExercise('biceps')">Borrar Ejercicio</button>
+                    <% } %>
                 </div>    
             </div>
             </section>
@@ -291,8 +299,10 @@
         
                 <div id="exercise-container" class="exercise-container">
                     <div class="actions">
+                        <% if (user && !user.es_invitado) { %>
                         <button onclick="deleteComments('quads')">Borrar Comentarios</button>
                         <button id="delete-exercise-button" onclick="deleteExercise('quads')">Borrar Ejercicio</button>
+                        <% } %>
                     </div>    
                 </div>
                 </section>
@@ -346,8 +356,10 @@
             
                     <div id="exercise-container" class="exercise-container">
                         <div class="actions">
+                            <% if (user && !user.es_invitado) { %>
                             <button onclick="deleteComments('lats')">Borrar Comentarios</button>
                             <button id="delete-exercise-button" onclick="deleteExercise('lats')">Borrar Ejercicio</button>
+                            <% } %>
                         </div>    
                     </div>
                     </section>
@@ -402,8 +414,10 @@
                 
                         <div id="exercise-container" class="exercise-container">
                             <div class="actions">
+                                <% if (user && !user.es_invitado) { %>
                                 <button onclick="deleteComments('lats')">Borrar Comentarios</button>
                                 <button id="delete-exercise-button" onclick="deleteExercise('lats')">Borrar Ejercicio</button>
+                                <% } %>
                             </div>    
                         </div>
                         </section>
@@ -457,8 +471,10 @@
                     
                             <div id="exercise-container" class="exercise-container">
                                 <div class="actions">
+                                    <% if (user && !user.es_invitado) { %>
                                     <button onclick="deleteComments('lats')">Borrar Comentarios</button>
                                     <button id="delete-exercise-button" onclick="deleteExercise('lats')">Borrar Ejercicio</button>
+                                    <% } %>
                                 </div>    
                             </div>
                             </section>
@@ -512,8 +528,10 @@
                         
                                 <div id="exercise-container" class="exercise-container">
                                     <div class="actions">
+                                        <% if (user && !user.es_invitado) { %>
                                         <button onclick="deleteComments('lats')">Borrar Comentarios</button>
                                         <button id="delete-exercise-button" onclick="deleteExercise('lats')">Borrar Ejercicio</button>
+                                        <% } %>
                                     </div>    
                                 </div>
                                 </section>
@@ -569,8 +587,10 @@
                 
                         <div id="exercise-container" class="exercise-container">
                             <div class="actions">
+                                <% if (user && !user.es_invitado) { %>
                                 <button onclick="deleteComments('triceps')">Borrar Comentarios</button>
                                 <button id="delete-exercise-button" onclick="deleteExercise('triceps')">Borrar Ejercicio</button>
+                                <% } %>
                             </div>    
                         </div>
                         </section>
@@ -626,8 +646,10 @@
                     
                             <div id="exercise-container" class="exercise-container">
                                 <div class="actions">
+                                    <% if (user && !user.es_invitado) { %>
                                     <button onclick="deleteComments('triceps')">Borrar Comentarios</button>
                                     <button id="delete-exercise-button" onclick="deleteExercise('triceps')">Borrar Ejercicio</button>
+                                    <% } %>
                                 </div>    
                             </div>
                             </section>
@@ -682,8 +704,10 @@
                     
                             <div id="exercise-container" class="exercise-container">
                                 <div class="actions">
+                                    <% if (user && !user.es_invitado) { %>
                                     <button onclick="deleteComments('hamstrings')">Borrar Comentarios</button>
                                     <button id="delete-exercise-button" onclick="deleteExercise('hamstrings')">Borrar Ejercicio</button>
+                                    <% } %>
                                 </div>    
                             </div>
                             </section>
@@ -738,8 +762,10 @@
                         
                                 <div id="exercise-container" class="exercise-container">
                                     <div class="actions">
+                                        <% if (user && !user.es_invitado) { %>
                                         <button onclick="deleteComments('hamstrings')">Borrar Comentarios</button>
                                         <button id="delete-exercise-button" onclick="deleteExercise('hamstrings')">Borrar Ejercicio</button>
+                                        <% } %>
                                     </div>    
                                 </div>
                                 </section>
@@ -794,8 +820,10 @@
                             
                                     <div id="exercise-container" class="exercise-container">
                                         <div class="actions">
+                                            <% if (user && !user.es_invitado) { %>
                                             <button onclick="deleteComments('hamstrings')">Borrar Comentarios</button>
                                             <button id="delete-exercise-button" onclick="deleteExercise('hamstrings')">Borrar Ejercicio</button>
+                                            <% } %>
                                         </div>    
                                     </div>
                                     </section>
@@ -850,8 +878,10 @@
                         
                                 <div id="exercise-container" class="exercise-container">
                                     <div class="actions">
+                                        <% if (user && !user.es_invitado) { %>
                                         <button onclick="deleteComments('calves')">Borrar Comentarios</button>
                                         <button id="delete-exercise-button" onclick="deleteExercise('calves')">Borrar Ejercicio</button>
+                                        <% } %>
                                     </div>    
                                 </div>
                                 </section>
@@ -906,8 +936,10 @@
                             
                                     <div id="exercise-container" class="exercise-container">
                                         <div class="actions">
+                                            <% if (user && !user.es_invitado) { %>
                                             <button onclick="deleteComments('calves')">Borrar Comentarios</button>
                                             <button id="delete-exercise-button" onclick="deleteExercise('calves')">Borrar Ejercicio</button>
+                                            <% } %>
                                         </div>    
                                     </div>
                                     </section>
@@ -963,8 +995,10 @@
                             
                                     <div id="exercise-container" class="exercise-container">
                                         <div class="actions">
+                                            <% if (user && !user.es_invitado) { %>
                                             <button onclick="deleteComments('calves')">Borrar Comentarios</button>
                                             <button id="delete-exercise-button" onclick="deleteExercise('calves')">Borrar Ejercicio</button>
+                                            <% } %>
                                         </div>    
                                     </div>
                                     </section>
