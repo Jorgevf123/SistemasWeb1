@@ -1195,8 +1195,9 @@ p {
 }
 .imagen-comunidad img {
 	width: 100%;
-    max-height: 175px;
+    max-height: 250px;
 	display: block;
+    object-fit:contain;
 }
 .imagen-articulo {
     flex: 0 0 100%; /* Controla el tamaño de la imagen */
