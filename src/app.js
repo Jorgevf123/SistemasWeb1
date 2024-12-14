@@ -75,9 +75,9 @@ app.use('/registro', registroRouter);
 app.use('/ejercicios', ejerciciosRouter);
 app.use('/conocenos', conocenosRouter);
 app.use('/contacto', contactoRouter);
-app.use('/gestion_usuarios', gestionUsuariosRouter);
-app.use('/ejercicios_supervisar', ejerciciosSupervisarRouter);
-app.use('/ejercicio_a_validar', ejercicioAValidarRouter);
+app.use('/gestion_usuarios', restrictToAdmins, gestionUsuariosRouter);
+app.use('/ejercicios_supervisar', restrictToAdmins, ejerciciosSupervisarRouter);
+app.use('/ejercicio_a_validar', restrictToAdmins, ejercicioAValidarRouter);
 app.use('/publicar_ejercicio', publicarEjercicioRouter);
 app.use('/buscar', buscarRouter);
 app.use('/', elegirRoutes);
@@ -103,7 +103,16 @@ function restrictBannedUsers(req, res, next) {
   next();
 }
 
-module.exports = { restrict, restrictBannedUsers };
+// Middleware para restringir el acceso a administradores
+function restrictToAdmins(req, res, next) {
+  if (req.session?.user && req.session.user.rol === 'admin') {
+      return next(); // Usuario es administrador, continúa
+  }
+  res.status(403).send('Acceso denegado. Solo administradores pueden acceder a esta sección.');
+}
+
+
+module.exports = { restrict, restrictBannedUsers, restrictToAdmins };
 
 
 

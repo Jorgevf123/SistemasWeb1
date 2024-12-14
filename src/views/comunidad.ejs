@@ -3,24 +3,14 @@
 <%- include('partials/header') %>
 		<div class= "background-comunidad">
 			<div class="columnas">
-				
-				<div class="principal">
-					<div class= "centered-title">
-						<h1>Comunidad</h1>
-					</div>
-				</div>
-				
-				
 				<% if(user) { %>
-				<div class="secundario">
-					<div class= "caja"> 
-						<a href= "articulo_comunidad_editable">
-							<h3>Publicar <br> post</h3>
-						</a>
+					<div class="secundario">
+						<div class="caja">
+							<a href="articulo_comunidad_editable">
+								<h3>Publicar <br> post</h3>
+							</a>
+						</div>
 					</div>
-				</div>
-				<% }%>
-				<% if(user) { %>
 					<div class="secundario-izquierda">
 						<div class="caja">
 							<a href="ejercicios/publicar_ejercicio">
@@ -28,7 +18,13 @@
 							</a>
 						</div>
 					</div>
-					<% } %>
+				<% } %>
+				
+				<div class="principal">
+					<div class= "centered-title">
+						<h1>Comunidad</h1>
+					</div>
+				</div>
 			</div>
 			<div class= "centered-title">
 				<h3>Mas Gustados</h3>

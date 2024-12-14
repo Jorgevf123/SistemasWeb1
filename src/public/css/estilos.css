@@ -561,21 +561,26 @@ footer {
 }
 .columnas{
 	display: flex;
-	flex-direction: row;
-    align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+    position: relative; /* Posición relativa para manejar elementos absolutos dentro */
 }
 .principal {
 	width: 75%;
 }
 .secundario, 
 .secundario-izquierda {
-	width: 25%;
+	position: absolute; /* Saca los botones del flujo del documento */
+    top: 0; /* Alinea verticalmente con la parte superior del contenedor */
+}
+
+
+.secundario {
+    right: 20px; /* Coloca el botón de la derecha */
 }
 
 .secundario-izquierda {
-	margin-left: 0;
-    order: 1; /* Este mantiene su posición */
-    margin-top: 0; /* Elimina márgenes verticales innecesarios */
+	left: 20px; /* Coloca el botón de la izquierda */
 }
 
 .video-container {
@@ -1167,14 +1172,12 @@ p {
 }
 .caja{
 	text-align: center;
-	color: white;
-	font-size: 14px;
-	margin-top: 10px;
-	margin-right: 60px;
-	margin-left: 60px;
-	margin-bottom: 10px;
-	border: 3px solid;
-	height: 80%;
+    color: white;
+    font-size: 14px;
+    margin: 10px;
+    border: 3px solid;
+    padding: 10px; /* Añade espacio interno */
+    height: auto; /* Ajusta la altura según el contenido */
 }
 .container-carousel {
 	display: grid;
@@ -1231,12 +1234,12 @@ p {
     min-height: 100vh;
 }
 .centered-title h1{
-	text-align: right;
 	color: white;
-	font-size: 36px;
-	font-weight: bold;
-	margin-right: 30px;
-	font-size: 48px;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0; /* Elimina márgenes adicionales */
+    text-align: center;
+    margin-right: 65px;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {

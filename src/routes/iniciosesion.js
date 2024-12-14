@@ -46,8 +46,9 @@ router.post('/', async (req, res) => {
             id: usuario.id,
             correo_electronico: usuario.correo_electronico,
             nombre: usuario.nombre,
-            es_admin: usuario.es_admin,
+            rol: usuario.es_admin ? 'admin' : 'user', // Definir el rol del usuario
             imagen_perfil: usuario.imagen_perfil,
+            es_invitado: false,
             baneado: usuario.baneado, // Agregado para verificar en otras partes
           };
 
